@@ -1,3 +1,8 @@
+<?php
+	$SITE_KEY = "6LfgBd8bAAAAAE_AjPCyOX4VPOcVNFBWP0GfMHic";
+?>
+
+
 <!DOCTYPE html>
   <html lang="fr">
   <head>
@@ -35,6 +40,8 @@
     <meta name="twitter:description" content="Changeons ensemble la manière de soigner le stress post-traumatique" />
     <meta name="twitter:image" content="http://resileyes.com/images/homepage/OG-img.png"/>
     <meta name="twitter:url" content="http://www.resileyes.com" />
+	
+	<script src="https://www.google.com/recaptcha/api.js?render=<?php echo $SITE_KEY ?>"></script>
   </head>
 
   <body>
@@ -135,7 +142,7 @@
       
 
         <div class="contact-form">
-          <form action="/php/form.php" method="post" class="form-contact" id= "form-message">
+          <form action="/php/form.php" method="post" class="form-contact" id="form-message">
             <label for= "last-name">Votre nom</label>
             <div class="input">
               <input type="text" name="last-name" id="last-name" placeholder="Nom">
@@ -180,8 +187,13 @@
               <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter" class="checkbox">
               <label for="newletters-subscribe">S'abonner à la newsletter</label>
             </div>
+			
+			<!-- CAPTCHA -->
+			<input type='hidden' name='captcha-token' id='captcha-token'>
+			<!-- /CAPTCHA -->
+			
             <div class="send-message">
-              <input class="btn" type="submit" value="Envoyer mon message" name="contact-form">
+              <input class="btn" type="submit" value="Envoyer mon message" name="contact-form" id='captcha-form-btn'>
             </div>
           </form>          
         </div>
@@ -222,5 +234,35 @@
     
     <script src ="/js/formValidation.js"></script>
     <script src="/js/scriptmenu.js"></script>
+
+	
+	<script>
+		var button = document.getElementById('captcha-form-btn');
+		button.addEventListener("click", onClick);
+		  function onClick(e) {
+			e.preventDefault();
+			grecaptcha.ready(function() {
+			  grecaptcha.execute('<?php echo $SITE_KEY ?>', {action: 'submit'}).then(function(token) {
+				  document.getElementById('captcha-token').value = token;
+				  console.log(document.getElementById('captcha-token').value);
+				  
+				  button.removeEventListener('click', onClick);
+				  button.click();
+			  });
+			});
+		  }
+	</script>
+
    </body>
   </html>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
