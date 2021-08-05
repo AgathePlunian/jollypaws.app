@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+  <html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="/css/style.css">  
+    <link rel="stylesheet" href="/css/intlTelInput.css">  
+    <title>ResilEyes</title>
+    <link rel="icon" type="image/png" href="/images/logo-ResilEyes-degrade.png">
+  </head>
+
+  <body>
+    <div class="patient-first-connexion">
+
+     <!--NAV-->
+      <div class="nav-first-connexion">
+        <a class="form-logo" href="/index.html">
+          <img src="/images/logo-ResilEyes-degrade.png" alt= "logo ResilEyes"> 
+          <p>ResilEyes</p>
+        </a>
+        <span class="langue-choice"><a href="#" class="l-fr">FR</a>|<a href="#" class="l-en">EN</a></span>
+      </div>
+      <!--END NAV-->
+
+      <h1 class="title">NOUS SOMMES LÀ POUR VOUS ET AVEC VOUS</h1>
+      
+      <div class="container-form-and-img">
+        
+        <div class="patient-form">
+            <!--LEFT SIDE FORM-->
+        
+            <div class="form-left-side">
+              
+              <form novalidate
+              class="patient-form-registration" 
+              method="post" 
+              id= "patient-form-registration"
+              onsubmit="return validatePatient(event);">
+              
+              <label>Vous êtes:</label>
+              <div class="sexe">
+                <div class="sexe-select" id="F">Madame</div>
+                <div class="sexe-select" id="H">Monsieur</div>
+              </div>
+              <span class="error"></span>
+
+              <label for="lastname">Nom:</label>
+              <div class="input">
+                <input type="text" placeholder="Nom" id="lastname" name="lastname">
+                <img src="/images/icones-form/user.svg" alt="user-icone">
+              </div>
+              <span class="error"></span>
+
+              <label for="firstname">Prénom:</label>
+              <div class="input">
+                <input type="text" placeholder="Prénom" id="firstname" name="firstname">
+                <img src="/images/icones-form/user.svg" alt="user-icone">
+              </div>
+              <span class="error"></span>
+
+              <label for="birthdate">Date de naissance:</label>
+              <div class="input">
+                <input type="date" placeholder="jj/mm/aaaa" id="birthdate" name="birthdate">
+              </div>
+              <span class="error"></span>
+
+              <label for="city">Ville:</label>
+              <div class="input">
+                <input type="text" placeholder="Ville" id="city" name="city">
+                <img src="/images/icones-form/gps.png" alt="city">
+              </div>
+              <span class="error"></span>
+
+              <label for="tel">Téléphone:</label>
+              <div class="input">
+                <input type="tel" placeholder="" id="phonetel" name="phone">
+                <img src="/images/icones-form/phone.png" alt="phone">
+                <script src="/js/tel/intlTelInput.js"></script>
+                <script src="/js/tel/utils.js"></script>
+                <script>
+                  var input = document.querySelector("#phonetel");
+                  var iti = window.intlTelInput(input, {          
+                  });
+                </script>
+              </div>
+              <span class="error" id="error-phone"></span>
+             
+              <p class="info"><span class="info-icone"><img src="/images/icones-form/information-grey.png"></span>Un SMS de confirmation (à défaut un email) vous sera envoyé pour vérifier votre compte.</p>
+          
+
+            </div>
+            <!--END FORM LEFT-->
+
+            <!--START FORM RIGHT-->
+    
+
+            <div class="form-right-side">
+
+              <label for="email">Adresse e-mail:</label>
+              <div class="input">
+                <input type="text" placeholder="Adresse e-mail" id="email" name="email">
+                <img src="/images/icones-form/mail.svg" alt="email">
+              </div>
+              <span class="error"></span>
+
+              <label for="password">Mot de passe:</label>
+              <div class="input">
+                <input type="password" placeholder="Mot de passe" id="password" name="password" class="password">
+                <img class="hide-password" src="/images/icones-form/slash-eye.png" alt="oeil">
+                <img class="show-password" src="/images/icones-form/oeil.png" alt="oeil">
+              </div>
+              <span class="error"></span>
+
+              <label for="password-confirm">Confirmation de votre mot de passe:</label>
+              <div class="input">
+                <input class="password" type="password" placeholder="Confirmation de votre mot de passe" id="confirmPassword" name="confirmPassword">
+                <img class="hide-password" src="/images/icones-form/slash-eye.png" alt="oeil">
+                <img class="show-password" src="/images/icones-form/oeil.png" alt="oeil">
+              </div>
+              <span class="error"></span>
+
+              <label for="code-suivi">Votre code de suivi patient:</label>
+              <div class="input input-suivi">
+                <input type="text" placeholder="Votre code de suivi patient" id="code" name="code">
+              </div>
+              <p class="info-primary"><span class="info-icone"><img src="/images/icones-form/information-primary.png"></span>À renseigner uniquement si votre médecin vous a donné un code pour votre inscription</p>
+
+              <div class="checkbox-container">
+                <input type="checkbox" value="newletter" class="checkbox">
+                <label class="checkbox-label">S'abonner à la newsletter</label>
+              </div>
+              
+              <div class="checkbox-container">
+                <input type="checkbox" value="conditionUtilisation" class="checkbox" id="conditions">
+                <label class="checkbox-label">Je reconnais avoir pris connaissance et accepté les conditions générales d'utilisation de ResilEyes.</label>
+              </div>
+              <span class="error"></span>
+              <input type="submit" class="btn" value="Valider mes informations">
+            </div>
+            <!--END FORM RIGHT-->
+          </form>
+          </div>
+         
+            <!--ILLUSTRATION-->
+        <div class="image-form-container">
+          <img src="/images/illustrations/mental-health.png" alt="mental health">
+        </div>
+            <!--ILLUSTRATION-->
+          
+     
+    </div>
+    <script src="/js/showPassword.js"></script>
+    <script src="/js/patientFormValidation.js"></script>  
+    <script src="/js/tel/utils.js"></script>
+    <script src="/js/tel/data.js"></script>
+  </body>
+</html>

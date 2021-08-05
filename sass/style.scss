@@ -1,0 +1,23 @@
+@import "./utils/variables";
+
+@import "./base/base";
+@import "./base/typography";
+
+@import "./components/buttons";
+
+@import "./pages/accueil";
+@import "./pages/accueil_tablet";
+@import "./pages/accueil_mobile";
+@import "./pages/contact_page";
+@import "./pages/praticien-first-connexion.scss";
+@import "./pages/patient-first-connexion";
+@import "./pages/approche";
+@import "./pages/mentions-legales";
+@import "./pages/utilisation-cookies.scss";
+@import "./pages/politique-confidentialite";
+@import "./pages/team-page.scss";
+
+@import "./layout/nav";
+@import "./layout/footer";
+
+ 

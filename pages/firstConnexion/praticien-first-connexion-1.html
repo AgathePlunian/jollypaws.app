@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+  <html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="/css/style.css">  
+    <title>ResilEyes</title>
+    <link rel="icon" type="image/png" href="/images/logo-ResilEyes-degrade.png">
+  </head>
+
+  <body>
+    <div class="first-connexion-container personal-id-formular">
+    <!--COLUMN MENU LEFT-->
+    
+      <a href="/index.html" class="logo-container-form">
+        <img src="/images/logo-ResilEyes-degrade.png" alt= "logo ResilEyes"> 
+         <p>ResilEyes</p>
+      </a>
+      <span class = "language"><a href="#" class="l-fr">FR</a>|<a href="#" class="l-en">EN</a></span>
+     
+
+      <div class="lateral-menu-select">  
+          <ul>
+            <li class="item-lateral-menu pers-id-item"><a href="#">Identité personnelle</a></li>
+            <li class="item-lateral-menu pro-info-item" ><a href="praticien-first-connexion-2.html">Informations professionnelles</a></li>
+            <li class="item-lateral-menu id-item"><a href="praticien-first-connexion-3.html">Identifiants</a></li>
+          </ul>
+      </div>
+
+      <!--FORMULAR-->
+      <div class="first-connexion-form-pro">
+       
+        <h1>IDENTITÉ PERSONNELLE</h1>
+        <p>Nous avons besoin de quelques informations vous concernant. <br>Vous avez déjà une compte ? <a class="connect-link" href="#">Connectez vous</a></p>
+        
+        <form novalidate
+              class="form-personal-info" 
+              method="post" 
+              id= "form-personal-info-pro"
+              onsubmit="return validateFirst(event);">
+
+          <!--LASTNAME INPUT-->
+          <label for="last-name">Nom</label>
+          <div class="input form-input" >
+            <input placeholder="Nom" name="last-name" id="last-name">
+            <img src="/images/icones-form/user.svg" alt="user">
+          </div>
+          <span class="error" id="lastname-error"></span>
+
+          <!--LASTNAME INPUT-->
+          <label for="first-name">Prénom</label>
+          <div class="input form-input">
+            <input placeholder="Prénom" name="first-name" id="first-name">
+            <img src="/images/icones-form/user.svg" alt="user">
+          </div>
+          <span class="error" id="firstname-error"></span>
+
+          <!--BIRTHDATE INPUT-->
+          <label for="birthdate">Date de naissance</label>
+          <div class="input" name="birthdate">
+            <input type="date" id="birthdate">
+          </div>
+          <span class="error" id="birthdate-error"></span>
+
+          <!--CITY INPUT-->
+          <label for="city">Ville</label>
+          <div class="input">
+            <input type="text" placeholder="Ville" name="city" id="city">
+            <img src="/images/icones-form/gps.png
+            " alt="user">
+          </div>
+          <span class="error" id="city-error"></span>
+
+          <div class="to-right">
+          <button class="btn">Suivant</button>
+          </div>
+        </form>
+      
+      </div>
+     
+
+  </div>
+  <script src="/js/firstCoProValidate.js"></script>
+  </body>
+</html>

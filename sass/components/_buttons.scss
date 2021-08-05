@@ -1,0 +1,17 @@
+.btn {
+  min-width: 170px;
+  cursor: pointer;
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  padding: 0.8em 1.8em;
+  border-radius: 50px;
+  font-size: 1em;
+  font-family: 'Mulish';
+  font-weight: 700;
+  box-shadow: rgba(218, 211, 206, 0.63) 2px 3px 4px;
+
+  &:hover {
+    background-color: $hover-btn-primary;
+  }
+}

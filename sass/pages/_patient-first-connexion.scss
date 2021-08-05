@@ -1,0 +1,201 @@
+.patient-first-connexion {
+  background-color: $blue;
+  background-position: 100% 100%;
+
+  .btn {
+    margin-top: 1em;
+  }
+  
+}
+
+.nav-first-connexion {
+  padding: 2em;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.form-logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  width: 20%;
+  
+  img {
+    width: 3em;
+    height: 3em;
+    margin-right: 0.8em;
+  }
+  
+  p {
+    font-size: 1.2em;
+    margin-bottom: 0;
+    color: $secondary-color;
+    font-weight: bold;
+  }
+}
+.langue-choice {
+  color: $secondary-color;
+  font-size: 1.2em;
+  font-weight: 600;
+  a {
+    text-decoration: none;
+    color: $secondary-color; 
+      &:hover {
+        color: lighten($color: $secondary-color, $amount: 20);    
+      }
+    }
+  }
+
+.title {
+  color: $secondary-color;
+  padding-left: 2.5em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.patient-form {
+  width: 66%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-form-and-img {
+  margin: 0 auto;
+  padding: 1em 0em 2em 0em;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.image-form-container {
+  padding-top: 5em;
+  width: 30%;
+}
+
+.sexe {
+  display: flex;
+  justify-content: space-between;
+
+  .checked {
+    background-color: $secondary-color;
+    color: white;
+  }
+}
+
+.sexe-select {
+  text-align: center;
+  padding: 1.2em;
+  width: 48%;
+  background-color: white;
+  border-radius: 50px;
+  border:none;
+  color: $secondary-color;
+}
+
+.form-left-side {
+   width: 47%;
+}
+
+.form-right-side {
+  width: 47%;
+
+}
+
+.info {
+  color: grey;
+  margin-top: 0.8em;
+  font-size: 14px;
+}
+
+.info-primary {
+  color: $primary-color;
+  margin-top: 0.8em;
+  font-size: 14px;
+}
+
+.info-icone img{
+  width: 1.1em;
+  margin-right: 8px; 
+}
+
+
+.input-suivi {
+  background-color: transparent;
+  border: 1px solid $primary-color;
+
+  input {
+    background-color: transparent;
+
+    &::placeholder {
+    color: $primary-color;
+   }
+  }
+} 
+
+.patient-form {
+  label {
+    margin-top: 0.8em;
+  }
+
+  .checkbox-container {
+    align-items: flex-start;
+    margin-bottom: 0.5em;
+  }
+  
+  .checkbox {
+    padding-right: 16px;
+    padding-left: 3px;
+    padding-bottom: 2px;
+  }
+
+.checkbox-label {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+}
+
+@media screen and (max-width: 1024px) {
+
+  .title {
+   text-align: center;
+   padding-left: 0;
+   width: 90%;
+   margin: 0 auto ;
+  } 
+    .container-form-and-img {
+      width: 100%;
+      flex-flow: column;
+    }
+
+    .patient-form {
+      margin: auto;
+      width: 90%;
+      flex-flow: column;
+
+      .form-left-side, .form-right-side {
+        width: 100%;
+      }
+    }
+
+    .image-form-container {
+     display: none;
+    }
+
+    
+  }
+
+@media screen and (max-width: 767px) {
+
+  .title {
+    margin-bottom: 0em;
+  }
+
+  .container-form-and-img {
+    padding: 2em 1.7em;
+  }
+  .patient-form {
+    width: 100%;
+  }
+}

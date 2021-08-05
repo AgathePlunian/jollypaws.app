@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+  <html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+   
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="/css/style.css">  
+    <link rel="stylesheet" href="/css/intlTelInput.css">  
+    <title>ResilEyes</title>
+    <link rel="icon" type="image/png" href="/images/logo-ResilEyes-degrade.png">
+  </head>
+
+  <body>
+    <div class="first-connexion-container id-formular">
+    <!--COLUMN MENU LEFT-->
+  
+      <a href="/index.html" class="logo-container-form">
+        <img src="/images/logo-ResilEyes-degrade.png" alt= "logo ResilEyes"> 
+        <p>ResilEyes</p>
+      </a>
+      <span class = "language"><a href="#" class="l-fr">FR</a>|<a href="#" class="l-en">EN</a></span>
+    
+      <div class="lateral-menu-select">
+          <ul>
+            <li class="item-lateral-menu"><a href="#">Identité personnelle</a></li>
+            <li class="item-lateral-menu"><a href="#">Informations professionnelles</a></li>
+            <li class="item-lateral-menu id-pro-item"><a href="#">Identifiants</a></li>
+          </ul>
+      </div>
+
+      <!--FORMULAR-->
+      <div class="first-connexion-form-pro">
+        <span class = "language"><a href="#" class="l-fr">FR</a>|<a href="#" class="l-en">EN</a></span>
+        <h1>IDENTIFIANTS</h1>
+        <p>Nous avons besoin de quelques informations vous concernant.</p>
+        
+        <form class="form-id" 
+              novalidate
+              action="pratician-form.php" 
+              method="post" 
+              id="form-professional-info-pro"
+              onsubmit="return validateThird(event);"
+             >
+
+              <!--EMAIL INPUT -->
+          <label for="email">Email</label>
+          <div class="input">
+            <input class="email" name="email" id="email" type="email" placeholder="nom@domaine.com">
+            <img src="/images/icones-form/mail.svg">
+          </div>
+          <span id="error-mail" class="error" aria-live="polite"></span>
+         
+          <!--TEL INPUT -->
+          <label for="phone">Téléphone</label>
+          
+          <div class="input">
+            <input type="tel" id="phone" placeholder="" class="phone" name="phone" autocomplete="off">
+            <img src="/images/icones-form/phone.png" alt="icone phone">
+
+            <script src="/js/tel/intlTelInput.js"></script>
+            <script src="/js/tel/utils.js"></script>
+            <script>
+              var input = document.querySelector("#phone");
+              var iti = window.intlTelInput(input, {          
+              });
+            </script>
+          </div>
+          <span id= "phone-error" class="error"></span>
+
+          <!--CARD INPUT-->
+          <label for="id-card">Carte d'identité ou carte de professionnel de santé (CPS)</label>
+         
+          <div class="input file-upload-wrapper">
+            <input class="input-file" type="file" name="id-card" id="id-card" value="" accept="image/png, image/jpeg">
+            <img class="upload-img" src="/images/icones-form/file-upload.png" alt="fileupload">
+          </div>
+          <span class="error" id="card-error"></span>
+
+          <!--PASSWORD INPUT-->
+          <label for="password">Mot de passe</label>
+          <div class="input">
+            <input id="password" class="password" type="password" placeholder="Votre mot de passe">
+            <img class="hide-password" src="/images/icones-form/slash-eye.png" alt="oeil">
+            <img class="show-password" src="/images/icones-form/oeil.png" alt="oeil">
+          </div>
+          <span class="error" id="password-error"></span>
+
+          <!--CONFIRM PASSWORD INPUT-->
+          <label for="password">Confirmation de votre mot de passe</label>
+          <div class="input">
+            <input id="confirmPassword" type="password" class="password" placeholder="Votre mot de passe">
+            <img class="hide-password" src="/images/icones-form/slash-eye.png" alt="oeil">
+            <img class="show-password" src="/images/icones-form/oeil.png" alt="oeil">
+          </div>
+          <span class="error" id="password-confirm-error"></span>
+
+          <div class="to-right">
+          <button class="btn">Enregister</button>
+          </div>
+        </form>
+      
+      </div>
+
+  </div>
+  <script src="/js/tel/utils.js"></script>
+  <script src="/js/tel/data.js"></script>
+  <script src="/js/firstCoProValidate.js"></script>
+  <script src="/js/showPassword.js"></script>
+  </body>
+</html>

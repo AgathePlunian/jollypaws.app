@@ -1,0 +1,44 @@
+/* ALL MEDIA QUERIES */
+
+.mentions-legales {
+  background-color: $soft-blue;
+  padding: 5em 10em;
+
+  a {
+    color: $secondary-color;
+    text-decoration: none;
+
+    &:hover {
+      color: darken($secondary-color, $amount: 5);
+      text-decoration: underline;
+    }
+  }
+  
+  h1 {
+    text-align: center;
+    color: $secondary-color;
+    font-size: 2em;
+    margin-bottom: 1.5em;
+  }
+
+  h2 {
+    color: $primary-color;
+  }
+
+  div {
+    margin-bottom: 2.5em;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .mentions-legales {
+    padding: 5em 6em;
+  }
+}
+
+@media screen and(max-width:767px){
+  .mentions-legales {
+    padding: 3.5em 1.3em;
+    text-align: center;
+  }
+ }
