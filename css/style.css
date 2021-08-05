@@ -216,7 +216,7 @@ p {
     border-radius: 80px; }
   .ptsd-introduction .ptsd-img {
     width: 45%;
-    max-width: 600px;
+    max-width: 550px;
     margin-right: 3.5em; }
   .ptsd-introduction .ptsd-introduction-text {
     width: 48%;
@@ -570,6 +570,8 @@ p {
     background-position-x: 20%; }
     .banner .banner-text {
       padding: 1.5em 1.3em; }
+      .banner .banner-text .btn-container .btn {
+        margin-bottom: 1.7em; }
       .banner .banner-text .banner-title {
         font-size: 2.1em; }
       .banner .banner-text .small-text-banner, .banner .banner-text .dtx {
@@ -1538,7 +1540,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   margin: 0 auto;
   display: flex;
   flex-flow: row wrap;
-  justify-content: center; }
+  justify-content: center;
+  max-width: 1000px; }
 
 .co-founders-cards {
   width: 75%;
@@ -1624,9 +1627,18 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .team-finger {
     display: none; }
 
-  .team-cards-container .card-team, .co-founders-cards .card-team {
-    width: 100%;
-    margin: 4em 0; } }
+  .team-cards-container, .co-founders-cards {
+    padding: 0;
+    margin: 0;
+    width: 100%; }
+    .team-cards-container .card-team, .co-founders-cards .card-team {
+      width: 100%;
+      margin: 4em 0;
+      max-width: 320px;
+      height: 340px; }
+      .team-cards-container .card-team .ID-picture-container, .co-founders-cards .card-team .ID-picture-container {
+        transform: scale(1.1);
+        margin-bottom: 2em; } }
 .main-nav {
   padding: 0.8em 2em;
   margin: auto; }
