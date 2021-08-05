@@ -1556,7 +1556,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   border-radius: 10px;
   position: relative;
   width: 27%;
-  min-width: 230px; }
+  min-width: 230px;
+  max-width: 270px; }
   .card-team .text-ID-card {
     padding: 0 1.5em;
     text-align: center;
