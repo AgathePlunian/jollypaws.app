@@ -26,14 +26,14 @@
     <meta property="og:url" content="http://www.resileyes.com" />
     <meta property="og:title" content="ResilEyes" />
     <meta property="og:description" content="Changeons ensemble la manière de soigner le stress post-traumatique"/>
-    <meta property="og:image" content= "http://resileyes.com/images/homepage/OG-img.png" />
+    <meta property="og:image" content= "https://resileyes.comimages/homepage/OG-img.png" />
 
     <!--TWITTER cards-->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@ResileyesCare" />
     <meta name="twitter:title" content="ResilEyes" />
     <meta name="twitter:description" content="Changeons ensemble la manière de soigner le stress post-traumatique" />
-    <meta name="twitter:image" content="http://resileyes.com/images/homepage/OG-img.png"/>
+    <meta name="twitter:image" content="https://resileyes.comimages/homepage/OG-img.png"/>
     <meta name="twitter:url" content="http://www.resileyes.com" />
   </head>
 
@@ -83,7 +83,7 @@
               <li class="item"><a href="approche.html">Approche</a></li>
               <li class="item"><a href="page-equipe.html">Équipe</a></li>
               <li class="language-choice"><a href="page-contact.php" class="l-fr selected-l-fr">FR</a>|<a href="site-en/contact-page.php" class="l-en">EN</a></li>
-              <li><button onclick="window.location.href='/page-contact.php'" class="btn-nav btn">Nous contacter</button></li>
+              <li><button onclick="window.location.href='page-contact.php'" class="btn-nav btn">Nous contacter</button></li>
             </ul>
           </div>
         </nav>
@@ -204,17 +204,17 @@
       </div>
 
       <ul class="footer-list-items">
-        <li><a href="/pages/approche.html">Approche</a></li>
-        <li><a href="/pages/page-equipe.html">Équipe</a></li>
+        <li><a href="approche.html">Approche</a></li>
+        <li><a href="page-equipe.html">Équipe</a></li>
         <li><a href="page-contact.php">Nous contacter</a></li>
       </ul>
 
       <span class="footer-line"></span>
 
       <ul class="footer-list-confidentiality">
-        <li><a href="/pages/politique-de-confidentialite.html">Politique de confidentialité</a></li>
-        <li><a href="/pages/mentions-legales.html">Mentions légales</a></li>
-        <li><a href="/pages/utilisation-des-cookies.html">Utilisation des cookies</a></li>
+        <li><a href="politique-de-confidentialite.html">Politique de confidentialité</a></li>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+        <li><a href="utilisation-des-cookies.html">Utilisation des cookies</a></li>
       </ul>
       <p class="copyright">Ⓒ 2021 ResilEyes. Tous droits réservés.</p>
     </footer>

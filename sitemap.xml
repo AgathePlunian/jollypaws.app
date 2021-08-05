@@ -8,71 +8,71 @@
 
 
 <url>
-  <loc>https://resileyes.com/</loc>
+  <loc>https://resileyes.com</loc>
   <lastmod>2021-08-05T08:18:47+00:00</lastmod>
   <priority>1.00</priority>
   <xhtml:link
                rel="alternate"
                hreflang="en"
-               href="https://resileyes.com/pages/site-en/"/>
+               href="https://resileyes.compages/site-en/"/>
 </url>
 
 <url>
-  <loc>https://resileyes.com/index.html</loc>
+  <loc>https://resileyes.comindex.html</loc>
   <lastmod>2021-08-05T08:18:47+00:00</lastmod>
   <priority>0.80</priority>
   <xhtml:link
                rel="alternate"
                hreflang="en"
-               href="https://resileyes.com/pages/site-en/index.html"/>
+               href="https://resileyes.compages/site-en/index.html"/>
 </url>
 
 <url>
-  <loc>https://resileyes.com/pages/approche.html</loc>
+  <loc>https://resileyes.compages/approche.html</loc>
   <lastmod>2021-08-05T08:19:00+00:00</lastmod>
   <priority>0.80</priority>
   <xhtml:link
                rel="alternate"
                hreflang="en"
-               href="https://resileyes.com/pages/site-en/approach.html"/>
+               href="https://resileyes.compages/site-en/approach.html"/>
 </url>
 
 
 
 <url>
-  <loc>https://resileyes.com/pages/page-equipe.html</loc>
+  <loc>https://resileyes.compages/page-equipe.html</loc>
   <lastmod>2021-08-05T08:19:00+00:00</lastmod>
   <priority>0.80</priority>
   <xhtml:link
                rel="alternate"
                hreflang="en"
-               href="https://resileyes.com/pages/site-en/team.html"/>
+               href="https://resileyes.compages/site-en/team.html"/>
 </url>
 
 
 <url>
-  <loc>https://resileyes.com/pages/page-contact.php</loc>
+  <loc>https://resileyes.compages/page-contact.php</loc>
   <lastmod>2021-08-05T08:27:14+00:00</lastmod>
   <priority>0.80</priority>
   <xhtml:link
                rel="alternate"
                hreflang="en"
-               href="https://resileyes.com/pages/site-en/contact-page.php"/>
+               href="https://resileyes.compages/site-en/contact-page.php"/>
 </url>
 
 
 <url>
-  <loc>https://resileyes.com/pages/politique-de-confidentialite.html</loc>
+  <loc>https://resileyes.compages/politique-de-confidentialite.html</loc>
   <lastmod>2021-08-05T08:19:00+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://resileyes.com/pages/mentions-legales.html</loc>
+  <loc>https://resileyes.compages/mentions-legales.html</loc>
   <lastmod>2021-08-05T08:19:00+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://resileyes.com/pages/utilisation-des-cookies.html</loc>
+  <loc>https://resileyes.compages/utilisation-des-cookies.html</loc>
   <lastmod>2021-08-05T08:19:00+00:00</lastmod>
   <priority>0.80</priority>
 </url>
