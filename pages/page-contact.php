@@ -87,9 +87,9 @@
 
             <ul class="nav-list items-list">
               <li class="item"><a href="/index.html">Accueil</a></li>
-              <li class="item"><a href="/pages/approche.html">Approche</a></li>
-              <li class="item"><a href="/pages/page-equipe.html">Équipe</a></li>
-              <li class="language-choice"><a href="#" class="l-fr selected-l-fr">FR</a>|<a href="site-en/contact-page.php" class="l-en">EN</a></li>
+              <li class="item"><a href="approche.html">Approche</a></li>
+              <li class="item"><a href="page-equipe.html">Équipe</a></li>
+              <li class="language-choice"><a href="page-contact.Pjp" class="l-fr selected-l-fr">FR</a>|<a href="site-en/contact-page.php" class="l-en">EN</a></li>
               <li><button onclick="window.location.href='/page-contact.php'" class="btn-nav btn">Nous contacter</button></li>
             </ul>
           </div>
