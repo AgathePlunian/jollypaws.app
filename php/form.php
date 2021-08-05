@@ -57,7 +57,6 @@
 				if ($result_mail == true){
 					$success = true;
 				} else {
-					print_r(error_get_last());
 					$success = false;
 				}
 			} else {
