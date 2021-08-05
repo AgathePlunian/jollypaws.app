@@ -1,4 +1,10 @@
 <?php
+	/*error_reporting(-1);
+	ini_set('display_errors', 'On');*/
+	
+	ini_set('sendmail_path', '/usr/sbin/sendmail-wrapper-php -t -i -F"ResilEyes" -f\'no-reply@resileyes.com\'');
+
+
 	$success = false;
 	
 	if(isset($_POST['contact-form'])) {
@@ -12,11 +18,11 @@
 			$email = htmlspecialchars($_POST['email']);
 			$situation = htmlspecialchars($_POST['situation']);
 			$message = htmlspecialchars($_POST['message']) ;
-			if (!isset($_POST['subscribe'])){
-				$subscribe = false;
+			if (isset($_POST['subscribe'])){
+				$subscribe = true;
 			}
 			else {
-				$subscribe = true;
+				$subscribe = false;
 			}
 			
 			// Asking to google if captcha is ok
@@ -30,38 +36,34 @@
 			$result = json_decode($response, true);
 			
 			
-			$dest = "contact@resileyes.com";
 			$dest = "bastien.labouche@resileyes.com";
 			$from = "no-reply@resileyes.com";
 			$subject = "[contact] $firstName $lastName - $email";
-			$message = "
-			Nom de famille : $lastName
-			Prenom : $firstName
-			Email : $email
-			Situation : $situation
 			
 			
-			Message : $message
-			";
+			$headers = array(
+				'From' => $from,
+				'X-Mailer' => 'PHP/' . phpversion()
+			);
+			$message = "Nom de famille : $lastName \nPrenom : $firstName \nEmail : $email \nSituation : $situation \n\n\n$message";
 			
 			
 			// If Google says ok or not
 			if ($result["success"] == 1) {
 				$success = true;
 				
-				/*$result_mail = mail($dest, $subject, $message);
+				$result_mail = mail($dest, $subject, $message, $headers);
 				
 				if ($result_mail == true){
 					$success = true;
 				} else {
+					print_r(error_get_last());
 					$success = false;
-				}*/
+				}
 			} else {
 				$success = false;
 			}
-			
-			
-		} 
+		}
 	}
 	if ($success == true){
 		header('location: /pages/page-contact.php?success=1');
