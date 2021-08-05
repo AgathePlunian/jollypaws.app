@@ -20,7 +20,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="/css/style.css">  
-    <title>ResilEyes</title>
+    <title>ResilEyes, la 1ère DTx qui accompagnement les personnes atteintes d'un stress post-traumatique</title>
     <meta name="description" content="Changeons ensemble la manière de soigner le stress post-traumatique. Nous développons la 1ère DTx* qui accompagne les personnes atteintes d'un stress post-traumatique.">
     <link rel="icon" type="image/png" href="/images/logo-ResilEyes-degrade.png">
 	
@@ -61,16 +61,16 @@
               <p>ResilEyes</p>
             </a>
             <div class="open">
-              <a id="burger-open" class= "burger-menu"><img src="/images/burger-menu.png" alt="burger-menu"></a>
+              <a id="burger-open" class= "burger-menu"><img src="/images/burger-menu.png" alt="Ouvrir menu"></a>
             </div>
           </div> 
           <div class="small-nav-menu d-block" id="full-screen">
-            <btn id="close-menu" class="close"><img src="/images/close.png"alt="close"></btn>
+            <span id="close-menu" class="close"><img src="/images/close.png" alt="Fermer menu"></span>
               <ul class="small-menu-list"> 
                 <li class="language-choice"><a href="page-contact.php" class="l-fr l-selected">FR</a>|<a href="site-en/contact-page.php" class="l-en">EN</a></li>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="pages/approche.html">Approche</a></li>
-                <li><a href="pages/page-equipe.html">Équipe</a></li>             
+                <li><a href="/index.html">Accueil</a></li>
+                <li><a href="approche.html">Approche</a></li>
+                <li><a href="page-equipe.html">Équipe</a></li>             
                 <li><a href="page-contact.php">Nous contacter</a></li>
               </ul>
           </div>
