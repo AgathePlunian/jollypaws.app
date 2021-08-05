@@ -8,7 +8,7 @@
 		}	
 		else {
 			$lastName = htmlspecialchars($_POST['last-name']);
-			$fistName = htmlspecialchars($_POST['first-name']);
+			$firstName = htmlspecialchars($_POST['first-name']);
 			$email = htmlspecialchars($_POST['email']);
 			$situation = htmlspecialchars($_POST['situation']);
 			$message = htmlspecialchars($_POST['message']) ;
@@ -29,12 +29,38 @@
 			$response = file_get_contents($url);
 			$result = json_decode($response, true);
 			
+			
+			$dest = "contact@resileyes.com";
+			$dest = "bastien.labouche@resileyes.com";
+			$from = "no-reply@resileyes.com";
+			$subject = "[contact] $firstName $lastName - $email";
+			$message = "
+			Nom de famille : $lastName
+			Prenom : $firstName
+			Email : $email
+			Situation : $situation
+			
+			
+			Message : $message
+			";
+			
+			
 			// If Google says ok or not
 			if ($result["success"] == 1) {
 				$success = true;
+				
+				/*$result_mail = mail($dest, $subject, $message);
+				
+				if ($result_mail == true){
+					$success = true;
+				} else {
+					$success = false;
+				}*/
 			} else {
 				$success = false;
-			}     
+			}
+			
+			
 		} 
 	}
 	if ($success == true){
