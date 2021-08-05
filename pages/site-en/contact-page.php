@@ -15,9 +15,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="/css/style.css">  
-    <title>ResilEyes</title>
+    <title>The 1st Digital Therapeutics supporting people with Post-Traumatic Stress Disorder</title>
 	
-	<meta name="description" content="Let's change the way we treat Post-Traumatic Stress Disorder together. We develop the 1st Digital Therapeutics supporting people with Post-Traumatic Stress Disorder">
+	  <meta name="description" content="Let's change the way we treat Post-Traumatic Stress Disorder together. We develop the 1st Digital Therapeutics supporting people with Post-Traumatic Stress Disorder">
     <link rel="icon" type="image/png" href="/images/logo-ResilEyes-degrade.png">
 	
 	

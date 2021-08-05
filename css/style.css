@@ -98,7 +98,6 @@ p {
 .banner {
   max-width: 100%;
   background-image: url(../../images/homepage/ResilEyes-banner.png);
-  padding: 3em 1em;
   background-position: left;
   background-size: cover;
   background-repeat: no-repeat;
@@ -119,14 +118,15 @@ p {
   .banner .banner-text {
     width: 53%;
     margin-top: 1.3em;
-    padding-right: 1.6em; }
+    margin-bottom: 1.7em; }
     .banner .banner-text .small-text-banner {
       font-size: 1.2em;
       font-weight: 600;
-      padding-right: 1.5em; }
+      width: 80%; }
     .banner .banner-text .banner-title {
       color: #00869e;
-      font-size: 2.8em; }
+      font-size: 2.8em;
+      padding-right: 2em; }
   .banner .border-bottom {
     display: block;
     margin-bottom: 1em;
@@ -196,12 +196,14 @@ p {
   background-color: #e1f4fc;
   height: 480px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding-left: 3em;
   padding-right: 4em;
   position: relative;
   margin-bottom: 3em; }
+  .ptsd-introduction .ptsd-causes {
+    font-size: 1em;
+    margin-bottom: 1em; }
   .ptsd-introduction .finger-form-secondary {
     position: absolute;
     background-color: #00869e;
@@ -213,7 +215,9 @@ p {
     height: 130px;
     border-radius: 80px; }
   .ptsd-introduction .ptsd-img {
-    width: 45%; }
+    width: 45%;
+    max-width: 600px;
+    margin-right: 3.5em; }
   .ptsd-introduction .ptsd-introduction-text {
     width: 48%;
     margin-left: 1em; }
@@ -399,6 +403,7 @@ p {
     justify-content: center;
     align-items: center; }
     .contact-section .container-contact-section p {
+      width: 90%;
       margin-bottom: 1.5em; }
     .contact-section .container-contact-section .img-container-contact {
       width: 50%;
@@ -428,10 +433,14 @@ p {
         margin: 0; }
       .banner .banner-text .btn-container button {
         margin-bottom: 3em; }
+      .banner .banner-text .banner-title {
+        margin: 0;
+        padding-right: 0; }
       .banner .banner-text .small-text-banner {
         margin-bottom: 0.5em;
         padding: 0.5em 3em 1em 3em;
-        display: block; }
+        display: block;
+        width: 100%; }
 
   /* MISSIONS SECTION */
   .mission {
@@ -481,7 +490,8 @@ p {
       margin-bottom: 2em;
       display: flex;
       align-items: center;
-      justify-content: center; }
+      justify-content: center;
+      max-width: none; }
       .ptsd-introduction .ptsd-img img {
         width: auto;
         height: 180%; }
@@ -610,7 +620,8 @@ p {
     height: 300px;
     width: 100%;
     overflow: hidden;
-    margin-bottom: 1em; }
+    margin-bottom: 1em;
+    max-width: none; }
     .ptsd-introduction .ptsd-img img {
       height: 210%; }
 
@@ -1617,7 +1628,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     margin: 4em 0; } }
 .main-nav {
   padding: 0.8em 2em;
-  max-width: 1440px;
   margin: auto; }
 
 .burger-nav, .small-nav-menu {
