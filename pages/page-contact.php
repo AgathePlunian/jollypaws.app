@@ -41,7 +41,9 @@
     <meta name="twitter:image" content="https://resileyes.comimages/homepage/OG-img.png"/>
     <meta name="twitter:url" content="http://www.resileyes.com" />
 	
+	<!-- Google captcha -->
 	<script src="https://www.google.com/recaptcha/api.js?render=<?php echo $SITE_KEY ?>"></script>
+	<!-- /captcha -->
   </head>
 
   <body>
@@ -195,6 +197,8 @@
             <div class="send-message">
               <input class="btn" type="submit" value="Envoyer mon message" name="contact-form" id='captcha-form-btn'>
             </div>
+			
+			
           </form>          
         </div>
       </div>
@@ -244,7 +248,6 @@
 			grecaptcha.ready(function() {
 			  grecaptcha.execute('<?php echo $SITE_KEY ?>', {action: 'submit'}).then(function(token) {
 				  document.getElementById('captcha-token').value = token;
-				  console.log(document.getElementById('captcha-token').value);
 				  
 				  button.removeEventListener('click', onClick);
 				  button.click();

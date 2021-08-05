@@ -1,3 +1,8 @@
+<?php
+	$SITE_KEY = "6LfgBd8bAAAAAE_AjPCyOX4VPOcVNFBWP0GfMHic";
+?>
+
+
 <!DOCTYPE html>
   <html lang="en">
   <head>
@@ -36,6 +41,10 @@
     <meta name="twitter:description" content="Let's change the way we treat Post-Traumatic Stress Disorder together" />
     <meta name="twitter:image" content="https://resileyes.comimages/homepage/OG-img.png"/>
     <meta name="twitter:url" content="http://www.resileyes.com" />
+	
+	<!-- Google captcha -->
+	<script src="https://www.google.com/recaptcha/api.js?render=<?php echo $SITE_KEY ?>"></script>
+	<!-- /captcha -->
   </head>
 
   <body>
@@ -136,7 +145,7 @@
       
 
         <div class="contact-form">
-          <form action="/./php/form-en.php" method="post" class="form-contact" id= "form-message">
+          <form action="/php/form.php" method="post" class="form-contact" id="form-message">
             <label for= "last-name">Last Name</label>
             <div class="input">
               <input type="text" name="last-name" id="last-name" placeholder="Last Name">
@@ -181,8 +190,15 @@
               <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter" class="checkbox">
               <label for="newletters-subscribe">Subscribe to our newsletter</label>
             </div>
+			
+			
+			<!-- CAPTCHA -->
+			<input type='hidden' name='captcha-token' id='captcha-token'>
+			<!-- /CAPTCHA -->
+			
+			
             <div class="send-message">
-              <input class="btn" type="submit" value="Send my message" name="contact-form">
+              <input class="btn" type="submit" value="Send my message" name="contact-form" id='captcha-form-btn'>
             </div>
            
           
@@ -226,7 +242,27 @@
       <p class="copyright">Ⓒ 2021 ResilEyes. All rights reserved.</p>
     </footer>
     </div>
-    <script src ="/./js/formValidation.js"></script>
-    <script src="/./js/scriptmenu.js"></script>
+    <script src ="/js/formValidation.js"></script>
+    <script src="/js/scriptmenu.js"></script>
+	
+	
+	<!-- CAPTCHA -->
+	<script>
+		var button = document.getElementById('captcha-form-btn');
+		button.addEventListener("click", onClick);
+		  function onClick(e) {
+			e.preventDefault();
+			grecaptcha.ready(function() {
+			  grecaptcha.execute('<?php echo $SITE_KEY ?>', {action: 'submit'}).then(function(token) {
+				  document.getElementById('captcha-token').value = token;
+				  
+				  button.removeEventListener('click', onClick);
+				  button.click();
+			  });
+			});
+		  }
+	</script>
+	<!-- /CAPTCHA -->
+	
    </body>
   </html>
