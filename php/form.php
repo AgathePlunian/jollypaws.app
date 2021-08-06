@@ -36,7 +36,7 @@
 			$result = json_decode($response, true);
 			
 			
-			$dest = "bastien.labouche@resileyes.com";
+			$dest = "contact@resileyes.com";
 			$from = "no-reply@resileyes.com";
 			$subject = "[contact] $firstName $lastName - $email";
 			
