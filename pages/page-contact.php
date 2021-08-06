@@ -130,9 +130,9 @@
           <div>
             <h1>Vous avez des questions ?<br>Vous désirez participer à leur conception et leur déploiement ?</h1>
             <p class="contact-subhead">Nous sommes là pour vous et avec vous pour des défis communs !</p>
-            <p>Vous pouvez nous envoyer par mail sur : <a class= "mail-to" href="mailto:contact@resileyes.com">contact@resileyes.com</a><br>
+            <p>Vous pouvez nous contacter par mail sur : <a class= "mail-to" href="mailto:contact@resileyes.com">contact@resileyes.com</a><br>
             Ou envoyer un message via ce formulaire.</p>
-            <p>Nous vous recontacterons le plus rapidement possible.</p>
+            <p>Nous reviendrons vers vous le plus rapidement possible.</p>
             <p class="team-resileyes">L'équipe ResilEyes</p>
           </div>
           <div class="contact-form-contact-img">
