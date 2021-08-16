@@ -128,7 +128,7 @@
         <!--TEXT LEFT-->
         <div class="contact-text-container">
           <div>
-            <h1>Vous avez des questions ?<br>Vous désirez participer à leur conception et leur déploiement ?</h1>
+            <h1>Vous avez des questions ?<br>Vous désirez participer à la conception et au déploiement de nos solutions ?</h1>
             <p class="contact-subhead">Nous sommes là pour vous et avec vous pour des défis communs !</p>
             <p>Vous pouvez nous contacter par mail sur : <a class= "mail-to" href="mailto:contact@resileyes.com">contact@resileyes.com</a><br>
             Ou envoyer un message via ce formulaire.</p>
