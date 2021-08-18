@@ -21,7 +21,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="/css/style.css">  
     <title>Contact us</title>
-	  <meta name="description" content="The 1st Digital Therapeutics supporting people with Post-Traumatic Stress Disorder">
+	  <meta name="description" content="Please do not hesitate to contact us for more information or to deploy Resileyes to your level.">
     <link rel="icon" type="image/png" href="/images/logo-ResilEyes-degrade.png">
 	
 	

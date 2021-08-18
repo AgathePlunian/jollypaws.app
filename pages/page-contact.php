@@ -20,8 +20,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="/css/style.css">  
-    <title>Nous contacter</title>
-    <meta name="description" content="Changeons ensemble la manière de soigner le stress post-traumatique. Nous développons la 1ère DTx* qui accompagne les personnes atteintes d'un stress post-traumatique.">
+    <title>Contactez-nous</title>
+    <meta name="description" content="N’hésitez pas à nous contacter pour en savoir plus ou pour déployer Resileyes à votre niveau.">
     <link rel="icon" type="image/png" href="/images/logo-ResilEyes-degrade.png">
 	
 	
