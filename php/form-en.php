@@ -1,4 +1,6 @@
 <?php
+	require('model/model_contact.php');
+
 	/*error_reporting(-1);
 	ini_set('display_errors', 'On');*/
 	
@@ -45,16 +47,21 @@
 				'From' => $from,
 				'X-Mailer' => 'PHP/' . phpversion()
 			);
-			$message = "Nom de famille : $lastName \nPrenom : $firstName \nEmail : $email \nSituation : $situation \n\n\n$message";
+			$message_body = "Nom de famille : $lastName \nPrenom : $firstName \nEmail : $email \nSituation : $situation \n\n\n$message";
 			
 			
 			// If Google says ok or not
 			if ($result["success"] == 1) {
 				$success = true;
 				
-				$result_mail = mail($dest, $subject, $message, $headers);
+				$result_mail = mail($dest, $subject, $message_body, $headers);
 				
 				if ($result_mail == true){
+
+					// Save contact attempt in database
+					$contact_manager = new ContactManager();
+					$contact_manager->save_contact($lastname, $firstname, $email, $situation, $message, $subscribe); 
+
 					$success = true;
 				} else {
 					$success = false;

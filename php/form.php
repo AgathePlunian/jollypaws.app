@@ -1,4 +1,7 @@
 <?php
+
+	require('model/model_contact.php');
+
 	/*error_reporting(-1);
 	ini_set('display_errors', 'On');*/
 	
@@ -13,18 +16,19 @@
 			$success = false;
 		}	
 		else {
-			$lastName = htmlspecialchars($_POST['last-name']);
-			$firstName = htmlspecialchars($_POST['first-name']);
+			$lastname = htmlspecialchars($_POST['last-name']);
+			$firstname = htmlspecialchars($_POST['first-name']);
 			$email = htmlspecialchars($_POST['email']);
 			$situation = htmlspecialchars($_POST['situation']);
 			$message = htmlspecialchars($_POST['message']) ;
 			if (isset($_POST['subscribe'])){
-				$subscribe = true;
+				$subscribe = 1;
 			}
 			else {
-				$subscribe = false;
+				$subscribe = 0;
 			}
 			
+
 			// Asking to google if captcha is ok
 			$base_url = "https://www.google.com/recaptcha/api/siteverify";
 			$site_key = "6LfgBd8bAAAAAHrX98EmFDcJyy_QmDe2DzQppmlU";
@@ -35,26 +39,29 @@
 			$response = file_get_contents($url);
 			$result = json_decode($response, true);
 			
-			
 			$dest = "contact@resileyes.com";
 			$from = "no-reply@resileyes.com";
-			$subject = "[contact] $firstName $lastName - $email";
+			$subject = "[contact] $firstname $lastname - $email";
 			
 			
 			$headers = array(
 				'From' => $from,
 				'X-Mailer' => 'PHP/' . phpversion()
 			);
-			$message = "Nom de famille : $lastName \nPrenom : $firstName \nEmail : $email \nSituation : $situation \n\n\n$message";
+			$message_body = "Nom de famille : $lastname \nPrenom : $firstname \nEmail : $email \nSituation : $situation \n\n\n$message";
 			
 			
 			// If Google says ok or not
 			if ($result["success"] == 1) {
 				$success = true;
 				
-				$result_mail = mail($dest, $subject, $message, $headers);
+				$result_mail = mail($dest, $subject, $message_body, $headers);
 				
 				if ($result_mail == true){
+					// Save contact attempt in database
+					$contact_manager = new ContactManager();
+					$contact_manager->save_contact($lastname, $firstname, $email, $situation, $message, $subscribe); 
+
 					$success = true;
 				} else {
 					$success = false;
