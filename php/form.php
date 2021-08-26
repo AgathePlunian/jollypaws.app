@@ -1,6 +1,6 @@
 <?php
 
-	require('model/model_contact.php');
+	require('controller/controller_contact.php');
 
 	/*error_reporting(-1);
 	ini_set('display_errors', 'On');*/
@@ -40,6 +40,7 @@
 			$result = json_decode($response, true);
 			
 			$dest = "contact@resileyes.com";
+			//$dest = "bastien.labouche@resileyes.com";
 			$from = "no-reply@resileyes.com";
 			$subject = "[contact] $firstname $lastname - $email";
 			
@@ -58,9 +59,14 @@
 				$result_mail = mail($dest, $subject, $message_body, $headers);
 				
 				if ($result_mail == true){
+
 					// Save contact attempt in database
-					$contact_manager = new ContactManager();
-					$contact_manager->save_contact($lastname, $firstname, $email, $situation, $message, $subscribe); 
+					try{
+						register_contact($lastname, $firstname, $email, $situation, $message, $subscribe, $src);
+					}
+					catch(Exception $e){
+						header('location: /pages/page-contact.php?success=0');
+					}
 
 					$success = true;
 				} else {

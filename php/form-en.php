@@ -1,5 +1,5 @@
 <?php
-	require('model/model_contact.php');
+	require('controller/controller_contact.php');
 
 	/*error_reporting(-1);
 	ini_set('display_errors', 'On');*/
@@ -59,8 +59,12 @@
 				if ($result_mail == true){
 
 					// Save contact attempt in database
-					$contact_manager = new ContactManager();
-					$contact_manager->save_contact($lastname, $firstname, $email, $situation, $message, $subscribe); 
+					try{
+						register_contact($lastname, $firstname, $email, $situation, $message, $subscribe, $src);
+					}
+					catch(Exception $e){
+						header('location: /pages/site-en/contact-page.php?success=0');
+					}
 
 					$success = true;
 				} else {
