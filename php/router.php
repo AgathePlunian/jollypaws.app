@@ -6,8 +6,13 @@
 
         // Unregister people which subscribe to the mail
         if($action == "unregister") {
-
-            if(isset($_GET["secret"]) && strlen($_GET["secret"]) > 0){
+            if(isset($_GET["secret"]) && $_GET["secret"] == "toto_fr" ){
+                demo_unsubscribe_fr($_GET["secret"]);
+            }
+            elseif(isset($_GET["secret"]) && $_GET["secret"] == "toto_en" ){
+                demo_unsubscribe_en($_GET["secret"]);
+            }
+            elseif(isset($_GET["secret"]) && strlen($_GET["secret"]) > 0){
                 unsubscribe_newsletter($_GET["secret"]);
             }
         }

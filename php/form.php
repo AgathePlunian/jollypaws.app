@@ -39,8 +39,8 @@
 			$response = file_get_contents($url);
 			$result = json_decode($response, true);
 			
-			// $dest = "contact@resileyes.com";
-			$dest = "bastien.labouche@resileyes.com";
+			$dest = "contact@resileyes.com";
+			// $dest = "bastien.labouche@resileyes.com";
 
 			$from = "no-reply@resileyes.com";
 			$subject = "[contact] $firstname $lastname - $email";

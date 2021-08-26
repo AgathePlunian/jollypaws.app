@@ -27,10 +27,6 @@
     }
 
 
-
-
-
-
     // Unsubscribe from newsletter
     function unsubscribe_newsletter($secret) {
         $contact_manager = new ContactManager();
@@ -49,5 +45,19 @@
         catch(Exception $e){
             die('Erreur : ' . $e);
         }
+    }
+
+
+    // Demo unsubscribe fr
+    function demo_unsubscribe_fr($secret) {
+        $source = "fr";
+        require("views/unregister_success_view_fr.php");
+    }
+
+
+    // Demo unsubscribe en
+    function demo_unsubscribe_en($secret){
+        $source = "en";
+        require("views/unregister_success_view_en.php");
     }
 ?>

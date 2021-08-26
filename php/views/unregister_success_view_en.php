@@ -1,5 +1,5 @@
 <?php
-    require("template/elements/menu.php");
+    require("template/elements/menu_en.php");
 
     $title = "Désinscription newsletter";
     
