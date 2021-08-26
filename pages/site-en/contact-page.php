@@ -144,7 +144,7 @@
       
 
         <div class="contact-form">
-          <form action="/php/form.php" method="post" class="form-contact" id="form-message">
+          <form action="/php/form-en.php" method="post" class="form-contact" id="form-message">
             <label for= "last-name">Last Name</label>
             <div class="input">
               <input type="text" name="last-name" id="last-name" placeholder="Last Name">

@@ -3,7 +3,8 @@
 class ContactManager
 {
 
-    public function save_contact($lastname, $firstname, $email, $situation, $message, $newsletter){
+    // Save contact in database
+    public function save_contact($lastname, $firstname, $email, $situation, $message, $newsletter, $src){
         $date = date('Y-m-d H:i:s');
         $db = $this->db_connect();
 
@@ -21,23 +22,33 @@ class ContactManager
             'message_body' => $message,
             'newsletter' => $newsletter
         ));
-
-        if ($newsletter == 1){
-            $this->create_unregister_link($email);
-        }
     }
 
-
-    private function is_unregister_link($email){
+    // Check if unregister link exists
+    private function is_unregister_link($search_argument){
         $db = $this->db_connect();
 
-        // Count link that already exists for the email
-        $query = $db->prepare(
-            "SELECT COUNT(*) FROM unregister_link WHERE email=:email"
-        );
-        $success = $query->execute(array(
-            "email" => $email
-        ));
+        // If check by email
+        if (isset($search_argument["email"]))
+        {
+            // Count link that already exists for the email
+            $query = $db->prepare(
+                "SELECT COUNT(*) FROM unregister_link WHERE email=:email"
+            );
+            $success = $query->execute(array(
+                "email" => $search_argument["email"]
+            ));
+        }
+        else {
+
+            // Check if secret in database
+            $query = $db->prepare(
+                "SELECT COUNT(*) FROM unregister_link WHERE secret=:secret"
+            );
+            $success = $query->execute(array(
+                "secret" => $search_argument["secret"]
+            ));
+        }
         $result = $query->fetch();
         $nbr_result_found = intval($result[0]);
         
@@ -54,27 +65,23 @@ class ContactManager
         return false;
     }
 
-
-    public function create_unregister_link($email) {
+    // Create a link
+    public function create_unregister_link($email, $secret, $src) {
         $db = $this->db_connect();
 
         // Check if a link already exists for the email
-        $is_unregister_link = $this->is_unregister_link($email);
-        if($is_unregister_link){
-            return 1;
+        if($this->is_unregister_link(array('email' => $email))){
+            return true;
         }
-        
-        // Generate a secret chain to make the link unique
-        $bytes = random_bytes(32);
-        $secret = bin2hex($bytes);
 
         // Insert into the database
         $query = $db->prepare(
-            "INSERT INTO unregister_link(email, secret) VALUES (:email, :secret)"
+            "INSERT INTO unregister_link(email, secret, source) VALUES (:email, :secret, :source)"
         );
         $success = $query->execute(array(
             'email' => $email,
-            'secret' => $secret
+            'secret' => $secret,
+            'source' => $src,
         ));
 
         // Check if problem while sending request to database
@@ -84,6 +91,58 @@ class ContactManager
         
     }
 
+
+    // Recover email and source from secret in unregister_link
+    private function get_infos_from_unregister_secret($secret){
+        $db = $this->db_connect();
+        $query = $db->prepare('SELECT DISTINCT email, source, ID FROM unregister_link WHERE secret=:secret');
+        $success = $query->execute(array(
+            'secret' => $secret
+        ));
+
+        if($success == false) {
+            throw new Exception('[get_email_from_unregister_secret] Can\'t recover email from secret');
+        }
+        $data = $query->fetch();
+        return $data;
+    }
+
+
+    // Unsubscribe someone to the newsletter
+    public function unsubscribe_newsletter($secret) {
+        // If register link exists
+        if($this->is_unregister_link(array('secret' => $secret))){
+            $db = $this->db_connect();
+
+            // Get email linked to secret
+            $result = $this->get_infos_from_unregister_secret($secret);
+            $email = $result[0];
+            $source = $result[1];
+            $id = $result[2];
+
+            // Unregister from newsletter
+            $query = $db->prepare('UPDATE contact SET newsletter=0 WHERE email=:email');
+            $success = $query->execute(array(
+                'email' => $email,
+            ));
+
+            if($success == false) {
+                throw new Exception('[unsubscribe_newsletter] Can\'t recover email from secret');
+            }
+
+            // Delete unregister link
+            $query = $db->prepare('DELETE FROM unregister_link WHERE ID=:id');
+            $success = $query->execute(array(
+                'id' => $id
+            ));
+
+            if($success == false) {
+                throw new Exception('[unsubscribe_newsletter] Can\'t delete unregister link');
+            }
+            return $source;
+        }
+        return false;
+    }
 
     // connect to database
     private function db_connect(){
@@ -99,7 +158,7 @@ class ContactManager
         }
         catch(Exception $e)
         {
-            die('Erreur : '.$e->getMessage());
+            die('Erreur : '. $e->getMessage());
         }
     }
 }

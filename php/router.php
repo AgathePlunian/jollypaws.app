@@ -4,14 +4,16 @@
     if(isset($_GET["action"])) {
         $action = $_GET["action"];
 
-        // Create unregister link, linked to email
-        if($action == "createUnregisterLink") {
-            if(isset($_GET["email"]) && strlen($_GET["email"]) > 1){
-                create_unregister_link($_GET["email"]);
+        // Unregister people which subscribe to the mail
+        if($action == "unregister") {
+
+            if(isset($_GET["secret"]) && strlen($_GET["secret"]) > 0){
+                unsubscribe_newsletter($_GET["secret"]);
             }
         }
 
     }
-
-    header('Location: http://resileyes.com/index.html');
+    else {
+        header('Location: http://resileyes.com/index.html');
+    }
 ?>

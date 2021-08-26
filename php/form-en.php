@@ -15,16 +15,16 @@
 			$success = false;
 		}	
 		else {
-			$lastName = htmlspecialchars($_POST['last-name']);
-			$firstName = htmlspecialchars($_POST['first-name']);
+			$lastname = htmlspecialchars($_POST['last-name']);
+			$firstname = htmlspecialchars($_POST['first-name']);
 			$email = htmlspecialchars($_POST['email']);
 			$situation = htmlspecialchars($_POST['situation']);
 			$message = htmlspecialchars($_POST['message']) ;
 			if (isset($_POST['subscribe'])){
-				$subscribe = true;
+				$subscribe = 1;
 			}
 			else {
-				$subscribe = false;
+				$subscribe = 0;
 			}
 			
 			// Asking to google if captcha is ok
@@ -38,16 +38,18 @@
 			$result = json_decode($response, true);
 			
 			
-			$dest = "contact@resileyes.com";
+			// $dest = "contact@resileyes.com";
+			$dest = "bastien.labouche@resileyes.com";
+
 			$from = "no-reply@resileyes.com";
-			$subject = "[contact] $firstName $lastName - $email";
+			$subject = "[contact] $firstname $lastname - $email";
 			
 			
 			$headers = array(
 				'From' => $from,
 				'X-Mailer' => 'PHP/' . phpversion()
 			);
-			$message_body = "Nom de famille : $lastName \nPrenom : $firstName \nEmail : $email \nSituation : $situation \n\n\n$message";
+			$message_body = "Nom de famille : $lastname \nPrenom : $firstname \nEmail : $email \nSituation : $situation \n\n\n$message";
 			
 			
 			// If Google says ok or not
@@ -60,6 +62,7 @@
 
 					// Save contact attempt in database
 					try{
+						$src = "en";
 						register_contact($lastname, $firstname, $email, $situation, $message, $subscribe, $src);
 					}
 					catch(Exception $e){
