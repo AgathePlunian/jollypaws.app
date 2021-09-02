@@ -8,4 +8,6 @@ RewriteRule ^([a-z][a-z])/(.*)$ /index.php?route=$2&lang=$1
 RewriteCond %{HTTPS} off
 RewriteCond %{HTTP:X-Forwarded-Proto} =http
 RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301]
+
 Options -Indexes
+ErrorDocument 404 /fr/404
