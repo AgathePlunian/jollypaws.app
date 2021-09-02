@@ -6,10 +6,10 @@
 	require("templates/elements/{$lang}/footer.php");
 
 	// Banner
-	require("views/index/elements/{$lang}/banner.php");
+	require("views/index/{$lang}/elements/banner.php");
 	
 	// Content
-	require("views/index/index_{$lang}.php");
+	require("views/index/{$lang}/index.php");
 
 	// Load the page, always calls this in last
 	require('templates/page_template.php');

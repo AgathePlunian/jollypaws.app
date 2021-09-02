@@ -17,11 +17,11 @@
       <div class="small-nav-menu d-block" id="full-screen">
         <span id="close-menu" class="close"><img src="/images/close.png" alt="Close menu"></span>
           <ul class="small-menu-list"> 
-            <li class="language-choice"><a href="/index.html" class="l-fr">FR</a>|<a href="index.html" class="l-en l-selected">EN</a></li>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="approach.html">Approach</a></li>
-            <li><a href="team.html">Team</a></li>             
-            <li><a href="contact-page.php">Contact us</a></li>
+            <li class="language-choice"><a href="/<?php echo 'fr/'.$route; ?>" class="l-fr l-selected">FR</a>|<a href="/<?php echo 'en/'.$route; ?>" class="l-en">EN</a></li>
+            <li><a href="/<?php echo $lang; ?>/">Home</a></li>
+            <li><a href="/<?php echo $lang; ?>/approche">Approach</a></li>
+            <li><a href="/<?php echo $lang; ?>/equipe">Team</a></li>             
+            <li><a href="/<?php echo $lang; ?>/contact">Contact us</a></li>
           </ul>
       </div>
    
@@ -35,11 +35,11 @@
         </div>
 
         <ul class="nav-list items-list">
-          <li class="item"><a href="index.html">Home</a></li>
-          <li class="item"><a href="approach.html">Approach</a></li>
-          <li class="item"><a href="team.html">Team</a></li>
-          <li class="language-choice"><a href="/index.html" class="l-fr">FR</a>|<a href="index.html" class="l-en selected-l-en">EN</a></li>
-          <li><button onclick="window.location.href='contact-page.php'" class="btn-nav btn">Contact us</button></li>
+          <li class="item"><a href="/<?= $lang; ?>/">Home</a></li>
+          <li class="item"><a href="/<?= $lang; ?>/approche">Approach</a></li>
+          <li class="item"><a href="/<?= $lang; ?>/equipe">Team</a></li>
+          <li class="language-choice"><a href="/<?php echo 'fr/'.$route; ?>" class="l-fr">FR</a>|<a href="/<?php echo 'en/'.$route; ?>" class="l-en selected-l-en">EN</a></li>
+          <li><button onclick="window.location.href='/<?= $lang; ?>/contact" class="btn-nav btn">Contact us</button></li>
         </ul>
       </div>
     </nav>

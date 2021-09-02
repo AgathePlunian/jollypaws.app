@@ -9,7 +9,7 @@
 	$banner = '';
 	
 	// Content
-	require("views/approche/approche_{$lang}.php");
+	require("views/approche/{$lang}/approche.php");
 
 	// Load the page, always calls this in last
 	require('templates/page_template.php');
