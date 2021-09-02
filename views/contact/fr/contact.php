@@ -44,7 +44,7 @@
   
 
     <div class="contact-form">
-      <form action="/fr/contact/form" method="post" class="form-contact" id="form-message">
+      <form action="/<?= $lang ?>/contact/form" method="post" class="form-contact" id="form-message">
         <label for= "last-name">Votre nom</label>
         <div class="input">
           <input type="text" name="last-name" id="last-name" placeholder="Nom">

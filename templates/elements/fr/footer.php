@@ -16,17 +16,17 @@
   </div>
 
   <ul class="footer-list-items">
-    <li><a href="/pages/approche.html">Approche</a></li>
-    <li><a href="/pages/page-equipe.html">Équipe</a></li>
-    <li><a href="/pages/page-contact.php">Nous contacter</a></li>
+    <li><a href="/<?= $lang ?>/approche/">Approche</a></li>
+    <li><a href="/<?= $lang ?>/equipe/">Équipe</a></li>
+    <li><a href="/<?= $lang ?>/contact/">Nous contacter</a></li>
   </ul>
 
   <span class="footer-line"></span>
 
   <ul class="footer-list-confidentiality">
-    <li><a href="/pages/politique-de-confidentialite.html">Politique de confidentialité</a></li>
-    <li><a href="/pages/mentions-legales.html">Mentions légales</a></li>
-    <li><a href="/pages/utilisation-des-cookies.html">Utilisation des cookies</a></li>
+    <li><a href="/<?= $lang ?>/confidentialite/">Politique de confidentialité</a></li>
+    <li><a href="/<?= $lang ?>/mentions-legales/">Mentions légales</a></li>
+    <li><a href="/<?= $lang ?>/cookies/">Utilisation des cookies</a></li>
   </ul>
   <p class="copyright">Ⓒ 2021 ResilEyes. Tous droits réservés.</p>
 </footer>

@@ -1,10 +1,6 @@
 <?php
-	$SITE_KEY = "6LfgBd8bAAAAAE_AjPCyOX4VPOcVNFBWP0GfMHic";
 	// Menu
 	require("templates/elements/{$lang}/menu.php");
-
-	// Header
-	require("views/contact/header.php");
 
 	// Footer
 	require("templates/elements/{$lang}/footer.php");
@@ -13,7 +9,7 @@
 	$banner = '';
 	
 	// Content
-	require("views/contact/{$lang}/contact.php");
+	require("views/mentions_legales/fr/mentions_legales.php");
 
 	// Load the page, always calls this in last
 	require('templates/page_template.php');

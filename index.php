@@ -28,6 +28,9 @@
 		["~^contact/result/[a-z]*~", 'show_contact_result'],
 		["~^unsubscribe/secret/.*~", 'unsubscribe_newsletter'],
 		["~^unsubscribe/result/[a-z]*~", 'show_unsubscribe_result'],
+		["~^confidentialite$~", 'show_confidentialite'],
+		["~^cookies$~", 'show_cookies'],
+		["~^mentions-legales$~", 'show_mentions_legales'],
 		["~.*~", 'error_not_found'],
 	];
 

@@ -37,4 +37,18 @@
 		require('views/contact_view.php');
 	}
 
+
+	function show_confidentialite($route, $lang){
+		require('views/confidentialite_view.php');
+	}
+
+
+	function show_cookies($route, $lang){
+		require('views/cookies_view.php');
+	}
+
+	function show_mentions_legales($route, $lang){
+		require('views/mentions_legales_view.php');
+	}
+
 ?>
