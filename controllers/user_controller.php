@@ -1,6 +1,7 @@
 <?php
 	function show_index(){
 		$route = '';
+		$lang='fr';
 		require('views/index_view.php');
 	}
 

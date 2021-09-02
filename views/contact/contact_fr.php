@@ -44,7 +44,7 @@
   
 
     <div class="contact-form">
-      <form action="/php/form.php" method="post" class="form-contact" id="form-message">
+      <form action="/fr/contact/form" method="post" class="form-contact" id="form-message">
         <label for= "last-name">Votre nom</label>
         <div class="input">
           <input type="text" name="last-name" id="last-name" placeholder="Nom">
@@ -90,9 +90,9 @@
           <label for="newletters-subscribe">S'abonner à la newsletter</label>
         </div>
 	
-	<!-- CAPTCHA -->
-	<input type='hidden' name='captcha-token' id='captcha-token'>
-	<!-- /CAPTCHA -->
+        <!-- CAPTCHA -->
+        <input type='hidden' name='captcha-token' id='captcha-token'>
+        <!-- /CAPTCHA -->
 	
         <div class="send-message">
           <input class="btn" type="submit" value="Envoyer mon message" name="contact-form" id='captcha-form-btn'>
@@ -104,21 +104,22 @@
   </div>
 </div>
 
+<script src ="/js/formValidation.js"></script>
+
 <script>
-var button = document.getElementById('captcha-form-btn');
-button.addEventListener("click", onClick);
-  function onClick(e) {
-  e.preventDefault();
-  grecaptcha.ready(function() {
-    grecaptcha.execute('<?php echo $SITE_KEY ?>', {action: 'submit'}).then(function(token) {
-      document.getElementById('captcha-token').value = token;
-      
-      button.removeEventListener('click', onClick);
-      button.click();
-    });
-  });
-  }
-</script>
+		var button = document.getElementById('captcha-form-btn');
+		button.addEventListener("click", onClick);
+		  function onClick(e) {
+			e.preventDefault();
+			grecaptcha.ready(function() {
+			  grecaptcha.execute('<?php echo $SITE_KEY ?>', {action: 'submit'}).then(function(token) {
+				  document.getElementById('captcha-token').value = token;
+				  button.removeEventListener('click', onClick);
+				  button.click();
+			  });
+			});
+		  }
+	</script>
 
 <?php
   $content = ob_get_clean();

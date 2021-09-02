@@ -1,6 +1,10 @@
 <?php
+	$SITE_KEY = "6LfgBd8bAAAAAE_AjPCyOX4VPOcVNFBWP0GfMHic";
 	// Menu
 	require("templates/elements/{$lang}/menu.php");
+
+	// Header
+	require("views/contact/elements/header.php");
 
 	// Footer
 	require("templates/elements/{$lang}/footer.php");

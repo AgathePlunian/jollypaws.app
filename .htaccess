@@ -1,7 +1,7 @@
 RewriteEngine On
-RewriteCond "%{QUERY_STRING}" "!js"
+RewriteCond %{REQUEST_URI} !(.*)\.js$
+RewriteRule ^([a-z][a-z])/(.*)$ /index.php?route=$2&lang=$1 [C,L]
 RewriteRule ^([a-z][a-z])/(.*)/$ /index.php?route=$2&lang=$1 [L]
-RewriteRule ^([a-z][a-z])/(.*)$ /index.php?route=$2&lang=$1 [L]
 
 RewriteCond %{HTTPS} off
 RewriteCond %{HTTP:X-Forwarded-Proto} =http

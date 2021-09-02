@@ -37,6 +37,11 @@
     <meta name="twitter:description" content="Changeons ensemble la manière de soigner le stress post-traumatique" />
     <meta name="twitter:image" content="https://resileyes.com/images/homepage/OG-img.png"/>
     <meta name="twitter:url" content="http://www.resileyes.com" />
+    <?php
+      if(isset($header)){
+        echo $header;
+      }
+    ?>
  </head>
 
   <body>
