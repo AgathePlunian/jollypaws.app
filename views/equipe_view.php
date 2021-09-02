@@ -9,7 +9,7 @@
 	$banner = '';
 	
 	// Content
-	require("views/equipe/equipe_{$lang}.php");
+	require("views/equipe/{$lang}/equipe.php");
 
 	// Load the page, always calls this in last
 	require('templates/page_template.php');
