@@ -1,10 +1,4 @@
 <?php
-	// Get the lang
-	if(!isset($lang)) {
-		$lang = 'fr';
-	}
-
-
 	// Menu
 	require("templates/elements/{$lang}/menu.php");
 

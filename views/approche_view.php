@@ -1,5 +1,4 @@
 <?php
-
 	// Menu
 	require("templates/elements/{$lang}/menu.php");
 
