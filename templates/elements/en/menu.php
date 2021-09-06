@@ -28,7 +28,7 @@
      <!--LARGE NAV-->
       <div class="main-nav-large">
         <div class="logo-container-nav">
-          <a href="index.html" class="nav-logo">
+          <a href="/<?php echo $lang; ?>/" class="nav-logo">
             <img src="/images/logo-ResilEyes-degrade.png" alt="logo-ResilEyes">
             <p>ResilEyes</p>
           </a>
