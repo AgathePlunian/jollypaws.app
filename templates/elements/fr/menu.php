@@ -10,7 +10,7 @@
     <p>ResilEyes</p>
   </a>
   <div class="open">
-    <a id="burger-open" class= "burger-menu"><img src="/images/burger-menu.png" alt="Ouvrir menu déroulant"></a>
+    <a id="burger-open" class= "burger-menu"><img src="/images/burger-menu.png" alt="Ouvrir menu"></a>
   </div>
 </div> 
 <div class="small-nav-menu d-block" id="full-screen">

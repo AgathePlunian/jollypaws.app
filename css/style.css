@@ -1779,7 +1779,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
   /* NAV MOBILE START */
   .main-nav {
-    padding: 1em; }
+    padding: 1em 2em; }
 
   .burger-nav {
     display: flex;
