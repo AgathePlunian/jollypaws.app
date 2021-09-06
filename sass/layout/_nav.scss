@@ -88,38 +88,45 @@
 
 
 @media screen and(min-width:0) and (max-width:1024px){
+
   
-  @keyframes menu-out {
+  @keyframes appear-card {
     from {
-      top: 0;
-      bottom: 0;
-      left: 0px;
-    }
-
-    to {
-      top: 0;
-      bottom: 0;
-      left: -1020px;
-     
-    }
-  }  
-
-
-  @keyframes menu-in {
-    from {
-      top: 0;
-      bottom: 0;
-      left: -1020px;
-    }
-
-    to {
-      top: 0;
-      bottom: 0;
-      left: 0px;
+      opacity: 0%;
+      margin-bottom: 1.5em;
       
     }
-  }  
+      to {
+        opacity: 100%;
+        margin-bottom: 1em;
+       
+      }
+  }
 
+  @keyframes appear-menu {
+    from {
+      padding: 2em 0;
+      width: 0;
+    }
+
+    to {
+      padding: 2em 40px;
+      width: 100%;
+    }
+  }
+
+     
+  @keyframes display-close {
+    from {
+      display: none;
+      
+    }
+      to {
+        display: block;
+      }
+  }
+
+  
   /* HIDE LARGE NAV */
   .main-nav-large {
     display: none;
@@ -169,56 +176,56 @@
      }
      
      .small-nav-menu.active {
-       left: 0px;
+      animation: appear-menu 600ms forwards ;
+
+      
+       .small-menu-list {
+        display: block;
+       }
 
        .close {
          border: none;
          background: none;
-        transform: rotate(360deg);
+         width: 35px;
+         transform: width 0s;
+         transform: rotate(360deg);
+         animation : close-position 0s both;
+
+         img {
+           width: 100%;
+           transform: width 0s;
+         }
        }
 
+      
        $i: 1;
        $time: 400ms;
        
-       @for $i from 2 to 8 {
+       @for $i from 1 to 8 {
          $time: $time + 60ms;
          .small-menu-list li:nth-child( 1n + #{$i}) {
            animation: appear-card 300ms $time both;
          }
        }
-
+       
      }
-
+  
     .small-nav-menu {
       font-size: 1.8em;
       color: white;
       top: 0;
-      left: -1050px;
+      left: 0px;
       display: block;
       position: absolute;
       right: 0;
       z-index: 1001;
-      width: 100%;
+      width: 0px;
       height: 100%;
-      padding: 2em 40px;
-      background-color: $secondary-color;
-     
-      transition: left 0.5s cubic-bezier(0.7,0,0.3,1);
-  
-
-      @keyframes appear-card {
-        from {
-          opacity: 0%;
-          margin-bottom: 1.5em;
-        }
-          to {
-            opacity: 100%;
-            margin-bottom: 1em;
-          }
-      }
+      background-color: $secondary-color;   
     
       .small-menu-list { 
-             
+        display: none;
+
       .language-choice {
         display: flex;
         flex-flow: row;
@@ -241,15 +248,29 @@
             }
           }
       }
-       
-      .close {
-        position: absolute;
-        top: 0.8em;
-        right: 0.8em;
-        width: 35px;
-        transition: transform 600ms 200ms;  
-        
+    
+      @keyframes close-position {
+        from {
+          position: static;
+          
         }
+          to {
+            position: absolute;
+        top: 0.8em;
+        right: 1.1em;
+          }
+      }
+      
+      .close {
+       position: static;
+        width: 0;
+        transition: transform 600ms 200ms;  
+
+        img {
+          width: 0;
+        }
+        }
+
       } 
      
     

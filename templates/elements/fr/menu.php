@@ -16,7 +16,7 @@
 <div class="small-nav-menu d-block" id="full-screen">
   <span id="close-menu" class="close"><img src="/images/close.png" alt="Fermer le menu"></span>
     <ul class="small-menu-list"> 
-      <li class="language-choice"><a href="/<?php echo 'fr/'.$route; ?>" class="l-fr l-selected">FR</a>|<a href="/<?php echo 'en/'.$route; ?>" class="l-en">EN</a></li>
+      <li class="language-choice"><a href="/<?php echo 'fr/'.$route; ?>" class="l-fr l-selected">FR</a>|<a href="/<?php echo 'en/'.$route; ?>" class="l-en ">EN</a></li>
       <li><a href="/<?php echo $lang; ?>/">Accueil</a></li>
       <li><a href="/<?php echo $lang; ?>/approche">Approche</a></li>
       <li><a href="/<?php echo $lang; ?>/equipe">Équipe</a></li>             
