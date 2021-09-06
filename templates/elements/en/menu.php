@@ -6,7 +6,7 @@
     <nav class="main-nav">
        <!--SMALL NAV-->   
       <div class="burger-nav">
-        <a class="small-nav-logo" href="index.html">
+        <a class="small-nav-logo" href="/<?php echo $lang; ?>/">
           <img src="/images/logo-ResilEyes-degrade.png" alt="logo-ResilEyes">
           <p>ResilEyes</p>
         </a>
