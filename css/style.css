@@ -1639,6 +1639,58 @@ input[type="date"]::-webkit-calendar-picker-indicator {
       .team-cards-container .card-team .ID-picture-container, .co-founders-cards .card-team .ID-picture-container {
         transform: scale(1.1);
         margin-bottom: 2em; } }
+/* ALL MEDIA QUERIES */
+.error-page-background {
+  background-color: #eff9fe;
+  padding: 5em;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 77px; }
+
+.error-page-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.error-oups {
+  color: #00869e;
+  font-size: 4em;
+  margin-bottom: 0.2em; }
+
+.page-not-found {
+  color: #00869e;
+  font-size: 1.8em; }
+
+.error-img-container {
+  width: 55%;
+  max-width: 700px;
+  margin-right: 6em; }
+
+.text-error-container {
+  width: 35%; }
+
+@media screen and (max-width: 767px) {
+  .error-page-background {
+    background-color: #eff9fe;
+    padding: 3em; }
+
+  .error-img-container {
+    width: 80%;
+    order: 2;
+    margin: 0; }
+
+  .text-error-container {
+    text-align: center;
+    width: 100%;
+    order: 1;
+    margin-bottom: 3em; }
+
+  .error-page-container {
+    flex-flow: column;
+    align-items: center;
+    justify-content: center; } }
 .main-nav {
   padding: 0.8em 2em;
   margin: auto; }
@@ -1832,7 +1884,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         .main-footer .footer-header .logos-container img:hover {
           opacity: 0.75; }
     .main-footer .footer-header .slogan-footer {
-      font-size: 1em;
+      font-size: 1.1em;
       width: 52%;
       font-weight: 500;
       text-align: center; }
@@ -1861,7 +1913,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .footer-list-items a {
     margin-left: 20px;
     margin-right: 20px;
-    font-size: 0.9em;
+    font-size: 1em;
     font-weight: bold;
     color: white;
     text-decoration: none; }
@@ -1880,7 +1932,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  font-size: 0.8em; }
+  font-size: 0.9em; }
   .footer-list-confidentiality a {
     display: block;
     margin-left: 7px;
@@ -1893,7 +1945,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .copyright {
   color: white;
   text-align: center;
-  font-size: 0.8em;
+  font-size: 0.9em;
   margin-bottom: 0em; }
 
 /* FOOTER MOBILE */

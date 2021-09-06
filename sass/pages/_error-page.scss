@@ -1,0 +1,69 @@
+/* ALL MEDIA QUERIES */
+
+.error-page-background {
+  background-color: $soft-blue;
+  padding: 5em;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 77px;
+}
+
+.error-page-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-oups {
+  color: $secondary-color;
+  font-size: 4em;
+  margin-bottom: 0.2em;
+}
+
+.page-not-found {
+  color: $secondary-color;
+  font-size: 1.8em;
+}
+.error-img-container {
+  width: 55%;
+  max-width: 700px;
+  margin-right: 6em;
+}
+
+.text-error-container {
+  width: 35%;
+}
+
+@media screen and (max-width:1024px) {
+   
+  }
+
+@media screen and(max-width:767px){
+
+  .error-page-background {
+    background-color: $soft-blue;
+    padding: 3em;
+    
+  }
+
+  .error-img-container {
+    width: 80%;
+    order: 2;
+    margin: 0;
+  }
+
+  .text-error-container {
+    text-align: center;
+    width: 100%;
+    order: 1;
+    margin-bottom: 3em;
+  }
+
+  .error-page-container {
+    flex-flow: column;
+    align-items: center;
+    justify-content: center
+  }
+ }
