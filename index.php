@@ -1,6 +1,6 @@
 <?php
-	error_reporting(-1);
-	ini_set('display_errors', 'On');
+	// error_reporting(-1);
+	// ini_set('display_errors', 'On');
 
 	function get_lang($lang_list){
 		if(isset($_GET['lang']) && strlen($_GET['lang']) > 0 && in_array($_GET['lang'], $lang_list)){
