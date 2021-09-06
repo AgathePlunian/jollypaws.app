@@ -44,8 +44,8 @@
                 $subscribe = 0;
             }
 
-            $dest = "contact@resileyes.com";
-            // $dest = "bastien.labouche@resileyes.com";
+            // $dest = "contact@resileyes.com";
+            $dest = "bastien.labouche@resileyes.com";
 
             $from = "no-reply@resileyes.com";
             $subject = "[contact] $firstname $lastname - $email";
@@ -64,7 +64,7 @@
 
             // Save contact in database
             $contact_manager = new ContactManager();
-            $contact_manager->save_contact($lastname, $firstname, $email, $situation, $message, $subscribe, $src);
+            $contact_manager->save_contact($lastname, $firstname, $email, $situation, $message, $subscribe, $lang);
 
             // If contact suscribed to newsletter, generate a link to unregister
             if($subscribe == 1) {
@@ -72,7 +72,7 @@
                 // Generate a secret chain to make the link unique
                 $bytes = random_bytes(32);
                 $secret = bin2hex($bytes);
-                $contact_manager->create_unregister_link($email, $secret, $src);
+                $contact_manager->create_unregister_link($email, $secret, $lang);
             }
 
             header("Location: /{$lang}/contact/result/success");

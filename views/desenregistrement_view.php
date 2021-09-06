@@ -10,7 +10,7 @@
 	$banner = '';
 	
 	// Content
-	require("views/desenregistrement/desenregistrement_{$lang}.php");
+	require("views/desenregistrement/{$lang}/desenregistrement.php");
 
 	// Load the page, always calls this in last
 	require('templates/page_template.php');
