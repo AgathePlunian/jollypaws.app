@@ -5,7 +5,7 @@
 <nav class="main-nav">
  <!--SMALL NAV-->   
 <div class="burger-nav">
-  <a class="small-nav-logo" href="index.html">
+  <a class="small-nav-logo" href="/<?php echo $lang; ?>/">
     <img src="/images/logo-ResilEyes-degrade.png" alt="Logo ResilEyes">
     <p>ResilEyes</p>
   </a>
@@ -27,7 +27,7 @@
 <!--LARGE NAV-->
 <div class="main-nav-large">
   <div class="logo-container-nav">
-    <a href="index.html" class="nav-logo">
+    <a href="/<?php echo $lang; ?>/" class="nav-logo">
       <img src="/images/logo-ResilEyes-degrade.png" alt="Logo ResilEyes">
       <p>ResilEyes</p>
     </a>

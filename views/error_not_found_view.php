@@ -6,8 +6,8 @@
 	$footer ='';
 
 	// Banner
-	
 	$banner = '';
+
 	// Content
 	require("views/error_not_found/{$lang}/error_not_found.php");
 

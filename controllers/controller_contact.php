@@ -14,14 +14,6 @@
             }
             if (empty($P['last-name']) || empty($P['first-name']) || empty($P['email']) || empty($P['situation']) || empty($P['message']) || empty($P['captcha-token']) ) {
                 // If not all required elements
-                echo "{$P['last-name']} <br>";
-                echo "{$P['first-name']} <br>";
-                echo "{$P['email']} <br>";
-                echo "{$P['situation']} <br>";
-                echo "{$P['message']} <br>";
-                echo "{$P['captcha-token']} <br>";
-
-                print_r($P);
                 throw new Exception("[register_contact] error form field");
             }
 
@@ -52,8 +44,8 @@
                 $subscribe = 0;
             }
 
-            $dest = "contact@resileyes.com";
-            // $dest = "bastien.labouche@resileyes.com";
+            // $dest = "contact@resileyes.com";
+            $dest = "bastien.labouche@resileyes.com";
 
             $from = "no-reply@resileyes.com";
             $subject = "[contact] $firstname $lastname - $email";
@@ -72,7 +64,7 @@
 
             // Save contact in database
             $contact_manager = new ContactManager();
-            $contact_manager->save_contact($lastname, $firstname, $email, $situation, $message, $subscribe, $src);
+            $contact_manager->save_contact($lastname, $firstname, $email, $situation, $message, $subscribe, $lang);
 
             // If contact suscribed to newsletter, generate a link to unregister
             if($subscribe == 1) {
@@ -80,7 +72,7 @@
                 // Generate a secret chain to make the link unique
                 $bytes = random_bytes(32);
                 $secret = bin2hex($bytes);
-                $contact_manager->create_unregister_link($email, $secret, $src);
+                $contact_manager->create_unregister_link($email, $secret, $lang);
             }
 
             header("Location: /{$lang}/contact/result/success");
