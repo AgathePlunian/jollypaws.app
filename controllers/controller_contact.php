@@ -14,14 +14,6 @@
             }
             if (empty($P['last-name']) || empty($P['first-name']) || empty($P['email']) || empty($P['situation']) || empty($P['message']) || empty($P['captcha-token']) ) {
                 // If not all required elements
-                echo "{$P['last-name']} <br>";
-                echo "{$P['first-name']} <br>";
-                echo "{$P['email']} <br>";
-                echo "{$P['situation']} <br>";
-                echo "{$P['message']} <br>";
-                echo "{$P['captcha-token']} <br>";
-
-                print_r($P);
                 throw new Exception("[register_contact] error form field");
             }
 
