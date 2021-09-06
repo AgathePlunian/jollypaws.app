@@ -19,6 +19,9 @@ ul, ol {
   list-style: none; }
 
 body {
+  overflow: hidden; }
+
+body {
   font-family: 'Mulish', sans-serif;
   margin: 0 auto;
   font-size: 16px;
