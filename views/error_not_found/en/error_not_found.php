@@ -10,8 +10,8 @@
     </div>
 
     <div class = "text-error-container">
-      <h1 class = "error-oups">Oups !</h1>
-      <p class = "page-not-found">The page you are looking for could not be found.</p>
+      <h1 class = "error-oups">Whoops!</h1>
+      <p class = "page-not-found">The page requested could not be found.</p>
       <button onclick="window.location.href='/<?php echo $lang; ?>/'" class = "btn">Back to home</button>
     </div>
     
