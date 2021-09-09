@@ -1,16 +1,9 @@
 /* ALL MEDIA QUERIES */
 
-.error-page-background {
-  background-color: $soft-blue;
-  padding: 5em;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  top: 77px;
-}
 
 .error-page-container {
+  padding: 4em 5em;
+  background-color: $soft-blue;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,7 +20,7 @@
   font-size: 1.8em;
 }
 .error-img-container {
-  width: 55%;
+  width: 50%;
   max-width: 700px;
   margin-right: 6em;
 }
@@ -36,9 +29,6 @@
   width: 35%;
 }
 
-@media screen and (max-width:1024px) {
-   
-  }
 
 @media screen and(max-width:767px){
 

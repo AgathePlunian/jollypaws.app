@@ -3,8 +3,9 @@
 	require("templates/elements/{$lang}/menu.php");
 
 	// Footer
-	// require("templates/elements/{$lang}/footer.php");
-	$footer = '';
+	require("templates/elements/{$lang}/footer.php");
+	
+
 
 	// Banner
 	$banner = '';
