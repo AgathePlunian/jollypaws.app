@@ -1,0 +1,59 @@
+.unsubscribe-page-container {
+  padding: 4em 5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $soft-blue;
+}
+
+.unsubscribe-img-container-success {
+  width: 40%;
+  max-width: 700px;
+  margin-right: 6em;
+}
+
+.text-unsubscribe {
+  color: $secondary-color;
+  font-size: 1.6em;
+  margin-bottom: 0.03em;
+}
+
+.text-unsubscribe-container {
+  width: 40%;
+  margin-bottom: 2em;
+}
+
+.text-error-contact {
+  font-size: 1.2em;
+}
+
+.text-unsubscribe-fail {
+  font-size: 1.6em;
+  color :$error;
+ 
+}
+
+.unsubscribe-img-container-fail {
+  width: 35%;
+  margin-right: 6em;
+}
+
+
+@media screen and(max-width:767px){
+
+  .unsubscribe-page-container {
+    flex-flow: column;
+  }
+
+  .unsubscribe-img-container-success, .unsubscribe-img-container-fail {
+    width: 80%;
+    margin-right: 0;
+    order: 2;
+  }
+
+  .text-unsubscribe-container {
+    width: 90%;
+    text-align: center;
+    order: 1;
+  }
+ }
