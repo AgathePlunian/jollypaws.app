@@ -1,10 +1,5 @@
 <?php
-    /*
-    error_reporting(-1);
-	ini_set('display_errors', 'On');
-    */
-
-    require_once("models/model_contact.php");
+    require_once("models/contact_model.php");
 
     // Register contact sent with the form
     function register_contact($route, $lang, $P=false){
@@ -44,8 +39,8 @@
                 $subscribe = 0;
             }
 
-            $dest = "contact@resileyes.com";
-            // $dest = "bastien.labouche@resileyes.com";
+            // $dest = "contact@resileyes.com";
+            $dest = "bastien.labouche@resileyes.com";
 
             $from = "no-reply@resileyes.com";
             $subject = "[contact] $firstname $lastname - $email";
@@ -79,7 +74,6 @@
                 
         }
         catch(Exception $e){
-            die($e->getMessage());
             header("Location: /{$lang}/contact/result/fail");
         }
     }
@@ -124,7 +118,7 @@
             $success = false;
         }
 
-        require('views/desenregistrement_view.php');
+        require('views/vitrine/desenregistrement_view.php');
     }
 
 
