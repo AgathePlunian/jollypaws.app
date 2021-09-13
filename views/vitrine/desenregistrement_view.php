@@ -11,7 +11,8 @@
 	$banner = '';
 	
 	// Content
-	require("views/desenregistrement/{$lang}/desenregistrement.php");
+	require("views/vitrine/desenregistrement/{$lang}/desenregistrement.php");
+
 
 	// Load the page, always calls this in last
 	require('templates/page_template.php');
