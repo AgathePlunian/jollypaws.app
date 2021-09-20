@@ -32,6 +32,11 @@
 		["~^admin/login$~", 'show_login'],
 		["~^admin/login/fail$~", 'show_login'],
 		["~^admin/login/verify$~", 'verify_login'],
+		["~^admin/disconnect$~", 'disconnect'],
+		["~^admin/articles/write$~", 'show_writing_article_interface'],
+		["~^admin/articles/show$~", 'show_article'],
+		["~^admin/articles/verify$~", 'verify_article'],
+		["~^admin$~", 'show_admin_index'],
 		
 		["~.*~", 'error_not_found'],
 	];

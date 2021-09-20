@@ -11,4 +11,21 @@ function load_permissions($user_id){
 	}
 }
 
+
+function load_article($article_content){
+	$bbcode_str = array(
+		["[h1]", '<h1>'],
+		["[/h1]", '</h1>'],
+		["[h2]", '<h2>'],
+		["[/h2]", '</h2>'],
+	);
+
+	foreach($bbcode_str as $code){
+		$article_content = str_replace($code[0], $code[1], $article_content);
+	}
+
+	$article_content = str_replace("\n", '<br />', $article_content);
+	return $article_content;
+}
+
 ?>
