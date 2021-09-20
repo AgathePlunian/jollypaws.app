@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : lun. 20 sep. 2021 à 16:04
+-- Généré le : lun. 20 sep. 2021 à 16:19
 -- Version du serveur :  10.3.31-MariaDB-0ubuntu0.20.04.1
 -- Version de PHP : 7.4.3
 
@@ -32,8 +32,8 @@ CREATE TABLE `articles` (
   `id` int(255) NOT NULL,
   `title` varchar(255) NOT NULL,
   `content` text NOT NULL,
-  `creation_date` date NOT NULL DEFAULT current_timestamp(),
-  `last_change_date` date NOT NULL DEFAULT current_timestamp()
+  `creation_date` date DEFAULT current_timestamp(),
+  `last_change_date` date DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
