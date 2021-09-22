@@ -12,12 +12,14 @@
   <div class="team-finger left-3"></div>
   <div class="team-finger right-4"></div>
   <div class="team-finger left-5"></div>
+  <div class="team-finger right-6"></div>
+
 
   <div class="co-founders-cards">
 
   <div class="card-team">
     <div class="ID-picture-container">
-      <img src="/images/team-page/yannick.jpg" alt="Portrait de Yannick Trescos">
+      <img src="/images/team-page/yannick-bg.png" alt="Portrait de Yannick Trescos">
     </div>
     <div class="text-ID-card">
       <p class="name-card">Yannick Trescos</p>
@@ -30,7 +32,7 @@
 
   <div class="card-team">
     <div class="ID-picture-container">
-      <img src="/images/team-page/annaig.jpg" alt="Portrait d'Annaïg Trescos">
+      <img src="/images/team-page/annaig-bg.png" alt="Portrait d'Annaïg Trescos">
     </div>
     <div class="text-ID-card">
       <p class="name-card">Annaïg Trescos</p>
@@ -44,7 +46,7 @@
 <div class="team-cards-container">
   <div class="card-team">
     <div class="ID-picture-container">
-      <img src="/images/team-page/Bastien.jpg" alt="Portrait de Bastien Labouche">
+      <img src="/images/team-page/bastien-bg.png" alt="Portrait de Bastien Labouche">
     </div>
     <div class="text-ID-card">
       <p class="name-card">Bastien Labouche</p>
@@ -57,7 +59,7 @@
 
   <div class="card-team">
     <div class="ID-picture-container">
-      <img src="/images/team-page/Agathe.jpg" alt="Portrait d'Agathe Plunian">
+      <img src="/images/team-page/agathe-bg.png" alt="Portrait d'Agathe Plunian">
     </div>
     <div class="text-ID-card">
       <p class="name-card">Agathe Plunian</p>
@@ -69,7 +71,7 @@
 
   <div class="card-team">
     <div class="ID-picture-container">
-      <img src="/images/team-page/Paul.png" alt="Portrait de Paul Ledesma">
+      <img src="/images/team-page/paul-bg.png" alt="Portrait de Paul Ledesma">
     </div>
     <div class="text-ID-card">
       <p class="name-card">Paul Ledesma</p>
@@ -81,7 +83,7 @@
 
   <div class="card-team">
     <div class="ID-picture-container">
-      <img src="/images/team-page/marion.jpg" alt="Portrait de Marion Dragée">
+      <img src="/images/team-page/marion-bg.png" alt="Portrait de Marion Dragée">
     </div>
     <div class="text-ID-card">
       <p class="name-card">Marion Dragée</p>
@@ -93,7 +95,7 @@
 
   <div class="card-team">
     <div class="ID-picture-container">
-      <img src="/images/team-page/Catinca.jpeg" alt="Portrait de Catinca Gheorghiu">
+      <img src="/images/team-page/catinca-bg.png" alt="Portrait de Catinca Gheorghiu">
     </div>
     <div class="text-ID-card">
       <p class="name-card">Catinca Gheorghiu</p>
@@ -105,7 +107,7 @@
 
   <div class="card-team">
     <div class="ID-picture-container">
-      <img src="/images/team-page/Marie.jpeg" alt="Portrait de Marie Matthys">
+      <img src="/images/team-page/marie-bg.png" alt="Portrait de Marie Matthys">
     </div>
     <div class="text-ID-card">
       <p class="name-card">Marie Matthys</p>
@@ -116,13 +118,46 @@
 
   <div class="card-team">
     <div class="ID-picture-container">
-      <img src="/images/team-page/ornella.jpeg" alt="Portrait d'Ornella Ouagazzal">
+      <img src="/images/team-page/ornella-bg.png" alt="Portrait d'Ornella Ouagazzal">
     </div>
     <div class="text-ID-card">
       <p class="name-card">Ornella Ouagazzal</p>
       <p>Psychologue Clinicienne chargée de recherche</p>
     </div>
     <a class="linkedin-link" target="blank" href="https://www.linkedin.com/in/ornella-ouagazzal-740431189/"><img src="/images/team-page/logo-linkedin-secondary.png" alt="Lien vers Linkedin de Ornella Ouagazzal"></a>
+  </div>
+
+  <div class="card-team">
+    <div class="ID-picture-container">
+      <img src="/images/team-page/yann-bg.png" alt="Portrait de Yann Bemba">
+    </div>
+    <div class="text-ID-card">
+      <p class="name-card">Yann Bemba</p>
+      <p>Mobile developer Junior</p>
+    </div>
+    <a class="linkedin-link" target="blank" href="https://www.linkedin.com/in/yann-bemba-longa/"><img src="/images/team-page/logo-linkedin-secondary.png" alt="Lien vers Linkedin de Ornella Ouagazzal"></a>
+  </div>
+
+  <div class="card-team">
+    <div class="ID-picture-container">
+      <img src="/images/team-page/nicolas-bg.png" alt="Portrait of Nicolas Van Heusden">
+    </div>
+    <div class="text-ID-card">
+      <p class="name-card">Nicolas Van Heusden</p>
+      <p>Mobile developer Junior</p>
+    </div>
+    <a class="linkedin-link" target="blank" href="https://www.linkedin.com/in/nicolas-van-heusden-b3a527167/"><img src="/images/team-page/logo-linkedin-secondary.png" alt="Lien vers Linkedin de Ornella Ouagazzal"></a>
+  </div>
+
+  <div class="card-team">
+    <div class="ID-picture-container">
+      <img src="/images/team-page/camille-bg.png" alt="Portrait of Camille Breuil">
+    </div>
+    <div class="text-ID-card">
+      <p class="name-card">Camille Breuil</p>
+      <p>Ph.D. & Lead Data scientist</p>
+    </div>
+    <a class="linkedin-link" target="blank" href="https://www.linkedin.com/in/camille-breuil-9676a2a0/"><img src="/images/team-page/logo-linkedin-secondary.png" alt="Lien vers Linkedin de Ornella Ouagazzal"></a>
   </div>
   
  </div>
