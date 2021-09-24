@@ -1,5 +1,7 @@
 <?php
 
+require('utils/settings.php');
+
 class ArticleManager{
 
 
@@ -22,22 +24,11 @@ class ArticleManager{
 
 
 	// connect to database
-    private function db_connect(){
-        $host = 'localhost';
-        $db_name = 'user_database';
-        $username = 'resileyes';
-        $password = 'u673LUo8xt';
-
-        try
-        {
-            $db = new PDO("mysql:host=$host;dbname=$db_name;charset=utf8", $username, $password);
-            return $db;
-        }
-        catch(Exception $e)
-        {
-            die('Erreur : '. $e->getMessage());
-        }
-    }
+	private function db_connect(){
+		global $host, $db_name, $username, $password;
+		$db = new PDO("mysql:host=$host;dbname=$db_name;charset=utf8", $username, $password);
+		return $db;
+	}
 }
 
 

@@ -1,4 +1,5 @@
 <?php
+require('utils/settings.php');
 
 class ContactManager
 {
@@ -149,20 +150,9 @@ class ContactManager
 
     // connect to database
     private function db_connect(){
-        $host = 'sql-server.k8s-do9n3u6r';
-        $db_name = 'contact_vitrine';
-        $username = 'resileyes';
-        $password = 'u673LUo8xt';
-
-        try
-        {
-            $db = new PDO("mysql:host=$host;dbname=$db_name;charset=utf8", $username, $password);
-            return $db;
-        }
-        catch(Exception $e)
-        {
-            die('Erreur : '. $e->getMessage());
-        }
+        global $host, $db_name, $username, $password;
+        $db = new PDO("mysql:host=$host;dbname=$db_name;charset=utf8", $username, $password);
+        return $db;
     }
 }
 
