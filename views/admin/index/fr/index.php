@@ -20,6 +20,7 @@
 <section id='main_section'>
 	<?php
 		global $CREATE_ARTICLE_PERM;
+
 		// Ecriture d'article
 		if (in_array($CREATE_ARTICLE_PERM, $_SESSION['permissions'])){
 			echo $write_article;
@@ -34,6 +35,7 @@
 		button_association["write_article"] = "write_article_view";
 
 
+		// Add event listener on every button
 		var views_buttons = document.getElementsByClassName('button_view');
 		for(var i = 0; i < views_buttons.length; i++){
 			views_buttons[i].addEventListener('click', click_views_button);

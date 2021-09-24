@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : lun. 20 sep. 2021 à 16:19
+-- Généré le : ven. 24 sep. 2021 à 11:51
 -- Version du serveur :  10.3.31-MariaDB-0ubuntu0.20.04.1
 -- Version de PHP : 7.4.3
 
@@ -32,8 +32,8 @@ CREATE TABLE `articles` (
   `id` int(255) NOT NULL,
   `title` varchar(255) NOT NULL,
   `content` text NOT NULL,
-  `creation_date` date DEFAULT current_timestamp(),
-  `last_change_date` date DEFAULT current_timestamp()
+  `creation_date` timestamp NULL DEFAULT current_timestamp(),
+  `last_change_date` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -41,8 +41,10 @@ CREATE TABLE `articles` (
 --
 
 INSERT INTO `articles` (`id`, `title`, `content`, `creation_date`, `last_change_date`) VALUES
-(2, 'Mon super article !', '[h1] Résumé [/h1]\r\nEn fait, j\'ai écris un article, mais j\'ai oublié ce que je voulais mettre dedans\r\n\r\n\r\n\r\n\r\n\r\n\r\n[h1] Résumé [/h1]\r\nEn fait, j\'ai écris un article, mais j\'ai oublié ce que je voulais mettre dedans\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n[h1] A retenir [/h1]\r\nPas grand chose du coup\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n[h1] En savoir plus [/h1]\r\n...\r\n		\r\n\r\n\r\n\r\n\r\n\r\n\r\n[h1] A retenir [/h1]\r\nPas grand chose du coup\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n[h1] En savoir plus [/h1]\r\n...\r\n		', '2021-09-19', '2021-09-19'),
-(3, 'toto', '[h1] Résumé [/h1]\r\nEncore un article\r\n\r\n\r\n\r\n[h1] A retenir [/h1]\r\nMa fonction marche trop bien\r\n\r\n\r\n\r\n[h1] En savoir plus [/h1]\r\nJe suis vraiment exceptionnel\r\n		', '2021-09-19', '2021-09-19');
+(2, 'Mon super article !', '[h1] Résumé [/h1]\r\nEn fait, j\'ai écris un article, mais j\'ai oublié ce que je voulais mettre dedans\r\n\r\n\r\n\r\n\r\n\r\n\r\n[h1] Résumé [/h1]\r\nEn fait, j\'ai écris un article, mais j\'ai oublié ce que je voulais mettre dedans\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n[h1] A retenir [/h1]\r\nPas grand chose du coup\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n[h1] En savoir plus [/h1]\r\n...\r\n		\r\n\r\n\r\n\r\n\r\n\r\n\r\n[h1] A retenir [/h1]\r\nPas grand chose du coup\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n[h1] En savoir plus [/h1]\r\n...\r\n		', '2021-09-18 22:00:00', '2021-09-18 22:00:00'),
+(3, 'toto', '[h1] Résumé [/h1]\r\nEncore un article\r\n\r\n\r\n\r\n[h1] A retenir [/h1]\r\nMa fonction marche trop bien\r\n\r\n\r\n\r\n[h1] En savoir plus [/h1]\r\nJe suis vraiment exceptionnel\r\n		', '2021-09-18 22:00:00', '2021-09-18 22:00:00'),
+(4, '', '[h1] Résumé [/h1]\r\n\r\n[h1] A retenir [/h1]\r\n\r\n[h1] En savoir plus [/h1]\r\n			', '2021-09-23 22:00:00', '2021-09-23 22:00:00'),
+(5, '', '[h1] Résumé [/h1]\r\n\r\n[h1] A retenir [/h1]\r\n\r\n[h1] En savoir plus [/h1]\r\n			', '2021-09-23 22:00:00', '2021-09-23 22:00:00');
 
 -- --------------------------------------------------------
 
@@ -140,7 +142,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `permissions`
