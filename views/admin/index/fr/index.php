@@ -40,7 +40,7 @@
 		for(var i = 0; i < views_buttons.length; i++){
 			views_buttons[i].addEventListener('click', click_views_button);
 		}
-
+		
 		function click_views_button(e){
 			// Get the button id
 			var id = this.getAttribute('id');

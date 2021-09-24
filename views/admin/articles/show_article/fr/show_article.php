@@ -5,10 +5,21 @@
 <ul id='article_summary'>
 </ul>
 
+<!-- Article title -->
 <div class="banner-approche">
 	<h2><?= $article_title ?></h2>
 </div>
 
+
+<!-- Main image -->
+<img 
+	src="/<?= $article_main_image ?>" 
+	width="200px"
+	height="200px"
+/>
+
+
+<!-- Article content -->
 <?= $article_content; ?>
 
 <script type="text/javascript">

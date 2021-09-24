@@ -1,13 +1,40 @@
 <?php
 	ob_start();
 ?>
+
+<!-- Main div -->
 <div class="view" hidden="true" id="write_article_view">
-	<form action="/<?= $lang ?>/admin/articles/verify" method="POST" id="article_form">
+	<!-- Print author -->
+	Author : <?= $_SESSION['firstname'] ?> <?= $_SESSION['lastname'] ?> <br/> <br/>
+	
+
+	<form action="/<?= $lang ?>/admin/articles/verify" method="POST" id="article_form" enctype="multipart/form-data">
+		
+		<!-- Image input -->
+		Image principale : <input name="main_picture" type="file" id='main_picture' /> <br/> <br/>
+		
+
+		<!-- Display the main image -->
+		<?php
+			if (isset($_SESSION['article_main_image'])){
+				?>
+
+				<img 
+					src="/<?= $_SESSION['article_main_image'] ?>" 
+					alt='main article image'
+					height="200px"
+				/>
+
+				<?php
+			}
+		?>
+
+
+		<!-- Article title -->
 		<input type="text" name="title" placeholder="Article title" 
 			<?php 
 				if(isset($_SESSION['article_title'])){ 
 					echo "value='{$_SESSION['article_title']}'";
-					unset($_SESSION['article_title']);
 				}
 			?>
 		/> 
@@ -15,10 +42,8 @@
 		
 		<!-- Ne pas espacer la balise textarea de la balise php --> 
 		<textarea name="article_content"><?php 
-		
 			if(isset($_SESSION['article'])){ 
-				echo $_SESSION['article']; 
-				unset($_SESSION['article']);
+				echo $_SESSION['article'];
 			}
 			else {
 			?>
@@ -27,7 +52,7 @@
 [h1] A retenir [/h1]
 
 [h1] En savoir plus [/h1]
-			<?php
+<?php
 			}
 		
 		?></textarea>
@@ -36,30 +61,39 @@
 	</form>
 
 
+
+	<!-- Change form action if user submit the form or see the article -->
 	<script>
-		window.onload = function(){
-			
-			var visu_article = document.getElementById('article_visualisation');
-			var submit_article = document.getElementById('article_sumbit');
+		// Button to see article
+		var visu_article = document.getElementById('article_visualisation');
+		
 
-			visu_article.addEventListener('click', onClickVisu);
-			submit_article.addEventListener('click', onClickSubmit);
-
-			function onClickVisu(e){
-				var form = document.getElementById('article_form');
-				form.setAttribute('action', '/<?= $lang ?>/admin/articles/show');
-				visu_article.removeEventListener('click', onClick);
-				visu_article.click();
-			}
+		// Button to submit article
+		var submit_article = document.getElementById('article_sumbit');
 
 
-			function onClickSubmit(e){
-				var form = document.getElementById('article_form');
-				form.setAttribute('action', '/<?= $lang ?>/admin/articles/verify');
-				submit_article.removeEventListener('click', onClick);
-				submit_article.click();
-			}
+		// Bind click on button to function
+		visu_article.addEventListener('click', onClickVisu);
+		submit_article.addEventListener('click', onClickSubmit);
+
+
+		// If the user see the article
+		function onClickVisu(e){
+			var form = document.getElementById('article_form');
+			form.setAttribute('action', '/<?= $lang ?>/admin/articles/show');
+			visu_article.removeEventListener('click', onClick);
+			visu_article.click();
 		}
+
+
+		// If the user submit the articles
+		function onClickSubmit(e){
+			var form = document.getElementById('article_form');
+			form.setAttribute('action', '/<?= $lang ?>/admin/articles/verify');
+			submit_article.removeEventListener('click', onClick);
+			submit_article.click();
+		}
+
 	</script>
 </div>
 <?php

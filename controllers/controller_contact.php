@@ -2,7 +2,7 @@
     require_once("models/contact_model.php");
 
     // Register contact sent with the form
-    function register_contact($route, $lang, $P=false){
+    function register_contact($route, $lang, $P=false, $F=false){
         try{
             if($P == false){
                 throw new Exception("[register_contact] No post data");

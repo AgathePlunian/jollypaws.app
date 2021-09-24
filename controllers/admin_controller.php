@@ -56,11 +56,12 @@ function show_writing_article_interface($route, $lang){
 
 
 // Display article
-function show_article($route, $lang, $P=false){
+function show_article($route, $lang, $P=false, $F=false){
 	if($P == false || empty($P)){
 		if(isset($_SESSION['article']) && isset($_SESSION['article_title'])) {
 			$article_content = load_article($_SESSION['article']);
 			$article_title = $_SESSION['article_title'];
+			$article_main_image = $_SESSION['article_main_image'];
 			require('views/admin/articles/show_article_view.php');
 		}
 		else{
@@ -70,6 +71,11 @@ function show_article($route, $lang, $P=false){
 	else {
 		$_SESSION['article'] = $P['article_content'];
 		$_SESSION['article_title'] = $P['title'];
+		if(isset($_SESSION['article_main_image']) && !empty($_SESSION['article_main_image'])){
+			unlink($_SESSION['article_main_image']);
+			unset($_SESSION['article_main_image']);
+		}
+		$_SESSION['article_main_image'] = ($F != false) ? load_image($F, 'main_picture') : '';
 
 		header("Location: /{$lang}/admin/articles/show");	
 	}
@@ -78,30 +84,59 @@ function show_article($route, $lang, $P=false){
 
 
 // Verify article and save it in database
-function verify_article($route, $lang, $P){
+function verify_article($route, $lang, $P, $F=false){
 	// If no post data
 	if(!isset($P) || empty($P)){
-		header("Location: /{$lang}/admin/articles/write");
+		header("Location: /{$lang}/admin");
 	}
 
 	// If data is missing
 	if(!isset($P['title']) || empty($P['title']) || !isset($P['article_content']) || empty($P['content'])) {
-		header("Location: /{$lang}/admin/articles/write");
+		header("Location: /{$lang}/admin");
+	}
+
+	// Test if image sumbited or in session
+	if(isset($F['main_picture'])){
+		// If old image saved
+		if(isset($_SESSION['article_main_image'])){
+			unlink($_SESSION['article_main_image']);
+			unset($_SESSION['article_main_image']);
+		}
+
+		$image = load_image($F, 'main_picture');
+	}
+	elseif(isset($_SESSION['article_main_image'])){
+		// If there's no new image but there's already one
+		$image = $_SESSION['article_main_image'];
+	}
+	else{
+		$image = null;
 	}
 
 	$article_manager = new ArticleManager();
 	try {
-		$article_manager->create_article($P['title'], $P['article_content']);
+		$article_manager->create_article($_SESSION['id'], $P['title'], $P['article_content'], $image);
 		header("Location: /{$lang}/admin");
 	}
 	catch(Exception $e) {
-		header("Location: /{$lang}/admin/article/write");
+		header("Location: /{$lang}/admin");
+	}
+	
+	// Unset old session vars
+	if(isset($_SESSION['article'])){
+		unset($_SESSION['article']);
+	}
+	if(isset($_SESSION['article_title'])){
+		unset($_SESSION['article_title']);
+	}
+	if(isset($_SESSION['article_main_image'])){
+		unset($_SESSION['article_main_image']);
 	}
 }
 
 
 // Verify login credentials and store informations like sessions
-function verify_login($route, $lang, $P=false){
+function verify_login($route, $lang, $P=false, $F=false){
 	try{
 		if($P == false){
 			throw new Exception('[verify_login] no post data');

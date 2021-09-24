@@ -32,7 +32,7 @@ function get_route($route_list, $lang_list){
 				}
 				else {
 					// Execute the function, giving it the route and POST data in parameters.
-					$r[1]($route, $lang, $_POST);
+					$r[1]($route, $lang, $_POST, $_FILES);
 					break;
 				}
 			}

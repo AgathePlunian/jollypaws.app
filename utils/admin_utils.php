@@ -28,4 +28,19 @@ function load_article($article_content){
 	return $article_content;
 }
 
+
+function load_image($F, $input_name){
+	$target_dir = 'media/';
+	$name = basename($F[$input_name]['name']);
+
+	$target_file = $target_dir . $name;
+
+	$success = move_uploaded_file($F[$input_name]['tmp_name'], $target_file);
+	if ($success == false){
+		throw new Exception('[load_tmp_image] can\'t move uploaded image');
+	}
+
+	return $target_file;
+}
+
 ?>

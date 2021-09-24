@@ -1,6 +1,9 @@
 <?php
 	error_reporting(-1);
 	ini_set('display_errors', 'On');
+	ini_set('file_uploads', 'On');
+	ini_set('post_max_size', '1000M');
+	ini_set('upload_max_filesize', '1000M');
 	session_start();
 
 	// Import controllers codes
