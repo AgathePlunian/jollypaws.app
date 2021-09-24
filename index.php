@@ -9,6 +9,9 @@
 	require('controllers/controller_contact.php');
 	require('controllers/admin_controller.php');
 
+	// Settings
+	require('utils/settings.php');
+
 
 	// functions to read routes
 	require('utils/router_utils.php');

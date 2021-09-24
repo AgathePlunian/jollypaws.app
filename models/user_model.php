@@ -1,7 +1,5 @@
 <?php
 
-require('utils/settings.php');
-
 class UserManager {
 	// Check if email is used in database
 	public function is_email_used($email){
@@ -63,15 +61,10 @@ class UserManager {
 	// connect to database
     private function db_connect(){
     	global $host, $db_name, $username, $password;
-        try
-        {
-            $db = new PDO("mysql:host=$host;dbname=$db_name;charset=utf8", $username, $password);
-            return $db;
-        }
-        catch(Exception $e)
-        {
-            die('Erreur : '. $e->getMessage());
-        }
+
+        $db = new PDO("mysql:host=$host;dbname=$db_name;charset=utf8", $username, $password);
+        return $db;
+
     }
 }
 

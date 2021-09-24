@@ -1,7 +1,5 @@
 <?php
 
-require('utils/settings.php');
-
 class ArticleManager{
 
 

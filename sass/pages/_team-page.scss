@@ -31,22 +31,14 @@
 
 .right-4 {
   background-color: $secondary-color;
-  border-radius: 80px 0 0 80px;
+  border-radius: 80px 0 0 80px ;
   right: 0;
   top: 1630px;
 }  
 
 .left-5{
-  background-color: $primary-color;
-  border-radius:  0 80px 80px 0;
-  left: 0;
-  top: 2080px;
-}
-
-.left-6 {
   display: none;
 }
-
 
 .team-page { 
   background-color: $background-blue;
@@ -144,17 +136,9 @@
   .left-5 {
     display: block;
     background-color: $primary-color;
-    border-radius: 0 80px 80px 0;
+    border-radius:  0 80px 80px 0;
     left: 0;
     top: 2070px;
-  }
-
-  .right-6 {
-    display: block;
-    background-color: $third-color;
-    border-radius: 80px 0 0 80px;
-    right: 0;
-    top: 2550px;
   }
 }
 
