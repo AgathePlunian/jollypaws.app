@@ -53,5 +53,16 @@
 	];
 	
 	get_route($route_list, $lang_list);
-	
+
+
+
+	/* #### TODO :
+
+	admin_controller.php :
+		Need to make success and failure message when saving an article in database
+
+
+
+
+	*/
 ?>
