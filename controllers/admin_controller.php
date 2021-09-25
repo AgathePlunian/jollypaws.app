@@ -85,7 +85,8 @@ function show_article($route, $lang, $P=false, $F=false){
 
 // Verify article and save it in database
 function verify_article($route, $lang, $P, $F=false){
-	// If no post data
+
+	// If there's no post data
 	if(!isset($P) || empty($P)){
 		header("Location: /{$lang}/admin");
 	}
@@ -94,6 +95,7 @@ function verify_article($route, $lang, $P, $F=false){
 	if(!isset($P['title']) || empty($P['title']) || !isset($P['article_content']) || empty($P['content'])) {
 		header("Location: /{$lang}/admin");
 	}
+
 
 	// Test if image sumbited or in session
 	if(isset($F['main_picture'])){
@@ -113,24 +115,36 @@ function verify_article($route, $lang, $P, $F=false){
 		$image = null;
 	}
 
+
+	$is_save_success = false;
+	// Save the article in database
 	$article_manager = new ArticleManager();
 	try {
 		$article_manager->create_article($_SESSION['id'], $P['title'], $P['article_content'], $image);
-		header("Location: /{$lang}/admin");
+		is_save_success = true;
 	}
 	catch(Exception $e) {
+		// ######################## NEED TO MAKE FAILURE MESSAGE ###############################
 		header("Location: /{$lang}/admin");
 	}
 	
-	// Unset old session vars
-	if(isset($_SESSION['article'])){
-		unset($_SESSION['article']);
-	}
-	if(isset($_SESSION['article_title'])){
-		unset($_SESSION['article_title']);
-	}
-	if(isset($_SESSION['article_main_image'])){
-		unset($_SESSION['article_main_image']);
+
+	// If article is correctly saved in database
+	if($is_save_success == true){
+
+		// Unset old session vars
+		if(isset($_SESSION['article'])){
+			unset($_SESSION['article']);
+		}
+		if(isset($_SESSION['article_title'])){
+			unset($_SESSION['article_title']);
+		}
+		if(isset($_SESSION['article_main_image'])){
+			unset($_SESSION['article_main_image']);
+		}
+
+		// ####################### NEED TO MAKE SUCCESS MESSAGE ###############################
+		header("Location: /{$lang}/admin");
 	}
 }
 
