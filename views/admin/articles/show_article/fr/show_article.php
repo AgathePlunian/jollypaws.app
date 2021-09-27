@@ -7,7 +7,7 @@
 
 <!-- Article title -->
 <div class="banner-approche">
-	<h2><?= $article_title ?></h2>
+	<h1><?= $article_title ?></h1>
 </div>
 
 
@@ -24,7 +24,7 @@
 
 <script type="text/javascript">
 	window.onload = function(){
-		var sections_list = document.getElementsByTagName('h1');
+		var sections_list = document.getElementsByTagName('h2');
 
 		for(var i=0; i < sections_list.length; i++ ){
 			// Get the summary element

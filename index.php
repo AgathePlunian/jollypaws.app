@@ -56,7 +56,7 @@
 
 
 
-	/* #### TODO :
+	/* #### TODO ####
 
 	admin_controller.php :
 		Need to make success and failure message when saving an article in database

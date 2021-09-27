@@ -57,7 +57,14 @@ function show_writing_article_interface($route, $lang){
 
 // Display article
 function show_article($route, $lang, $P=false, $F=false){
+	// If there's no new image, F = false
+	if(empty($F['main_picture']['name'])){
+		$F = false;
+	}
+
+	// If no post data (second time this function is called)
 	if($P == false || empty($P)){
+		// Check if we got every information needed to display the article
 		if(isset($_SESSION['article']) && isset($_SESSION['article_title'])) {
 			$article_content = load_article($_SESSION['article']);
 			$article_title = $_SESSION['article_title'];
@@ -68,16 +75,24 @@ function show_article($route, $lang, $P=false, $F=false){
 			header("Location: /{$lang}/admin/articles/write");
 		}
 	}
+	// If post data (first time this function is called), 
+	// load the data then call itself without sending data with post
 	else {
 		$_SESSION['article'] = $P['article_content'];
 		$_SESSION['article_title'] = $P['title'];
-		if(isset($_SESSION['article_main_image']) && !empty($_SESSION['article_main_image'])){
-			unlink($_SESSION['article_main_image']);
-			unset($_SESSION['article_main_image']);
-		}
-		$_SESSION['article_main_image'] = ($F != false) ? load_image($F, 'main_picture') : '';
 
-		header("Location: /{$lang}/admin/articles/show");	
+
+		if(!isset($_SESSION['article_main_image']) && $F != false)  {
+			$_SESSION['article_main_image'] = load_image($F, 'main_picture');
+		}
+		elseif(isset($_SESSION['article_main_image']) && $F != false && basename($_SESSION['article_main_image']) != $F['main_picture']['name']){
+			$_SESSION['article_main_image'] = load_image($F, 'main_picture');
+		}
+		elseif(!isset($_SESSION['article_main_image']) && $F == false) {
+			$_SESSION['article_main_image'] = '';
+		}
+
+		header("Location: /{$lang}/admin/articles/show");
 	}
 	
 }
@@ -88,17 +103,21 @@ function verify_article($route, $lang, $P, $F=false){
 
 	// If there's no post data
 	if(!isset($P) || empty($P)){
+
+		#### NEED TO MAKE FAILURE MESSAGE ####
 		header("Location: /{$lang}/admin");
 	}
 
 	// If data is missing
 	if(!isset($P['title']) || empty($P['title']) || !isset($P['article_content']) || empty($P['content'])) {
+		
+		#### NEED TO MAKE FAILURE MESSAGE ####
 		header("Location: /{$lang}/admin");
 	}
 
 
 	// Test if image sumbited or in session
-	if(isset($F['main_picture'])){
+	if(isset($F['main_picture']) && !empty($F['main_picture']['name'])){
 		// If old image saved
 		if(isset($_SESSION['article_main_image'])){
 			unlink($_SESSION['article_main_image']);
@@ -116,15 +135,15 @@ function verify_article($route, $lang, $P, $F=false){
 	}
 
 
-	$is_save_success = false;
 	// Save the article in database
+	$is_save_success = false;
 	$article_manager = new ArticleManager();
 	try {
 		$article_manager->create_article($_SESSION['id'], $P['title'], $P['article_content'], $image);
-		is_save_success = true;
+		$is_save_success = true;
 	}
 	catch(Exception $e) {
-		// ######################## NEED TO MAKE FAILURE MESSAGE ###############################
+		// #### NEED TO MAKE FAILURE MESSAGE ####
 		header("Location: /{$lang}/admin");
 	}
 	
@@ -143,7 +162,7 @@ function verify_article($route, $lang, $P, $F=false){
 			unset($_SESSION['article_main_image']);
 		}
 
-		// ####################### NEED TO MAKE SUCCESS MESSAGE ###############################
+		// #### NEED TO MAKE SUCCESS MESSAGE ####
 		header("Location: /{$lang}/admin");
 	}
 }

@@ -47,11 +47,11 @@
 			}
 			else {
 			?>
-[h1] Résumé [/h1]
+[h2] Résumé [/h2]
 
-[h1] A retenir [/h1]
+[h2] A retenir [/h2]
 
-[h1] En savoir plus [/h1]
+[h2] En savoir plus [/h2]
 <?php
 			}
 		

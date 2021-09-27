@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : ven. 24 sep. 2021 à 11:51
+-- Généré le : lun. 27 sep. 2021 à 12:12
 -- Version du serveur :  10.3.31-MariaDB-0ubuntu0.20.04.1
 -- Version de PHP : 7.4.3
 
@@ -30,21 +30,21 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `articles` (
   `id` int(255) NOT NULL,
+  `author_id` int(11) DEFAULT NULL,
   `title` varchar(255) NOT NULL,
   `content` text NOT NULL,
+  `main_image` varchar(255) DEFAULT NULL,
   `creation_date` timestamp NULL DEFAULT current_timestamp(),
-  `last_change_date` timestamp NULL DEFAULT current_timestamp()
+  `last_change_date` timestamp NULL DEFAULT current_timestamp(),
+  `publish_date` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `articles`
 --
 
-INSERT INTO `articles` (`id`, `title`, `content`, `creation_date`, `last_change_date`) VALUES
-(2, 'Mon super article !', '[h1] Résumé [/h1]\r\nEn fait, j\'ai écris un article, mais j\'ai oublié ce que je voulais mettre dedans\r\n\r\n\r\n\r\n\r\n\r\n\r\n[h1] Résumé [/h1]\r\nEn fait, j\'ai écris un article, mais j\'ai oublié ce que je voulais mettre dedans\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n[h1] A retenir [/h1]\r\nPas grand chose du coup\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n[h1] En savoir plus [/h1]\r\n...\r\n		\r\n\r\n\r\n\r\n\r\n\r\n\r\n[h1] A retenir [/h1]\r\nPas grand chose du coup\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n[h1] En savoir plus [/h1]\r\n...\r\n		', '2021-09-18 22:00:00', '2021-09-18 22:00:00'),
-(3, 'toto', '[h1] Résumé [/h1]\r\nEncore un article\r\n\r\n\r\n\r\n[h1] A retenir [/h1]\r\nMa fonction marche trop bien\r\n\r\n\r\n\r\n[h1] En savoir plus [/h1]\r\nJe suis vraiment exceptionnel\r\n		', '2021-09-18 22:00:00', '2021-09-18 22:00:00'),
-(4, '', '[h1] Résumé [/h1]\r\n\r\n[h1] A retenir [/h1]\r\n\r\n[h1] En savoir plus [/h1]\r\n			', '2021-09-23 22:00:00', '2021-09-23 22:00:00'),
-(5, '', '[h1] Résumé [/h1]\r\n\r\n[h1] A retenir [/h1]\r\n\r\n[h1] En savoir plus [/h1]\r\n			', '2021-09-23 22:00:00', '2021-09-23 22:00:00');
+INSERT INTO `articles` (`id`, `author_id`, `title`, `content`, `main_image`, `creation_date`, `last_change_date`, `publish_date`) VALUES
+(1, 1, 'Mon super article !', '[h2] Résumé [/h2]\r\nCeci est le résumé de l\'article\r\n\r\n\r\n\r\n\r\n\r\n[h2] A retenir [/h2]\r\nJ\'espère que vous allez le kiffer\r\n\r\n\r\n\r\n\r\n[h2] En savoir plus [/h2]\r\nIci ça sera la partie compliquée ^^\"\r\n\r\n\r\n\r\n\r\n\r\n', 'media/fleche-droite.png', '2021-09-27 09:20:38', '2021-09-27 09:20:38', '2021-09-27 09:20:38');
 
 -- --------------------------------------------------------
 
@@ -81,7 +81,7 @@ CREATE TABLE `permissions_users` (
 --
 
 INSERT INTO `permissions_users` (`id`, `id_permission`, `id_user`) VALUES
-(6, 1, 2);
+(6, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -102,7 +102,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password`) VALUES
-(2, 'Bastien', 'LABOUCHE', 'bastien.labouche@resileyes.com', '$2y$10$Y9wqbZMc0h0zO3emJeOwHONkDfbd6he7impU0dIH9J/8aUjTJRaHy');
+(1, 'Bastien', 'LABOUCHE', 'bastien.labouche@resileyes.com', '$2y$10$Y9wqbZMc0h0zO3emJeOwHONkDfbd6he7impU0dIH9J/8aUjTJRaHy');
 
 --
 -- Index pour les tables déchargées
@@ -112,7 +112,8 @@ INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password`) VALUES
 -- Index pour la table `articles`
 --
 ALTER TABLE `articles`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `Saving author id for article` (`author_id`);
 
 --
 -- Index pour la table `permissions`
@@ -142,7 +143,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `permissions`
@@ -165,6 +166,12 @@ ALTER TABLE `users`
 --
 -- Contraintes pour les tables déchargées
 --
+
+--
+-- Contraintes pour la table `articles`
+--
+ALTER TABLE `articles`
+  ADD CONSTRAINT `Saving author id for article` FOREIGN KEY (`author_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `permissions_users`

@@ -14,8 +14,6 @@ function load_permissions($user_id){
 
 function load_article($article_content){
 	$bbcode_str = array(
-		["[h1]", '<h1>'],
-		["[/h1]", '</h1>'],
 		["[h2]", '<h2>'],
 		["[/h2]", '</h2>'],
 	);
