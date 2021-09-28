@@ -1,5 +1,6 @@
 <?php
 	require('views/admin/index/fr/sections/write_article.php');
+	require('views/admin/index/fr/sections/list_articles.php');
 
 	global 	$CREATE_ARTICLE_PERM;
 
@@ -14,6 +15,7 @@
 
 	if(in_array($CREATE_ARTICLE_PERM, $_SESSION['permissions'])){
 		echo "<button class='button_view' id='write_article'>Ecrite un article</button>";
+		echo "<button class='button_view' id='list_articles'>Articles en cours</button>";
 	}
 ?>
 
@@ -24,6 +26,7 @@
 		// Ecriture d'article
 		if (in_array($CREATE_ARTICLE_PERM, $_SESSION['permissions'])){
 			echo $write_article;
+			echo $list_articles;
 		}
 	?>
 </section>
@@ -33,6 +36,7 @@
 		// Associate button to the section to display
 		var button_association = new Object();
 		button_association["write_article"] = "write_article_view";
+		button_association['list_articles'] = 'list_articles_view';
 
 
 		// Add event listener on every button
