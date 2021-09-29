@@ -26,9 +26,19 @@ function show_login($route, $lang) {
 
 // Show admin main menu
 function show_admin_index($route, $lang){
+	// Load globals perms
+	global $CREATE_ARTICLE_PERM;
+	
 	// If no session
 	if(!isset($_SESSION['id'])) {
 		header("Location: /{$lang}/admin/login");
+	}
+
+	$article_manager = new ArticleManager();
+
+	// Load all redacted articles
+	if (in_array($CREATE_ARTICLE_PERM, $_SESSION['permissions'])){
+		$list_articles = $article_manager->list_articles_by_user_id($_SESSION['id']);
 	}
 
 	require('views/admin/index_view.php');

@@ -56,8 +56,8 @@
 			}
 		
 		?></textarea>
-		<input type="submit" name="article_form" value="valider article" id="article_submit">
-		<input type="submit" name="article_visualisation" value="visualiser" id="article_visualisation">
+		<input type="submit" name="article_form" value="Enregistrer les modifications" id="article_submit">
+		<input type="submit" name="article_visualisation" value="Prévisualiser" id="article_visualisation">
 	</form>
 
 
