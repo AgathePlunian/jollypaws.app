@@ -4,17 +4,20 @@
 	global 	$CREATE_ARTICLE_PERM;
 
 	ob_start();
-
-
-
-	echo "Hello la team";
-
-	echo "<br>";
-	echo "<br>";
-
+	echo '
+	<div class="container-admin">
+		<div class="menu-lateral-admin">';
+		
 	if(in_array($CREATE_ARTICLE_PERM, $_SESSION['permissions'])){
-		echo "<button class='button_view' id='write_article'>Ecrite un article</button>";
+		echo "<button class='button_view' id='write_article'>+ Rédiger un article</button>";
 	}
+	echo'</div>
+	</div>
+	';
+
+	echo "<br>";
+	echo "<br>";
+
 ?>
 
 <section id='main_section'>

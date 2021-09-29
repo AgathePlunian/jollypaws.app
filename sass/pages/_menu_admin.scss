@@ -1,0 +1,19 @@
+.menu-lateral-admin {
+    background-color: $secondary-color;
+    width: 18%;
+    height: 100vh;
+    border-bottom: 1px solid $blue;
+    padding: 2em;
+}
+
+.container-admin {
+    background-color: $blue;
+}
+
+.button_view {
+    color: white;
+    background: none;
+    border: 1px solid white;
+    padding: 0.6em 1em;
+    border-radius: 5px;
+}

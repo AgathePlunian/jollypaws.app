@@ -2179,6 +2179,62 @@ input[type=date]::-webkit-calendar-picker-indicator {
     order: 1;
   }
 }
+.background-admin-connexion {
+  background-color: #e1f4fc;
+  padding: 3em 4em 9em 4em;
+}
+.background-admin-connexion h1 {
+  color: #00869e;
+  text-align: center;
+  margin-bottom: 1.5em;
+}
+.background-admin-connexion form {
+  width: 25%;
+  margin: auto;
+}
+.background-admin-connexion label {
+  font-weight: 600;
+  color: #00869e;
+}
+.background-admin-connexion input {
+  border: none;
+  padding: 0.7em 1em;
+  margin-bottom: 1em;
+  border-radius: 10px;
+  width: 100%;
+}
+.background-admin-connexion input:focus {
+  border: 1px solid #00869e;
+  outline: none;
+}
+.background-admin-connexion input ::placeholder {
+  font-family: "Mulish", sans-serif;
+}
+.background-admin-connexion .btn-connexion-admin {
+  margin-top: 1em;
+  border-radius: 50px;
+}
+
+.menu-lateral-admin {
+  background-color: #00869e;
+  width: 18%;
+  height: 100vh;
+  border-bottom: 1px solid #e1f4fc;
+  padding: 2em;
+}
+
+.container-admin {
+  background-color: #e1f4fc;
+}
+
+.button_view {
+  color: white;
+  background: none;
+  border: 1px solid white;
+  padding: 0.6em 1em;
+  border-radius: 5px;
+}
+
 .main-nav {
   padding: 0.8em 2em;
   margin: auto;
