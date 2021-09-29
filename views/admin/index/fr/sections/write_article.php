@@ -16,11 +16,11 @@
 
 		<!-- Display the main image -->
 		<?php
-			if (isset($_SESSION['article_main_image'])){
+			if (isset($_SESSION['article']['main_image'])){
 				?>
 
 				<img 
-					src="/<?= $_SESSION['article_main_image'] ?>" 
+					src="/<?= $_SESSION['article']['main_image'] ?>" 
 					alt='main article image'
 					height="200px"
 				/>
@@ -33,8 +33,8 @@
 		<!-- Article title -->
 		<input type="text" name="title" placeholder="Article title" 
 			<?php 
-				if(isset($_SESSION['article_title'])){ 
-					echo "value='{$_SESSION['article_title']}'";
+				if(isset($_SESSION['article']['title'])){ 
+					echo "value='{$_SESSION['article']['title']}'";
 				}
 			?>
 		/> 
@@ -42,8 +42,8 @@
 		
 		<!-- Ne pas espacer la balise textarea de la balise php --> 
 		<textarea name="article_content"><?php 
-			if(isset($_SESSION['article'])){ 
-				echo $_SESSION['article'];
+			if(isset($_SESSION['article']['content'])){ 
+				echo $_SESSION['article']['content'];
 			}
 			else {
 			?>
@@ -69,7 +69,7 @@
 		
 
 		// Button to submit article
-		var submit_article = document.getElementById('article_sumbit');
+		var submit_article = document.getElementById('article_submit');
 
 
 		// Bind click on button to function
