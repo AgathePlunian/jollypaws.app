@@ -18,7 +18,7 @@
 				
 			<!-- Article title -->
 			<label>Titre de l'article</label>
-			<textarea class="input-label input-title" type="text" name="title" placeholder="Titre de l'article"><?php 
+			<textarea class="input-label input-title" name="title" placeholder="Titre de l'article"><?php 
 					if(isset($_SESSION['article']['title'])){ 
 						echo $_SESSION['article']['title'];
 					}
@@ -27,19 +27,17 @@
 		<!-- Image input -->
 			<label class="file">Image principale</label>
 				<div class="input-select-img-container">
-					<span class="icone-upload-img"><img src="../../images/icones-form/upload-solid.svg" alt="upload image"/></span>
+					<span class="icone-upload-img"><img src="../../../images/icones-form/upload-solid.svg" alt="upload image"/></span>
 					<input class="custom-file-input" name="main_picture" type="file" id='main_picture' aria-label="Choisir un fichier" />
 					
 				</div>
 			
-						
-			<div class="img-selected">
+			<div class="img-selected" >
 				<!-- Display the main image -->
 				<?php
 					if (isset($_SESSION['article']['main_image'])){
 				?>
-
-					<img 
+					<img id="imgSelected"
 						src="/<?= $_SESSION['article']['main_image'] ?>" 
 							alt='main article image'
 					/>
@@ -79,13 +77,21 @@
 
 	<!-- Change form action if user submit the form or see the article -->
 	<script>
+
+		let imgInput = document.getElementById('main_picture');
+
+		imgInput.onchange = function() {
+			let imgSrc = imgInput.value;
+			let imgBalise = document.getElementById("imgSelected");
+			imgBalise.setAttribute("src", imgSrc);
+		}
+
+		
 		// Button to see article
 		var visu_article = document.getElementById('article_visualisation');
 		
-
 		// Button to submit article
 		var submit_article = document.getElementById('article_submit');
-
 
 		// Bind click on button to function
 		visu_article.addEventListener('click', onClickVisu);

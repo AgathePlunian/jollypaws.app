@@ -11,7 +11,7 @@
       </p>
     </div>
     <div class="btn-container">
-      <button onclick="window.location.href='approach.html'" class="btn">More details</button>
+      <button onclick="window.location.href='/<?= $lang ?>/approche'" class="btn">More details</button>
     </div>
   </div>      
 </div>

@@ -10,7 +10,7 @@
       </p>
     </div>
     <div class="btn-container">
-      <button onclick="window.location.href='/pages/approche.html'" class="btn">En savoir plus</button>
+      <button onclick="window.location.href='/<?= $lang ?>/approche'" class="btn">En savoir plus</button>
       <p class="dtx">DTx* = Digital Therapeutics ou Thérapies numériques validées cliniquement</p>
     </div>
   </div>      

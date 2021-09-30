@@ -31,7 +31,13 @@
     }
 }
 
-.input-title {}
+.input-title {
+    resize: none;
+    font-family: 'mulish', sans-serif;
+        &:focus {
+            outline: 2px solid $secondary-color;
+        }
+}
 
 .input-select-img-container {
     max-width: 380px;
@@ -96,7 +102,10 @@
 .btn-submit-container {
     display: flex;
     margin-top: 1.5em;
+}
 
+.img-selected {
+    width: 150px;
 }
 
 #article_submit {

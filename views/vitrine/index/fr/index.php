@@ -57,7 +57,7 @@
   <div class="text-contact-section">
     <h3>Rejoindre l'aventure</h3>
     <p>Un programme de recherche et développement associant patients et professionnels de santé.</p>
-    <button onclick="window.location.href='/pages/page-contact.php'" class="btn">Nous contacter</button>
+    <button onclick="window.location.href='/<?= $lang ?>/contact'" class="btn">Nous contacter</button>
   </div>
 </div>
 </section>

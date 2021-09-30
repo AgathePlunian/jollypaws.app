@@ -59,7 +59,7 @@
   <div class="text-contact-section">
     <h3>Join the adventure</h3>
     <p>A research and development programme bringing together patients and healthcare professionals.</p>
-    <button class="btn">Contact us</button>
+    <button class="btn" onclick="window.location.href='/<?= $lang ?>/contact'">Contact us</button>
   </div>
 </div>
 </section>
@@ -76,7 +76,7 @@
   <p>Anyone, regardless of their age and origins, can encounter traumatic situations during their life that can lead to multiple consequences on their mental and physical health.</p>
   <h3 class="ptsd-causes">Serious accident, physical and sexual violence, violent death, natural disaster, war, attack, childbirth, cancer, Covid-19, suicide, harassment at work...</h3>
   <p class ="text-bold-primary">
-    Our reactions to these traumatic events are normal: talking about it and getting help as soon as possible will reduce the consequences.</p>
+  Our reactions to these events are normal and result in increased anxiety, fatigue or even sadness. However, talking about it and getting help as soon as possible will reduce the consequences.</p>
 </div>
 </section>
 
@@ -84,7 +84,7 @@
 <section class="section-numbers">
   <div class="number-container">
     <div class="round">
-      <p class="number primary-color">30-70%</p>
+      <p class="number primary-color">70%</p>
     </div>
     <p>of people experience a traumatic situation in their life.</p>
   </div>

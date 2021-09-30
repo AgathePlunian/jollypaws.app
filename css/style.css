@@ -2295,6 +2295,14 @@ input[type=date]::-webkit-calendar-picker-indicator {
   font-weight: 500;
 }
 
+.input-title {
+  resize: none;
+  font-family: "mulish", sans-serif;
+}
+.input-title:focus {
+  outline: 2px solid #00869e;
+}
+
 .input-select-img-container {
   max-width: 380px;
   background-color: white;
@@ -2358,6 +2366,10 @@ input[type=date]::-webkit-calendar-picker-indicator {
 .btn-submit-container {
   display: flex;
   margin-top: 1.5em;
+}
+
+.img-selected {
+  width: 150px;
 }
 
 #article_submit {
