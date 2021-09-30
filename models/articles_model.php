@@ -18,7 +18,38 @@ class ArticleManager{
 		if ($success == false){
 			throw new Exception('[create_article] can not create article in database');
 		}
+	}
 
+
+	public function update_article($article_id, $title, $content, $main_image)
+	{
+		$db = $this->db_connect();
+
+		$sql = "
+			UPDATE 
+				articles  
+
+			SET 
+				title=:title, 
+				content=:content, 
+				main_image=:main_image 
+			
+			WHERE 
+				id=:article_id 
+		";
+
+
+		$query = $db->prepare($sql);
+		$success = $query->execute(array(
+			'title' => $title,
+			'content' => $content,
+			'main_image' => $main_image,
+			'article_id' => $article_id,
+		));
+
+		if($success == false){
+			throw new Exception('[update_article] Impossible to update article');
+		}
 	}
 
 
@@ -40,6 +71,24 @@ class ArticleManager{
 		return $results;
 	}
 
+
+	// Get article content from id
+	public function get_article_content($id){
+		$db = $this->db_connect();
+
+		$query = $db->prepare('SELECT id, title, content, main_image FROM articles WHERE id=:id');
+		$success = $query->execute(array(
+			'id' => $id,
+		));
+
+		if($success == false){
+			throw new Exception('[get_article_content] can\'t get article content');
+		}
+
+		$article = $query->fetch();
+
+		return $article;
+	}
 
 
 	// connect to database
