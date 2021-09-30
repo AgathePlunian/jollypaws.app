@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : lun. 27 sep. 2021 à 12:12
+-- Généré le : jeu. 30 sep. 2021 à 15:56
 -- Version du serveur :  10.3.31-MariaDB-0ubuntu0.20.04.1
 -- Version de PHP : 7.4.3
 
@@ -44,7 +44,7 @@ CREATE TABLE `articles` (
 --
 
 INSERT INTO `articles` (`id`, `author_id`, `title`, `content`, `main_image`, `creation_date`, `last_change_date`, `publish_date`) VALUES
-(1, 1, 'Mon super article !', '[h2] Résumé [/h2]\r\nCeci est le résumé de l\'article\r\n\r\n\r\n\r\n\r\n\r\n[h2] A retenir [/h2]\r\nJ\'espère que vous allez le kiffer\r\n\r\n\r\n\r\n\r\n[h2] En savoir plus [/h2]\r\nIci ça sera la partie compliquée ^^\"\r\n\r\n\r\n\r\n\r\n\r\n', 'media/fleche-droite.png', '2021-09-27 09:20:38', '2021-09-27 09:20:38', '2021-09-27 09:20:38');
+(1, 1, 'Mon premier article !', '[h2] Résumé [/h2]\r\n				\r\n[h2] A retenir [/h2]\r\n\r\n[h2] En savoir plus [/h2]\r\n										', 'media/f8bed9544d4d4713.png', '2021-09-30 13:54:26', '2021-09-30 13:54:41', NULL);
 
 -- --------------------------------------------------------
 

@@ -24,6 +24,12 @@ function show_login($route, $lang) {
 }
 
 
+function new_article($route,$lang){
+	unset($_SESSION['article']);
+	show_admin_index($route, $lang);
+}
+
+
 // Show admin main menu
 function show_admin_index($route, $lang){
 	// Load globals perms
@@ -42,12 +48,13 @@ function show_admin_index($route, $lang){
 
 		$route_elements = explode('/', $route);
 
-
+		$editing = false;
 		// Editing an article
-		if(in_array('write_article', $route_elements)){
-			$id_index = array_search('write_article', $route_elements)+1;
+		if(in_array('edit_article', $route_elements)){
+			$id_index = array_search('edit_article', $route_elements)+1;
 			$id = $route_elements[$id_index];
 			$_SESSION['article'] = $article_manager->get_article_content($id);
+			$editing = true;
 		}
 	}
 

@@ -32,7 +32,8 @@ class ArticleManager{
 			SET 
 				title=:title, 
 				content=:content, 
-				main_image=:main_image 
+				main_image=:main_image, 
+				last_change_date=now() 
 			
 			WHERE 
 				id=:article_id 
@@ -57,7 +58,21 @@ class ArticleManager{
 	public function list_articles_by_user_id($author_id){
 		$db = $this->db_connect();
 
-		$query = $db->prepare('SELECT id, title, creation_date, last_change_date FROM articles WHERE author_id=:id');
+		$sql = "
+			SELECT 
+				id, 
+				title, 
+				creation_date, 
+				last_change_date 
+
+			FROM 
+				articles 
+
+			WHERE 
+				author_id=:id
+		";
+
+		$query = $db->prepare($sql);
 		$success = $query->execute(array(
 			'id' => $author_id
 		));
