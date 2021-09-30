@@ -9,14 +9,16 @@
     }
 
     form {
-        width: 25%;
+        width: 30%;
         margin: auto;
     }
 
+    
     label{
         font-weight: 600;
         color: $secondary-color;
     }
+
 
     input {
         border: none;
@@ -24,10 +26,9 @@
         margin-bottom: 1em;
         border-radius: 10px;
         width: 100%;
-      
+     
         &:focus {
-            border: 1px solid $secondary-color;
-            outline: none;
+            outline: 2px solid $secondary-color;
           }
 
         ::placeholder {     

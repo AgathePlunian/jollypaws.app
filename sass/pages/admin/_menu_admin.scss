@@ -1,0 +1,37 @@
+.menu-lateral-admin {
+    background-color: $secondary-color;
+    width: 290px;
+    border-bottom: 1px solid $blue;
+    padding: 2em 1.5em;
+}
+
+.container-admin {
+    display: flex;
+    background-color: $blue;
+    width: 100%;
+   
+}
+
+#main_section {
+   width: 100%;
+   padding: 2em;
+   min-height: 90vh;
+}
+
+#write_article {
+    font-size: 16px;
+    color: white;
+    background: none;
+    border: 1px solid white;
+    padding: 0.6em 1em;
+    border-radius: 5px;
+    margin-bottom: 1.5em;
+    font-weight: 500;
+}
+
+.menu-link {
+    color: white;
+    font-weight: 500;
+    display: block;
+
+}

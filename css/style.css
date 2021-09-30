@@ -16,6 +16,20 @@ input {
   -webkit-appearance: none;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: #212121;
+  -webkit-box-shadow: 0 0 0px 1000px #dddedf inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 img {
   width: 100%;
 }
@@ -26,6 +40,10 @@ ul, ol {
 
 .container {
   overflow: hidden;
+}
+
+.clear-float {
+  clear: both;
 }
 
 body {
@@ -2189,7 +2207,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   margin-bottom: 1.5em;
 }
 .background-admin-connexion form {
-  width: 25%;
+  width: 30%;
   margin: auto;
 }
 .background-admin-connexion label {
@@ -2204,8 +2222,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   width: 100%;
 }
 .background-admin-connexion input:focus {
-  border: 1px solid #00869e;
-  outline: none;
+  outline: 2px solid #00869e;
 }
 .background-admin-connexion input ::placeholder {
   font-family: "Mulish", sans-serif;
@@ -2217,22 +2234,153 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 .menu-lateral-admin {
   background-color: #00869e;
-  width: 18%;
-  height: 100vh;
+  width: 290px;
   border-bottom: 1px solid #e1f4fc;
-  padding: 2em;
+  padding: 2em 1.5em;
 }
 
 .container-admin {
+  display: flex;
   background-color: #e1f4fc;
+  width: 100%;
 }
 
-.button_view {
+#main_section {
+  width: 100%;
+  padding: 2em;
+  min-height: 90vh;
+}
+
+#write_article {
+  font-size: 16px;
   color: white;
   background: none;
   border: 1px solid white;
   padding: 0.6em 1em;
   border-radius: 5px;
+  margin-bottom: 1.5em;
+  font-weight: 500;
+}
+
+.menu-link {
+  color: white;
+  font-weight: 500;
+  display: block;
+}
+
+.form-container {
+  display: flex;
+  width: 100%;
+}
+.form-container label {
+  font-weight: 500;
+}
+.form-container .input-label {
+  width: 100%;
+  max-width: 380px;
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 0.8em 1.2em;
+  margin-bottom: 1em;
+}
+.form-container .input-label::placeholder {
+  font-family: "mulish", sans-serif;
+}
+.form-container .input-label:focus {
+  outline: 2px solid #00869e;
+}
+.form-container .input-disabled::placeholder {
+  color: #212121;
+  font-weight: 500;
+}
+
+.input-select-img-container {
+  max-width: 380px;
+  background-color: white;
+  display: flex;
+  padding: 0.5em 1em;
+  border-radius: 10px;
+  margin-bottom: 1em;
+}
+.input-select-img-container .icone-upload-img {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.custom-file-input {
+  display: inline;
+  max-width: 380px;
+  font-family: "Mulish", sans-serif;
+  color: gray;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+  content: "Choisir un fichier";
+  background: white;
+  border: none;
+  border-radius: 15px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: "mulish";
+}
+
+.article-area-container {
+  width: 68%;
+}
+.article-area-container textarea {
+  padding: 1em;
+  width: 100%;
+  height: 65vh;
+  resize: none;
+  border: none;
+  border-radius: 10px;
+  font-family: "mulish", sans-serif;
+}
+.article-area-container textarea:focus {
+  outline: 2px solid #00869e;
+}
+
+.input-new-article {
+  margin-right: 2em;
+  width: 30%;
+}
+
+#write_article_view {
+  position: relative;
+}
+
+.btn-submit-container {
+  display: flex;
+  margin-top: 1.5em;
+}
+
+#article_submit {
+  font-size: 16px;
+  background-color: #00869e;
+  color: white;
+  font-weight: 700;
+  border: none;
+  border-radius: 20px;
+  padding: 0.7em 1.3em;
+}
+
+#article_visualisation {
+  text-align: center;
+  font-weight: 700;
+  background: none;
+  border: 2px solid #00869e;
+  color: #00869e;
+  padding: 0.5em 1.2em;
+  font-size: 16px;
+  border-radius: 20px;
+  margin-bottom: 0.5em;
+  float: right;
 }
 
 .main-nav {

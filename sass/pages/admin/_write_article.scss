@@ -1,0 +1,123 @@
+.form-container {
+    display: flex;
+    width: 100%;
+
+    label {
+        font-weight: 500;
+    }
+
+    .input-label {
+        width: 100%;
+        max-width: 380px;
+        background-color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 0.8em 1.2em;
+        margin-bottom: 1em;
+        &::placeholder{
+            font-family: 'mulish', sans-serif;
+        }
+
+        &:focus {
+            outline: 2px solid $secondary-color;
+        }
+    }
+
+    .input-disabled {
+        &::placeholder{
+            color: $body-font-color;
+            font-weight: 500;
+        }
+    }
+}
+
+.input-title {}
+
+.input-select-img-container {
+    max-width: 380px;
+    background-color: white;
+    display: flex;
+    padding: 0.5em 1em;
+    border-radius: 10px;
+    margin-bottom: 1em;
+
+    .icone-upload-img {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+    }
+}
+
+.custom-file-input {
+    display: inline;
+    max-width: 380px;
+    font-family: 'Mulish', sans-serif;
+    color: gray;
+}
+.custom-file-input::-webkit-file-upload-button {
+    content: 'Choisir un fichier';
+    background: white;
+    border: none;
+    border-radius: 15px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: "mulish";
+  }
+ 
+.article-area-container {
+    width: 68%;
+    textarea {
+        padding: 1em;
+        width: 100%;
+        height: 65vh;
+        resize: none;
+        border: none;
+        border-radius: 10px;
+        font-family: 'mulish', sans-serif;
+        &:focus {
+            outline: 2px solid $secondary-color;
+        }
+    }
+}
+
+.input-new-article {
+    margin-right: 2em;
+    width: 30%;
+}
+
+#write_article_view {
+    position: relative;
+}
+
+.btn-submit-container {
+    display: flex;
+    margin-top: 1.5em;
+
+}
+
+#article_submit {
+    font-size: 16px;
+    background-color: $secondary-color;
+    color: white;
+    font-weight: 700;
+    border: none;
+    border-radius: 20px;
+    padding: 0.7em 1.3em;
+}
+
+#article_visualisation {
+    text-align: center;
+    font-weight: 700;
+    background: none;
+    border: 2px solid $secondary-color;
+    color: $secondary-color;
+    padding: 0.5em 1.2em;
+    font-size: 16px;
+    border-radius: 20px;
+    margin-bottom: 0.5em;
+    float: right;
+}

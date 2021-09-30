@@ -18,8 +18,10 @@
 @import "./pages/team-page";
 @import "./pages/error-page";
 @import "./pages/unsubscribe";
-@import "./pages/admin-login";
-@import "./pages/menu_admin";
+
+@import "./pages/admin/admin-login";
+@import "./pages/admin/menu_admin";
+@import "./pages/admin/write_article";
 
 @import "./layout/nav";
 @import "./layout/footer";

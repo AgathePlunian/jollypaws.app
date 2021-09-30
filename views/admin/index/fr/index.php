@@ -9,33 +9,26 @@
 	<div class="container-admin">
 		<div class="menu-lateral-admin">';
 		
-	if(in_array($CREATE_ARTICLE_PERM, $_SESSION['permissions'])){
-		echo "<button class='button_view' id='write_article'>+ Rédiger un article</button>";
-	}
-	echo'</div>
-	</div>
-	';
-
-	echo "<br>";
-	echo "<br>";
-
-	if(in_array($CREATE_ARTICLE_PERM, $_SESSION['permissions'])){
-		echo "<button class='button_view' id='write_article'>Ecrite un article</button>";
-		echo "<button class='button_view' id='list_articles'>Articles en cours</button>";
-	}
-?>
-
-<section id='main_section'>
-	<?php
-		global $CREATE_ARTICLE_PERM;
-
-		// Ecriture d'article
-		if (in_array($CREATE_ARTICLE_PERM, $_SESSION['permissions'])){
-			echo $write_article;
-			echo $list_articles;
+		if(in_array($CREATE_ARTICLE_PERM, $_SESSION['permissions'])){
+			echo "<button class='button_view' id='write_article'>+ Rédiger un article</button>";
+			echo "<a class='button_view menu-link' id='list_articles'>Articles en cours</a>";
 		}
-	?>
-</section>
+		echo'</div>';
+?>
+		<section id='main_section'>
+		<?php
+			global $CREATE_ARTICLE_PERM;
+
+			// Ecriture d'article
+			if (in_array($CREATE_ARTICLE_PERM, $_SESSION['permissions'])){
+				echo $write_article;
+				echo $list_articles;
+			}
+		?>
+		</section>
+	</div>
+
+
 
 <script>
 	window.onload = function(){
@@ -43,7 +36,7 @@
 		var button_association = new Object();
 		button_association["write_article"] = "write_article_view";
 		button_association['list_articles'] = 'list_articles_view';
-
+		console.log(button_association["write_article"]);
 
 		// Add event listener on every button
 		var views_buttons = document.getElementsByClassName('button_view');

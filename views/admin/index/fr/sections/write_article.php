@@ -4,61 +4,76 @@
 
 <!-- Main div -->
 <div class="view" hidden="true" id="write_article_view">
-	<!-- Print author -->
-	Author : <?= $_SESSION['firstname'] ?> <?= $_SESSION['lastname'] ?> <br/> <br/>
 	
+<form action="/<?= $lang ?>/admin/articles/verify" method="POST" id="article_form" enctype="multipart/form-data">
 
-	<form action="/<?= $lang ?>/admin/articles/verify" method="POST" id="article_form" enctype="multipart/form-data">
-		
+<input type="submit" name="article_visualisation" value="Prévisualiser" id="article_visualisation">
+<div class="clear-float"></div>
+
+<div class="form-container">
+		<div class="input-new-article">
+			<!-- Print author -->
+			<label>Auteur</label>
+			<input class="input-label input-disabled" name="author" type=" text" disabled="disabled" placeholder="<?= $_SESSION['firstname'] ?> <?= $_SESSION['lastname'] ?>" >
+				
+			<!-- Article title -->
+			<label>Titre de l'article</label>
+			<textarea class="input-label input-title" type="text" name="title" placeholder="Titre de l'article"><?php 
+					if(isset($_SESSION['article_title'])){ 
+						echo "value='{$_SESSION['article_title']}'";
+					}
+				?></textarea> 
+			
 		<!-- Image input -->
-		Image principale : <input name="main_picture" type="file" id='main_picture' /> <br/> <br/>
-		
-
-		<!-- Display the main image -->
-		<?php
-			if (isset($_SESSION['article_main_image'])){
+			<label class="file">Image principale</label>
+				<div class="input-select-img-container">
+					<span class="icone-upload-img"><img src="../../images/icones-form/upload-solid.svg" alt="upload image"/></span>
+					<input class="custom-file-input" name="main_picture" type="file" id='main_picture' aria-label="Choisir un fichier" />
+					
+				</div>
+			
+						
+			<div class="img-selected">
+				<!-- Display the main image -->
+				<?php
+					if (isset($_SESSION['article_main_image'])){
 				?>
 
-				<img 
-					src="/<?= $_SESSION['article_main_image'] ?>" 
-					alt='main article image'
-					height="200px"
-				/>
+					<img 
+						src="/<?= $_SESSION['article_main_image'] ?>" 
+							alt='main article image'
+					/>
 
 				<?php
-			}
-		?>
+					}
+				?>
+			</div>
+		</div>
 
-
-		<!-- Article title -->
-		<input type="text" name="title" placeholder="Article title" 
-			<?php 
-				if(isset($_SESSION['article_title'])){ 
-					echo "value='{$_SESSION['article_title']}'";
+		<div class="article-area-container">
+			<!-- Ne pas espacer la balise textarea de la balise php -->
+			<label>Contenu de l'article</label> 
+			<textarea name="article_content"><?php 
+				if(isset($_SESSION['article'])){ 
+					echo $_SESSION['article'];
 				}
-			?>
-		/> 
-		<br/>
-		
-		<!-- Ne pas espacer la balise textarea de la balise php --> 
-		<textarea name="article_content"><?php 
-			if(isset($_SESSION['article'])){ 
-				echo $_SESSION['article'];
-			}
-			else {
-			?>
+				else {?>
 [h2] Résumé [/h2]
-
+				
 [h2] A retenir [/h2]
 
 [h2] En savoir plus [/h2]
-<?php
-			}
-		
-		?></textarea>
-		<input type="submit" name="article_form" value="Enregistrer les modifications" id="article_submit">
-		<input type="submit" name="article_visualisation" value="Prévisualiser" id="article_visualisation">
-	</form>
+				<?php
+					}
+				?>
+			</textarea>
+			
+			<div class="btn-submit-container">
+				<input type="submit" name="article_form" value="Enregistrer les modifications" id="article_submit">
+			</div>
+		</div>
+	</div>
+</form>
 
 
 
