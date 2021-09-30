@@ -10,17 +10,11 @@
 		<div class="menu-lateral-admin">';
 		
 		if(in_array($CREATE_ARTICLE_PERM, $_SESSION['permissions'])){
-			echo "<button class='button_view' id='write_article'>+ Rédiger un article</button>";
-			echo "<a class='button_view menu-link' id='list_articles'>Articles en cours</a>";
+			echo "<button class='button_view menu-link' id='write_article'>+ Rédiger un article</button>";
+			echo "<a class='button_view menu-link' id='list_articles'>Mes articles en cours</a>";
 		}
 		echo'</div>';
 	
-		/*if(in_array($CREATE_ARTICLE_PERM, $_SESSION['permissions'])){
-		echo "<button class='button_view' id='write_article'>+ Rédiger un article</button>";
-		echo "<button class='button_view' id='list_articles'>Articles en cours</button>";
-		}
-		*/
-
 ?>
 		<section id='main_section'>
 		<?php
@@ -37,7 +31,26 @@
 
 
 <script>
+
+
 	window.onload = function(){
+
+		let currentArticle = document.getElementsByClassName("menu-link");
+		
+		for (var i = 0; i < currentArticle.length; i++) {
+  		  currentArticle[i].addEventListener('click', onClickLinkBG);
+		}
+
+		function onClickLinkBG(e){
+			for (var i = 0; i < currentArticle.length; i++) {
+  		 	 currentArticle[i].classList.remove("link-selected");
+		}
+			e.target.classList.add("link-selected");
+		}
+
+
+
+
 		// Associate button to the section to display
 		var button_association = new Object();
 		button_association["write_article"] = "write_article_view";

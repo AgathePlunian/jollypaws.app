@@ -1,8 +1,14 @@
 .menu-lateral-admin {
     background-color: $secondary-color;
-    width: 290px;
+    width: 310px;
     border-bottom: 1px solid $blue;
-    padding: 2em 1.5em;
+}
+
+.menu-link {
+    color: white;
+    font-weight: 500;
+    display: block;
+    padding: 1em 1.5em;
 }
 
 .container-admin {
@@ -19,19 +25,15 @@
 }
 
 #write_article {
+    margin-top: 1.5em;
+    margin-left: 1.5em;
     font-size: 16px;
     color: white;
     background: none;
     border: 1px solid white;
     padding: 0.6em 1em;
     border-radius: 5px;
-    margin-bottom: 1.5em;
+    margin-bottom: 1em;
     font-weight: 500;
 }
 
-.menu-link {
-    color: white;
-    font-weight: 500;
-    display: block;
-
-}

@@ -1,0 +1,41 @@
+.title-articles-list {
+    color: $secondary-color;margin-bottom: 1.5em;
+}
+
+.article-en-redaction {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.card-article {
+    width: 49%;
+    background-color: white;
+    border-radius: 20px;
+    padding: 0.5em 1em;
+    margin-bottom: 1em;
+    display: flex;
+    justify-content: space-between;
+
+    .card-article-text {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+    }
+
+    p {
+        margin-bottom: 0.15em;
+    }
+}
+
+.titles-card {
+    color: $secondary-color;
+    font-weight: 700;
+}
+
+.link-selected {
+    background-color: white;
+    color: $secondary-color;
+    display: block;
+}

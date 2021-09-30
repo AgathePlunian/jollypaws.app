@@ -51,6 +51,8 @@
 		<div class="article-area-container">
 			<!-- Ne pas espacer la balise textarea de la balise php -->
 			<label>Contenu de l'article</label> 
+
+			
 			<textarea name="article_content"><?php 
 				if(isset($_SESSION['article']['content'])){ 
 					echo $_SESSION['article']['content'];
@@ -77,15 +79,16 @@
 
 	<!-- Change form action if user submit the form or see the article -->
 	<script>
-
+/*
 		let imgInput = document.getElementById('main_picture');
 
 		imgInput.onchange = function() {
 			let imgSrc = imgInput.value;
 			let imgBalise = document.getElementById("imgSelected");
-			imgBalise.setAttribute("src", imgSrc);
+			//imgBalise.setAttribute("src", imgSrc);
+			console.log(imgSrc.file)
 		}
-
+*/
 		
 		// Button to see article
 		var visu_article = document.getElementById('article_visualisation');
