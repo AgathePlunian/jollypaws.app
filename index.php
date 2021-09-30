@@ -42,7 +42,8 @@
 		["~^admin/articles/write$~", 'show_writing_article_interface'],
 		["~^admin/articles/show$~", 'show_article'],
 		["~^admin/articles/verify$~", 'verify_article'],
-		["~^admin/write_article/[0-9]+$~", 'show_admin_index'],
+		["~^admin/new_article$~", 'new_article'],
+		["~^admin/edit_article/[0-9]+$~", 'show_admin_index'],
 		["~^admin$~", 'show_admin_index'],
 		
 		["~.*~", 'error_not_found'],

@@ -29,7 +29,13 @@ function load_article($article_content){
 
 function load_image($F, $input_name){
 	$target_dir = 'media/';
-	$name = basename($F[$input_name]['name']);
+	$pathinfos = pathinfo($F[$input_name]['name']);
+
+	$extension = $pathinfos['extension'];
+
+	$random = bin2hex(random_bytes(8));
+
+	$name = "{$random}.{$extension}";
 
 	$target_file = $target_dir . $name;
 

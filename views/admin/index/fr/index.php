@@ -4,22 +4,26 @@
 
 	global 	$CREATE_ARTICLE_PERM;
 
+
 	ob_start();
 	echo '
 	<div class="container-admin">
 		<div class="menu-lateral-admin">';
 		
 		if(in_array($CREATE_ARTICLE_PERM, $_SESSION['permissions'])){
-			echo "<button class='button_view' id='write_article'>+ Rédiger un article</button>";
-			echo "<a class='button_view menu-link' id='list_articles'>Articles en cours</a>";
+			$writing_article_link = "<button class='button_view' id='write_article' editing='{$editing}'>+ Rédiger un article</button>";
+
+			$list_articles_link ="<a class='button_view menu-link' id='list_articles'>Articles en cours</a>";
+
+			if($editing == true){
+				$writing_article_link = "
+					<a href='/{$lang}/admin/new_article' class='menu-link'> + Rédiger un article </a>";
+			}
+
+			echo $writing_article_link;
+			echo $list_articles_link;
 		}
 		echo'</div>';
-	
-		/*if(in_array($CREATE_ARTICLE_PERM, $_SESSION['permissions'])){
-		echo "<button class='button_view' id='write_article'>+ Rédiger un article</button>";
-		echo "<button class='button_view' id='list_articles'>Articles en cours</button>";
-		}
-		*/
 
 ?>
 		<section id='main_section'>
@@ -49,7 +53,7 @@
 		var route_elements = url.split('/');
 		console.log(url);
 
-		if(route_elements.includes('write_article')) {
+		if(route_elements.includes('new_article') || route_elements.includes('edit_article')) {
 			change_view('write_article');
 		}
 

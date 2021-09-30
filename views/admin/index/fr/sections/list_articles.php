@@ -16,7 +16,7 @@
 						<li>Auteur : <?= $_SESSION['firstname'] ?> <?= $_SESSION['lastname'] ?> </li>
 						<li>Date de création : <?= $article['creation_date'] ?> </li>
 						<li>Date de dernière modification : <?= $article['last_change_date'] ?> </li>
-						<li><a href="/<?= $lang ?>/admin/write_article/<?= $article['id'] ?>"> Editer </a></li>
+						<li><a href="/<?= $lang ?>/admin/edit_article/<?= $article['id'] ?>"> Editer </a></li>
 					</ul>
 				</li>
 
