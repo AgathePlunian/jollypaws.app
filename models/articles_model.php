@@ -7,7 +7,15 @@ class ArticleManager{
 		$db = $this->db_connect();
 
 		// Ajoute l'article en bdd
-		$query = $db->prepare('INSERT INTO articles(author_id, title, content, main_image, publish_date) VALUES(:author_id, :title, :content, :main_image, :publish_date);');
+		$sql = "
+			INSERT INTO 
+				articles
+					(author_id, title, content, main_image, publish_date)
+
+			VALUES
+				(:author_id, :title, :content, :main_image, :publish_date)
+		";
+		$query = $db->prepare($sql);
 		$success = $query->execute(array(
 			'author_id' => $author_id,
 			'title' => $title,
@@ -18,6 +26,30 @@ class ArticleManager{
 		if ($success == false){
 			throw new Exception('[create_article] can not create article in database');
 		}
+
+		// Get the id of the article
+		$sql = "
+			SELECT 
+				max(id) 
+
+			FROM 
+				articles
+
+			WHERE
+				author_id=:author_id
+		";
+
+		$query = $db->prepare($sql);
+		$success = $query->execute(array(
+			'author_id' => $author_id,
+		));
+
+		if($success == false){
+			throw new Exception('[create_article] can not get article id');
+		}
+
+		$result = $query->fetch();
+		return $result['id'];
 	}
 
 

@@ -47,8 +47,8 @@ function show_admin_index($route, $lang){
 	// if user has rights to write articles
 	if (in_array($CREATE_ARTICLE_PERM, $_SESSION['permissions'])){
 		$list_articles = $article_manager->list_articles_by_user_id($_SESSION['id']);
-		$categories = $category_manager->list_all_categories();
-		
+		$all_categories = $category_manager->list_all_categories();
+
 		$route_elements = explode('/', $route);
 
 		$editing = false;
@@ -56,6 +56,14 @@ function show_admin_index($route, $lang){
 		if(in_array('edit_article', $route_elements)){
 			$id_index = array_search('edit_article', $route_elements)+1;
 			$id = $route_elements[$id_index];
+
+			// Get the list of categories
+			$article_categories = $category_manager->get_article_categories($id);
+			$article_categories_id_list = array();
+			foreach($article_categories as $category){
+				$article_categories_id_list[] = $category['id_category'];
+			}
+
 			$_SESSION['article'] = $article_manager->get_article_content($id);
 			$editing = true;
 		}
@@ -172,7 +180,12 @@ function verify_article($route, $lang, $P, $F=false){
 			$article_manager->update_article($_SESSION['article']['id'], $P['title'], $P['article_content'], $image);
 		}
 		else {
-			$article_manager->create_article($_SESSION['id'], $P['title'], $P['article_content'], $image);
+			$_SESSION['article']['id'] = $article_manager->create_article($_SESSION['id'], $P['title'], $P['article_content'], $image);
+		}
+
+		if(isset($P['categories'])) {
+			$category_manager = new CategoryManager();
+			$category_manager->add_categories_to_article($_SESSION['article']['id'], $P['categories']);
 		}
 		$is_save_success = true;
 	}
