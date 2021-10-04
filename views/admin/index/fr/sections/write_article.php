@@ -44,6 +44,11 @@
 
 				<?php
 					}
+					else {
+				?>
+					<img id="imgSelected" src="" alt='main article image'/>
+				<?php
+					}
 				?>
 			</div>
 		</div>
@@ -79,16 +84,20 @@
 
 	<!-- Change form action if user submit the form or see the article -->
 	<script>
-/*
+
 		let imgInput = document.getElementById('main_picture');
 
 		imgInput.onchange = function() {
-			let imgSrc = imgInput.value;
-			let imgBalise = document.getElementById("imgSelected");
-			//imgBalise.setAttribute("src", imgSrc);
-			console.log(imgSrc.file)
+			if(this.files && this.files[0]){
+				var reader = new FileReader();
+				reader.onload = function(e){
+					var img_selected = document.getElementById('imgSelected');
+					img_selected.setAttribute('src', e.target.result);
+				};
+				reader.readAsDataURL(this.files[0]);
+			}
 		}
-*/
+
 		
 		// Button to see article
 		var visu_article = document.getElementById('article_visualisation');
