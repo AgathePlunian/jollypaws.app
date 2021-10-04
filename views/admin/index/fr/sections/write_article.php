@@ -44,6 +44,11 @@
 
 				<?php
 					}
+					else {
+				?>
+					<img id="imgSelected" src="" alt='main article image'/>
+				<?php
+					}
 				?>
 			</div>
 		</div>
@@ -72,15 +77,28 @@
 					}
 					else {?>
 [h2] Résumé [/h2]
-				
+
 [h2] A retenir [/h2]
 
-[h2] En savoir plus [/h2]
-					<?php
-						}
-					?>
+[h2] En savoir plus [/h2]<?php
+					}
+				?>
 				</textarea>
 			</div>
+
+			<div class="categories-container">
+				<?php
+					foreach($categories as $category){
+						?>
+						<div class="category-checkbox">
+							<label><?= $category['name'] ?></label>
+							<input type="checkbox" name="categories[]" value="<?= $category['id'] ?>">
+						</div>
+						<?php
+					}
+				?>
+			</div>
+			
 			<div class="btn-submit-container">
 				<input type="submit" name="article_form" value="Enregistrer les modifications" id="article_submit">
 			</div>
@@ -92,16 +110,21 @@
 
 	<!-- Change form action if user submit the form or see the article -->
 	<script>
-/*
+
 		let imgInput = document.getElementById('main_picture');
 
+		// Displaying the image
 		imgInput.onchange = function() {
-			let imgSrc = imgInput.value;
-			let imgBalise = document.getElementById("imgSelected");
-			//imgBalise.setAttribute("src", imgSrc);
-			console.log(imgSrc.file)
+			if(this.files && this.files[0]){
+				var reader = new FileReader();
+				reader.onload = function(e){
+					var img_selected = document.getElementById('imgSelected');
+					img_selected.setAttribute('src', e.target.result);
+				};
+				reader.readAsDataURL(this.files[0]);
+			}
 		}
-*/
+
 		
 		// Button to see article
 		var visu_article = document.getElementById('article_visualisation');

@@ -9,7 +9,6 @@
 			<?php
 				foreach($list_articles as $article){
 					?>
-
 					<div class="card-article">	
 						<div class="card-article-text">	
 							<p><span class="titles-card">Titre :</span> <?= $article['title'] ?> </p>

@@ -7,6 +7,7 @@ $CREATE_ARTICLE_PERM = "CREATE_ARTICLE";
 require_once('models/user_model.php');
 require_once('models/permissions_model.php');
 require_once('models/articles_model.php');
+require_once('models/categories_model.php');
 
 
 // Utils
@@ -41,11 +42,13 @@ function show_admin_index($route, $lang){
 	}
 
 	$article_manager = new ArticleManager();
+	$category_manager = new CategoryManager();
 
 	// if user has rights to write articles
 	if (in_array($CREATE_ARTICLE_PERM, $_SESSION['permissions'])){
 		$list_articles = $article_manager->list_articles_by_user_id($_SESSION['id']);
-
+		$categories = $category_manager->list_all_categories();
+		
 		$route_elements = explode('/', $route);
 
 		$editing = false;
