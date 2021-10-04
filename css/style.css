@@ -2371,11 +2371,17 @@ input[type=date]::-webkit-calendar-picker-indicator {
   -webkit-user-select: none;
   cursor: pointer;
   font-size: 14px;
-  font-family: "mulish";
+  font-family: "mulish", sans-serif;
+}
+
+.form-col-right {
+  width: 68%;
 }
 
 .article-area-container {
-  width: 68%;
+  background-color: white;
+  border-radius: 10px;
+  padding: 0.5em;
 }
 .article-area-container textarea {
   padding: 1em;
@@ -2429,6 +2435,43 @@ input[type=date]::-webkit-calendar-picker-indicator {
   border-radius: 20px;
   margin-bottom: 0.5em;
   float: right;
+}
+
+.editing-text-bar {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #F2EFEF;
+  border-radius: 10px 10px 0 0;
+  padding: 0 1em;
+}
+.editing-text-bar .editing-text-icones {
+  display: flex;
+}
+.editing-text-bar span {
+  display: block;
+  height: 28px;
+  margin-right: 0.8em;
+  cursor: pointer;
+  padding: 0.3em;
+  border-radius: 5px;
+}
+.editing-text-bar span:hover {
+  background-color: #a3a3a3;
+}
+.editing-text-bar span img {
+  height: 100%;
+  width: auto;
+}
+
+.edit-new-title {
+  font-weight: 700;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+.edit-new-title:hover {
+  text-decoration: underline;
 }
 
 .title-articles-list {

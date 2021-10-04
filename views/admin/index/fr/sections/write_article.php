@@ -53,16 +53,29 @@
 			</div>
 		</div>
 
-		<div class="article-area-container">
-			<!-- Ne pas espacer la balise textarea de la balise php -->
+		<div class="form-col-right">
 			<label>Contenu de l'article</label> 
-
 			
-			<textarea name="article_content"><?php 
-				if(isset($_SESSION['article']['content'])){ 
-					echo $_SESSION['article']['content'];
-				}
-				else {?>
+			<div class="article-area-container">
+				<div class="editing-text-bar">
+					<div class="editing-text-icones">
+						<span><img src="../../../images/icones-text/bold-solid.svg" alt=" text bold"/></span>
+						<span><img src="../../../images/icones-text/italic-solid.svg" alt="text italic"/></span>
+						<span><img src="../../../images/icones-text/underline-solid.svg" alt="text underlined"/></span>
+						<span><img src="../../../images/icones-text/strikethrough-solid.svg" alt="text strikethrough"/></span>
+						<span><img src="../../../images/icones-text/list-ul-solid.svg" alt="list"/></span>
+					</div>
+					<div>
+						<p class="edit-new-title">+ Ajouter un sous titre</p>
+					</div>
+				</div>
+
+				<!-- Ne pas espacer la balise textarea de la balise php -->
+				<textarea name="article_content"><?php 
+					if(isset($_SESSION['article']['content'])){ 
+						echo $_SESSION['article']['content'];
+					}
+					else {?>
 [h2] Résumé [/h2]
 
 [h2] A retenir [/h2]
@@ -70,7 +83,8 @@
 [h2] En savoir plus [/h2]<?php
 					}
 				?>
-			</textarea>
+				</textarea>
+			</div>
 
 			<div class="categories-container">
 				<?php
