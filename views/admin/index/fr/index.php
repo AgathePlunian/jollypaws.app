@@ -38,8 +38,6 @@
 		?>
 		</section>
 	</div>
-
-
 <script>
 
 

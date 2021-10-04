@@ -71,11 +71,17 @@
     -webkit-user-select: none;
     cursor: pointer;
     font-size: 14px;
-    font-family: "mulish";
+    font-family: "mulish", sans-serif;
   }
+
+.form-col-right {
+    width: 68%;
+}
  
 .article-area-container {
-    width: 68%;
+    background-color: white;
+    border-radius: 10px; 
+    padding: 0.5em;
     textarea {
         padding: 1em;
         width: 100%;
@@ -129,4 +135,48 @@
     border-radius: 20px;
     margin-bottom: 0.5em;
     float: right;
+}
+
+
+ 
+.editing-text-bar {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:#F2EFEF;
+    border-radius: 10px 10px 0 0;
+    padding:0 1em;
+
+    .editing-text-icones {
+        display: flex;
+    }
+
+    span {
+        display: block;
+        height: 28px;
+        margin-right: 0.8em;
+        cursor: pointer;
+        padding: 0.3em;
+        border-radius: 5px;
+
+        &:hover {
+         background-color:$medium-grey;
+        }
+
+        img {
+            height: 100%;
+            width: auto;
+        }
+    }
+}
+
+.edit-new-title {
+    font-weight: 700;
+    margin-bottom: 0;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+    } 
 }
