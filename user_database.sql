@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : lun. 04 oct. 2021 à 10:39
+-- Généré le : lun. 04 oct. 2021 à 12:37
 -- Version du serveur :  10.3.31-MariaDB-0ubuntu0.20.04.1
 -- Version de PHP : 7.4.3
 
@@ -68,6 +68,16 @@ CREATE TABLE `categories` (
   `id` int(255) NOT NULL,
   `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `categories`
+--
+
+INSERT INTO `categories` (`id`, `name`) VALUES
+(1, 'PTSD'),
+(2, 'Enfant'),
+(3, 'TRAUMA'),
+(4, 'POMPIERS');
 
 -- --------------------------------------------------------
 
@@ -185,7 +195,7 @@ ALTER TABLE `articles`
 -- AUTO_INCREMENT pour la table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `permissions`

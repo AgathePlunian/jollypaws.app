@@ -64,14 +64,26 @@
 				}
 				else {?>
 [h2] Résumé [/h2]
-				
+
 [h2] A retenir [/h2]
 
-[h2] En savoir plus [/h2]
-				<?php
+[h2] En savoir plus [/h2]<?php
 					}
 				?>
 			</textarea>
+
+			<div class="categories-container">
+				<?php
+					foreach($categories as $category){
+						?>
+						<div class="category-checkbox">
+							<label><?= $category['name'] ?></label>
+							<input type="checkbox" name="categories[]" value="<?= $category['id'] ?>">
+						</div>
+						<?php
+					}
+				?>
+			</div>
 			
 			<div class="btn-submit-container">
 				<input type="submit" name="article_form" value="Enregistrer les modifications" id="article_submit">
@@ -87,6 +99,7 @@
 
 		let imgInput = document.getElementById('main_picture');
 
+		// Displaying the image
 		imgInput.onchange = function() {
 			if(this.files && this.files[0]){
 				var reader = new FileReader();
