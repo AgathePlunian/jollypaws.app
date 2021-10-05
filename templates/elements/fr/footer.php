@@ -3,7 +3,7 @@
 ?>
 <footer class="main-footer">
   <div class="footer-header">
-    <a class="logo-ResilEyes" href="/<?= $lang =>/">
+    <a class="logo-ResilEyes" href="/<?= $lang ?>/">
       <img src="/images/ResilEyes-logo-clair.png"  alt="ResilEyes-white-logo">
       <p>ResilEyes</p>
     </a>
