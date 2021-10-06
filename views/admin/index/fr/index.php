@@ -1,8 +1,5 @@
 <?php
-	require('views/admin/index/fr/sections/write_article.php');
-	require('views/admin/index/fr/sections/list_articles.php');
-
-	global 	$CREATE_ARTICLE_PERM;
+	global 	$CREATE_ARTICLE_PERM, $DELETE_ARTICLE_PERM;
 
 
 	ob_start();
@@ -10,7 +7,12 @@
 	<div class="container-admin">
 		<div class="menu-lateral-admin">';
 		
+		// Création & modification des articles
 		if(in_array($CREATE_ARTICLE_PERM, $_SESSION['permissions'])){
+			require('views/admin/index/fr/sections/write_article.php');
+			require('views/admin/index/fr/sections/list_articles.php');
+
+
 			$writing_article_link = "<button class='button_view menu-link' id='write_article' editing='{$editing}'>+ Rédiger un article</button>";
 
 			$list_articles_link ="<a class='button_view menu-link' id='list_articles'>Mes articles en cours</a>";
@@ -23,18 +25,34 @@
 			echo $writing_article_link;
 			echo $list_articles_link;
 		}
+
+
+		// Articles en cours de suppression
+		if(in_array($DELETE_ARTICLE_PERM, $_SESSION['permissions'])){
+			require('views/admin/index/fr/sections/trash.php');
+
+
+			$trash_link = "<a class='button_view menu-link' id='trash_articles'>Corbeille des articles</a>";
+
+			echo $trash_link;
+		}
 		echo'</div>';
 
 ?>
 		<section id='main_section'>
 		<?php
-			global $CREATE_ARTICLE_PERM;
+			global $CREATE_ARTICLE_PERM, $DELETE_ARTICLE_PERM;
 
 			// Ecriture d'article
 			if (in_array($CREATE_ARTICLE_PERM, $_SESSION['permissions'])){
 				echo $write_article;
 				echo $list_articles;
 			}
+
+			if (in_array($DELETE_ARTICLE_PERM, $_SESSION['permissions'])){
+				echo $trash;
+			}
+
 		?>
 		</section>
 	</div>
@@ -63,7 +81,7 @@
 		var button_association = new Object();
 		button_association["write_article"] = "write_article_view";
 		button_association['list_articles'] = 'list_articles_view';
-		console.log(button_association["write_article"]);
+		button_association['trash_articles'] = 'trash_article_view';
 
 		var url = window.location.href;
 

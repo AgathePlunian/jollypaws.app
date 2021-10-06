@@ -44,6 +44,8 @@
 		["~^admin/articles/verify$~", 'verify_article'],
 		["~^admin/new_article$~", 'new_article'],
 		["~^admin/edit_article/[0-9]+$~", 'show_admin_index'],
+		["~^admin/recover/[0-9]+$~", 'recover_article_from_trash'],
+		["~^admin/trash/[0-9]+$~", 'put_article_in_trash'],
 		["~^admin$~", 'show_admin_index'],
 		
 		["~.*~", 'error_not_found'],

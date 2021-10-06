@@ -19,7 +19,7 @@
 						<div>
 							<a class="btn-empty-secondary" href="/<?= $lang ?>/admin/edit_article/<?= $article['id'] ?>">Prévisualiser</a>
 							<a class="btn-full-secondary" href="/<?= $lang ?>/admin/edit_article/<?= $article['id'] ?>">Modifier</a>
-							<a class="btn-full-primary" href="/<?= $lang ?>/admin/edit_article/<?= $article['id'] ?>">Supprimer</a>
+							<a class="btn-full-primary" href="/<?= $lang ?>/admin/trash/<?= $article['id'] ?>">Supprimer</a>
 						</div>
 					</div>
 

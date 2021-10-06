@@ -33,43 +33,53 @@ function new_article($route,$lang){
 
 // Show admin main menu
 function show_admin_index($route, $lang){
-	// Load globals perms
-	global $CREATE_ARTICLE_PERM;
-	
-	// If no session
-	if(!isset($_SESSION['id'])) {
-		header("Location: /{$lang}/admin/login");
-	}
-
-	$article_manager = new ArticleManager();
-	$category_manager = new CategoryManager();
-
-	// if user has rights to write articles
-	if (in_array($CREATE_ARTICLE_PERM, $_SESSION['permissions'])){
-		$list_articles = $article_manager->list_articles_by_user_id($_SESSION['id']);
-		$all_categories = $category_manager->list_all_categories();
-
-		$route_elements = explode('/', $route);
-
-		$editing = false;
-		// Editing an article
-		if(in_array('edit_article', $route_elements)){
-			$id_index = array_search('edit_article', $route_elements)+1;
-			$id = $route_elements[$id_index];
-
-			// Get the list of categories
-			$article_categories = $category_manager->get_article_categories($id);
-			$article_categories_id_list = array();
-			foreach($article_categories as $category){
-				$article_categories_id_list[] = $category['id_category'];
-			}
-
-			$_SESSION['article'] = $article_manager->get_article_content($id);
-			$editing = true;
+	try{
+		// Load globals perms
+		global $CREATE_ARTICLE_PERM, $DELETE_ARTICLE_PERM;
+		
+		// If no session
+		if(!isset($_SESSION['id'])) {
+			header("Location: /{$lang}/admin/login");
 		}
-	}
 
-	require('views/admin/index_view.php');
+		$article_manager = new ArticleManager();
+		$category_manager = new CategoryManager();
+
+		// if user has rights to write articles
+		if (in_array($CREATE_ARTICLE_PERM, $_SESSION['permissions'])){
+			$list_articles = $article_manager->list_articles_by_user_id($_SESSION['id']);
+			$all_categories = $category_manager->list_all_categories();
+
+			$route_elements = explode('/', $route);
+
+			$editing = false;
+			// Editing an article
+			if(in_array('edit_article', $route_elements)){
+				$id_index = array_search('edit_article', $route_elements)+1;
+				$id = $route_elements[$id_index];
+
+				// Get the list of categories
+				$article_categories = $category_manager->get_article_categories($id);
+				$article_categories_id_list = array();
+				foreach($article_categories as $category){
+					$article_categories_id_list[] = $category['id_category'];
+				}
+
+				$_SESSION['article'] = $article_manager->get_article_content($id);
+				$editing = true;
+			}
+		}
+
+		// If user has the delete article perm
+		if(in_array($DELETE_ARTICLE_PERM, $_SESSION['permissions'])){
+			$trashed_articles = $article_manager->list_trashed_articles();		
+		}
+
+		require('views/admin/index_view.php');
+	}
+	catch(Exception $e){
+		header("Location: /{$lang}/");
+	}
 }
 
 
@@ -80,57 +90,62 @@ function disconnect($route, $lang){
 }
 
 
-function show_writing_article_interface($route, $lang){
-	// Get the global var
-	global $CREATE_ARTICLE_PERM;
+// function show_writing_article_interface($route, $lang){
+// 	// Get the global var
+// 	global $CREATE_ARTICLE_PERM;
 
-	if(in_array($CREATE_ARTICLE_PERM, $_SESSION['permissions'])){
-		require('views/admin/articles/write_article_view.php');
-	}
-	else {
-		header("Location: /{$lang}/admin");
-	}
-}
+// 	if(in_array($CREATE_ARTICLE_PERM, $_SESSION['permissions'])){
+// 		require('views/admin/articles/write_article_view.php');
+// 	}
+// 	else {
+// 		header("Location: /{$lang}/admin");
+// 	}
+// }
 
 
 // Display article
 function show_article($route, $lang, $P=false, $F=false){
-	// If there's no new image, F = false
-	if(empty($F['main_picture']['name'])){
-		$F = false;
+	try{
+		// If there's no new image, F = false
+		if(empty($F['main_picture']['name'])){
+			$F = false;
+		}
+
+		// If no post data (second time this function is called)
+		if($P == false || empty($P)){
+			// Check if we got every information needed to display the article
+			if(isset($_SESSION['article'])) {
+				$article_content = load_article($_SESSION['article']['content']);
+				$article_title = $_SESSION['article']['title'];
+				$article_main_image = $_SESSION['article']['main_image'];
+				require('views/admin/articles/show_article_view.php');
+			}
+			else{
+				header("Location: /{$lang}/admin/articles/write");
+			}
+		}
+		// If post data (first time this function is called), 
+		// load the data then call itself without sending data with post
+		else {
+			$_SESSION['article']['content'] = $P['article_content'];
+			$_SESSION['article']['title'] = $P['title'];
+
+
+			if(!isset($_SESSION['article']['main_image']) && $F != false)  {
+				$_SESSION['article']['main_image'] = load_image($F, 'main_picture');
+			}
+			elseif(isset($_SESSION['article']['main_image']) && $F != false && basename($_SESSION['article']['main_image']) != $F['main_picture']['name']){
+				$_SESSION['article']['main_image'] = load_image($F, 'main_picture');
+			}
+			elseif(!isset($_SESSION['article']['main_image']) && $F == false) {
+				$_SESSION['article']['main_image'] = '';
+			}
+
+			header("Location: /{$lang}/admin/articles/show");
+		}
 	}
-
-	// If no post data (second time this function is called)
-	if($P == false || empty($P)){
-		// Check if we got every information needed to display the article
-		if(isset($_SESSION['article'])) {
-			$article_content = load_article($_SESSION['article']['content']);
-			$article_title = $_SESSION['article']['title'];
-			$article_main_image = $_SESSION['article']['main_image'];
-			require('views/admin/articles/show_article_view.php');
-		}
-		else{
-			header("Location: /{$lang}/admin/articles/write");
-		}
-	}
-	// If post data (first time this function is called), 
-	// load the data then call itself without sending data with post
-	else {
-		$_SESSION['article']['content'] = $P['article_content'];
-		$_SESSION['article']['title'] = $P['title'];
-
-
-		if(!isset($_SESSION['article']['main_image']) && $F != false)  {
-			$_SESSION['article']['main_image'] = load_image($F, 'main_picture');
-		}
-		elseif(isset($_SESSION['article']['main_image']) && $F != false && basename($_SESSION['article']['main_image']) != $F['main_picture']['name']){
-			$_SESSION['article']['main_image'] = load_image($F, 'main_picture');
-		}
-		elseif(!isset($_SESSION['article']['main_image']) && $F == false) {
-			$_SESSION['article']['main_image'] = '';
-		}
-
-		header("Location: /{$lang}/admin/articles/show");
+	catch(Exception $e){
+		header("Location : /{$lang}/admin");
 	}
 	
 }
@@ -226,10 +241,10 @@ function verify_login($route, $lang, $P=false, $F=false){
 		$password = $result[4];
 
 		if(password_verify($P['password'], $password)){
-			$_SESSION['id'] = $result[0];
-			$_SESSION['firstname'] = $result[1];
-			$_SESSION['lastname'] = $result[2];
-			$_SESSION['email'] = $result[3];
+			$_SESSION['id'] = $result['id'];
+			$_SESSION['firstname'] = $result['firstname'];
+			$_SESSION['lastname'] = $result['lastname'];
+			$_SESSION['email'] = $result['email'];
 
 			load_permissions($_SESSION['id']);
 
@@ -241,6 +256,54 @@ function verify_login($route, $lang, $P=false, $F=false){
 	}
 	catch(Exception $e){
 		header("Location: /{$lang}/admin/login/fail");
+	}
+}
+
+
+function recover_article_from_trash($route, $lang){
+	try{
+		global $DELETE_ARTICLE_PERM;
+		if(!in_array($DELETE_ARTICLE_PERM, $_SESSION['permissions'])){
+			throw new Exception('[recover_article_from_trash] not the permission to recover article');
+		}
+
+		$route_elements = explode('/', $route);
+		$article_pos = array_search('recover', $route_elements);
+		if($article_pos == false){
+			throw new Exception('[recover_article_from_trash] wrong route');
+		}
+		$article_id = $route_elements[$article_pos + 1];
+
+		$article_manager = new ArticleManager();
+		$article_manager->recover_article_from_trash($article_id);
+		header("Location: /{$lang}/admin");
+	}
+	catch(Exception $e){
+		header("Location: /{$lang}/admin");
+	}
+}
+
+
+function put_article_in_trash($route, $lang){
+	try{
+		global $DELETE_ARTICLE_PERM;
+		if(!in_array($DELETE_ARTICLE_PERM, $_SESSION['permissions'])){
+			throw new Exception('[recover_article_from_trash] not the permission to recover article');
+		}
+
+		$route_elements = explode('/', $route);
+		$article_pos = array_search('trash', $route_elements);
+		if($article_pos == false){
+			throw new Exception('[recover_article_from_trash] wrong route');
+		}
+		$article_id = $route_elements[$article_pos + 1];
+
+		$article_manager = new ArticleManager();
+		$article_manager->set_article_in_trash($article_id);
+		header("Location: /{$lang}/admin");
+	}
+	catch(Exception $e){
+		header("Location: /{$lang}/admin");
 	}
 }
 

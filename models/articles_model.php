@@ -102,6 +102,15 @@ class ArticleManager{
 
 			WHERE 
 				author_id=:id
+				AND
+				id NOT IN
+					(
+						SELECT
+							id_article
+
+						FROM 
+							trash
+					)
 		";
 
 		$query = $db->prepare($sql);
@@ -135,6 +144,84 @@ class ArticleManager{
 		$article = $query->fetch();
 
 		return $article;
+	}
+
+
+	// Place an article in the trash
+	public function set_article_in_trash($article_id){
+		$db = $this->db_connect();
+
+		$sql = "
+			INSERT INTO
+				trash (id_article)
+			VALUES
+				(:article_id)
+		";
+
+		$query = $db->prepare($sql);
+		$success = $query->execute(array(
+			'article_id' => $article_id,
+		));
+
+		if($success == false){
+			throw new Exception('[set_article_in_trash] can not place article in trash');
+		}
+	}
+
+
+	public function list_trashed_articles(){
+		$db = $this->db_connect();
+
+		$sql = "
+			SELECT
+				articles.id,
+				title, 
+				creation_date, 
+				last_change_date,
+				firstname,
+				lastname
+
+			FROM 
+				articles
+
+			INNER JOIN trash 
+				ON 
+					trash.id_article = articles.id
+
+			INNER JOIN users 
+				ON 
+					users.id = articles.author_id
+		";
+
+		$query = $db->prepare($sql);
+		$success = $query->execute();
+		if($success == false){
+			throw new Exception('[list_trashed_articles] can not list trashed articles');
+		}
+
+		$result = $query->fetchAll();
+		return $result;
+	}
+
+
+	// Recover an article from database
+	public function recover_article_from_trash($article_id){
+		$db = $this->db_connect();
+
+		$sql = "
+			DELETE FROM
+				trash
+			WHERE
+				id_article=:id_article
+		";
+
+		$query = $db->prepare($sql);
+		$success = $query->execute(array(
+			'id_article' => $article_id,
+		));
+		if($success == false){
+			throw new Exception('[recover_article_from_trash] can not recover article from trash');
+		}
 	}
 
 
