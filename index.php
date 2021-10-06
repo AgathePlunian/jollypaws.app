@@ -47,6 +47,8 @@
 		["~^admin/recover/[0-9]+$~", 'recover_article_from_trash'],
 		["~^admin/trash/[0-9]+$~", 'put_article_in_trash'],
 		["~^admin$~", 'show_admin_index'],
+
+		["~^article/show/[0-9]+$~", 'display_article'],
 		
 		["~.*~", 'error_not_found'],
 	];

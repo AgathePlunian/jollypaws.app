@@ -103,6 +103,35 @@ function disconnect($route, $lang){
 // }
 
 
+// Display an article with article id in the route
+function display_article($route, $lang){
+	try{
+		$route_elements = explode('/', $route);
+		$id_pos = array_search('show', $route_elements);
+		if($id_pos == false){
+			throw new Exception('[display_article] can not get article id');
+		}
+		$id_article = $route_elements[$id_pos + 1];
+
+		$article_manager = new ArticleManager();
+		$article = $article_manager->get_article_content($id_article);
+
+		$article_content = load_article($article['content']);
+		$article_title = $article['title'];
+		$article_main_image = $article['main_image'];
+		require('views/admin/articles/show_article_view.php');
+	}
+	catch(Exception $e){
+		if(isset($_SESSION['id'])){
+			header("Location: /{$lang}/admin");
+		}
+		else {
+			header("Location: /{$lang}/");
+		}
+	}
+}
+
+
 // Display article
 function show_article($route, $lang, $P=false, $F=false){
 	try{
@@ -152,73 +181,86 @@ function show_article($route, $lang, $P=false, $F=false){
 
 
 // Verify article and save it in database
-function verify_article($route, $lang, $P, $F=false){
-	// If there's no post data
-	if(!isset($P) || empty($P)){
+function verify_article($route, $lang, $P=false, $F=false){
+	try{
+		// Load globals perms
+		global $CREATE_ARTICLE_PERM;
 
-		#### NEED TO MAKE FAILURE MESSAGE ####
-		header("Location: /{$lang}/admin");
-	}
+		// if user has rights to write articles
+		if (!in_array($CREATE_ARTICLE_PERM, $_SESSION['permissions'])){
+			throw new Exception('[verify_article] operation refused');
+		}
 
-	// If data is missing
-	if(!isset($P['title']) || empty($P['title']) || !isset($P['article_content']) || empty($P['article_content'])) {
+		// If there's no post data
+		if($P == false || empty($P)){
+
+			#### NEED TO MAKE FAILURE MESSAGE ####
+			header("Location: /{$lang}/admin");
+		}
+
+		// If data is missing
+		if(!isset($P['title']) || empty($P['title']) || !isset($P['article_content']) || empty($P['article_content'])) {
+			
+			#### NEED TO MAKE FAILURE MESSAGE ####
+			header("Location: /{$lang}/admin");
+		}
+
+
+		// Test if image sumbited or in session
+		if(isset($F['main_picture']) && !empty($F['main_picture']['name'])){
+			// If old image saved
+			if(isset($_SESSION['article']['main_image'])){
+				unlink($_SESSION['article']['main_image']);
+				unset($_SESSION['article']['main_image']);
+			}
+
+			$image = load_image($F, 'main_picture');
+		}
+		elseif(isset($_SESSION['article']['main_image'])){
+			// If there's no new image but there's already one
+			$image = $_SESSION['article']['main_image'];
+		}
+		else{
+			$image = null;
+		}
+
+
+		// Save the article in database
+		$is_save_success = false;
+		$article_manager = new ArticleManager();
+		try {
+			if(isset($_SESSION['article']['id'])) {
+				$article_manager->update_article($_SESSION['article']['id'], $P['title'], $P['article_content'], $image);
+			}
+			else {
+				$_SESSION['article']['id'] = $article_manager->create_article($_SESSION['id'], $P['title'], $P['article_content'], $image);
+			}
+
+			if(isset($P['categories'])) {
+				$category_manager = new CategoryManager();
+				$category_manager->add_categories_to_article($_SESSION['article']['id'], $P['categories']);
+			}
+			$is_save_success = true;
+		}
+		catch(Exception $e) {
+			die($e);
+			// #### NEED TO MAKE FAILURE MESSAGE ####
+			header("Location: /{$lang}/admin");
+		}
 		
-		#### NEED TO MAKE FAILURE MESSAGE ####
-		header("Location: /{$lang}/admin");
-	}
 
+		// If article is correctly saved in database
+		if($is_save_success == true){
+			// Unset old session vars
+			if(isset($_SESSION['article'])){
+				unset($_SESSION['article']);
+			}
 
-	// Test if image sumbited or in session
-	if(isset($F['main_picture']) && !empty($F['main_picture']['name'])){
-		// If old image saved
-		if(isset($_SESSION['article']['main_image'])){
-			unlink($_SESSION['article']['main_image']);
-			unset($_SESSION['article']['main_image']);
+			// #### NEED TO MAKE SUCCESS MESSAGE ####
+			header("Location: /{$lang}/admin");
 		}
-
-		$image = load_image($F, 'main_picture');
 	}
-	elseif(isset($_SESSION['article']['main_image'])){
-		// If there's no new image but there's already one
-		$image = $_SESSION['article']['main_image'];
-	}
-	else{
-		$image = null;
-	}
-
-
-	// Save the article in database
-	$is_save_success = false;
-	$article_manager = new ArticleManager();
-	try {
-		if(isset($_SESSION['article']['id'])) {
-			$article_manager->update_article($_SESSION['article']['id'], $P['title'], $P['article_content'], $image);
-		}
-		else {
-			$_SESSION['article']['id'] = $article_manager->create_article($_SESSION['id'], $P['title'], $P['article_content'], $image);
-		}
-
-		if(isset($P['categories'])) {
-			$category_manager = new CategoryManager();
-			$category_manager->add_categories_to_article($_SESSION['article']['id'], $P['categories']);
-		}
-		$is_save_success = true;
-	}
-	catch(Exception $e) {
-		die($e);
-		// #### NEED TO MAKE FAILURE MESSAGE ####
-		header("Location: /{$lang}/admin");
-	}
-	
-
-	// If article is correctly saved in database
-	if($is_save_success == true){
-		// Unset old session vars
-		if(isset($_SESSION['article'])){
-			unset($_SESSION['article']);
-		}
-
-		// #### NEED TO MAKE SUCCESS MESSAGE ####
+	catch(Exception $e){
 		header("Location: /{$lang}/admin");
 	}
 }
