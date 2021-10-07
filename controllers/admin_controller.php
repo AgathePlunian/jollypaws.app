@@ -538,6 +538,8 @@ function publish_article($route, $lang){
 
 		// Check if article can be published
 		$article_manager = new ArticleManager();
+		
+		// Check if the user can publish the article
 		// if(!$article_manager->can_article_be_published($article_id, $_SESSION['id'])){
 		// 	throw new Exception('Operation not allowed');
 		// }
