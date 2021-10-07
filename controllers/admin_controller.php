@@ -35,7 +35,13 @@ function new_article($route,$lang){
 function show_admin_index($route, $lang){
 	try{
 		// Load globals perms
-		global $CREATE_ARTICLE_PERM, $DELETE_ARTICLE_PERM;
+		global 
+			$CREATE_ARTICLE_PERM, 
+			$DELETE_ARTICLE_PERM, 
+			$APPROVE_ARTICLE_PERM,
+			$PUBLISH_ARTICLE_PERM,
+			$CREATE_ACCOUNT_PERM;
+
 		
 		// If no session
 		if(!isset($_SESSION['id'])) {
@@ -75,10 +81,60 @@ function show_admin_index($route, $lang){
 			$trashed_articles = $article_manager->list_trashed_articles();		
 		}
 
+
+		// If user can approve articles
+		if(in_array($APPROVE_ARTICLE_PERM, $_SESSION['permissions'])){
+			$waiting_articles = $article_manager->list_articles_waiting_for_approval();
+		}
+
+
+		// If user can publish articles
+		if(in_array($PUBLISH_ARTICLE_PERM, $_SESSION['permissions'])){
+			$published_articles = $article_manager->list_published_articles();
+		}
+
+
 		require('views/admin/index_view.php');
 	}
 	catch(Exception $e){
 		header("Location: /{$lang}/");
+	}
+}
+
+
+function send_article_back_to_redaction($route, $lang){
+	global $CREATE_ARTICLE_PERM, $APPROVE_ARTICLE_PERM;
+
+	try{
+		if(!isset($_SESSION['id'])){
+			throw new Exception('User need to be connected');
+		}
+
+		if(
+			!in_array($CREATE_ARTICLE_PERM, $_SESSION['permissions'])
+			||
+			!in_array($APPROVE_ARTICLE_PERM, $_SESSION['permissions'])
+		) {
+			throw new Exception('Operation not allowed');
+		}
+
+
+		// Find article id inside route
+		$route_elements = explode('/', $route);
+		$id_pos = array_search('remove_from_approval', $route_elements);
+		if($id_pos == false){
+			throw new Exception('[display_article] can not get article id');
+		}
+		$id_article = $route_elements[$id_pos + 1];
+
+
+		// Remove article from waiting list
+		$article_manager = new ArticleManager();
+		$article_manager->remove_article_from_waiting_list($id_article);
+		header("Location: /{$lang}/admin");
+	}
+	catch(Exception $e){
+		header("Location: /{$lang}/admin");
 	}
 }
 
@@ -90,17 +146,37 @@ function disconnect($route, $lang){
 }
 
 
-// function show_writing_article_interface($route, $lang){
-// 	// Get the global var
-// 	global $CREATE_ARTICLE_PERM;
 
-// 	if(in_array($CREATE_ARTICLE_PERM, $_SESSION['permissions'])){
-// 		require('views/admin/articles/write_article_view.php');
-// 	}
-// 	else {
-// 		header("Location: /{$lang}/admin");
-// 	}
-// }
+// Set an article waiting to approval
+function send_article_to_approval($route, $lang){
+	try{
+		// Check permissions
+		global $CREATE_ARTICLE_PERM;
+		if(!isset($_SESSION['id'])){
+			throw new Exception('User need to be connected');
+		}
+
+		if(!in_array($CREATE_ARTICLE_PERM, $_SESSION['permissions'])){
+			throw new Exception('[send_article_to_approval] Operation not allowed');
+		}
+
+		// Separate route elements
+		$route_elements = explode('/', $route);
+		$id_pos = array_search('send_for_approval', $route_elements);
+		if($id_pos == false){
+			throw new Exception('[display_article] can not get article id');
+		}
+		$id_article = $route_elements[$id_pos + 1];
+
+		$article_manager = new ArticleManager();
+		$article_manager->set_article_waiting_approval($id_article);
+
+		header("Location: /{$lang}/admin");
+	}
+	catch(Exception $e){
+		header("Location: /{$lang}/admin");
+	}
+}
 
 
 // Display an article with article id in the route
@@ -191,6 +267,13 @@ function verify_article($route, $lang, $P=false, $F=false){
 			throw new Exception('[verify_article] operation refused');
 		}
 
+		if(isset($_SESSION['article']['id'])) {
+			$article_manager = new ArticleManager();
+			if(!$article_manager->is_user_author($_SESSION['article']['id'], $_SESSION['id'])){
+				throw new Exception('Operation not allowed');
+			}
+		}
+
 		// If there's no post data
 		if($P == false || empty($P)){
 
@@ -204,6 +287,8 @@ function verify_article($route, $lang, $P=false, $F=false){
 			#### NEED TO MAKE FAILURE MESSAGE ####
 			header("Location: /{$lang}/admin");
 		}
+
+
 
 
 		// Test if image sumbited or in session
@@ -330,13 +415,13 @@ function put_article_in_trash($route, $lang){
 	try{
 		global $DELETE_ARTICLE_PERM;
 		if(!in_array($DELETE_ARTICLE_PERM, $_SESSION['permissions'])){
-			throw new Exception('[recover_article_from_trash] not the permission to recover article');
+			throw new Exception('[put_article_in_trash] not the permission to recover article');
 		}
 
 		$route_elements = explode('/', $route);
 		$article_pos = array_search('trash', $route_elements);
 		if($article_pos == false){
-			throw new Exception('[recover_article_from_trash] wrong route');
+			throw new Exception('[put_article_in_trash] wrong route');
 		}
 		$article_id = $route_elements[$article_pos + 1];
 
@@ -345,6 +430,159 @@ function put_article_in_trash($route, $lang){
 		header("Location: /{$lang}/admin");
 	}
 	catch(Exception $e){
+		header("Location: /{$lang}/admin");
+	}
+}
+
+
+function manage_approbation($route, $lang){
+	global $APPROVE_ARTICLE_PERM;
+	try{
+		// Check permissions
+		if(!isset($_SESSION['id'])){
+			throw new Exception('User need to be connected');
+		}
+		if(!in_array($APPROVE_ARTICLE_PERM, $_SESSION['permissions'])){
+			throw new Exception('Operation not allowed');
+		}
+		// Get id from route
+		$route_elements = explode('/', $route);
+		$article_pos = array_search('change_approbation', $route_elements);
+		if($article_pos == false){
+			throw new Exception('[manage_approbation] wrong route');
+		}
+		$article_id = $route_elements[$article_pos + 1];
+
+		$article_manager = new ArticleManager();
+		$article_manager->manage_approbation($article_id, $_SESSION['id']);
+		header("Location: /{$lang}/admin");
+	}
+	catch(Exception $e){
+		header("Location: /{$lang}/admin");
+	}
+}
+
+
+function register_user($route, $lang, $P=false){
+	global $CREATE_ACCOUNT_PERM;
+	try{
+		// Check permissions
+		if(!isset($_SESSION['id'])){
+			throw new Exception('User need to be connected');
+		}
+		if(!in_array($CREATE_ACCOUNT_PERM, $_SESSION['permissions'])){
+			throw new Exception('Operation not allowed');
+		}
+
+
+		// Check if data are missing
+		if($P == false){
+			throw new Exception('Data are missing');
+		}
+		if(
+			!isset($P['firstname']) 
+			|| 
+			!isset($P['lastname'])
+			||
+			!isset($P['email'])
+			||
+			!isset($P['password'])
+		){
+			die('toto');
+			throw new Exception('Data are missing');
+		}
+		foreach($P as $field){
+			if(empty($field)){
+				throw new Exception('Data are missing');
+			}
+		}
+
+		$user_manager = new UserManager();
+		$id = $user_manager->create_user(
+			$P['firstname'],
+			$P['lastname'],
+			$P['email'],
+			$P['password'],
+		); 
+
+
+		$permissions_manager = new PermissionsManager();
+		$permissions_manager->set_base_permissions($id);
+		header("Location: /{$lang}/admin");
+	}
+	catch(Exception $e){
+		header("Location: /{$lang}/admin");
+	}
+}
+
+
+function publish_article($route, $lang){
+	global $PUBLISH_ARTICLE_PERM;
+	try{
+		// Check permissions
+		if(!isset($_SESSION['id'])){
+			throw new Exception('User need to be connected');
+		}
+		if(!in_array($PUBLISH_ARTICLE_PERM, $_SESSION['permissions'])){
+			throw new Exception('Operation not allowed');
+		}
+		
+		// Get id from route
+		$route_elements = explode('/', $route);
+		$article_pos = array_search('publish', $route_elements);
+		if($article_pos == false){
+			throw new Exception('[publish_article] wrong route');
+		}
+		$article_id = $route_elements[$article_pos + 1];
+
+
+		// Check if article can be published
+		$article_manager = new ArticleManager();
+		// if(!$article_manager->can_article_be_published($article_id, $_SESSION['id'])){
+		// 	throw new Exception('Operation not allowed');
+		// }
+		
+		$article_manager->publish_article($article_id);
+		header("Location: /{$lang}/admin");
+	}
+	catch(Exception $e){
+		die($e);
+		header("Location: /{$lang}/admin");
+	}
+}
+
+
+function unpublish_article($route, $lang){
+	global $PUBLISH_ARTICLE_PERM;
+	try{
+		// Check permissions
+		if(!isset($_SESSION['id'])){
+			throw new Exception('User need to be connected');
+		}
+		if(!in_array($PUBLISH_ARTICLE_PERM, $_SESSION['permissions'])){
+			throw new Exception('Operation not allowed');
+		}
+
+
+		// Get id from route
+		$route_elements = explode('/', $route);
+		$article_pos = array_search('unpublish', $route_elements);
+		if($article_pos == false){
+			throw new Exception('[unpublish_article] wrong route');
+		}
+		$article_id = $route_elements[$article_pos + 1];
+
+		$article_manager = new ArticleManager();
+
+		if(!$article_manager->is_article_published($article_id)){
+			throw new Exception('Operation not allowed');
+		}
+
+		$article_manager->unpublish_article($article_id);
+		header("Location: /{$lang}/admin");
+	}
+	catch(Exception $e){
+		die($e);
 		header("Location: /{$lang}/admin");
 	}
 }

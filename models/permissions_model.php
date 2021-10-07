@@ -59,6 +59,42 @@ class PermissionsManager{
     }
 
 
+    public function set_base_permissions($user_id){
+        global $BASE_PERMISSIONS;
+        
+        $db = $this->db_connect();
+        foreach($BASE_PERMISSIONS as $permission){
+            $sql = "
+                INSERT INTO
+                    permissions_users (id_permission, id_user)
+                VALUES
+                    (
+                        (
+                            SELECT
+                                id
+                            FROM
+                                permissions
+                            WHERE
+                                name=:permission
+                        ), 
+                        :user
+                    )
+            ";
+            $query = $db->prepare($sql);
+            
+            $success = $query->execute(array(
+                'permission' => $permission,
+                'user' => $user_id,
+            ));
+
+            if($success == false){
+                throw new Exception('[set_base_permissions] impossible to set base permission');
+            }
+        }
+
+
+    }
+
     // connect to database
     private function db_connect(){
         global $host, $db_name, $username, $password;
