@@ -112,6 +112,7 @@
 
 .img-selected {
     width: 150px;
+    margin-bottom: 2em;
 }
 
 #article_submit {
@@ -179,4 +180,8 @@
     &:hover {
         text-decoration: underline;
     } 
+}
+
+.category {
+    color: inherit;
 }

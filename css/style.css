@@ -192,6 +192,32 @@ p {
   padding: 0.8em 1.8em;
 }
 
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+}
+.checkbox-container label {
+  margin-bottom: 0;
+}
+.checkbox-container .checkbox {
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  border-radius: 3px;
+  margin-right: 0.7em;
+  height: 20px;
+  width: 20px;
+  border: 1px solid #00869e !important;
+}
+.checkbox-container .checkbox:checked {
+  background-color: #00869e;
+}
+.checkbox-container .checkbox:checked::after {
+  font-size: 1.2em;
+  content: "✓";
+  color: white;
+}
+
 /* BANNER */
 .banner {
   max-width: 100%;
@@ -2435,6 +2461,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 .img-selected {
   width: 150px;
+  margin-bottom: 2em;
 }
 
 #article_submit {
@@ -2495,6 +2522,10 @@ input[type=date]::-webkit-calendar-picker-indicator {
 }
 .edit-new-title:hover {
   text-decoration: underline;
+}
+
+.category {
+  color: inherit;
 }
 
 .title-articles-list {
