@@ -89,14 +89,16 @@
 			<div class="categories-container">
 				<?php
 					foreach($all_categories as $category){
-						if(in_array($category['id'], $article_categories_id_list)){
-							?>
-							<div class="category-checkbox">
-								<label><?= $category['name'] ?></label>
-								<input type="checkbox" name="categories[]" value="<?= $category['id'] ?>" checked >
-							</div>
+						if(isset($article_categories_id_list)){
+							if(in_array($category['id'], $article_categories_id_list)){
+								?>
+								<div class="category-checkbox">
+									<label><?= $category['name'] ?></label>
+									<input type="checkbox" name="categories[]" value="<?= $category['id'] ?>" checked >
+								</div>
 
-							<?php
+								<?php
+							}
 						}
 						else {
 						?>
