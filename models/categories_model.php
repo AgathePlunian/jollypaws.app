@@ -59,11 +59,16 @@ class CategoryManager{
 		$db = $this->db_connect();
 		$sql = "
 			SELECT
-				id_category
+				id_category,
+				name
 
 			FROM
 				articles_categories
 
+			INNER JOIN
+				categories
+				ON
+					articles_categories.id_category=categories.id
 			WHERE
 				id_article=:article_id
 		";
@@ -125,6 +130,35 @@ class CategoryManager{
 			throw new Exception('[unlink_category_to_article] impossible to unlink category');
 		}
 	}
+
+
+
+	public function get_categories_names_by_id_list($categories_id)
+	{
+		$db = $this->db_connect();
+		$names_array = array();
+		foreach($categories_id as $id){
+			$sql = "
+				SELECT
+					name
+				FROM
+					categories
+				WHERE
+					id=:category_id
+			";
+
+			$query = $db->prepare($sql);
+			$success = $query->execute(array(
+				'category_id' => $id,
+			));
+			if($success == false){
+				throw new Exception('[get_categories_names_by_id_list] impossible to get category name');
+			}
+			$names_array[] = $query->fetch();
+		}
+		return $names_array;
+	}
+
 
 	private function db_connect(){
 		global $host, $db_name, $username, $password;

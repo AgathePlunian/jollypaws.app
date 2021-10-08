@@ -4,15 +4,39 @@
 
 <div class="article-page">
 	<div class="article-header">
-		<p class="date-of-publication">Publié le </p>
+		<p class="date-of-publication">
+		Publié le <?php 
+			if(isset($article['publish_date'])){
+				echo $article['publish_date'];
+			} 
+		?>
+			
+		</p>
 		<h1 class="article-title"><?= $article_title ?></h1>
-		<p class="article-author">Par <span class="author-name">Julia Neuville</span></p>
+		<p class="article-author">Par 
+			<span class="author-name">
+			<?php
+				if(isset($article['firstname']) && isset($article['lastname'])){
+					echo $article['firstname'].' '.$article['lastname'];
+				}
+				else{
+					echo $_SESSION['firstname'].' '.$_SESSION['lastname'];
+				}
+			?>
+			</span>
+		</p>
 
 		<!--ICI QU'IL FAUT METTRE LES CATEGORIES DE L'ARTICLE -->
 		<ul class="category-list">
-			<li class="category-item">Santé</li>
-			<li class="category-item">Blabla</li>
-			<li class="category-item">blibli</li>
+			<?php
+				if(isset($categories)){
+					foreach($categories as $category){
+						?>
+						<li class="category-item"> <?= $category['name'] ?></li>
+						<?php
+					}
+				}
+			?>
 		</ul>
 	</div>
 </div>
@@ -30,7 +54,6 @@
 	height="200px"
 />
 
-<?= $article['publish_date'] ?>
 
 <!-- Article content -->
 <?= $article_content; ?>

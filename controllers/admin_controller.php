@@ -128,7 +128,7 @@ function send_article_back_to_redaction($route, $lang){
 		$route_elements = explode('/', $route);
 		$id_pos = array_search('remove_from_approval', $route_elements);
 		if($id_pos == false){
-			throw new Exception('[display_article] can not get article id');
+			throw new Exception('[send_article_back_to_redaction] can not get article id');
 		}
 		$id_article = $route_elements[$id_pos + 1];
 
@@ -171,7 +171,7 @@ function send_article_to_approval($route, $lang){
 		$route_elements = explode('/', $route);
 		$id_pos = array_search('send_for_approval', $route_elements);
 		if($id_pos == false){
-			throw new Exception('[display_article] can not get article id');
+			throw new Exception('[send_article_to_approval] can not get article id');
 		}
 		$id_article = $route_elements[$id_pos + 1];
 
@@ -198,6 +198,9 @@ function display_article($route, $lang){
 
 		$article_manager = new ArticleManager();
 		$article = $article_manager->get_article_content($id_article);
+
+		$category_manager = new CategoryManager();
+		$categories = $category_manager->get_article_categories($id_article);
 
 		$article_content = load_article($article['content']);
 		$article_title = $article['title'];
@@ -227,15 +230,19 @@ function show_article($route, $lang, $P=false, $F=false){
 		if($P == false || empty($P)){
 			// Check if we got every information needed to display the article
 			if(isset($_SESSION['article'])) {
+				$category_manager = new CategoryManager();
+
 				$article_content = load_article($_SESSION['article']['content']);
 				$article_title = $_SESSION['article']['title'];
 				$article_main_image = $_SESSION['article']['main_image'];
+				$categories = $category_manager->get_categories_names_by_id_list($_SESSION['article']['categories']);
 				require('views/admin/articles/show_article_view.php');
 			}
 			else{
 				header("Location: /{$lang}/admin/articles/write");
 			}
 		}
+
 		// If post data (first time this function is called), 
 		// load the data then call itself without sending data with post
 		else {
@@ -252,6 +259,7 @@ function show_article($route, $lang, $P=false, $F=false){
 			elseif(!isset($_SESSION['article']['main_image']) && $F == false) {
 				$_SESSION['article']['main_image'] = '';
 			}
+			$_SESSION['article']['categories'] = $P['categories'];
 
 			header("Location: /{$lang}/admin/articles/show");
 		}
