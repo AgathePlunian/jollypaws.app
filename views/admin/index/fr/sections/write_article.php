@@ -56,8 +56,10 @@
 			<label>Selectionner une ou plusieurs catégories</label>
 				<?php
 					foreach($all_categories as $category){
+						$display_empty_categories = true;
 						if(isset($article_categories_id_list)){
 							if(in_array($category['id'], $article_categories_id_list)){
+								$display_empty_categories = false;
 								?>
 								
 								<div class="category-checkbox checkbox-container">
@@ -67,15 +69,16 @@
 
 								<?php
 							}
-							else {
+						}
+						if($display_empty_categories == true) {
 						?>
 							<div class="category-checkbox checkbox-container">
 								<input class="checkbox" type="checkbox" name="categories[]" value="<?= $category['id'] ?>">
 								<label class="category"><?= $category['name'] ?></label>
 							</div>
 						<?php
-							}
 						}
+						
 					}
 				?>
 			</div>
