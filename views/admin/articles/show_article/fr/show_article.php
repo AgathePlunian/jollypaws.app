@@ -17,25 +17,39 @@
 			<li class="category-item">blibli</li>
 		</ul>
 	</div>
+
+	<div class="main-image-article">
+		<!-- Main image -->
+		<img 
+			src="/<?= $article_main_image ?>"
+		/>
+
+	</div>
+
+	<div class="main-article">
+		<ul id='article_summary'>
+		</ul>
+
+		<!-- Article content -->
+		<div class="article-content">
+			<?= $article_content; ?>
+		</div>
+
+		<div class="logo-share-article">
+			<div><img src="../../../images/icones-reseaux-sociaux/logo-instagram-blue.png"/></div>
+			<div><img src="../../../images/icones-reseaux-sociaux/logo-twitter-blue.png"/></div>
+			<div><img src="../../../images/icones-reseaux-sociaux/logo-linkedin-blue.png"/></div>
+		</div>
+	</div>
 </div>
 
-<ul id='article_summary'>
-	</ul>
+
 <!-- Article title -->
 
 
 
-<!-- Main image -->
-<img 
-	src="/<?= $article_main_image ?>" 
-	width="200px"
-	height="200px"
-/>
 
-<?= $article['publish_date'] ?>
 
-<!-- Article content -->
-<?= $article_content; ?>
 
 <script type="text/javascript">
 	window.onload = function(){
@@ -54,6 +68,7 @@
 			// Create list elements
 			var new_summary_entry = document.createElement("li");
 			var new_summary_link = document.createElement("a");
+			new_summary_link.classList.add("item-summary");
 			var new_summary_entry_name = document.createTextNode(new_id);
 
 			new_summary_link.setAttribute('href', '#'+new_id);

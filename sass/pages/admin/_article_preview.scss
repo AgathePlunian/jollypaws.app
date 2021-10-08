@@ -5,6 +5,7 @@
  flex-flow: column;
  align-items: center;
  margin: 0 auto ;
+
 }
 
 .article-page {
@@ -42,4 +43,39 @@
         margin: 0 0.3em;
         padding: 0.2em 0.8em;
     }
+}
+
+.main-article {
+    display: flex;
+    justify-content: space-between;
+    width: 88%;
+    margin: 0 auto;
+}
+
+.main-image-article {
+    width: 90%;
+    margin: 2em auto 3em auto;
+    height: 320px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+#article_summary {
+    width: 13%;
+    list-style: disc;
+    
+}
+.item-summary {
+    text-decoration: none;
+    color: $secondary-color;
+    margin-bottom: 0.6em;
+    display: block;
+}
+
+.article-content {
+    width: 70%;
+}
+
+.logo-share-article {
+    width: 5%;
 }
