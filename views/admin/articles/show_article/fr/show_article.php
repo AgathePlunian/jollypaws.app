@@ -4,8 +4,10 @@
 
 <div class="article-page">
 	<div class="article-header">
+		<!--ICI LA DATE-->
 		<p class="date-of-publication">Publié le </p>
 		<h1 class="article-title"><?= $article_title ?></h1>
+		<!--ICI L'AUTEUR-->
 		<p class="article-author">Par <span class="author-name">Julia Neuville</span></p>
 
 		<!--ICI QU'IL FAUT METTRE LES CATEGORIES DE L'ARTICLE -->
