@@ -16,9 +16,9 @@
 							<p><span class="titles-card">Date de création :</span> <?= $article['creation_date'] ?> </p>
 							<p><span class="titles-card">Dernière modification :</span> <?= $article['last_change_date'] ?> </p>
 						</div>
-						<div>
+						<div class="btn-container">
 							<a class="btn-empty-secondary" href="/<?= $lang ?>/article/show/<?= $article['id'] ?>">Prévisualiser</a>
-							<a class="btn-full-secondary" href="/<?= $lang ?>/admin/articles/remove_from_approval/<?= $article['id'] ?>">Renvoyer en rédaction</a>
+							<a class="btn-full-secondary" href="/<?= $lang ?>/admin/articles/remove_from_approval/<?= $article['id'] ?>">Retour en rédaction</a>
 							<a class="btn-full-secondary" href="/<?= $lang ?>/admin/articles/change_approbation/<?= $article['id'] ?>">Approuver l'article</a>
 							
 							<?php
@@ -26,7 +26,7 @@
 								if(in_array($PUBLISH_ARTICLE_PERM, $_SESSION['permissions'])){
 									?>
 									<a class="btn-full-primary" href="/<?= $lang ?>/admin/articles/publish/<?= $article['id'] ?>">
-										Publier
+										Publier l'article
 									</a>
 									<?php
 								}

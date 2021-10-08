@@ -16,9 +16,9 @@
 							<p><span class="titles-card">Date de création :</span> <?= $article['creation_date'] ?> </p>
 							<p><span class="titles-card">Dernière modification :</span> <?= $article['last_change_date'] ?> </p>
 						</div>
-						<div>
+						<div class="btn-container"> 
 							<a class="btn-empty-secondary" href="/<?= $lang ?>/article/show/<?= $article['id'] ?>">Prévisualiser</a>
-							<a class="btn-full-secondary" href="/<?= $lang ?>/admin/articles/unpublish/<?= $article['id'] ?>">Renvoyer en rédaction</a>
+							<a class="btn-full-secondary" href="/<?= $lang ?>/admin/articles/unpublish/<?= $article['id'] ?>">Retour en rédaction</a>
 						</div>
 					</div>
 					<?php
