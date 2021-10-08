@@ -2321,7 +2321,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   min-height: 90vh;
 }
 
-#write_article, #register_user {
+#write_article, #register_user, #button_write_article {
   margin-top: 1.5em;
   margin-left: 1.3em;
   margin-right: 1em;
@@ -2559,6 +2559,49 @@ input[type=date]::-webkit-calendar-picker-indicator {
   background-color: white;
   color: #00869e;
   display: block;
+}
+
+.article-header {
+  text-align: center;
+  width: 70%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.article-page {
+  background-color: #effafc;
+  padding: 5em;
+}
+
+.date-of-publication {
+  font-size: 0.9em;
+  color: #868686;
+}
+
+.author-name {
+  color: #00869e;
+  font-weight: 700;
+}
+
+.article-author {
+  font-size: 1.1em;
+}
+
+.article-title {
+  font-size: 1.9em;
+}
+
+.category-list {
+  display: flex;
+}
+.category-list .category-item {
+  color: #ff7300;
+  border: 1px solid #ff7300;
+  border-radius: 20px;
+  margin: 0 0.3em;
+  padding: 0.2em 0.8em;
 }
 
 .main-nav {

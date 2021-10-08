@@ -2,13 +2,25 @@
 	ob_start();
 ?>
 
-<ul id='article_summary'>
-</ul>
+<div class="article-page">
+	<div class="article-header">
+		<p class="date-of-publication">Publié le </p>
+		<h1 class="article-title"><?= $article_title ?></h1>
+		<p class="article-author">Par <span class="author-name">Julia Neuville</span></p>
 
-<!-- Article title -->
-<div class="banner-approche">
-	<h1><?= $article_title ?></h1>
+		<!--ICI QU'IL FAUT METTRE LES CATEGORIES DE L'ARTICLE -->
+		<ul class="category-list">
+			<li class="category-item">Santé</li>
+			<li class="category-item">Blabla</li>
+			<li class="category-item">blibli</li>
+		</ul>
+	</div>
 </div>
+
+<ul id='article_summary'>
+	</ul>
+<!-- Article title -->
+
 
 
 <!-- Main image -->
