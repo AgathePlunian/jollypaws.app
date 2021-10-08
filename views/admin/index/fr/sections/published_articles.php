@@ -3,11 +3,11 @@
 ?>
 
 <!-- Main div -->
-<div class="view" hidden="true" id="trash_articles_view">
-	<h2 class="title-articles-list">Articles prochainement supprimés</h2>
+<div class="view" hidden="true" id="published_articles_view">
+	<h2 class="title-articles-list">Articles publiés</h2>
 		<div class="article-en-redaction">
 			<?php
-				foreach($trashed_articles as $article){
+				foreach($published_articles as $article){
 					?>
 					<div class="card-article">	
 						<div class="card-article-text">	
@@ -18,10 +18,9 @@
 						</div>
 						<div>
 							<a class="btn-empty-secondary" href="/<?= $lang ?>/article/show/<?= $article['id'] ?>">Prévisualiser</a>
-							<a class="btn-full-secondary" href="/<?= $lang ?>/admin/recover/<?= $article['id'] ?>">Récupérer</a>
+							<a class="btn-full-secondary" href="/<?= $lang ?>/admin/articles/unpublish/<?= $article['id'] ?>">Renvoyer en rédaction</a>
 						</div>
 					</div>
-
 					<?php
 				}
 			?>
@@ -30,5 +29,5 @@
 
 
 <?php
-	$trash = ob_get_clean();
+	$published = ob_get_clean();
 ?>

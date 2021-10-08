@@ -39,13 +39,20 @@
 		["~^admin/login/fail$~", 'show_login'],
 		["~^admin/login/verify$~", 'verify_login'],
 		["~^admin/disconnect$~", 'disconnect'],
-		["~^admin/articles/write$~", 'show_writing_article_interface'],
+		["~^admin/users/register$~", 'register_user'],
+
 		["~^admin/articles/show$~", 'show_article'],
 		["~^admin/articles/verify$~", 'verify_article'],
+		["~^admin/articles/send_for_approval/[0-9]+$~", 'send_article_to_approval'],
+		["~^admin/articles/remove_from_approval/[0-9]+$~", 'send_article_back_to_redaction'],
+		["~^admin/articles/change_approbation/[0-9]+$~", 'manage_approbation'],
+		["~^admin/articles/publish/[0-9]+$~", 'publish_article'],
+		["~^admin/articles/unpublish/[0-9]+$~", 'unpublish_article'],
 		["~^admin/new_article$~", 'new_article'],
 		["~^admin/edit_article/[0-9]+$~", 'show_admin_index'],
 		["~^admin/recover/[0-9]+$~", 'recover_article_from_trash'],
 		["~^admin/trash/[0-9]+$~", 'put_article_in_trash'],
+		
 		["~^admin$~", 'show_admin_index'],
 
 		["~^article/show/[0-9]+$~", 'display_article'],

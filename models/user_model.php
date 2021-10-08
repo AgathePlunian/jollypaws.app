@@ -36,6 +36,21 @@ class UserManager {
 		if($success == false){
 			throw new Exception('[register_user] error while saving user in database');
 		}
+
+		$sql = "
+			SELECT 
+				max(id)
+			FROM
+				users
+		";
+
+		$query = $db->prepare($sql);
+		$success = $query->execute();
+		if($success == false){
+			throw new Exception('[register_user] can not get user id');
+		}
+		$result = $query->fetch();
+		return $result[0];
 	}
 
 

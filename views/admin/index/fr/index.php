@@ -1,11 +1,33 @@
 <?php
-	global 	$CREATE_ARTICLE_PERM, $DELETE_ARTICLE_PERM;
+	global 	
+		$CREATE_ARTICLE_PERM, 
+		$DELETE_ARTICLE_PERM,
+		$APPROVE_ARTICLE_PERM,
+		$CREATE_ACCOUNT_PERM,
+		$PUBLISH_ARTICLE_PERM;
 
 
 	ob_start();
+
+	echo "
+		<a href='/{$lang}/admin/disconnect'> Se déconnecter </a>
+	";
+
 	echo '
 	<div class="container-admin">
 		<div class="menu-lateral-admin">';
+
+		if(in_array($CREATE_ACCOUNT_PERM, $_SESSION['permissions'])){
+			require('views/admin/index/fr/sections/register_user.php');
+
+			$register_link = "
+				<a class='button_view menu-link' id='register_user'>
+					Enregistrer un utilisateur
+				</a> 
+			";
+
+			echo $register_link;
+		}
 		
 		// Création & modification des articles
 		if(in_array($CREATE_ARTICLE_PERM, $_SESSION['permissions'])){
@@ -27,6 +49,34 @@
 		}
 
 
+		// Articles en cours de validation
+		if(in_array($APPROVE_ARTICLE_PERM, $_SESSION['permissions'])){
+			require ('views/admin/index/fr/sections/waiting_articles.php');
+
+			$waiting_link = "
+				<a class='button_view menu-link' id='waiting_articles'> 
+					Articles en attente d'approbation
+				</a>
+			";
+
+			echo $waiting_link;
+		}
+
+
+		// Articles publiés
+		if(in_array($PUBLISH_ARTICLE_PERM, $_SESSION['permissions'])){
+			require ('views/admin/index/fr/sections/published_articles.php');
+
+			$published_link = "
+				<a class='button_view menu-link' id='published_articles'> 
+					Articles publiés
+				</a>
+			";
+
+			echo $published_link;
+		}
+
+
 		// Articles en cours de suppression
 		if(in_array($DELETE_ARTICLE_PERM, $_SESSION['permissions'])){
 			require('views/admin/index/fr/sections/trash.php');
@@ -36,12 +86,18 @@
 
 			echo $trash_link;
 		}
+
 		echo'</div>';
 
 ?>
 		<section id='main_section'>
 		<?php
-			global $CREATE_ARTICLE_PERM, $DELETE_ARTICLE_PERM;
+			global 
+				$CREATE_ARTICLE_PERM, 
+				$DELETE_ARTICLE_PERM,
+				$APPROVE_ARTICLE_PERM,
+				$CREATE_ACCOUNT_PERM,
+				$PUBLISH_ARTICLE_PERM;
 
 			// Ecriture d'article
 			if (in_array($CREATE_ARTICLE_PERM, $_SESSION['permissions'])){
@@ -51,6 +107,18 @@
 
 			if (in_array($DELETE_ARTICLE_PERM, $_SESSION['permissions'])){
 				echo $trash;
+			}
+
+			if(in_array($APPROVE_ARTICLE_PERM, $_SESSION['permissions'])){
+				echo $waiting;
+			}
+
+			if(in_array($CREATE_ACCOUNT_PERM, $_SESSION['permissions'])){
+				echo $register;
+			}
+
+			if(in_array($PUBLISH_ARTICLE_PERM, $_SESSION['permissions'])){
+				echo $published;
 			}
 
 		?>
@@ -81,7 +149,10 @@
 		var button_association = new Object();
 		button_association["write_article"] = "write_article_view";
 		button_association['list_articles'] = 'list_articles_view';
-		button_association['trash_articles'] = 'trash_article_view';
+		button_association['trash_articles'] = 'trash_articles_view';
+		button_association['waiting_articles'] = 'waiting_articles_view';
+		button_association['published_articles'] = 'published_articles_view';
+		button_association['register_user'] = 'register_user_view';
 
 		var url = window.location.href;
 
