@@ -548,7 +548,6 @@ function publish_article($route, $lang){
 		header("Location: /{$lang}/admin");
 	}
 	catch(Exception $e){
-		die($e);
 		header("Location: /{$lang}/admin");
 	}
 }
