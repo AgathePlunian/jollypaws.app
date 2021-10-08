@@ -30,6 +30,7 @@
 	height="200px"
 />
 
+<?= $article['publish_date'] ?>
 
 <!-- Article content -->
 <?= $article_content; ?>

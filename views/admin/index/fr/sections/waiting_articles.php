@@ -18,7 +18,18 @@
 						</div>
 						<div class="btn-container">
 							<a class="btn-empty-secondary" href="/<?= $lang ?>/article/show/<?= $article['id'] ?>">Prévisualiser</a>
-							<a class="btn-full-secondary" href="/<?= $lang ?>/admin/articles/remove_from_approval/<?= $article['id'] ?>">Retour en rédaction</a>
+
+							<?php
+								if(isset($article_id_list)){
+									if(in_array($article['id'], $article_id_list)){
+							?>
+							<a class="btn-full-secondary" href="/<?= $lang ?>/admin/articles/remove_from_approval/<?= $article['id'] ?>">Renvoyer en rédaction</a>
+							
+							<?php
+									}
+								}
+							?>
+
 							<a class="btn-full-secondary" href="/<?= $lang ?>/admin/articles/change_approbation/<?= $article['id'] ?>">Approuver l'article</a>
 							
 							<?php

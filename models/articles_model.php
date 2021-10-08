@@ -94,47 +94,64 @@ class ArticleManager{
 
 
 	// List all articles for a given user id
-	public function list_articles_by_user_id($author_id){
+	public function list_articles_by_user_id($author_id, $only_writting=true){
 		$db = $this->db_connect();
 
-		$sql = "
-			SELECT 
-				id, 
-				title, 
-				creation_date, 
-				last_change_date 
+		if($only_writting == true){
+			$sql = "
+				SELECT 
+					id, 
+					title, 
+					creation_date, 
+					last_change_date 
 
-			FROM 
-				articles 
+				FROM 
+					articles 
 
-			WHERE 
-				author_id=:id
-				AND
-				id NOT IN
-					(
-						SELECT
-							id_article
+				WHERE 
+					author_id=:id
+					AND
+					id NOT IN
+						(
+							SELECT
+								id_article
 
-						FROM 
-							trash
-					)
-				AND
-				id NOT IN
-					(
-						SELECT
-							id_article
-						FROM
-							waiting_approval
-					)
-				AND
-				id NOT IN
-					(
-						SELECT
-							id_article
-						FROM
-							articles_published
-					)
-		";
+							FROM 
+								trash
+						)
+					AND
+					id NOT IN
+						(
+							SELECT
+								id_article
+							FROM
+								waiting_approval
+						)
+					AND
+					id NOT IN
+						(
+							SELECT
+								id_article
+							FROM
+								articles_published
+						)
+			";
+		}
+		else {
+			$sql = "
+				SELECT 
+					id, 
+					title, 
+					creation_date, 
+					last_change_date 
+
+				FROM 
+					articles 
+
+				WHERE 
+					author_id=:id
+			";
+		}
 
 		$query = $db->prepare($sql);
 		$success = $query->execute(array(

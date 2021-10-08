@@ -67,14 +67,14 @@
 
 								<?php
 							}
-						}
-						else {
+							else {
 						?>
 							<div class="category-checkbox checkbox-container">
 								<input class="checkbox" type="checkbox" name="categories[]" value="<?= $category['id'] ?>">
 								<label class="category"><?= $category['name'] ?></label>
 							</div>
 						<?php
+							}
 						}
 					}
 				?>

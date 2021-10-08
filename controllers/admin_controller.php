@@ -84,6 +84,11 @@ function show_admin_index($route, $lang){
 
 		// If user can approve articles
 		if(in_array($APPROVE_ARTICLE_PERM, $_SESSION['permissions'])){
+			$all_articles_list = $article_manager->list_articles_by_user_id($_SESSION['id'], false);
+			$articles_id_list = array();
+			foreach($all_articles_list as $article){
+				$article_id_list[] = $article['id'];
+			}
 			$waiting_articles = $article_manager->list_articles_waiting_for_approval();
 		}
 
@@ -130,7 +135,9 @@ function send_article_back_to_redaction($route, $lang){
 
 		// Remove article from waiting list
 		$article_manager = new ArticleManager();
-		$article_manager->remove_article_from_waiting_list($id_article);
+		if($article_manager->is_user_author($id_article, $_SESSION['id'])){
+			$article_manager->remove_article_from_waiting_list($id_article);
+		}
 		header("Location: /{$lang}/admin");
 	}
 	catch(Exception $e){
