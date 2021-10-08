@@ -1,7 +1,10 @@
+
+
 .menu-lateral-admin {
     background-color: $secondary-color;
     width: 310px;
     border-bottom: 1px solid $blue;
+    padding: 0 1em 0 0;
 }
 
 .menu-link {
@@ -24,16 +27,17 @@
    min-height: 90vh;
 }
 
-#write_article {
+#write_article, #register_user {
     margin-top: 1.5em;
     margin-left: 1.5em;
     font-size: 16px;
     color: white;
     background: none;
     border: 1px solid white;
-    padding: 0.6em 1em;
+    padding: 0.6em 0.6em;
     border-radius: 5px;
     margin-bottom: 1em;
     font-weight: 500;
+    width: 185px;
 }
 

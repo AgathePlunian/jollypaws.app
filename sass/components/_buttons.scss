@@ -31,6 +31,19 @@
   margin-bottom: 0.4em;
 }
 
+.btn-empty-primary {
+  display: block;
+  font-weight: 700;
+  border-radius: 30px;
+  color: $secondary-color;
+  background-color: none;
+  border: 2px solid $primary-color;
+  text-decoration: none;
+  padding: 0.3em 0.8em;
+  margin-bottom: 0.4em;
+}
+
+
 .btn-full-secondary, .btn-full-primary {
   display: block;
   font-weight: 700;
@@ -44,8 +57,17 @@
 
 .btn-full-primary {
   background-color: $primary-color;
+  box-shadow: rgba(218, 211, 206, 0.63) 2px 3px 4px;
 }
 
 .btn-full-secondary {
   background-color: $secondary-color;
+  box-shadow: rgba(206, 214, 218, 0.63) 2px 3px 4px;
+}
+
+.btn-disconnect {
+  position: absolute;
+  top: 1em;
+  left : 14em;
+  padding: 0.8em 1.8em;
 }

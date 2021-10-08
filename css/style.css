@@ -152,6 +152,18 @@ p {
   margin-bottom: 0.4em;
 }
 
+.btn-empty-primary {
+  display: block;
+  font-weight: 700;
+  border-radius: 30px;
+  color: #00869e;
+  background-color: none;
+  border: 2px solid #ff7300;
+  text-decoration: none;
+  padding: 0.3em 0.8em;
+  margin-bottom: 0.4em;
+}
+
 .btn-full-secondary, .btn-full-primary {
   display: block;
   font-weight: 700;
@@ -165,10 +177,19 @@ p {
 
 .btn-full-primary {
   background-color: #ff7300;
+  box-shadow: rgba(218, 211, 206, 0.63) 2px 3px 4px;
 }
 
 .btn-full-secondary {
   background-color: #00869e;
+  box-shadow: rgba(206, 214, 218, 0.63) 2px 3px 4px;
+}
+
+.btn-disconnect {
+  position: absolute;
+  top: 1em;
+  left: 14em;
+  padding: 0.8em 1.8em;
 }
 
 /* BANNER */
@@ -2270,6 +2291,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   background-color: #00869e;
   width: 310px;
   border-bottom: 1px solid #e1f4fc;
+  padding: 0 1em 0 0;
 }
 
 .menu-link {
@@ -2291,17 +2313,18 @@ input[type=date]::-webkit-calendar-picker-indicator {
   min-height: 90vh;
 }
 
-#write_article {
+#write_article, #register_user {
   margin-top: 1.5em;
   margin-left: 1.5em;
   font-size: 16px;
   color: white;
   background: none;
   border: 1px solid white;
-  padding: 0.6em 1em;
+  padding: 0.6em 0.6em;
   border-radius: 5px;
   margin-bottom: 1em;
   font-weight: 500;
+  width: 185px;
 }
 
 .form-container {
