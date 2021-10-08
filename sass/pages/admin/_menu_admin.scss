@@ -1,6 +1,7 @@
+
+
 .menu-lateral-admin {
     background-color: $secondary-color;
-    width: 310px;
     border-bottom: 1px solid $blue;
 }
 
@@ -8,7 +9,7 @@
     color: white;
     font-weight: 500;
     display: block;
-    padding: 1em 1.5em;
+    padding: 1em;
 }
 
 .container-admin {
@@ -20,20 +21,22 @@
 
 #main_section {
    width: 100%;
-   padding: 2em;
+   padding: 2em 1.5em;
    min-height: 90vh;
 }
 
-#write_article {
+#write_article, #register_user {
     margin-top: 1.5em;
-    margin-left: 1.5em;
+    margin-left: 1.3em;
+    margin-right: 1em;
     font-size: 16px;
     color: white;
     background: none;
     border: 1px solid white;
-    padding: 0.6em 1em;
+    padding: 0.6em 0.6em;
     border-radius: 5px;
     margin-bottom: 1em;
     font-weight: 500;
+    width: 185px;
 }
 

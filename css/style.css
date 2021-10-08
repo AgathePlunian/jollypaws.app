@@ -130,7 +130,7 @@ p {
   border-radius: 50px;
   font-size: 1em;
   font-family: "Mulish";
-  font-weight: 700;
+  font-weight: 500;
   box-shadow: rgba(218, 211, 206, 0.63) 2px 3px 4px;
   display: block;
   text-decoration: none;
@@ -140,9 +140,15 @@ p {
   background-color: #c24d04;
 }
 
+.btn-container {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-end;
+}
+
 .btn-empty-secondary {
   display: block;
-  font-weight: 700;
+  font-weight: 600;
   border-radius: 30px;
   color: #00869e;
   background-color: none;
@@ -150,11 +156,27 @@ p {
   text-decoration: none;
   padding: 0.3em 0.8em;
   margin-bottom: 0.4em;
+  text-align: center;
+  width: fit-content;
+}
+
+.btn-empty-primary {
+  display: block;
+  font-weight: 600;
+  border-radius: 30px;
+  color: #00869e;
+  background-color: none;
+  border: 2px solid #ff7300;
+  text-decoration: none;
+  padding: 0.3em 0.8em;
+  margin-bottom: 0.4em;
+  text-align: center;
+  width: fit-content;
 }
 
 .btn-full-secondary, .btn-full-primary {
   display: block;
-  font-weight: 700;
+  font-weight: 500;
   border-radius: 30px;
   text-decoration: none;
   padding: 0.4em 0.8em;
@@ -164,11 +186,46 @@ p {
 }
 
 .btn-full-primary {
+  width: fit-content;
   background-color: #ff7300;
 }
 
 .btn-full-secondary {
+  width: fit-content;
   background-color: #00869e;
+}
+
+.btn-disconnect {
+  position: absolute;
+  top: 1em;
+  left: 14em;
+  padding: 0.8em 1.8em;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+}
+.checkbox-container label {
+  margin-bottom: 0;
+}
+.checkbox-container .checkbox {
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  border-radius: 3px;
+  margin-right: 0.7em;
+  height: 20px;
+  width: 20px;
+  border: 1px solid #00869e !important;
+}
+.checkbox-container .checkbox:checked {
+  background-color: #00869e;
+}
+.checkbox-container .checkbox:checked::after {
+  font-size: 1.2em;
+  content: "✓";
+  color: white;
 }
 
 /* BANNER */
@@ -930,32 +987,6 @@ p {
   }
 }
 /* ALL MEDIA QUERIES */
-.checkbox-container {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1em;
-}
-.checkbox-container label {
-  margin-bottom: 0;
-}
-.checkbox-container .checkbox {
-  text-align: center;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  border-radius: 3px;
-  margin-right: 0.7em;
-  height: 20px;
-  width: 20px;
-  border: 1px solid #00869e !important;
-}
-.checkbox-container .checkbox:checked {
-  background-color: #00869e;
-}
-.checkbox-container .checkbox:checked::after {
-  font-size: 1.2em;
-  content: "✓";
-  color: white;
-}
-
 .validated-form {
   text-align: center;
   padding-top: 1.3em;
@@ -2268,7 +2299,6 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 .menu-lateral-admin {
   background-color: #00869e;
-  width: 310px;
   border-bottom: 1px solid #e1f4fc;
 }
 
@@ -2276,7 +2306,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   color: white;
   font-weight: 500;
   display: block;
-  padding: 1em 1.5em;
+  padding: 1em;
 }
 
 .container-admin {
@@ -2287,21 +2317,23 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 #main_section {
   width: 100%;
-  padding: 2em;
+  padding: 2em 1.5em;
   min-height: 90vh;
 }
 
-#write_article {
+#write_article, #register_user {
   margin-top: 1.5em;
-  margin-left: 1.5em;
+  margin-left: 1.3em;
+  margin-right: 1em;
   font-size: 16px;
   color: white;
   background: none;
   border: 1px solid white;
-  padding: 0.6em 1em;
+  padding: 0.6em 0.6em;
   border-radius: 5px;
   margin-bottom: 1em;
   font-weight: 500;
+  width: 185px;
 }
 
 .form-container {
@@ -2412,6 +2444,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 .img-selected {
   width: 150px;
+  margin-bottom: 2em;
 }
 
 #article_submit {
@@ -2474,6 +2507,11 @@ input[type=date]::-webkit-calendar-picker-indicator {
   text-decoration: underline;
 }
 
+.category {
+  color: inherit;
+  font-size: 0.9em;
+}
+
 .title-articles-list {
   color: #00869e;
   margin-bottom: 1.5em;
@@ -2490,7 +2528,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   width: 49%;
   background-color: white;
   border-radius: 20px;
-  padding: 0.5em 1em;
+  padding: 0.8em;
   margin-bottom: 1em;
   display: flex;
   justify-content: space-between;
@@ -2499,14 +2537,22 @@ input[type=date]::-webkit-calendar-picker-indicator {
   display: flex;
   flex-flow: column;
   justify-content: center;
+  width: 62%;
+  margin-right: 0.5em;
+}
+.card-article .card-list-my-articles {
+  width: 69%;
 }
 .card-article p {
-  margin-bottom: 0.15em;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-bottom: 0.5em;
+  text-overflow: ellipsis;
 }
 
 .titles-card {
   color: #00869e;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .link-selected {

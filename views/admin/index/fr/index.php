@@ -10,7 +10,7 @@
 	ob_start();
 
 	echo "
-		<a href='/{$lang}/admin/disconnect'> Se déconnecter </a>
+		<a class='btn-disconnect btn-empty-secondary' href='/{$lang}/admin/disconnect'> Se déconnecter </a>
 	";
 
 	echo '
@@ -21,9 +21,9 @@
 			require('views/admin/index/fr/sections/register_user.php');
 
 			$register_link = "
-				<a class='button_view menu-link' id='register_user'>
-					Enregistrer un utilisateur
-				</a> 
+				<button class='button_view menu-link' id='register_user'>
+					+ Ajouter un utilisateur
+				</button> 
 			";
 
 			echo $register_link;

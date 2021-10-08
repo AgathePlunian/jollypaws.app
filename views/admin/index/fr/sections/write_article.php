@@ -51,6 +51,34 @@
 					}
 				?>
 			</div>
+
+			<div class="categories-container">
+			<label>Selectionner une ou plusieurs catégories</label>
+				<?php
+					foreach($all_categories as $category){
+						if(isset($article_categories_id_list)){
+							if(in_array($category['id'], $article_categories_id_list)){
+								?>
+								
+								<div class="category-checkbox checkbox-container">
+									<input class="checkbox" type="checkbox" name="categories[]" value="<?= $category['id'] ?>" checked >
+									<label class="category"><?= $category['name'] ?></label>
+								</div>
+
+								<?php
+							}
+						}
+						else {
+						?>
+							<div class="category-checkbox checkbox-container">
+								<input class="checkbox" type="checkbox" name="categories[]" value="<?= $category['id'] ?>">
+								<label class="category"><?= $category['name'] ?></label>
+							</div>
+						<?php
+						}
+					}
+				?>
+			</div>
 		</div>
 
 		<div class="form-col-right">
@@ -86,31 +114,6 @@
 				</textarea>
 			</div>
 
-			<div class="categories-container">
-				<?php
-					foreach($all_categories as $category){
-						if(isset($article_categories_id_list)){
-							if(in_array($category['id'], $article_categories_id_list)){
-								?>
-								<div class="category-checkbox">
-									<label><?= $category['name'] ?></label>
-									<input type="checkbox" name="categories[]" value="<?= $category['id'] ?>" checked >
-								</div>
-
-								<?php
-							}
-						}
-						else {
-						?>
-							<div class="category-checkbox">
-								<label><?= $category['name'] ?></label>
-								<input type="checkbox" name="categories[]" value="<?= $category['id'] ?>">
-							</div>
-						<?php
-						}
-					}
-				?>
-			</div>
 			
 			<div class="btn-submit-container">
 				<input type="submit" name="article_form" value="Enregistrer les modifications" id="article_submit">
