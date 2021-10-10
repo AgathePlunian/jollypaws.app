@@ -55,14 +55,18 @@
 			<div class="categories-container">
 			<label>Selectionner une ou plusieurs catégories</label>
 				<?php
+					if(isset($_SESSION['article']['categories'])){
+
+						$article_categories_id_list = array();
+						foreach($_SESSION['article']['categories'] as $category){
+							$article_categories_id_list[] = $category;
+						}
+					}
+
 					foreach($all_categories as $category){
 						$display_empty_categories = true;
-						if(isset($_SESSION['article']['categories']) && !isset($article_categories_id_list)){
-							$article_categories_id_list = array();
-							foreach($_SESSION['article']['categories'] as $category){
-								$article_categories_id_list[] = $category['id'];
-							}
-						}
+
+
 						if(isset($article_categories_id_list)){
 							if(in_array($category['id'], $article_categories_id_list)){
 								$display_empty_categories = false;
@@ -149,8 +153,8 @@
 				reader.readAsDataURL(this.files[0]);
 			}
 		}
-
 		
+
 		// Button to see article
 		var visu_article = document.getElementById('article_visualisation');
 		

@@ -26,7 +26,10 @@ function show_login($route, $lang) {
 
 
 function new_article($route,$lang){
-	unset($_SESSION['article']);
+	$route_elements = explode('/', $route);
+	if(!in_array('write', $route_elements)){
+		unset($_SESSION['article']);
+	}
 	show_admin_index($route, $lang);
 }
 
@@ -205,6 +208,9 @@ function display_article($route, $lang){
 		$article_content = load_article($article['content']);
 		$article_title = $article['title'];
 		$article_main_image = $article['main_image'];
+
+		$return_button = "/{$lang}/admin/edit_article/{$id_article}";
+
 		require('views/admin/articles/show_article_view.php');
 	}
 	catch(Exception $e){
@@ -218,7 +224,7 @@ function display_article($route, $lang){
 }
 
 
-// Display article
+// Display currently writting article
 function show_article($route, $lang, $P=false, $F=false){
 	try{
 		// If there's no new image, F = false
@@ -231,11 +237,16 @@ function show_article($route, $lang, $P=false, $F=false){
 			// Check if we got every information needed to display the article
 			if(isset($_SESSION['article'])) {
 				$category_manager = new CategoryManager();
-
 				$article_content = load_article($_SESSION['article']['content']);
 				$article_title = $_SESSION['article']['title'];
 				$article_main_image = $_SESSION['article']['main_image'];
-				$categories = $category_manager->get_categories_names_by_id_list($_SESSION['article']['categories']);
+
+				if(!empty($_SESSION['article']['categories'])){
+					$categories = $category_manager->get_categories_names_by_id_list($_SESSION['article']['categories']);
+				}
+				
+				$return_button = "/{$lang}/admin/new_article/write";
+				
 				require('views/admin/articles/show_article_view.php');
 			}
 			else{

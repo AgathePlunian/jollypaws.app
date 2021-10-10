@@ -3,6 +3,7 @@
 ?>
 
 <div class="article-page">
+	<a href='<?= $return_button ?>'>Retour</a>
 	<div class="article-header">
 		<p class="date-of-publication">
 		Publié le <?php 
@@ -29,7 +30,7 @@
 		<!--ICI QU'IL FAUT METTRE LES CATEGORIES DE L'ARTICLE -->
 		<ul class="category-list">
 			<?php
-				if(isset($categories)){
+				if(isset($categories) && !empty($categories)){
 					foreach($categories as $category){
 						?>
 						<li class="category-item"> <?= $category['name'] ?></li>

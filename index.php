@@ -49,6 +49,7 @@
 		["~^admin/articles/publish/[0-9]+$~", 'publish_article'],
 		["~^admin/articles/unpublish/[0-9]+$~", 'unpublish_article'],
 		["~^admin/new_article$~", 'new_article'],
+		["~^admin/new_article/write$~", 'new_article'],
 		["~^admin/edit_article/[0-9]+$~", 'show_admin_index'],
 		["~^admin/recover/[0-9]+$~", 'recover_article_from_trash'],
 		["~^admin/trash/[0-9]+$~", 'put_article_in_trash'],

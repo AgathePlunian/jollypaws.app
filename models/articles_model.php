@@ -49,7 +49,7 @@ class ArticleManager{
 		}
 
 		$result = $query->fetch();
-		return $result['id'];
+		return $result[0];
 	}
 
 
