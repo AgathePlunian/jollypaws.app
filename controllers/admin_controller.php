@@ -566,9 +566,9 @@ function publish_article($route, $lang){
 		$article_manager = new ArticleManager();
 		
 		// Check if the user can publish the article
-		// if(!$article_manager->can_article_be_published($article_id, $_SESSION['id'])){
-		// 	throw new Exception('Operation not allowed');
-		// }
+		if(!$article_manager->can_article_be_published($article_id, $_SESSION['id'])){
+			throw new Exception('Operation not allowed');
+		}
 		
 		$article_manager->publish_article($article_id);
 		header("Location: /{$lang}/admin");
