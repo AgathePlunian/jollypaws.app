@@ -3,18 +3,41 @@
 ?>
 
 <div class="article-page">
+	<a href='<?= $return_button ?>'>Retour</a>
 	<div class="article-header">
-		<!--ICI LA DATE-->
-		<p class="date-of-publication">Publié le </p>
+		<p class="date-of-publication">
+		Publié le <?php 
+			if(isset($article['publish_date'])){
+				echo $article['publish_date'];
+			} 
+		?>
+			
+		</p>
 		<h1 class="article-title"><?= $article_title ?></h1>
-		<!--ICI L'AUTEUR-->
-		<p class="article-author">Par <span class="author-name">Julia Neuville</span></p>
+		<p class="article-author">Par 
+			<span class="author-name">
+			<?php
+				if(isset($article['firstname']) && isset($article['lastname'])){
+					echo $article['firstname'].' '.$article['lastname'];
+				}
+				else{
+					echo $_SESSION['firstname'].' '.$_SESSION['lastname'];
+				}
+			?>
+			</span>
+		</p>
 
 		<!--ICI QU'IL FAUT METTRE LES CATEGORIES DE L'ARTICLE -->
 		<ul class="category-list">
-			<li class="category-item">Santé</li>
-			<li class="category-item">Blabla</li>
-			<li class="category-item">blibli</li>
+			<?php
+				if(isset($categories) && !empty($categories)){
+					foreach($categories as $category){
+						?>
+						<li class="category-item"> <?= $category['name'] ?></li>
+						<?php
+					}
+				}
+			?>
 		</ul>
 	</div>
 

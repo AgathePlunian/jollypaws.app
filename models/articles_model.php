@@ -49,7 +49,7 @@ class ArticleManager{
 		}
 
 		$result = $query->fetch();
-		return $result['id'];
+		return $result[0];
 	}
 
 
@@ -172,7 +172,26 @@ class ArticleManager{
 	public function get_article_content($id){
 		$db = $this->db_connect();
 
-		$query = $db->prepare('SELECT id, title, content, main_image FROM articles WHERE id=:id');
+		$sql = "
+			SELECT
+				articles.id,
+				title,
+				content,
+				main_image,
+				publish_date,
+				lastname,
+				firstname
+			FROM
+				articles
+			INNER JOIN
+				users
+					ON
+						users.id=articles.author_id
+			WHERE
+				articles.id=:id
+		";
+
+		$query = $db->prepare($sql);
 		$success = $query->execute(array(
 			'id' => $id,
 		));
@@ -182,7 +201,6 @@ class ArticleManager{
 		}
 
 		$article = $query->fetch();
-
 		return $article;
 	}
 

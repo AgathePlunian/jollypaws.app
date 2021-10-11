@@ -91,9 +91,8 @@ class PermissionsManager{
                 throw new Exception('[set_base_permissions] impossible to set base permission');
             }
         }
-
-
     }
+
 
     // connect to database
     private function db_connect(){

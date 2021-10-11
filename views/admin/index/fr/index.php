@@ -142,9 +142,6 @@
 			e.target.classList.add("link-selected");
 		}
 
-
-
-
 		// Associate button to the section to display
 		var button_association = new Object();
 		button_association["write_article"] = "write_article_view";

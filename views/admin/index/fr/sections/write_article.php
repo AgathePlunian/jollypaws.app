@@ -55,9 +55,21 @@
 			<div class="categories-container">
 			<label>Selectionner une ou plusieurs catégories</label>
 				<?php
+					if(isset($_SESSION['article']['categories'])){
+
+						$article_categories_id_list = array();
+						foreach($_SESSION['article']['categories'] as $category){
+							$article_categories_id_list[] = $category;
+						}
+					}
+
 					foreach($all_categories as $category){
+						$display_empty_categories = true;
+
+
 						if(isset($article_categories_id_list)){
 							if(in_array($category['id'], $article_categories_id_list)){
+								$display_empty_categories = false;
 								?>
 								
 								<div class="category-checkbox checkbox-container">
@@ -67,15 +79,16 @@
 
 								<?php
 							}
-							else {
+						}
+						if($display_empty_categories == true) {
 						?>
 							<div class="category-checkbox checkbox-container">
 								<input class="checkbox" type="checkbox" name="categories[]" value="<?= $category['id'] ?>">
 								<label class="category"><?= $category['name'] ?></label>
 							</div>
 						<?php
-							}
 						}
+						
 					}
 				?>
 			</div>
@@ -140,8 +153,8 @@
 				reader.readAsDataURL(this.files[0]);
 			}
 		}
-
 		
+
 		// Button to see article
 		var visu_article = document.getElementById('article_visualisation');
 		
