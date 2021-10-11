@@ -2621,7 +2621,14 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 #article_summary {
   width: 13%;
-  list-style: disc;
+}
+#article_summary li {
+  display: flex;
+}
+#article_summary li::before {
+  content: "•";
+  color: #00869e;
+  margin-right: 10px;
 }
 
 .item-summary {
@@ -2636,7 +2643,22 @@ input[type=date]::-webkit-calendar-picker-indicator {
 }
 
 .logo-share-article {
-  width: 5%;
+  width: 3%;
+}
+.logo-share-article div {
+  width: 30px;
+  margin-bottom: 0.5em;
+}
+
+.close-previsualisation {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  background-color: #ff7300;
+  padding: 1em;
+  border-radius: 20px 0 0 0;
+  color: white;
 }
 
 .main-nav {

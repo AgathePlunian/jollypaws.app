@@ -62,8 +62,14 @@
 
 #article_summary {
     width: 13%;
-    list-style: disc;
-    
+     li {
+         display: flex;
+     }
+    li::before {
+        content:"\2022";
+        color: $secondary-color;
+        margin-right: 10px;
+    }
 }
 .item-summary {
     text-decoration: none;
@@ -77,5 +83,22 @@
 }
 
 .logo-share-article {
-    width: 5%;
+    width: 3%;
+     
+    div {
+        width: 30px;
+        margin-bottom: 0.5em;
+    }
+}
+
+.close-previsualisation {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 300px;
+    background-color: $primary-color;
+    padding: 1em;
+    border-radius: 20px 0 0 0;
+    color: white;
+
 }

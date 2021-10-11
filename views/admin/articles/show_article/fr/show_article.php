@@ -43,13 +43,9 @@
 	</div>
 </div>
 
-
-<!-- Article title -->
-
-
-
-
-
+<div class="close-previsualisation">
+	<p>Fermer le mode de prévisualisation</p>
+</div>
 
 <script type="text/javascript">
 	window.onload = function(){
