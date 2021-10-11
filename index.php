@@ -56,6 +56,7 @@
 		
 		["~^admin$~", 'show_admin_index'],
 
+		["~^article/show/[0-9]+/edit$~", 'display_article'],
 		["~^article/show/[0-9]+$~", 'display_article'],
 		
 		["~.*~", 'error_not_found'],
