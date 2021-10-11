@@ -3,7 +3,6 @@
 ?>
 
 <div class="article-page">
-	<a href='<?= $return_button ?>'>Retour</a>
 	<div class="article-header">
 		<p class="date-of-publication">
 		Publié le <?php 
@@ -67,7 +66,8 @@
 </div>
 
 <div class="close-previsualisation">
-	<p>Fermer le mode de prévisualisation</p>
+	<a href='<?= $return_button ?>'>Fermer le mode de prévisualisation</a>
+	<img src="../../../images/icones-form/close-btn.svg" alt="close preview mode"/>
 </div>
 
 <script type="text/javascript">

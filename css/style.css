@@ -202,6 +202,44 @@ p {
   padding: 0.8em 1.8em;
 }
 
+#categories-checkbox-container {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.checkbox-label-category {
+  margin-right: 6px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5em;
+  width: fit-content;
+  border: 1px solid #ff7300;
+  border-radius: 20px;
+  padding: 0 0.5em;
+  justify-content: space-between;
+}
+
+.label-checkbox {
+  font-size: 0.9em;
+  color: #ff7300;
+  margin-right: 8px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.checkbox-category {
+  text-align: center;
+  border-radius: 3px;
+  margin-right: 0.9em;
+  width: 5px;
+}
+.checkbox-category:checked::after {
+  text-align: center;
+  font-size: 1.2em;
+  content: "X";
+  color: #ff7300;
+}
+
 .checkbox-container {
   display: flex;
   align-items: center;
@@ -2512,6 +2550,30 @@ input[type=date]::-webkit-calendar-picker-indicator {
   font-size: 0.9em;
 }
 
+#categories {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position-x: 98%;
+  background-position-y: 5px;
+  margin-right: 3rem;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 0.8em 1.2em;
+  margin-bottom: 1em;
+}
+#categories:focus {
+  outline: 2px solid #00869e;
+}
+#categories option::placeholder {
+  font-family: "mulish", sans-serif;
+  color: red;
+  font-size: 2em;
+  background-color: red;
+}
+
 .title-articles-list {
   color: #00869e;
   margin-bottom: 1.5em;
@@ -2571,7 +2633,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 }
 
 .article-page {
-  background-color: #effafc;
+  background-color: #f7fcfd;
   padding: 5em;
 }
 
@@ -2637,7 +2699,6 @@ input[type=date]::-webkit-calendar-picker-indicator {
   margin-bottom: 0.6em;
   display: block;
 }
-
 .article-content {
   width: 70%;
 }
@@ -2651,14 +2712,26 @@ input[type=date]::-webkit-calendar-picker-indicator {
 }
 
 .close-previsualisation {
+  display: flex;
+  align-items: center;
   position: fixed;
   right: 0;
   bottom: 0;
-  width: 300px;
   background-color: #ff7300;
   padding: 1em;
   border-radius: 20px 0 0 0;
+}
+.close-previsualisation a {
   color: white;
+  text-decoration: none;
+  margin-bottom: 0;
+  margin-right: 8px;
+}
+.close-previsualisation img {
+  width: 25px;
+}
+.close-previsualisation:hover {
+  background-color: #c24d04;
 }
 
 .main-nav {

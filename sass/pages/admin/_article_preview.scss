@@ -9,7 +9,7 @@
 }
 
 .article-page {
-    background-color:#effafc ;
+    background-color:#f7fcfd ;
     padding: 5em;
 }
 
@@ -76,6 +76,10 @@
     color: $secondary-color;
     margin-bottom: 0.6em;
     display: block;
+
+    &:hover { 
+       
+    }
 }
 
 .article-content {
@@ -92,13 +96,26 @@
 }
 
 .close-previsualisation {
+    display: flex;
+    align-items: center;
     position: fixed;
     right: 0;
     bottom: 0;
-    width: 300px;
     background-color: $primary-color;
     padding: 1em;
     border-radius: 20px 0 0 0;
-    color: white;
+    a {
+        color: white;
+        text-decoration: none;
+        margin-bottom: 0;
+        margin-right: 8px;
+    }
 
+    img {
+        width: 25px;
+    }
+    &:hover {
+        background-color: $hover-btn-primary;
+    }
+    
 }

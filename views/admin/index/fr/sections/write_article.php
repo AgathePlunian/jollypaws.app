@@ -53,7 +53,14 @@
 			</div>
 
 			<div class="categories-container">
-			<label>Selectionner une ou plusieurs catégories</label>
+			<label>Selectionner une ou plusieurs catégorie(s)</label>
+			
+			<select id ="categories" name="categories[]">
+				<option value="null">Selectionner une catégorie</option>
+			<!--
+			<input type="text" class="input-label"name="category" placeholder="Catégorie" id="category">
+				-->		
+			
 				<?php
 					if(isset($_SESSION['article']['categories'])){
 
@@ -70,27 +77,24 @@
 						if(isset($article_categories_id_list)){
 							if(in_array($category['id'], $article_categories_id_list)){
 								$display_empty_categories = false;
-								?>
-								
-								<div class="category-checkbox checkbox-container">
-									<input class="checkbox" type="checkbox" name="categories[]" value="<?= $category['id'] ?>" checked >
-									<label class="category"><?= $category['name'] ?></label>
-								</div>
 
-								<?php
 							}
 						}
 						if($display_empty_categories == true) {
 						?>
-							<div class="category-checkbox checkbox-container">
-								<input class="checkbox" type="checkbox" name="categories[]" value="<?= $category['id'] ?>">
-								<label class="category"><?= $category['name'] ?></label>
-							</div>
+							
+							<option value="<?=$category['name']?>"><?=$category['name']?></option>
 						<?php
 						}
 						
 					}
 				?>
+				</select>
+
+					
+				<div id="categories-checkbox-container">
+						
+				</div>
 			</div>
 		</div>
 
@@ -139,6 +143,47 @@
 
 	<!-- Change form action if user submit the form or see the article -->
 	<script>
+
+/*  Select on change categories checkbox */
+		let inputCategory = document.getElementById("categories");
+		
+		inputCategory.addEventListener('change', function (e) {
+					
+					categoryValue = inputCategory.value;
+					let checkboxContainer = document.getElementById("categories-checkbox-container");
+					let categoriesSelected = document.getElementsByClassName("checkbox-category");
+					let alreadyExists = false;
+					
+					for (let i = 0; i < categoriesSelected.length ; i++) {
+							if(categoryValue == categoriesSelected[i].defaultValue) {
+								alreadyExists = true;
+							}
+						}
+
+					if ((categoryValue != "null") && (alreadyExists == false)) {
+						
+						newCheckBox = document.createElement('div');
+						newCheckBox.classList.add('checkbox-label-category')
+						newCheckBox.innerHTML = `
+							<label class="label-checkbox">${categoryValue}</label>
+							<input type="checkbox" name="categories[]" value="${categoryValue}" class="checkbox-category" checked>
+							`
+						checkboxContainer.appendChild(newCheckBox);
+						
+						for (let i = 0; i < categoriesSelected.length ; i++) {
+							categoriesSelected[i].addEventListener('change', function (e) {
+							e.target.parentNode.remove();
+							})
+						}
+
+					}
+	   		 
+		});
+
+
+
+
+
 
 		let imgInput = document.getElementById('main_picture');
 

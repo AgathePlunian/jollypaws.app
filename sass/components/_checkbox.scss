@@ -1,3 +1,45 @@
+#categories-checkbox-container {
+  display: flex;
+  flex-flow: row wrap;
+}
+.checkbox-label-category {
+  margin-right: 6px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5em;
+  width: fit-content;
+  border: 1px solid $primary-color;
+  border-radius: 20px;
+  padding: 0 0.5em;
+  justify-content: space-between;
+}
+
+.label-checkbox {
+  font-size: 0.9em;
+  color: $primary-color;
+  margin-right: 8px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.checkbox-category {
+  text-align: center;
+  border-radius: 3px;
+  margin-right: 0.9em;
+  width: 5px;
+
+  &:checked {
+  
+    &::after {
+      text-align: center;
+      font-size: 1.2em;
+      content: 	"X";
+      color: $primary-color;
+    }
+   }
+
+}
+
 .checkbox-container {
     display: flex;
     align-items: center;
