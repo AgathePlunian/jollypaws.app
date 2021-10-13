@@ -106,11 +106,50 @@
 			<div class="article-area-container">
 				<div class="editing-text-bar">
 					<div class="editing-text-icones">
-						<span><img src="../../../images/icones-text/bold-solid.svg" alt=" text bold"/></span>
-						<span><img src="../../../images/icones-text/italic-solid.svg" alt="text italic"/></span>
-						<span><img src="../../../images/icones-text/underline-solid.svg" alt="text underlined"/></span>
-						<span><img src="../../../images/icones-text/strikethrough-solid.svg" alt="text strikethrough"/></span>
-						<span><img src="../../../images/icones-text/list-ul-solid.svg" alt="list"/></span>
+						<span>
+							<img 
+								src="../../../images/icones-text/bold-solid.svg" 
+								alt="text bold"/ 
+								class="text-modifier"
+								id="bold"
+							/>
+						</span>
+
+						<span>
+							<img 
+								src="../../../images/icones-text/italic-solid.svg" 
+								alt="text italic"
+								class="text-modifier"
+								id="italic"
+							/>
+						</span>
+
+						<span>
+							<img 
+								src="../../../images/icones-text/underline-solid.svg" 
+								alt="text underlined"
+								class="text-modifier"
+								id="underline"
+							/>
+						</span>
+
+						<span>
+							<img 
+								src="../../../images/icones-text/strikethrough-solid.svg" 
+								alt="text strikethrough"
+								class="text-modifier"
+								id="strikethrough"
+							/>
+						</span>
+						
+						<span>
+							<img 
+								src="../../../images/icones-text/list-ul-solid.svg" 
+								alt="list"
+								class="text-modifier"
+								id="list"
+							/>
+						</span>
 					</div>
 					<div>
 						<p class="edit-new-title">+ Ajouter un sous titre</p>

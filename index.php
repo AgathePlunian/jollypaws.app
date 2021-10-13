@@ -50,6 +50,7 @@
 		["~^admin/articles/unpublish/[0-9]+$~", 'unpublish_article'],
 		["~^admin/new_article$~", 'new_article'],
 		["~^admin/new_article/write$~", 'new_article'],
+		["~^admin/my_articles$~", 'show_admin_index'],
 		["~^admin/edit_article/[0-9]+$~", 'show_admin_index'],
 		["~^admin/recover/[0-9]+$~", 'recover_article_from_trash'],
 		["~^admin/trash/[0-9]+$~", 'put_article_in_trash'],
@@ -57,6 +58,7 @@
 		["~^admin$~", 'show_admin_index'],
 
 		["~^article/show/[0-9]+/edit$~", 'display_article'],
+		["~^article/show/[0-9]+/list$~", 'display_article'],
 		["~^article/show/[0-9]+$~", 'display_article'],
 		
 		["~.*~", 'error_not_found'],

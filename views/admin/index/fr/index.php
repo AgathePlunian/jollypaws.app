@@ -154,10 +154,14 @@
 		var url = window.location.href;
 
 		var route_elements = url.split('/');
-		console.log(url);
 
+
+		// Changing displayed element depending on the route
 		if(route_elements.includes('new_article') || route_elements.includes('edit_article')) {
 			change_view('write_article');
+		}
+		else if(route_elements.includes('my_articles')){
+			change_view('list_articles');
 		}
 
 
