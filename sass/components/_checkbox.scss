@@ -1,7 +1,3 @@
-#categories-checkbox-container {
-  display: flex;
-  flex-flow: row wrap;
-}
 .checkbox-label-category {
   margin-right: 6px;
   display: flex;
@@ -20,6 +16,10 @@
   margin-right: 8px;
   margin-top: 0;
   margin-bottom: 0;
+}
+
+.label-checkbox-dark {
+  color: inherit;
 }
 
 .checkbox-category {
@@ -41,6 +41,7 @@
 }
 
 .checkbox-container {
+  height: fit-content;
     display: flex;
     align-items: center;
     margin-bottom: 1em;

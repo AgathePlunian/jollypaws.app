@@ -202,11 +202,6 @@ p {
   padding: 0.8em 1.8em;
 }
 
-#categories-checkbox-container {
-  display: flex;
-  flex-flow: row wrap;
-}
-
 .checkbox-label-category {
   margin-right: 6px;
   display: flex;
@@ -227,6 +222,10 @@ p {
   margin-bottom: 0;
 }
 
+.label-checkbox-dark {
+  color: inherit;
+}
+
 .checkbox-category {
   text-align: center;
   border-radius: 3px;
@@ -241,6 +240,7 @@ p {
 }
 
 .checkbox-container {
+  height: fit-content;
   display: flex;
   align-items: center;
   margin-bottom: 1em;
@@ -2339,6 +2339,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 .menu-lateral-admin {
   background-color: #00869e;
   border-bottom: 1px solid #e1f4fc;
+  width: 230px;
 }
 
 .menu-link {
@@ -2355,9 +2356,13 @@ input[type=date]::-webkit-calendar-picker-indicator {
 }
 
 #main_section {
+  overflow: hidden;
   width: 100%;
   padding: 2em 1.5em;
   min-height: 90vh;
+}
+#main_section h1 {
+  font-size: 1.6em;
 }
 
 #write_article, #register_user, #button_write_article {
@@ -2427,6 +2432,11 @@ input[type=date]::-webkit-calendar-picker-indicator {
   margin-right: 10px;
 }
 
+#imgSelected {
+  height: 40px;
+  width: 80px;
+}
+
 .custom-file-input {
   display: inline;
   max-width: 380px;
@@ -2459,7 +2469,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 .article-area-container textarea {
   padding: 1em;
   width: 100%;
-  height: 65vh;
+  height: 63vh;
   resize: none;
   border: none;
   border-radius: 10px;
@@ -2481,16 +2491,23 @@ input[type=date]::-webkit-calendar-picker-indicator {
 .btn-submit-container {
   display: flex;
   margin-top: 1.5em;
-}
-
-.img-selected {
-  width: 150px;
-  margin-bottom: 2em;
+  justify-content: flex-end;
 }
 
 #article_submit {
   font-size: 16px;
   background-color: #00869e;
+  color: white;
+  font-weight: 700;
+  border: none;
+  border-radius: 20px;
+  padding: 0.7em 1.3em;
+  margin-right: 15px;
+}
+
+#article_send_validation {
+  font-size: 16px;
+  background-color: #ff7300;
   color: white;
   font-weight: 700;
   border: none;
@@ -2507,7 +2524,6 @@ input[type=date]::-webkit-calendar-picker-indicator {
   padding: 0.5em 1.2em;
   font-size: 16px;
   border-radius: 20px;
-  margin-bottom: 0.5em;
   float: right;
 }
 
@@ -2548,33 +2564,40 @@ input[type=date]::-webkit-calendar-picker-indicator {
   text-decoration: underline;
 }
 
-.category {
-  color: inherit;
-  font-size: 0.9em;
-}
-
-#categories {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
-  background-repeat: no-repeat;
-  background-position-x: 98%;
-  background-position-y: 5px;
-  margin-right: 3rem;
-  width: 100%;
-  border: none;
+#categories-checkbox-container {
+  overflow: scroll;
+  height: 100px;
+  background-color: white;
+  padding: 0.8em;
   border-radius: 10px;
-  padding: 0.8em 1.2em;
-  margin-bottom: 1em;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  flex-flow: row wrap;
+  scroll-padding: 20px;
 }
-#categories:focus {
-  outline: 2px solid #00869e;
+#categories-checkbox-container::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+  display: none;
 }
-#categories option::placeholder {
-  font-family: "mulish", sans-serif;
-  color: red;
-  font-size: 2em;
-  background-color: red;
+#categories-checkbox-container::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+#categories-checkbox-container::-webkit-scrollbar {
+  width: 1.4em;
+  /* Total width including `border-width` of scrollbar thumb */
+  height: 0;
+}
+#categories-checkbox-container::-webkit-scrollbar-thumb {
+  border: 0.4em solid rgba(0, 0, 0, 0);
+  /* Transparent border together with `background-clip: padding-box` does the trick */
+  background-clip: padding-box;
+  -webkit-border-radius: 1em;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+#categories-checkbox-container .checkbox-container {
+  margin-bottom: 0.2em;
+  margin-right: 10px;
 }
 
 .title-articles-list {
@@ -2590,6 +2613,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 }
 
 .card-article {
+  overflow: hidden;
   width: 49%;
   background-color: white;
   border-radius: 20px;
@@ -2626,6 +2650,20 @@ input[type=date]::-webkit-calendar-picker-indicator {
   display: block;
 }
 
+@media screen and (max-width: 1245px) {
+  #main_section {
+    padding: 2em 1.5em;
+    min-height: 90vh;
+    width: 79%;
+  }
+
+  .article-en-redaction {
+    display: block;
+  }
+  .article-en-redaction .card-article {
+    width: 100%;
+  }
+}
 .article-header {
   text-align: center;
   width: 70%;
@@ -2737,8 +2775,13 @@ input[type=date]::-webkit-calendar-picker-indicator {
   background-color: #c24d04;
 }
 
+#register_user_view {
+  padding: 0 1.5em;
+}
+
 .register-user-title {
   color: #00869e;
+  margin-bottom: 1em;
 }
 
 .input-register-user {
@@ -2746,7 +2789,16 @@ input[type=date]::-webkit-calendar-picker-indicator {
   border: none;
   border-radius: 10px;
   padding: 0.8em 1.2em;
-  width: 300px;
+  width: 400px;
+}
+
+.btn-register-user {
+  background-color: #ff7300;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 1em;
+  padding: 0.6em 2em;
 }
 
 .main-nav {

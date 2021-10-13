@@ -3,7 +3,7 @@
 ?>
 
 <div class="view" hidden="true" id="register_user_view">
-	
+
 	<h1 class="register-user-title">Ajouter un nouvel utilisateur</h1>
 
 	<form action="/<?= $lang ?>/admin/users/register" method="POST">
@@ -25,7 +25,7 @@
 		</div>
 		<div>
 			<br>
-			<input class="input-register-user" type="submit" name="submit_user_form" value="Enregistrer" >
+			<input class="btn-register-user" type="submit" name="submit_user_form" value="Enregistrer" >
 		</div>
 	</form>
 </div>

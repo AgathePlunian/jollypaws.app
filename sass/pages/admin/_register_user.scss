@@ -1,5 +1,10 @@
+#register_user_view {
+    padding: 0 1.5em;
+}
+
 .register-user-title {
     color: $secondary-color;
+    margin-bottom: 1em;
 }
 
 .input-register-user {
@@ -7,5 +12,15 @@
     border: none;
     border-radius: 10px;
     padding: 0.8em 1.2em;
-    width: 300px;
+    width: 400px;
+}
+
+.btn-register-user {
+    background-color: $primary-color;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 1em;
+    padding: 0.6em 2em;
+
 }

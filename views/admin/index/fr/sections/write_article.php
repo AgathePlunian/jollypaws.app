@@ -52,15 +52,10 @@
 				?>
 			</div>
 
-			<div class="categories-container">
 			<label>Selectionner une ou plusieurs catégorie(s)</label>
 			
-			<select id ="categories" >
-				<option value="null">Selectionner une catégorie</option>
-			<!--
-			<input type="text" class="input-label"name="category" placeholder="Catégorie" id="category">
-				-->		
-			
+			<div id="categories-checkbox-container">
+					
 				<?php
 					if(isset($_SESSION['article']['categories'])){
 
@@ -79,14 +74,10 @@
 								?>
 
 								<!-- Ici les catégories que possède déjà l'article -->
-								<option 
-									value="<?=$category['name']?>" 
-									name="categories[]" 
-									id_category="<?= $category['id'] ?>"
-									class="owned_category"
-								>
-									<?= $category['name'] ?>	
-								</option>
+								<div class="checkbox-container">
+									<input type="checkbox" name="categories[]" value="<?=$category['id']?>" class="checkbox" checked>
+									<label class="label-checkbox label-checkbox-dark"><?=$category['name']?></label>
+								</div>
 								
 								<?php
 								$display_empty_categories = false;
@@ -95,24 +86,17 @@
 						if($display_empty_categories == true) {
 						?>
 							<!-- Ici les catégories que ne possède pas l'article -->
-							<option 
-								value="<?=$category['name']?>" 
-								name="categories[]" 
-								id_category="<?= $category['id'] ?>" 
-							>
-								<?=$category['name']?>
-							</option>
+							<div class="checkbox-container">
+								<input type="checkbox"  name="categories[]" value="<?=$category['id']?>" class="checkbox owned_category">
+								<label class="label-checkbox label-checkbox-dark"><?=$category['name']?></label>
+							</div>
+
 						<?php
 						}
 						
 					}
 				?>
-				</select>
-
-					
-				<div id="categories-checkbox-container">
-						
-				</div>
+			
 			</div>
 		</div>
 
@@ -152,6 +136,8 @@
 			
 			<div class="btn-submit-container">
 				<input type="submit" name="article_form" value="Enregistrer les modifications" id="article_submit">
+				<input type="submit" name="article_form" value="Envoyer en validation" id="article_send_validation">
+
 			</div>
 		</div>
 	</div>
@@ -161,77 +147,6 @@
 
 	<!-- Change form action if user submit the form or see the article -->
 	<script>
-
-/*  Select on change categories checkbox */
-		let inputCategory = document.getElementById("categories");
-		
-		function add_event_listener(){
-			let categoriesSelected = document.getElementsByClassName("checkbox-category");
-
-			for (let i = 0; i < categoriesSelected.length ; i++) {
-					categoriesSelected[i].addEventListener('change', function (e) {
-					e.target.parentNode.remove();
-				})
-			}
-		}
-
-		function add_checkbox_category(categoryValue, id_category){
-			let checkboxContainer = document.getElementById("categories-checkbox-container");
-
-			newCheckBox = document.createElement('div');
-			newCheckBox.classList.add('checkbox-label-category')
-			newCheckBox.innerHTML = `
-				<label class="label-checkbox">${categoryValue}</label>
-				<input type="checkbox" name="categories[]" value="${id_category}" class="checkbox-category" checked>
-				`
-			checkboxContainer.appendChild(newCheckBox);
-
-			add_event_listener();
-		}
-
-
-		var owned_categories = document.getElementsByClassName('owned_category');
-		for(var i=0; i < owned_categories.length; i++){
-			var categoryValue = owned_categories[i].value;
-			var id_category = owned_categories[i].getAttribute('id_category');
-
-			add_checkbox_category(categoryValue, id_category);
-		}
-
-
-		inputCategory.addEventListener('change', function (e) {
-					
-			categoryValue = inputCategory.value;
-
-			var selected_index = inputCategory.selectedIndex;
-			var selected_element = inputCategory.options[selected_index];
-			var id_category = selected_element.getAttribute('id_category');
-
-			
-			let checkboxContainer = document.getElementById("categories-checkbox-container");
-			let categoriesSelected = document.getElementsByClassName("checkbox-category");
-			let alreadyExists = false;
-
-			for (let i = 0; i < categoriesSelected.length ; i++) {
-					if(id_category == categoriesSelected[i].value) {
-						alreadyExists = true;
-					}
-				}
-
-			if ((categoryValue != "null") && (alreadyExists == false)) {
-				
-				add_checkbox_category(categoryValue, id_category);
-				
-				add_event_listener();
-
-			}
-	   		 
-		});
-
-
-
-
-
 
 		let imgInput = document.getElementById('main_picture');
 
