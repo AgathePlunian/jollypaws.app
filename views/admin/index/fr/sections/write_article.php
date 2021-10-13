@@ -55,7 +55,7 @@
 			<div class="categories-container">
 			<label>Selectionner une ou plusieurs catégorie(s)</label>
 			
-			<select id ="categories" name="categories[]">
+			<select id ="categories" >
 				<option value="null">Selectionner une catégorie</option>
 			<!--
 			<input type="text" class="input-label"name="category" placeholder="Catégorie" id="category">
@@ -76,14 +76,32 @@
 
 						if(isset($article_categories_id_list)){
 							if(in_array($category['id'], $article_categories_id_list)){
-								$display_empty_categories = false;
+								?>
 
+								<!-- Ici les catégories que possède déjà l'article -->
+								<option 
+									value="<?=$category['name']?>" 
+									name="categories[]" 
+									id_category="<?= $category['id'] ?>"
+									class="owned_category"
+								>
+									<?= $category['name'] ?>	
+								</option>
+								
+								<?php
+								$display_empty_categories = false;
 							}
 						}
 						if($display_empty_categories == true) {
 						?>
-							
-							<option value="<?=$category['name']?>"><?=$category['name']?></option>
+							<!-- Ici les catégories que ne possède pas l'article -->
+							<option 
+								value="<?=$category['name']?>" 
+								name="categories[]" 
+								id_category="<?= $category['id'] ?>" 
+							>
+								<?=$category['name']?>
+							</option>
 						<?php
 						}
 						
@@ -147,36 +165,66 @@
 /*  Select on change categories checkbox */
 		let inputCategory = document.getElementById("categories");
 		
+		function add_event_listener(){
+			let categoriesSelected = document.getElementsByClassName("checkbox-category");
+
+			for (let i = 0; i < categoriesSelected.length ; i++) {
+					categoriesSelected[i].addEventListener('change', function (e) {
+					e.target.parentNode.remove();
+				})
+			}
+		}
+
+		function add_checkbox_category(categoryValue, id_category){
+			let checkboxContainer = document.getElementById("categories-checkbox-container");
+
+			newCheckBox = document.createElement('div');
+			newCheckBox.classList.add('checkbox-label-category')
+			newCheckBox.innerHTML = `
+				<label class="label-checkbox">${categoryValue}</label>
+				<input type="checkbox" name="categories[]" value="${id_category}" class="checkbox-category" checked>
+				`
+			checkboxContainer.appendChild(newCheckBox);
+
+			add_event_listener();
+		}
+
+
+		var owned_categories = document.getElementsByClassName('owned_category');
+		for(var i=0; i < owned_categories.length; i++){
+			var categoryValue = owned_categories[i].value;
+			var id_category = owned_categories[i].getAttribute('id_category');
+
+			add_checkbox_category(categoryValue, id_category);
+		}
+
+
 		inputCategory.addEventListener('change', function (e) {
 					
-					categoryValue = inputCategory.value;
-					let checkboxContainer = document.getElementById("categories-checkbox-container");
-					let categoriesSelected = document.getElementsByClassName("checkbox-category");
-					let alreadyExists = false;
-					
-					for (let i = 0; i < categoriesSelected.length ; i++) {
-							if(categoryValue == categoriesSelected[i].defaultValue) {
-								alreadyExists = true;
-							}
-						}
+			categoryValue = inputCategory.value;
 
-					if ((categoryValue != "null") && (alreadyExists == false)) {
-						
-						newCheckBox = document.createElement('div');
-						newCheckBox.classList.add('checkbox-label-category')
-						newCheckBox.innerHTML = `
-							<label class="label-checkbox">${categoryValue}</label>
-							<input type="checkbox" name="categories[]" value="${categoryValue}" class="checkbox-category" checked>
-							`
-						checkboxContainer.appendChild(newCheckBox);
-						
-						for (let i = 0; i < categoriesSelected.length ; i++) {
-							categoriesSelected[i].addEventListener('change', function (e) {
-							e.target.parentNode.remove();
-							})
-						}
+			var selected_index = inputCategory.selectedIndex;
+			var selected_element = inputCategory.options[selected_index];
+			var id_category = selected_element.getAttribute('id_category');
 
+			
+			let checkboxContainer = document.getElementById("categories-checkbox-container");
+			let categoriesSelected = document.getElementsByClassName("checkbox-category");
+			let alreadyExists = false;
+
+			for (let i = 0; i < categoriesSelected.length ; i++) {
+					if(id_category == categoriesSelected[i].value) {
+						alreadyExists = true;
 					}
+				}
+
+			if ((categoryValue != "null") && (alreadyExists == false)) {
+				
+				add_checkbox_category(categoryValue, id_category);
+				
+				add_event_listener();
+
+			}
 	   		 
 		});
 
