@@ -209,7 +209,12 @@ function display_article($route, $lang){
 		$article_title = $article['title'];
 		$article_main_image = $article['main_image'];
 
-		$return_button = "/{$lang}/admin/edit_article/{$id_article}";
+		if(in_array('edit', $route_elements)){
+			$return_button = "/{$lang}/admin/edit_article/{$id_article}";
+		}
+		else{
+			$return_button = "/{$lang}/admin";
+		}
 
 		require('views/admin/articles/show_article_view.php');
 	}

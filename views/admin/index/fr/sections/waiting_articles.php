@@ -4,7 +4,7 @@
 
 <!-- Main div -->
 <div class="view" hidden="true" id="waiting_articles_view">
-	<h2 class="title-articles-list">Articles en attente de publication</h2>
+	<h1 class="title-articles-list">Articles en attente de publication</h1>
 		<div class="article-en-redaction">
 			<?php
 				foreach($waiting_articles as $article){
