@@ -58,16 +58,16 @@
 		</div>
 
 		<div class="logo-share-article">
-			<div><img src="../../../images/icones-reseaux-sociaux/logo-instagram-blue.png"/></div>
-			<div><img src="../../../images/icones-reseaux-sociaux/logo-twitter-blue.png"/></div>
-			<div><img src="../../../images/icones-reseaux-sociaux/logo-linkedin-blue.png"/></div>
+			<div><img src="/images/icones-reseaux-sociaux/logo-instagram-blue.png"/></div>
+			<div><img src="/images/icones-reseaux-sociaux/logo-twitter-blue.png"/></div>
+			<div><img src="/images/icones-reseaux-sociaux/logo-linkedin-blue.png"/></div>
 		</div>
 	</div>
 </div>
 
 <div class="close-previsualisation">
 	<a href='<?= $return_button ?>'>Fermer le mode de prévisualisation</a>
-	<img src="../../../images/icones-form/close-btn.svg" alt="close preview mode"/>
+	<img src="/images/icones-form/close-btn.svg" alt="close preview mode"/>
 </div>
 
 <script type="text/javascript">

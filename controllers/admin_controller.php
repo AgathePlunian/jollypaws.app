@@ -212,6 +212,9 @@ function display_article($route, $lang){
 		if(in_array('edit', $route_elements)){
 			$return_button = "/{$lang}/admin/edit_article/{$id_article}";
 		}
+		elseif(in_array('list', $route_elements)){
+			$return_button = "/{$lang}/admin/my_articles";
+		}
 		else{
 			$return_button = "/{$lang}/admin";
 		}
