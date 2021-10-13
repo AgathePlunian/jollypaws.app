@@ -129,17 +129,6 @@
 
   <div class="card-team">
     <div class="ID-picture-container">
-      <img src="/images/team-page/yann-bg.png" alt="Portrait de Yann Bemba">
-    </div>
-    <div class="text-ID-card">
-      <p class="name-card">Yann Bemba</p>
-      <p>Mobile developer Junior</p>
-    </div>
-    <a class="linkedin-link" target="blank" href="https://www.linkedin.com/in/yann-bemba-longa/"><img src="/images/team-page/logo-linkedin-secondary.png" alt="Lien vers Linkedin de Ornella Ouagazzal"></a>
-  </div>
-
-  <div class="card-team">
-    <div class="ID-picture-container">
       <img src="/images/team-page/nicolas-bg.png" alt="Portrait of Nicolas Van Heusden">
     </div>
     <div class="text-ID-card">

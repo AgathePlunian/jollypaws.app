@@ -4,7 +4,7 @@
 
 <!-- Main div -->
 <div class="view" hidden="true" id="trash_articles_view">
-	<h2 class="title-articles-list">Articles prochainement supprimés</h2>
+	<h1 class="title-articles-list">Articles prochainement supprimés</h1>
 		<div class="article-en-redaction">
 			<?php
 				foreach($trashed_articles as $article){

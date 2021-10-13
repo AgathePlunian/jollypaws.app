@@ -41,7 +41,7 @@
 
 			if($editing == true){
 				$writing_article_link = "
-					<a href='/{$lang}/admin/new_article' class='menu-link'> + Rédiger un article </a>";
+					<a href='/{$lang}/admin/new_article' class='menu-link' id='button_write_article'>+ Rédiger un article </a>";
 			}
 
 			echo $writing_article_link;

@@ -4,7 +4,7 @@
 
 <!-- Main div -->
 <div class="view" hidden="true" id="published_articles_view">
-	<h2 class="title-articles-list">Articles publiés</h2>
+	<h1 class="title-articles-list">Articles publiés</h1>
 		<div class="article-en-redaction">
 			<?php
 				foreach($published_articles as $article){
