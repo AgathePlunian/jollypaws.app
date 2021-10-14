@@ -53,7 +53,12 @@
 		["~^admin/my_articles$~", 'show_admin_index'],
 		["~^admin/edit_article/[0-9]+$~", 'show_admin_index'],
 		["~^admin/recover/[0-9]+$~", 'recover_article_from_trash'],
+		
 		["~^admin/trash/[0-9]+$~", 'put_article_in_trash'],
+
+		["~^admin/categories/add$~", 'add_category'],
+		["~^admin/categories/edit/[0-9]+$~", 'edit_category'],
+		["~^admin/categories/delete/[0-9]+$~", 'delete_category'],
 		
 		["~^admin$~", 'show_admin_index'],
 

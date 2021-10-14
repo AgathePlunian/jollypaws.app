@@ -43,7 +43,8 @@ function show_admin_index($route, $lang){
 			$DELETE_ARTICLE_PERM, 
 			$APPROVE_ARTICLE_PERM,
 			$PUBLISH_ARTICLE_PERM,
-			$CREATE_ACCOUNT_PERM;
+			$CREATE_ACCOUNT_PERM,
+			$MANAGE_CATEGORIES_PERM;
 
 		
 		// If no session
@@ -53,6 +54,8 @@ function show_admin_index($route, $lang){
 
 		$article_manager = new ArticleManager();
 		$category_manager = new CategoryManager();
+
+		/* ####################### PERMISSIONS ########################### */
 
 		// if user has rights to write articles
 		if (in_array($CREATE_ARTICLE_PERM, $_SESSION['permissions'])){
@@ -79,6 +82,7 @@ function show_admin_index($route, $lang){
 			}
 		}
 
+
 		// If user has the delete article perm
 		if(in_array($DELETE_ARTICLE_PERM, $_SESSION['permissions'])){
 			$trashed_articles = $article_manager->list_trashed_articles();		
@@ -101,6 +105,15 @@ function show_admin_index($route, $lang){
 			$published_articles = $article_manager->list_published_articles();
 		}
 
+
+		// Is user can manage categories
+		if(in_array($MANAGE_CATEGORIES_PERM, $_SESSION['permissions'])) {
+			if(!isset($all_categories)){
+				$all_categories = $category_manager->list_all_categories();
+			}
+		}
+
+		/* ####################### PERMISSIONS ########################### */
 
 		require('views/admin/index_view.php');
 	}
@@ -617,7 +630,102 @@ function unpublish_article($route, $lang){
 		header("Location: /{$lang}/admin");
 	}
 	catch(Exception $e){
-		die($e);
+		header("Location: /{$lang}/admin");
+	}
+}
+
+
+function add_category($route, $lang, $P=false){
+	global $MANAGE_CATEGORIES_PERM;
+	try{
+		// Check permissions
+		if(!isset($_SESSION['id'])){
+			throw new Exception('User need to be connected');
+		}
+		if(!in_array($MANAGE_CATEGORIES_PERM, $_SESSION['permissions'])){
+			throw new Exception('Operation not allowed');
+		}
+
+		// Check everything is ok
+		if($P == false || !isset($P) || empty($P['category_name'])){
+			throw new Exception('[add_category] Missing field');
+		}
+
+		$category_manager = new CategoryManager();
+		$category_manager->create_category($P['category_name']);
+
+		header("Location: /{$lang}/admin");
+
+	}
+	catch(Exception $e){
+		header("Location: /{$lang}/admin");
+	}
+}
+
+function edit_category($route, $lang, $P=false){
+	global $MANAGE_CATEGORIES_PERM;
+	try{
+		// Check permissions
+		if(!isset($_SESSION['id'])){
+			throw new Exception('User need to be connected');
+		}
+		if(!in_array($MANAGE_CATEGORIES_PERM, $_SESSION['permissions'])){
+			throw new Exception('Operation not allowed');
+		}
+
+		// Check everything is ok
+		if($P == false || !isset($P) || empty($P['category_name'])){
+			throw new Exception('[add_category] Missing field');
+		}
+
+		$route_elements = explode('/', $route);
+		$array_id_category = (array_search('edit', $route_elements) != false)? (array_search('edit', $route_elements)+ 1): false;
+
+		if($array_id_category == false){
+			throw new Exception('[edit_category] Can\'t find id in route');
+		}
+
+		$category_id = $route_elements[$array_id_category];
+
+		$category_manager = new CategoryManager();
+		$category_manager->update_category($category_id, $P['category_name']);
+
+		header("Location: /{$lang}/admin");
+
+	}
+	catch(Exception $e){
+		header("Location: /{$lang}/admin");
+	}
+}
+
+
+function delete_category($route, $lang){
+	global $MANAGE_CATEGORIES_PERM;
+	try{
+		// Check permissions
+		if(!isset($_SESSION['id'])){
+			throw new Exception('User need to be connected');
+		}
+		if(!in_array($MANAGE_CATEGORIES_PERM, $_SESSION['permissions'])){
+			throw new Exception('Operation not allowed');
+		}
+
+		$route_elements = explode('/', $route);
+		$array_id_category = (array_search('delete', $route_elements) != false)? (array_search('delete', $route_elements)+ 1): false;
+
+		if($array_id_category == false){
+			throw new Exception('[delete_category] Can\'t find id in route');
+		}
+
+		$category_id = $route_elements[$array_id_category];
+
+		$category_manager = new CategoryManager();
+		$category_manager->delete_category($category_id);
+
+		header("Location: /{$lang}/admin");
+
+	}
+	catch(Exception $e){
 		header("Location: /{$lang}/admin");
 	}
 }

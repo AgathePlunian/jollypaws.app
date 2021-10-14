@@ -36,6 +36,9 @@ function load_article($article_content){
 		["[/LI]", '</li>'],
 	);
 
+	// Empêche le code html d'être affiché comme tel, excepté celui que l'on aurait choisit
+	$article_content = htmlspecialchars($article_content);
+
 	foreach($bbcode_str as $code){
 		$article_content = str_replace($code[0], $code[1], $article_content);
 	}
