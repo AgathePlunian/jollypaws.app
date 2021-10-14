@@ -2806,6 +2806,10 @@ input[type=date]::-webkit-calendar-picker-indicator {
   font-style: italic;
 }
 
+.titles-main-article {
+  margin-top: 1em;
+}
+
 #register_user_view {
   padding: 0 1.5em;
 }

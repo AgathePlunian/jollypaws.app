@@ -14,7 +14,7 @@ function load_permissions($user_id){
 
 function load_article($article_content){
 	$bbcode_str = array(
-		["[h2]", '<h2>'],
+		["[h2]", '<h2  class=\'underline-main-article\'>'],
 		["[/h2]", '</h2>'],
 
 		["[U]", '<u class=\'underline-main-article\' >'],
@@ -46,7 +46,7 @@ function load_article($article_content){
 		$article_content = str_replace($code[0], $code[1], $article_content);
 	}
 
-	$article_content = str_replace("\n", '<br />', $article_content);
+	$article_content = str_replace("\n", '<br/>', $article_content);
 	return $article_content;
 }
 
