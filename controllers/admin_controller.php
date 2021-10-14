@@ -722,7 +722,7 @@ function delete_category($route, $lang){
 		$category_manager = new CategoryManager();
 		$category_manager->delete_category($category_id);
 
-		header("Location: /{$lang}/admin");
+		header("Location: /{$lang}/admin/manage_categories");
 
 	}
 	catch(Exception $e){
