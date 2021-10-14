@@ -31,7 +31,7 @@ function load_article($article_content){
 
 		["[UL]", '<ul class=\'list-main-article\'>'],
 		["[/UL]", '</ul>'],
-		
+
 		["[LI]", '<li class=\'list-element-main-article\'>'],
 		["[/LI]", '</li>'],
 
