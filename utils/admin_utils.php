@@ -16,6 +16,23 @@ function load_article($article_content){
 	$bbcode_str = array(
 		["[h2]", '<h2>'],
 		["[/h2]", '</h2>'],
+
+		["[U]", '<u>'],
+		["[/U]", '</u>'],
+
+		["[B]", '<b>'],
+		["[/B]", '</b>'],
+
+		["[I]", '<i>'],
+		["[/I]", '</i>'],
+
+		["[STRIKE]", '<strike>'],
+		["[/STRIKE]", '</strike>'],
+
+		["[UL]", '<ul>'],
+		["[LI]", '<li>'],
+		["[/LI]", '</li>'],
+		["[/UL]", '</ul>']
 	);
 
 	foreach($bbcode_str as $code){

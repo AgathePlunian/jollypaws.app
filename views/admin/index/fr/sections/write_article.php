@@ -111,7 +111,7 @@
 								src="../../../images/icones-text/bold-solid.svg" 
 								alt="text bold"/ 
 								class="text-modifier"
-								id="bold"
+								id="bold_button"
 							/>
 						</span>
 
@@ -120,7 +120,7 @@
 								src="../../../images/icones-text/italic-solid.svg" 
 								alt="text italic"
 								class="text-modifier"
-								id="italic"
+								id="italic_button"
 							/>
 						</span>
 
@@ -129,7 +129,7 @@
 								src="../../../images/icones-text/underline-solid.svg" 
 								alt="text underlined"
 								class="text-modifier"
-								id="underline"
+								id="underline_button"
 							/>
 						</span>
 
@@ -138,7 +138,7 @@
 								src="../../../images/icones-text/strikethrough-solid.svg" 
 								alt="text strikethrough"
 								class="text-modifier"
-								id="strikethrough"
+								id="strikethrough_button"
 							/>
 						</span>
 						
@@ -147,7 +147,7 @@
 								src="../../../images/icones-text/list-ul-solid.svg" 
 								alt="list"
 								class="text-modifier"
-								id="list"
+								id="list_button"
 							/>
 						</span>
 					</div>
@@ -157,7 +157,7 @@
 				</div>
 
 				<!-- Ne pas espacer la balise textarea de la balise php -->
-				<textarea name="article_content"><?php 
+				<textarea name="article_content" id="article_content_area"><?php 
 					if(isset($_SESSION['article']['content'])){ 
 						echo $_SESSION['article']['content'];
 					}
@@ -208,6 +208,23 @@
 		// Button to submit article
 		var submit_article = document.getElementById('article_submit');
 
+
+		// Buttons to modify text
+		var modifiers_button = document.getElementsByClassName('text-modifier');
+
+		// Bind the buttons
+		for(var i = 0; i < modifiers_button.length; i++){
+			modifiers_button[i].addEventListener('click', onClickModifier);
+		}
+
+		var modifier_association = new Object();
+		modifier_association['bold_button'] = ['[B]', '[/B]'];
+		modifier_association['italic_button'] = ['[I]', '[/I]'];
+		modifier_association['underline_button'] = ['[U]', '[/U]'];
+		modifier_association['strikethrough_button'] = ['[strike]', '[/strike]'];
+		modifier_association['list_button'] = ['[UL]\n[LI]', '[/LI]\n[/UL]'];
+
+
 		// Bind click on button to function
 		visu_article.addEventListener('click', onClickVisu);
 		submit_article.addEventListener('click', onClickSubmit);
@@ -217,7 +234,7 @@
 		function onClickVisu(e){
 			var form = document.getElementById('article_form');
 			form.setAttribute('action', '/<?= $lang ?>/admin/articles/show');
-			visu_article.removeEventListener('click', onClick);
+			visu_article.removeEventListener('click', onClickVisu);
 			visu_article.click();
 		}
 
@@ -226,8 +243,25 @@
 		function onClickSubmit(e){
 			var form = document.getElementById('article_form');
 			form.setAttribute('action', '/<?= $lang ?>/admin/articles/verify');
-			submit_article.removeEventListener('click', onClick);
+			submit_article.removeEventListener('click', onClickSubmit);
 			submit_article.click();
+		}
+
+		function onClickModifier(e){
+			var article_text_area = document.getElementById('article_content_area');
+			var selection_start = article_text_area.selectionStart;
+			var selection_end = article_text_area.selectionEnd;
+
+			var selection_start_element = modifier_association[this.id][0];
+			var selection_end_element = modifier_association[this.id][1];
+
+			var new_value = article_text_area.value.substring(0, selection_start) + 
+							selection_start_element + 
+							article_text_area.value.substring(selection_start, selection_end) +
+							selection_end_element +
+							article_text_area.value.substring(selection_end, article_text_area.value.length);
+
+			article_text_area.value = new_value;
 		}
 
 	</script>
