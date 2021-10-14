@@ -654,7 +654,7 @@ function add_category($route, $lang, $P=false){
 		$category_manager = new CategoryManager();
 		$category_manager->create_category($P['category_name']);
 
-		header("Location: /{$lang}/admin");
+		header("Location: /{$lang}/admin/manage_categories");
 
 	}
 	catch(Exception $e){
@@ -690,7 +690,7 @@ function edit_category($route, $lang, $P=false){
 		$category_manager = new CategoryManager();
 		$category_manager->update_category($category_id, $P['category_name']);
 
-		header("Location: /{$lang}/admin");
+		header("Location: /{$lang}/admin/manage_categories");
 
 	}
 	catch(Exception $e){
