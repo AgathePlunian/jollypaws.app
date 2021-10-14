@@ -71,7 +71,9 @@
 </div>
 
 <script type="text/javascript">
+
 	window.onload = function(){
+
 		var sections_list = document.getElementsByTagName('h2');
 
 		for(var i=0; i < sections_list.length; i++ ){
@@ -94,8 +96,23 @@
 
 			new_summary_link.appendChild(new_summary_entry_name);
 			new_summary_entry.appendChild(new_summary_link);
-			summary.appendChild(new_summary_entry);
+			summary.appendChild(new_summary_entry);		
 		}
+
+		let links_list = document.getElementsByClassName('link-main-article');
+
+			for(var j = 0; j < links_list.length; j++ ){
+				let textLink = links_list[j].innerHTML;
+				textLink = textLink.replace(/\s/g, '');
+
+				if(!textLink.startsWith("https://")) {
+					links_list[j].href = "https://"+textLink; 
+				}
+				else {
+					links_list[j].href = textLink; 
+				}
+				
+			}
 	}
 </script>
 

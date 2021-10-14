@@ -109,7 +109,7 @@
 						<span>
 							<img 
 								src="../../../images/icones-text/bold-solid.svg" 
-								alt="text bold"/ 
+								alt="text bold"
 								class="text-modifier"
 								id="bold_button"
 							/>
@@ -148,6 +148,15 @@
 								alt="list"
 								class="text-modifier"
 								id="list_button"
+							/>
+						</span>
+
+						<span>
+							<img 
+								src="../../../images/icones-text/link-solid.svg" 
+								alt="lien"
+								class="text-modifier"
+								id="link_button"
 							/>
 						</span>
 					</div>
@@ -223,6 +232,7 @@
 		modifier_association['underline_button'] = ['[U] ', ' [/U]'];
 		modifier_association['strikethrough_button'] = ['[STRIKE] ', ' [/STRIKE]'];
 		modifier_association['list_button'] = ['[UL]\n[LI] ', ' [/LI]\n[/UL]'];
+		modifier_association['link_button'] = ['[A] ', ' [/A]'];
 
 
 		// Bind click on button to function

@@ -34,6 +34,9 @@ function load_article($article_content){
 
 		["[LI]", '<li class=\'list-element-main-article\'>'],
 		["[/LI]", '</li>'],
+
+		["[A]", '<a class=\'link-main-article\'>'],
+		["[/A]", '</a>'],
 	);
 
 	// Empêche le code html d'être affiché comme tel, excepté celui que l'on aurait choisit

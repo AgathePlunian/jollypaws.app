@@ -33,6 +33,34 @@
   
 }
 
+.link-main-article {
+    color: $secondary-color;
+    text-decoration: none;
+
+    &:hover {
+        color: darken($secondary-color, 10);
+    }
+}
+
+.list-main-article {
+ 
+    .list-element-main-article {
+            display: flex;
+        &::before {
+            content:"\2022";
+            color: inherit;
+            margin-right: 10px;
+        }
+
+        .item-summary {
+        text-decoration: none;
+        margin-bottom: 0.6em;
+        display: block;
+        }
+
+    }
+}
+
 .category-list {
     display: flex;
 
@@ -118,4 +146,12 @@
         background-color: $hover-btn-primary;
     }
     
+}
+
+.bold-main-article {
+    font-weight: bold;
+}
+
+.italic-main-article {
+    font-style: italic;
 }

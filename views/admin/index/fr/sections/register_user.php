@@ -24,7 +24,6 @@
 			<input class="input-register-user" type="password" name="password" placeholder="Mot de passe temporaire">
 		</div>
 		<div>
-			<br>
 			<input class="btn-register-user" type="submit" name="submit_user_form" value="Enregistrer" >
 		</div>
 	</form>
