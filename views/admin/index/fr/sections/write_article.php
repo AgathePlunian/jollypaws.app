@@ -218,11 +218,11 @@
 		}
 
 		var modifier_association = new Object();
-		modifier_association['bold_button'] = ['[B]', '[/B]'];
-		modifier_association['italic_button'] = ['[I]', '[/I]'];
-		modifier_association['underline_button'] = ['[U]', '[/U]'];
-		modifier_association['strikethrough_button'] = ['[strike]', '[/strike]'];
-		modifier_association['list_button'] = ['[UL]\n[LI]', '[/LI]\n[/UL]'];
+		modifier_association['bold_button'] = ['[B] ', ' [/B]'];
+		modifier_association['italic_button'] = ['[I] ', ' [/I]'];
+		modifier_association['underline_button'] = ['[U] ', ' [/U]'];
+		modifier_association['strikethrough_button'] = ['[STRIKE] ', ' [/STRIKE]'];
+		modifier_association['list_button'] = ['[UL]\n[LI] ', ' [/LI]\n[/UL]'];
 
 
 		// Bind click on button to function

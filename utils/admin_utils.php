@@ -17,22 +17,23 @@ function load_article($article_content){
 		["[h2]", '<h2>'],
 		["[/h2]", '</h2>'],
 
-		["[U]", '<u>'],
+		["[U]", '<u class=\'underline-main-article\' >'],
 		["[/U]", '</u>'],
 
-		["[B]", '<b>'],
+		["[B]", '<b class=\'bold-main-article\'>'],
 		["[/B]", '</b>'],
 
-		["[I]", '<i>'],
+		["[I]", '<i class=\'italic-main-article\' >'],
 		["[/I]", '</i>'],
 
-		["[STRIKE]", '<strike>'],
+		["[STRIKE]", '<strike class=\'strike-main-article\' >'],
 		["[/STRIKE]", '</strike>'],
 
-		["[UL]", '<ul>'],
-		["[LI]", '<li>'],
-		["[/LI]", '</li>'],
+		["[UL]", '<ul class=\'list-main-article\'>'],
 		["[/UL]", '</ul>']
+		
+		["[LI]", '<li class=\'list-element-main-article\'>'],
+		["[/LI]", '</li>'],
 	);
 
 	foreach($bbcode_str as $code){
