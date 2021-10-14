@@ -12,7 +12,7 @@
 			}
 		?>
 	/> 
-	<br/>
+
 	
 	<!-- Ne pas espacer la balise textarea de la balise php --> 
 	<textarea name="article_content"><?php 

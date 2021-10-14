@@ -30,10 +30,13 @@ function load_article($article_content){
 		["[/STRIKE]", '</strike>'],
 
 		["[UL]", '<ul class=\'list-main-article\'>'],
-		["[/UL]", '</ul>']
+		["[/UL]", '</ul>'],
 		
 		["[LI]", '<li class=\'list-element-main-article\'>'],
 		["[/LI]", '</li>'],
+
+		["[A]", '<a class=\'link-main-article\'>'],
+		["[/A]", '</a>'],
 	);
 
 	foreach($bbcode_str as $code){
