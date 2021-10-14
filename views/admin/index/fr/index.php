@@ -179,6 +179,9 @@
 		else if(route_elements.includes('my_articles')){
 			change_view('list_articles');
 		}
+		else if(route_elements.includes('manage_categories')){
+			change_view('manage_categories');
+		}
 
 
 		// Add event listener on every button

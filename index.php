@@ -57,6 +57,7 @@
 		["~^admin/trash/[0-9]+$~", 'put_article_in_trash'],
 
 		["~^admin/categories/add$~", 'add_category'],
+		["~^admin/manage_categories$~", 'show_admin_index'],
 		["~^admin/categories/edit/[0-9]+$~", 'edit_category'],
 		["~^admin/categories/delete/[0-9]+$~", 'delete_category'],
 		
