@@ -160,6 +160,71 @@ class CategoryManager{
 	}
 
 
+	public function create_category($name){
+		$db = $this->db_connect();
+		$sql = "
+			INSERT INTO
+				categories
+					(name)
+			VALUES
+				(:name)
+		";
+
+		$query = $db->prepare($sql);
+
+		$success = $query->execute(array(
+			'name' => htmlspecialchars($name),
+		));
+
+		if($success == false){
+			throw new Exception('[create_category] problem inserting new category in database');
+		}
+	}
+
+
+	public function update_category($category_id, $name){
+		$db = $this->db_connect();
+		$sql = "
+			UPDATE
+				categories
+			SET
+				name=:name
+			WHERE
+				id=:category_id
+		";
+
+		$query = $db->prepare($sql);
+		$success = $query->execute(array(
+			'name' => htmlspecialchars($name),
+			'category_id' => $category_id
+		));
+
+		if($success == false){
+			throw new Exception('[update_category] impossible to update category');
+		}
+	}
+
+
+	public function delete_category($category_id){
+		$db = $this->db_connect();
+		$sql = "
+			DELETE FROM
+				categories
+			WHERE
+				id=:id_category
+		";
+
+		$query = $db->prepare($sql);
+		$success = $query->execute(array(
+			'id_category' => $category_id,
+		));
+
+		if($success == false){
+			throw new Exception('[delete_category] Impossible to delete category');
+		}
+	}
+
+
 	private function db_connect(){
 		global $host, $db_name, $username, $password;
 		$db = new PDO("mysql:host=$host;dbname=$db_name;charset=utf8", $username, $password);

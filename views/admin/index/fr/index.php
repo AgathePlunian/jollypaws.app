@@ -4,7 +4,8 @@
 		$DELETE_ARTICLE_PERM,
 		$APPROVE_ARTICLE_PERM,
 		$CREATE_ACCOUNT_PERM,
-		$PUBLISH_ARTICLE_PERM;
+		$PUBLISH_ARTICLE_PERM,
+		$MANAGE_CATEGORIES_PERM;
 
 
 	ob_start();
@@ -87,6 +88,16 @@
 			echo $trash_link;
 		}
 
+
+		// Manage categories
+		if(in_array($MANAGE_CATEGORIES_PERM, $_SESSION['permissions'])){
+			require('views/admin/index/fr/sections/manage_categories.php');
+
+			$categories_link = "<a class='button_view menu-link' id='manage_categories'>Gérer les catégories</a>";
+
+			echo $categories_link;
+		}
+
 		echo'</div>';
 
 ?>
@@ -121,6 +132,10 @@
 				echo $published;
 			}
 
+			// Manage categories
+			if(in_array($MANAGE_CATEGORIES_PERM, $_SESSION['permissions'])){
+				echo $manage_categories;
+			}
 		?>
 		</section>
 	</div>
@@ -150,6 +165,7 @@
 		button_association['waiting_articles'] = 'waiting_articles_view';
 		button_association['published_articles'] = 'published_articles_view';
 		button_association['register_user'] = 'register_user_view';
+		button_association['manage_categories'] = 'manage_categories_view';
 
 		var url = window.location.href;
 
