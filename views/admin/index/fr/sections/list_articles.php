@@ -19,6 +19,8 @@
 							<a class="btn-empty-secondary" href="/<?= $lang ?>/article/show/<?= $article['id'] ?>/list">Prévisualiser</a>
 							<a class="btn-full-secondary" href="/<?= $lang ?>/admin/edit_article/<?= $article['id'] ?>">Modifier</a>
 							<a class="btn-full-primary" href="/<?= $lang ?>/admin/trash/<?= $article['id'] ?>">Supprimer</a>
+							<a class="btn-empty-primary" href="/<?= $lang ?>/admin/trash/<?= $article['id'] ?>">Envoyer en validation</a>
+
 						</div>
 					</div>
 
