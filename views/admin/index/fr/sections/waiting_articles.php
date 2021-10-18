@@ -30,7 +30,7 @@
 								}
 							?>
 
-							<a class="btn-full-secondary" href="/<?= $lang ?>/admin/articles/change_approbation/<?= $article['id'] ?>">Approuver l'article</a>
+							<a class="btn-empty-primary" href="/<?= $lang ?>/admin/articles/change_approbation/<?= $article['id'] ?>">Valider l'article</a>
 							
 							<?php
 								global $PUBLISH_ARTICLE_PERM;

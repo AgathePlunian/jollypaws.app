@@ -4,30 +4,26 @@
 
 <div class="view" hidden="true" id="manage_categories_view">
 	<form action="/<?= $lang ?>/admin/categories/add" method="POST">
-		<div>
-			<label for="category_name">Catégorie :</label>
-			<input type="text" name="category_name" placeholder="Nouvelle catégorie">
-
-			<input type="submit" name="new_category_form" value="Ajouter une catégorie">
+		<div class="add-category-container">
+			<label class="label-add-category" for="category_name">Ajouter une catégorie</label>
+			<input type="text" name="category_name" placeholder="Nouvelle catégorie" class="add-category-input">
+			<input type="submit" name="new_category_form" value="+ Ajouter une catégorie" class="add-category-submit">
 		</div>
 	</form>
 
-	<br/>
 
-	<ul>
+	<label class="label-all-categories">Toutes les catégories</label>
+	<div class="categories-list-container">
 	<?php
 		foreach($all_categories as $category){
 			?>
-			<li>
-				<form action="/<?= $lang ?>/admin/categories/edit/<?= $category['id'] ?>" method="POST">
-					<input type="text" name="category_name" value="<?= $category['name'] ?>">
-					<input type="submit" name="edit_category_form" value="Modifier">
-					<a href="/<?= $lang ?>/admin/categories/delete/<?= $category['id'] ?>"> 
-						Supprimer
-					</a>				
-				</form>
-			</li>
-			<br />
+			<form class="category-item" action="/<?= $lang ?>/admin/categories/edit/<?= $category['id'] ?>" method="POST">
+				<input class="input-category" type="text" name="category_name" value="<?= $category['name'] ?>">
+				<input class="edit-category-input" type="submit" name="edit_category_form" value="Modifier">
+				<a class="delete-category" href="/<?= $lang ?>/admin/categories/delete/<?= $category['id'] ?>"> 
+					Supprimer
+				</a>				
+			</form>
 			<?php
 		}	
 	?>
