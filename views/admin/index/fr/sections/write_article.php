@@ -184,8 +184,14 @@
 			
 			<div class="btn-submit-container">
 				<input type="submit" name="article_form" value="Enregistrer les modifications" id="article_submit">
-				<input type="submit" name="article_form" value="Envoyer en validation" id="article_send_validation">
-
+				<?php
+					if(isset($_SESSION['article']['id'])){
+						?>
+						<a href="/<?= $lang ?>/admin/articles/send_for_approval/<?= $_SESSION['article']['id'] ?>"> Envoyer en validation </a>
+						<?php
+					}
+				?>
+				<!-- <input type="submit" name="article_form" value="Envoyer en validation" id="article_send_validation"> -->
 			</div>
 		</div>
 	</div>
