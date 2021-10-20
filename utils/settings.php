@@ -1,10 +1,10 @@
 <?php
 
 // connect to database
-$host = '127.0.0.1:8889';
+$host = '127.0.0.1';
 $db_name = 'user_database';
 $username = 'root';
-$password = 'root';
+$password = 'plopplop';
 
 // Permissions
 $CREATE_ARTICLE_PERM = "CREATE_ARTICLE";

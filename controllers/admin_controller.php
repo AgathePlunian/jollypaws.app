@@ -96,6 +96,8 @@ function show_admin_index($route, $lang){
 			foreach($all_articles_list as $article){
 				$article_id_list[] = $article['id'];
 			}
+			$articles_approbations = null;
+			$articles_approbations = $article_manager->get_articles_approbations();
 			$waiting_articles = $article_manager->list_articles_waiting_for_approval();
 		}
 
@@ -114,7 +116,6 @@ function show_admin_index($route, $lang){
 		}
 
 		/* ####################### PERMISSIONS ########################### */
-
 		require('views/admin/index_view.php');
 	}
 	catch(Exception $e){

@@ -405,6 +405,51 @@ class ArticleManager{
 	}
 
 
+	// Return all articles approbations
+	public function get_articles_approbations(){
+		$db = $this->db_connect();
+
+		$sql = "
+			SELECT
+				waiting_approval.id_article,
+				approbations.id_user,
+				users.firstname,
+				users.lastname
+			FROM 
+				waiting_approval
+			INNER JOIN
+				approbations
+				ON
+				id_approbation_request = waiting_approval.id
+			INNER JOIN
+				users
+				ON
+				users.id = approbations.id_user
+		";
+
+		$query = $db->prepare($sql);
+		$success = $query->execute();
+		if($success == false){
+			throw new Exception('[get_articles_approbations] Can\'t list approbations');
+		}
+		$all_approbations = $query->fetchAll();
+
+		$approbation_list = array();
+		foreach($all_approbations as $approbation){
+			if(!isset($approbation_list[$approbation['id_article']])){
+				$approbation_list[$approbation['id_article']] = array();
+			}
+			$approbation_list[$approbation['id_article']][] = [
+				'id_user' => $approbation['id_user'],
+				'firstname' => $approbation['firstname'],
+				'lastname' => $approbation['lastname'],
+			];	
+		}
+
+		return $approbation_list;
+	}
+
+
 	// Search if article is in the trash
 	private function is_article_trashed($article_id, $db=false){
 		if($db == false){
