@@ -155,7 +155,7 @@ function send_article_back_to_redaction($route, $lang){
 		if($article_manager->is_user_author($id_article, $_SESSION['id'])){
 			$article_manager->remove_article_from_waiting_list($id_article);
 		}
-		header("Location: /{$lang}/admin");
+		header("Location: /{$lang}/admin/waiting_articles");
 	}
 	catch(Exception $e){
 		header("Location: /{$lang}/admin");
@@ -195,7 +195,7 @@ function send_article_to_approval($route, $lang){
 		$article_manager = new ArticleManager();
 		$article_manager->set_article_waiting_approval($id_article);
 
-		header("Location: /{$lang}/admin");
+		header("Location: /{$lang}/admin/list_articles");
 	}
 	catch(Exception $e){
 		header("Location: /{$lang}/admin");
@@ -227,7 +227,7 @@ function display_article($route, $lang){
 			$return_button = "/{$lang}/admin/edit_article/{$id_article}";
 		}
 		elseif(in_array('list', $route_elements)){
-			$return_button = "/{$lang}/admin/my_articles";
+			$return_button = "/{$lang}/admin/list_articles";
 		}
 		else{
 			$return_button = "/{$lang}/admin";
@@ -451,10 +451,10 @@ function recover_article_from_trash($route, $lang){
 
 		$article_manager = new ArticleManager();
 		$article_manager->recover_article_from_trash($article_id);
-		header("Location: /{$lang}/admin");
+		header("Location: /{$lang}/admin/trash_articles");
 	}
 	catch(Exception $e){
-		header("Location: /{$lang}/admin");
+		header("Location: /{$lang}/admin/trash_articles");
 	}
 }
 
@@ -475,10 +475,10 @@ function put_article_in_trash($route, $lang){
 
 		$article_manager = new ArticleManager();
 		$article_manager->set_article_in_trash($article_id);
-		header("Location: /{$lang}/admin");
+		header("Location: /{$lang}/admin/list_articles");
 	}
 	catch(Exception $e){
-		header("Location: /{$lang}/admin");
+		header("Location: /{$lang}/admin/list_articles");
 	}
 }
 
@@ -503,7 +503,7 @@ function manage_approbation($route, $lang){
 
 		$article_manager = new ArticleManager();
 		$article_manager->manage_approbation($article_id, $_SESSION['id']);
-		header("Location: /{$lang}/admin");
+		header("Location: /{$lang}/admin/waiting_articles");
 	}
 	catch(Exception $e){
 		header("Location: /{$lang}/admin");
@@ -593,10 +593,10 @@ function publish_article($route, $lang){
 		}
 		
 		$article_manager->publish_article($article_id);
-		header("Location: /{$lang}/admin");
+		header("Location: /{$lang}/admin/waiting_articles");
 	}
 	catch(Exception $e){
-		header("Location: /{$lang}/admin");
+		header("Location: /{$lang}/admin/waiting_articles");
 	}
 }
 
@@ -628,10 +628,10 @@ function unpublish_article($route, $lang){
 		}
 
 		$article_manager->unpublish_article($article_id);
-		header("Location: /{$lang}/admin");
+		header("Location: /{$lang}/admin/published_articles");
 	}
 	catch(Exception $e){
-		header("Location: /{$lang}/admin");
+		header("Location: /{$lang}/admin/published_articles");
 	}
 }
 

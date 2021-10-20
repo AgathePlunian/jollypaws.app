@@ -32,7 +32,10 @@
 								if(isset($article_id_list)){
 									if(in_array($article['id'], $article_id_list)){
 							?>
-							<a class="btn-full-secondary" href="/<?= $lang ?>/admin/articles/remove_from_approval/<?= $article['id'] ?>">Renvoyer en rédaction</a>
+								<a class="btn-full-secondary" href="/<?= $lang ?>/admin/articles/remove_from_approval/<?= $article['id'] ?>"
+								>
+									Renvoyer en rédaction
+								</a>
 							
 							<?php
 									}
