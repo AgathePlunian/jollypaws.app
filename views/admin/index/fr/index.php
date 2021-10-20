@@ -56,7 +56,7 @@
 
 			$waiting_link = "
 				<a class='button_view menu-link' id='waiting_articles'> 
-					Articles en attente d'approbation
+					Articles en attente de validation
 				</a>
 			";
 
