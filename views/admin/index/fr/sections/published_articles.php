@@ -17,7 +17,7 @@
 							<p><span class="titles-card">Dernière modification :</span> <?= $article['last_change_date'] ?> </p>
 						</div>
 						<div class="btn-container-admin"> 
-							<a class="btn-empty-secondary" href="/<?= $lang ?>/article/show/<?= $article['id'] ?>">Prévisualiser</a>
+							<a class="btn-empty-secondary" href="/<?= $lang ?>/article/show/<?= $article['id'] ?>/published">Prévisualiser</a>
 							<a class="btn-full-secondary" href="/<?= $lang ?>/admin/articles/unpublish/<?= $article['id'] ?>">Retour en rédaction</a>
 						</div>
 					</div>

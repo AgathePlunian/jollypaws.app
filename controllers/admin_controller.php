@@ -203,6 +203,28 @@ function send_article_to_approval($route, $lang){
 }
 
 
+
+function define_return_button($route_elements, $lang){
+	if(in_array('edit', $route_elements)){
+		$return_button = "/{$lang}/admin/edit_article/{$id_article}";
+	}
+	elseif(in_array('list', $route_elements)){
+		$return_button = "/{$lang}/admin/list_articles";
+	}
+	elseif(in_array('waiting', $route_elements)){
+		$return_button = "/{$lang}/admin/waiting_articles";
+	}
+	elseif(in_array('published', $route_elements)){
+		$return_button = "/{$lang}/admin/published_articles";
+	}
+	else{
+		$return_button = "/{$lang}/admin";
+	}
+
+	return $return_button;
+}
+
+
 // Display an article with article id in the route
 function display_article($route, $lang){
 	try{
@@ -223,15 +245,7 @@ function display_article($route, $lang){
 		$article_title = $article['title'];
 		$article_main_image = $article['main_image'];
 
-		if(in_array('edit', $route_elements)){
-			$return_button = "/{$lang}/admin/edit_article/{$id_article}";
-		}
-		elseif(in_array('list', $route_elements)){
-			$return_button = "/{$lang}/admin/list_articles";
-		}
-		else{
-			$return_button = "/{$lang}/admin";
-		}
+		$return_button = define_return_button($route_elements, $lang);
 
 		require('views/admin/articles/show_article_view.php');
 	}
@@ -390,11 +404,11 @@ function verify_article($route, $lang, $P=false, $F=false){
 			}
 
 			// #### NEED TO MAKE SUCCESS MESSAGE ####
-			header("Location: /{$lang}/admin");
+			header("Location: /{$lang}/admin/list_articles");
 		}
 	}
 	catch(Exception $e){
-		header("Location: /{$lang}/admin");
+		header("Location: /{$lang}/admin/list_articles");
 	}
 }
 
