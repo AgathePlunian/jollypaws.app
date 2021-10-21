@@ -2619,7 +2619,14 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 .title-articles-list {
   color: #00869e;
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
+}
+
+.a-la-une-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5em;
 }
 
 .article-en-redaction {
@@ -2627,6 +2634,73 @@ input[type=date]::-webkit-calendar-picker-indicator {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+}
+
+.a-la-une-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2em;
+}
+.a-la-une-container .article-2-3-container {
+  display: flex;
+  flex-flow: column;
+  width: 49%;
+}
+.a-la-une-container .article-2-3-container .article-2, .a-la-une-container .article-2-3-container .article-3 {
+  padding: 0.4em;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  background-color: white;
+  border-radius: 20px;
+  margin-bottom: 1em;
+  height: 120px;
+}
+.a-la-une-container .article-2-3-container .a-la-une-container-img-2-3 {
+  width: 30%;
+  border-radius: 15px 0 0 15px;
+  overflow: hidden;
+}
+.a-la-une-container .article-2-3-container .a-la-une-container-img-2-3 img {
+  height: 100%;
+}
+.a-la-une-container .article-2-3-container .card-article-text {
+  width: 68%;
+}
+.a-la-une-container .article-2-3-container .card-article-text p {
+  margin-bottom: 3px;
+}
+.a-la-une-container .article-1-container {
+  overflow: hidden;
+  background-color: white;
+  border-radius: 20px;
+  padding: 0.4em;
+  margin-bottom: 1em;
+  flex-flow: column;
+  display: flex;
+  width: 49%;
+}
+.a-la-une-container .article-1-container .a-la-une-container-img-1 {
+  border-radius: 15px 15px 0 0;
+  overflow: hidden;
+  height: 120px;
+  margin-bottom: 5px;
+}
+.a-la-une-container .article-1-container .a-la-une-container-img-1 img {
+  width: 100%;
+}
+.a-la-une-container .article-1-container .card-article-text {
+  width: 68%;
+  padding: 5px;
+}
+.a-la-une-container .article-1-container .card-article-text p {
+  margin-bottom: 3px;
+}
+
+.a-la-une-title, .all-published-articles {
+  color: #ff7300;
+  font-size: 1.3em;
+  margin-bottom: 0.8em;
 }
 
 .card-article {
