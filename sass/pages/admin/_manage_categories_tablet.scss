@@ -5,10 +5,23 @@
     }
 
     .category-item {
-        width: 80%;
+        width: 98%;
+    }
+
+    .add-category-inputs-container {
+        display: flex;
+        flex-flow: column;
     }
 
     .add-category-input { 
-        width: 56%;
+        width: 98%;
+        margin-bottom: 1em;
+        order: 2;
+    }
+
+    .add-category-submit {
+        order: 1;
+        width: fit-content;
+        margin-bottom: 1em;
     }
 }

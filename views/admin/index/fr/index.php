@@ -56,13 +56,15 @@
 
 			$waiting_link = "
 				<a class='button_view menu-link' id='waiting_articles'> 
-					Articles en attente de validation
+					Articles en attente de publication
 				</a>
 			";
 
 			echo $waiting_link;
 		}
 
+		// Main default section
+		require('views/admin/index/fr/sections/main_view.php');
 
 		// Articles publiés
 		if(in_array($PUBLISH_ARTICLE_PERM, $_SESSION['permissions'])){
@@ -109,6 +111,9 @@
 				$APPROVE_ARTICLE_PERM,
 				$CREATE_ACCOUNT_PERM,
 				$PUBLISH_ARTICLE_PERM;
+
+			// Display main section
+			echo $main;
 
 			// Ecriture d'article
 			if (in_array($CREATE_ARTICLE_PERM, $_SESSION['permissions'])){
@@ -176,11 +181,14 @@
 		if(route_elements.includes('new_article') || route_elements.includes('edit_article')) {
 			change_view('write_article');
 		}
-		else if(route_elements.includes('my_articles')){
-			change_view('list_articles');
-		}
-		else if(route_elements.includes('manage_categories')){
-			change_view('manage_categories');
+		else{
+			for (var view in button_association){
+				if(route_elements.includes(view)){
+					var button = document.getElementById(view);
+					change_view(view);
+					button.click();
+				}
+			}
 		}
 
 

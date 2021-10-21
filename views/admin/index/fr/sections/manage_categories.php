@@ -6,8 +6,10 @@
 	<form action="/<?= $lang ?>/admin/categories/add" method="POST">
 		<div class="add-category-container">
 			<label class="label-add-category" for="category_name">Ajouter une catégorie</label>
-			<input type="text" name="category_name" placeholder="Nouvelle catégorie" class="add-category-input">
-			<input type="submit" name="new_category_form" value="+ Ajouter une catégorie" class="add-category-submit">
+			<div class="add-category-inputs-container">
+				<input type="text" name="category_name" placeholder="Nouvelle catégorie" class="add-category-input">
+				<input type="submit" name="new_category_form" value="+ Ajouter une catégorie" class="add-category-submit">
+			</div>
 		</div>
 	</form>
 
