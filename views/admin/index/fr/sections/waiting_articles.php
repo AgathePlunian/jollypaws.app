@@ -24,7 +24,7 @@
 								?>
 						</div>
 						<div class="btn-container-admin">
-							<a class="btn-empty-secondary" href="/<?= $lang ?>/article/show/<?= $article['id'] ?>">Prévisualiser</a>
+							<a class="btn-empty-secondary" href="/<?= $lang ?>/article/show/<?= $article['id'] ?>/waiting">Prévisualiser</a>
 
 
 							<!-- If the user is the article author, can send it back to redaction -->
@@ -32,7 +32,10 @@
 								if(isset($article_id_list)){
 									if(in_array($article['id'], $article_id_list)){
 							?>
-							<a class="btn-full-secondary" href="/<?= $lang ?>/admin/articles/remove_from_approval/<?= $article['id'] ?>">Renvoyer en rédaction</a>
+								<a class="btn-full-secondary" href="/<?= $lang ?>/admin/articles/remove_from_approval/<?= $article['id'] ?>"
+								>
+									Renvoyer en rédaction
+								</a>
 							
 							<?php
 									}

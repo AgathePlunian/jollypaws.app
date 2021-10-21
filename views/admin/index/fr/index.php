@@ -181,11 +181,12 @@
 		if(route_elements.includes('new_article') || route_elements.includes('edit_article')) {
 			change_view('write_article');
 		}
-		else if(route_elements.includes('my_articles')){
-			change_view('list_articles');
-		}
-		else if(route_elements.includes('manage_categories')){
-			change_view('manage_categories');
+		else{
+			for (var view in button_association){
+				if(route_elements.includes(view)){
+					change_view(view);
+				}
+			}
 		}
 
 

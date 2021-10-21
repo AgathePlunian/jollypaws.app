@@ -41,30 +41,36 @@
 		["~^admin/disconnect$~", 'disconnect'],
 		["~^admin/users/register$~", 'register_user'],
 
-		["~^admin/articles/show$~", 'show_article'],
 		["~^admin/articles/verify$~", 'verify_article'],
+
 		["~^admin/articles/send_for_approval/[0-9]+$~", 'send_article_to_approval'],
 		["~^admin/articles/remove_from_approval/[0-9]+$~", 'send_article_back_to_redaction'],
 		["~^admin/articles/change_approbation/[0-9]+$~", 'manage_approbation'],
+		
 		["~^admin/articles/publish/[0-9]+$~", 'publish_article'],
 		["~^admin/articles/unpublish/[0-9]+$~", 'unpublish_article'],
+		
 		["~^admin/new_article$~", 'new_article'],
 		["~^admin/new_article/write$~", 'new_article'],
-		["~^admin/my_articles$~", 'show_admin_index'],
 		["~^admin/edit_article/[0-9]+$~", 'show_admin_index'],
 		["~^admin/recover/[0-9]+$~", 'recover_article_from_trash'],
 		
 		["~^admin/trash/[0-9]+$~", 'put_article_in_trash'],
 
 		["~^admin/categories/add$~", 'add_category'],
-		["~^admin/manage_categories$~", 'show_admin_index'],
 		["~^admin/categories/edit/[0-9]+$~", 'edit_category'],
 		["~^admin/categories/delete/[0-9]+$~", 'delete_category'],
 		
+		// All redirection routes
+		["~^admin/[a-z]+(_[a-z]+)?$~", 'show_admin_index'],
+
 		["~^admin$~", 'show_admin_index'],
 
+		["~^admin/articles/show$~", 'show_article'],
 		["~^article/show/[0-9]+/edit$~", 'display_article'],
 		["~^article/show/[0-9]+/list$~", 'display_article'],
+		["~^article/show/[0-9]+/waiting$~", 'display_article'],
+		["~^article/show/[0-9]+/published$~", 'display_article'],
 		["~^article/show/[0-9]+$~", 'display_article'],
 		
 		["~.*~", 'error_not_found'],
