@@ -184,7 +184,9 @@
 		else{
 			for (var view in button_association){
 				if(route_elements.includes(view)){
+					var button = document.getElementById(view);
 					change_view(view);
+					button.click();
 				}
 			}
 		}
