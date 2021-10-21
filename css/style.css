@@ -2302,6 +2302,21 @@ input[type=date]::-webkit-calendar-picker-indicator {
     order: 1;
   }
 }
+.index-view {
+  text-align: center;
+}
+.index-view #welcome-title {
+  color: #00869e;
+  font-size: 2.2em;
+  width: 72%;
+  margin: 1em auto 1em auto;
+}
+
+.welcome-illustration-container {
+  width: 60%;
+  margin: auto;
+}
+
 .background-admin-connexion {
   background-color: #e1f4fc;
   padding: 3em 4em 9em 4em;
@@ -2340,7 +2355,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 .menu-lateral-admin {
   background-color: #00869e;
   border-bottom: 1px solid #e1f4fc;
-  width: 280px;
+  width: 290px;
 }
 
 .menu-link {
@@ -2378,7 +2393,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   border-radius: 5px;
   margin-bottom: 1em;
   font-weight: 500;
-  width: 185px;
+  width: 200px;
   text-decoration: none;
   text-align: left;
 }
@@ -2443,6 +2458,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   max-width: 380px;
   font-family: "Mulish", sans-serif;
   color: gray;
+  -moz-opacity: 0;
 }
 
 .custom-file-input::-webkit-file-upload-button {
@@ -2452,7 +2468,6 @@ input[type=date]::-webkit-calendar-picker-indicator {
   border-radius: 15px;
   outline: none;
   white-space: nowrap;
-  -webkit-user-select: none;
   cursor: pointer;
   font-size: 14px;
   font-family: "mulish", sans-serif;
@@ -2877,7 +2892,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 .category-item {
   margin-bottom: 1em;
   margin-right: 1em;
-  width: 46%;
+  width: 47%;
   display: flex;
   flex-flow: row;
   display: flex;
@@ -2888,7 +2903,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   border-radius: 10px;
   padding: 0.8em 1.2em;
   margin-right: 1em;
-  width: 29.5%;
+  width: 300px;
 }
 .add-category-input::placeholder {
   font-size: 15px;
@@ -2920,11 +2935,24 @@ input[type=date]::-webkit-calendar-picker-indicator {
   }
 
   .category-item {
-    width: 80%;
+    width: 98%;
+  }
+
+  .add-category-inputs-container {
+    display: flex;
+    flex-flow: column;
   }
 
   .add-category-input {
-    width: 56%;
+    width: 98%;
+    margin-bottom: 1em;
+    order: 2;
+  }
+
+  .add-category-submit {
+    order: 1;
+    width: fit-content;
+    margin-bottom: 1em;
   }
 }
 .main-nav {

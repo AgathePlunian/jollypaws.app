@@ -63,6 +63,8 @@
 			echo $waiting_link;
 		}
 
+		// Main default section
+		require('views/admin/index/fr/sections/main_view.php');
 
 		// Articles publiés
 		if(in_array($PUBLISH_ARTICLE_PERM, $_SESSION['permissions'])){
@@ -109,6 +111,9 @@
 				$APPROVE_ARTICLE_PERM,
 				$CREATE_ACCOUNT_PERM,
 				$PUBLISH_ARTICLE_PERM;
+
+			// Display main section
+			echo $main;
 
 			// Ecriture d'article
 			if (in_array($CREATE_ARTICLE_PERM, $_SESSION['permissions'])){
