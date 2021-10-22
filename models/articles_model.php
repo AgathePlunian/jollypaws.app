@@ -610,10 +610,15 @@ class ArticleManager{
 			INNER JOIN
 				waiting_approval
 				ON approbations.id_approbation_request = waiting_approval.id
+			INNER JOIN
+				articles
+				ON articles.id = waiting_approval.id_article
 			WHERE
 				approbations.id_user != :user_id
 				AND
 				waiting_approval.id_article = :article_id
+				AND
+				articles.author_id != :user_id
 		";
 
 		$query = $db->prepare($sql);
