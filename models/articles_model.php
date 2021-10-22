@@ -375,6 +375,7 @@ class ArticleManager{
 		$sql = "
 			SELECT
 				articles.id,
+				articles.author_id,
 				title, 
 				creation_date, 
 				last_change_date,
@@ -588,12 +589,46 @@ class ArticleManager{
 	public function manage_approbation($article_id, $user_id){
 		$db = $this->db_connect();
 
-		if($this->has_user_approved_article($article_id, $user_id, $db)){
-			$this->remove_approbation($user_id, $article_id, $db);
+		if($this->can_article_be_approved($article_id, $user_id, $db)){
+			if($this->has_user_approved_article($article_id, $user_id, $db)){
+				$this->remove_approbation($user_id, $article_id, $db);
+			}
+			else {
+				$this->set_approbation($article_id, $user_id, $db);
+			}
 		}
-		else {
-			$this->set_approbation($article_id, $user_id, $db);
+	}
+
+
+	// Check if article can be approved
+	public function can_article_be_approved($article_id, $user_id, $db=false){
+		if($db == false){
+			$db = $this->db_connect();
 		}
+
+		$sql = "
+			SELECT
+				COUNT(*)
+			FROM
+				articles
+			WHERE
+				id=:article_id
+				AND
+				author_id=:user_id
+		";
+
+		$query = $db->prepare($sql);
+		$success = $query->execute(array(
+			'article_id' => $article_id,
+			'user_id' => $user_id,
+		));
+
+		if($success == false){
+			throw new Exception('[can_article_be_approved] can not check if article can be approved');
+		}
+
+		$result = $query->fetch();
+		return (intval($result[0]) > 0);
 	}
 
 
