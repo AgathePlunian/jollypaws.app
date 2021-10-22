@@ -346,8 +346,8 @@
 		function click_views_button(e){
 			// Get the button id
 			var id = this.getAttribute('id');
-			window.location.href = "/<?= $lang ?>/admin/" + id;
-			// change_view(id);
+			// window.location.href = "/<?= $lang ?>/admin/" + id;
+			change_view(id);
 		}
 
 
