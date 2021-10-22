@@ -101,7 +101,7 @@ p {
   display: block;
   padding-bottom: 0.5em;
   font-size: 0.8em;
-  color: #fc6500;
+  color: #fc4700;
   margin-top: 0.3em;
 }
 
@@ -159,6 +159,10 @@ p {
   text-align: center;
   width: fit-content;
 }
+.btn-empty-secondary:hover {
+  border-color: #005b6b;
+  color: #005b6b;
+}
 
 .btn-empty-primary {
   display: block;
@@ -173,8 +177,12 @@ p {
   text-align: center;
   width: fit-content;
 }
+.btn-empty-primary:hover {
+  border-color: #cc5c00;
+  color: #cc5c00;
+}
 
-.btn-full-secondary, .btn-full-primary {
+.btn-full-secondary, .btn-full-primary, .btn-delete {
   display: block;
   font-weight: 500;
   border-radius: 30px;
@@ -186,21 +194,47 @@ p {
   border: none;
 }
 
+.btn-delete {
+  background-color: #fc4700;
+}
+.btn-delete:hover {
+  background-color: #c93900;
+}
+
 .btn-full-primary {
   width: fit-content;
   background-color: #ff7300;
+}
+.btn-full-primary:hover {
+  background-color: #cc5c00;
 }
 
 .btn-full-secondary {
   width: fit-content;
   background-color: #00869e;
 }
+.btn-full-secondary:hover {
+  background-color: #005b6b;
+}
 
 .btn-disconnect {
-  position: absolute;
-  top: 1em;
-  left: 14em;
+  margin-left: 15px;
+  display: block;
+  cursor: pointer;
+  background-color: #00869e;
+  color: white !important;
+  border: none;
   padding: 0.8em 1.8em;
+  border-radius: 50px;
+  font-size: 1em;
+  font-family: "Mulish";
+  font-weight: 500;
+  box-shadow: rgba(218, 211, 206, 0.63) 2px 3px 4px;
+  text-decoration: none;
+  text-align: center;
+}
+.btn-disconnect:hover {
+  background-color: #005b6b;
 }
 
 .checkbox-label-category {
@@ -1133,7 +1167,7 @@ p {
   display: block;
   padding-bottom: 0em;
   font-size: 0.6em;
-  color: #fc6500;
+  color: #fc4700;
   margin-top: 0.3em;
 }
 
@@ -1297,7 +1331,7 @@ label {
 }
 
 .error {
-  color: #fc6500;
+  color: #fc4700;
   font-size: 0.9em;
   display: block;
 }
@@ -1392,7 +1426,7 @@ label {
   outline: none;
 }
 .form-personal-info .input-error-border, .form-id .input-error-border, .form-professional-info .input-error-border {
-  border-color: #fc6500 !important;
+  border-color: #fc4700 !important;
 }
 .form-personal-info .input, .form-id .input, .form-professional-info .input {
   border-radius: 10px;
@@ -2277,7 +2311,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 .text-unsubscribe-fail {
   font-size: 1.6em;
-  color: #fc6500;
+  color: #fc4700;
 }
 
 .unsubscribe-img-container-fail {
@@ -2995,7 +3029,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 .delete-category {
   padding: 0.4em 1em;
   font-size: 1em;
-  background-color: #fc6500;
+  background-color: #fc4700;
   border-radius: 20px;
   color: white;
   text-decoration: none;
@@ -3039,7 +3073,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 }
 
 .items-list {
-  width: 550px;
+  width: fit-content;
   display: flex;
   flex-flow: row;
   justify-content: space-between;
@@ -3052,8 +3086,12 @@ input[type=date]::-webkit-calendar-picker-indicator {
   align-items: center;
   color: #00869e;
 }
+.nav-list .item {
+  margin-left: 1.5em;
+}
 .nav-list .language-choice {
   font-size: 1.05em;
+  margin-left: 20px;
 }
 .nav-list .language-choice .selected-l-fr, .nav-list .language-choice .selected-l-en {
   color: #4cbdd1;

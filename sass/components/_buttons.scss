@@ -37,6 +37,11 @@
   margin-bottom: 0.4em;
   text-align: center;
   width: fit-content;
+
+  &:hover {
+    border-color: darken($secondary-color, $amount: 10);
+    color: darken($secondary-color, $amount: 10);;
+  }
 }
 
 .btn-empty-primary {
@@ -51,11 +56,16 @@
   margin-bottom: 0.4em;
   text-align: center;
   width: fit-content;
+
+  &:hover {
+    border-color: darken($primary-color, $amount: 10);
+    color: darken($primary-color, $amount: 10);;
+  }
   
 }
 
 
-.btn-full-secondary, .btn-full-primary {
+.btn-full-secondary, .btn-full-primary, .btn-delete {
   display: block;
   font-weight: 500;
   border-radius: 30px;
@@ -67,20 +77,49 @@
   border: none;
 }
 
+.btn-delete {
+  background-color: $error;
+  
+  &:hover {
+    background-color: darken($error, $amount: 10);
+  }
+}
+
 .btn-full-primary {
   width: fit-content;
   background-color: $primary-color;
+
+  &:hover {
+    background-color: darken($primary-color, $amount: 10);
+  }
 }
 
 .btn-full-secondary {
   width: fit-content;
   background-color: $secondary-color;
+
+  &:hover {
+    background-color: darken($secondary-color, $amount: 10);
+  }
 }
 
 .btn-disconnect {
-  position: absolute;
-  top: 1em;
-  left : 14em;
+  margin-left: 15px;
+  display: block;
+  cursor: pointer;
+  background-color: $secondary-color;
+  color: white!important;
+  border: none;
   padding: 0.8em 1.8em;
-}
+  border-radius: 50px;
+  font-size: 1em;
+  font-family: 'Mulish';
+  font-weight: 500;
+  box-shadow: rgba(218, 211, 206, 0.63) 2px 3px 4px;
+  text-decoration: none;
+  text-align: center;
 
+  &:hover {
+    background-color: darken($secondary-color, $amount: 10);
+  }
+}

@@ -10,9 +10,6 @@
 
 	ob_start();
 
-	echo "
-		<a class='btn-disconnect btn-empty-secondary' href='/{$lang}/admin/disconnect'> Se déconnecter </a>
-	";
 
 	echo '
 	<div class="container-admin">
@@ -148,6 +145,13 @@
 
 
 	window.onload = function(){
+
+
+		let navbar = document.getElementsByClassName("nav-list")[0];
+
+		let btn_disconnect = document.createElement("li");
+		btn_disconnect.innerHTML = `<a class='btn-disconnect' href='/<?php echo $lang?>/admin/disconnect'> Se déconnecter </a>`;
+		navbar.appendChild(btn_disconnect);
 
 		let currentArticle = document.getElementsByClassName("menu-link");
 		
