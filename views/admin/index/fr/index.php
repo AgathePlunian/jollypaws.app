@@ -146,13 +146,66 @@
 
 	window.onload = function(){
 
+		//OUVERTURE MODAL GESTION DES ARTICLES À LA UNE
+		let btnManageImportantArticles = document.getElementById("manage-important-articles");
+		btnManageImportantArticles.addEventListener('click',  openModal);
 
+		function openModal() {
+			let mainSection = document.getElementById("published_articles_view");
+			let modalArticles = document.createElement("div");
+			modalArticles.classList.add("modal-articles-une");
+			mainSection.appendChild(modalArticles);
+			modalArticles.innerHTML = `
+			<div class="modal-header">
+				<h3 class="manage-articles-title">Gérer les articles à la une</h3>
+				 <span id="btn-close-modal"><img src="../../../images/icones-form/close.png" alt="close modal"/></span>
+				
+			</div>
+				
+				<form>
+					<label class="label-manage-article">Article principale</label>
+					<select class="first_article_input">
+						<option value=null>Sélectionner un article</option>
+					</select>
+
+					<div class="secondaries-articles">
+						<div>
+							<label class="label-manage-article">Articles secondaire 1</label>
+							<select>
+								<option value=null>Sélectionner un article</option>
+							</select>
+						</div>
+
+						<div>
+							<label class="label-manage-article">Articles secondaire 2</label>
+							<select>
+								<option value=null>Sélectionner un article</option>
+							</select>
+						</div>
+					</div>
+
+					<input class="btn-save" type=submit value="Enregister">
+					<div class="clear-float"></div>
+				</form>
+			`
+
+			//CLOSE MODAL BTN
+			let btnCloseModal= document.getElementById("btn-close-modal");
+			btnCloseModal.addEventListener('click',function() {
+				modalArticles.remove();
+			})
+		}
+
+		
+
+		//AJOUT DU BOUTON DECONNEXION
 		let navbar = document.getElementsByClassName("nav-list")[0];
 
 		let btn_disconnect = document.createElement("li");
 		btn_disconnect.innerHTML = `<a class='btn-disconnect' href='/<?php echo $lang?>/admin/disconnect'> Se déconnecter </a>`;
 		navbar.appendChild(btn_disconnect);
 
+		//AJOUT BACKGROUND QUAND UN LIEN DU MENU EST SELECTIONNÉ	
 		let currentArticle = document.getElementsByClassName("menu-link");
 		
 		for (var i = 0; i < currentArticle.length; i++) {

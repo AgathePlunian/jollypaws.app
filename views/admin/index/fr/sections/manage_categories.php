@@ -21,8 +21,8 @@
 			?>
 			<form class="category-item" action="/<?= $lang ?>/admin/categories/edit/<?= $category['id'] ?>" method="POST">
 				<input class="input-category" type="text" name="category_name" value="<?= $category['name'] ?>">
-				<input class="edit-category-input" type="submit" name="edit_category_form" value="Modifier">
-				<a class="delete-category" href="/<?= $lang ?>/admin/categories/delete/<?= $category['id'] ?>"> 
+				<input class="btn-full-secondary btn-edit-category" type="submit" name="edit_category_form" value="Modifier">
+				<a class="btn-delete" href="/<?= $lang ?>/admin/categories/delete/<?= $category['id'] ?>"> 
 					Supprimer
 				</a>				
 			</form>

@@ -8,7 +8,7 @@
 
 	<div class="a-la-une-header">
 		<h2 class="a-la-une-title">À la une</h2>
-		<a class="btn-full-primary">Gérer les articles</a>
+		<a id="manage-important-articles" class="btn-full-primary">Gérer les articles</a>
 	</div>
 	
 	<div class="a-la-une-container">
@@ -73,7 +73,6 @@
 			?>
 		</div>
 </div>
-
 
 <?php
 	$published = ob_get_clean();
