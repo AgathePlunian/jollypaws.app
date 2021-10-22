@@ -132,7 +132,6 @@ function show_admin_index($route, $lang){
 		require('views/admin/index_view.php');
 	}
 	catch(Exception $e){
-		die($e);
 		header("Location: /{$lang}/");
 	}
 }
@@ -404,7 +403,6 @@ function verify_article($route, $lang, $P=false, $F=false){
 			$is_save_success = true;
 		}
 		catch(Exception $e) {
-			die($e);
 			// #### NEED TO MAKE FAILURE MESSAGE ####
 			header("Location: /{$lang}/admin");
 		}
@@ -564,7 +562,6 @@ function register_user($route, $lang, $P=false){
 			||
 			!isset($P['password'])
 		){
-			die('toto');
 			throw new Exception('Data are missing');
 		}
 		foreach($P as $field){
@@ -798,7 +795,6 @@ function manage_articles_front_page($route, $lang, $P=false){
 		header("Location: /{$lang}/admin/published_articles");
 	}
 	catch(Exception $e){
-		die($e);
 		header("Location: /{$lang}/admin/published_articles");	
 	}
 }

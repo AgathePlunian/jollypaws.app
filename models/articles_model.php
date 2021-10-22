@@ -570,7 +570,6 @@ class ArticleManager{
 				AND
 				id_user=:user_id
 		";
-		// die($sql);
 		$query = $db->prepare($sql);
 		$success = $query->execute(array(
 			'user_id' => $user_id,
