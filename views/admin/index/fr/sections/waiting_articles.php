@@ -45,41 +45,43 @@
 
 							<!-- If the user has already approved the article -->
 							<?php
-								$has_approved = false;
-								if(isset($articles_approbations[$article['id']])){
+								if($_SESSION['id'] != $article['author_id']){
+									$has_approved = false;
+									if(isset($articles_approbations[$article['id']])){
 
-									// Find if user is in the list of persons which has approved the article
-									foreach($articles_approbations[$article['id']] as $approbation){
-										if($approbation['id_user'] == $_SESSION['id']){
-											$has_approved = true;
-											break;
+										// Find if user is in the list of persons which has approved the article
+										foreach($articles_approbations[$article['id']] as $approbation){
+											if($approbation['id_user'] == $_SESSION['id']){
+												$has_approved = true;
+												break;
+											}
 										}
 									}
-								}
 
 
-								// If user has already approved the article
-								if($has_approved){
-									?>
+									// If user has already approved the article
+									if($has_approved){
+										?>
+											<a 
+												class="btn-empty-primary" 
+												href="/<?= $lang ?>/admin/articles/change_approbation/<?= $article['id'] ?>"
+											>
+												Supprimer validation
+											</a>
+										<?php
+									}
+
+									// Else
+									else{
+										?>
 										<a 
 											class="btn-empty-primary" 
 											href="/<?= $lang ?>/admin/articles/change_approbation/<?= $article['id'] ?>"
 										>
-											Supprimer validation
+											Valider l'article
 										</a>
-									<?php
-								}
-
-								// Else
-								else{
-									?>
-									<a 
-										class="btn-empty-primary" 
-										href="/<?= $lang ?>/admin/articles/change_approbation/<?= $article['id'] ?>"
-									>
-										Valider l'article
-									</a>
-									<?php
+										<?php
+									}
 								}
 								
 							?>

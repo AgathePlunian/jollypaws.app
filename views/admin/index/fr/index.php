@@ -10,9 +10,6 @@
 
 	ob_start();
 
-	echo "
-		<a class='btn-disconnect btn-empty-secondary' href='/{$lang}/admin/disconnect'> Se déconnecter </a>
-	";
 
 	echo '
 	<div class="container-admin">
@@ -149,6 +146,142 @@
 
 	window.onload = function(){
 
+		//OUVERTURE MODAL GESTION DES ARTICLES À LA UNE
+		let btnManageImportantArticles = document.getElementById("manage-important-articles");
+		if(btnManageImportantArticles != null){
+			btnManageImportantArticles.addEventListener('click',  openModal);
+		}
+
+		function openModal() {
+			let mainSection = document.getElementById("published_articles_view");
+			let modalArticles = document.createElement("div");
+			modalArticles.classList.add("modal-articles-une");
+			mainSection.appendChild(modalArticles);
+			modalArticles.innerHTML = `
+			<div class="modal-header">
+				<h3 class="manage-articles-title">Gérer les articles à la une</h3>
+				 <span id="btn-close-modal"><img src="/images/icones-form/close.png" alt="close modal"/></span>
+				
+			</div>
+				
+				<form action="/<?= $lang ?>/admin/articles/publish/front_page" method="POST">
+					<label class="label-manage-article">Article principale</label>
+					<select class="first_article_input" name="fp1-id-article">
+						<option value="">Sélectionner un article</option>
+						<?php
+							foreach($published_articles as $article){
+								?>
+
+								<option 
+									value="<?= $article['id'] ?>"
+									<?php
+									if(isset($articles_by_front_page['1'])){
+										if($article['id'] == $articles_by_front_page['1']['id_article']){
+									?>
+										selected="true"
+									<?php
+										}
+									}
+									?>
+									>
+									<?=	$article['title'] ?> - 
+									Auteur : <?= $article['firstname'] ?> <?= $article['lastname'] ?> - 
+									Date de publication : <?= $article['publish_date'] ?>
+									
+								</option>
+
+								<?php
+							}
+						?>
+					</select>
+
+					<div class="secondaries-articles">
+						<div>
+							<label class="label-manage-article">Articles secondaire 1</label>
+							<select name="fp2-id-article" >
+								<option value="">Sélectionner un article</option>
+								<?php
+									foreach($published_articles as $article){
+										?>
+
+										<option 
+											value="<?= $article['id'] ?>"
+										<?php
+										if(isset($articles_by_front_page['2'])){
+											if($article['id'] == $articles_by_front_page['2']['id_article']){
+										
+										?>
+											selected
+										<?php
+											}
+										}
+										?>
+										>
+											<?=	$article['title'] ?> - 
+											Auteur : <?= $article['firstname'] ?> <?= $article['lastname'] ?> - 
+											Date de publication : <?= $article['publish_date'] ?>
+										</option>
+
+										<?php
+									}
+								?>
+							</select>
+						</div>
+
+						<div>
+							<label class="label-manage-article">Articles secondaire 2</label>
+							<select name="fp3-id-article">
+								<option value="">Sélectionner un article</option>
+								<?php
+									foreach($published_articles as $article){
+										?>
+
+										<option 
+											value="<?= $article['id'] ?>"
+											<?php
+											if(isset($articles_by_front_page['3'])){
+												if($article['id'] == $articles_by_front_page['3']['id_article']){
+											?>
+												selected
+											<?php
+												}
+											}
+											?>
+											>
+											<?=	$article['title'] ?> - 
+											Auteur : <?= $article['firstname'] ?> <?= $article['lastname'] ?> - 
+											Date de publication : <?= $article['publish_date'] ?>
+										</option>
+
+										<?php
+									}
+								?>
+							</select>
+						</div>
+					</div>
+
+					<input class="btn-save" type=submit value="Enregister">
+					<div class="clear-float"></div>
+				</form>
+			`
+
+			//CLOSE MODAL BTN
+			let btnCloseModal= document.getElementById("btn-close-modal");
+			btnCloseModal.addEventListener('click',function() {
+				modalArticles.remove();
+			})
+		}
+
+		
+
+		//AJOUT DU BOUTON DECONNEXION
+		let navbar = document.getElementsByClassName("nav-list")[0];
+
+		let btn_disconnect = document.createElement("li");
+		btn_disconnect.innerHTML = `<a class='btn-disconnect' href='/<?php echo $lang?>/admin/disconnect'> Se déconnecter </a>`;
+		navbar.appendChild(btn_disconnect);
+
+		//AJOUT BACKGROUND QUAND UN LIEN DU MENU EST SELECTIONNÉ	
 		let currentArticle = document.getElementsByClassName("menu-link");
 		
 		for (var i = 0; i < currentArticle.length; i++) {
@@ -213,7 +346,8 @@
 		function click_views_button(e){
 			// Get the button id
 			var id = this.getAttribute('id');
-			change_view(id);
+			window.location.href = "/<?= $lang ?>/admin/" + id;
+			// change_view(id);
 		}
 
 

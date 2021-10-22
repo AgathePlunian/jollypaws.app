@@ -48,6 +48,7 @@
 		["~^admin/articles/change_approbation/[0-9]+$~", 'manage_approbation'],
 		
 		["~^admin/articles/publish/[0-9]+$~", 'publish_article'],
+		["~^admin/articles/publish/front_page$~", 'manage_articles_front_page'],
 		["~^admin/articles/unpublish/[0-9]+$~", 'unpublish_article'],
 		
 		["~^admin/new_article$~", 'new_article'],

@@ -101,7 +101,7 @@ p {
   display: block;
   padding-bottom: 0.5em;
   font-size: 0.8em;
-  color: #fc6500;
+  color: #fc4700;
   margin-top: 0.3em;
 }
 
@@ -141,12 +141,14 @@ p {
 }
 
 .btn-container-admin {
+  cursor: pointer;
   display: flex;
   flex-flow: column;
   align-items: flex-end;
 }
 
 .btn-empty-secondary {
+  cursor: pointer;
   display: block;
   font-weight: 600;
   border-radius: 30px;
@@ -159,8 +161,13 @@ p {
   text-align: center;
   width: fit-content;
 }
+.btn-empty-secondary:hover {
+  border-color: #005b6b;
+  color: #005b6b;
+}
 
 .btn-empty-primary {
+  cursor: pointer;
   display: block;
   font-weight: 600;
   border-radius: 30px;
@@ -173,8 +180,13 @@ p {
   text-align: center;
   width: fit-content;
 }
+.btn-empty-primary:hover {
+  border-color: #cc5c00;
+  color: #cc5c00;
+}
 
-.btn-full-secondary, .btn-full-primary {
+.btn-full-secondary, .btn-full-primary, .btn-delete {
+  cursor: pointer;
   display: block;
   font-weight: 500;
   border-radius: 30px;
@@ -184,23 +196,50 @@ p {
   text-align: center;
   margin-bottom: 0.4em;
   border: none;
+  font-size: 16px;
+}
+
+.btn-delete {
+  background-color: #fc4700;
+}
+.btn-delete:hover {
+  background-color: #c93900;
 }
 
 .btn-full-primary {
   width: fit-content;
   background-color: #ff7300;
 }
+.btn-full-primary:hover {
+  background-color: #cc5c00;
+}
 
 .btn-full-secondary {
   width: fit-content;
   background-color: #00869e;
 }
+.btn-full-secondary:hover {
+  background-color: #00687a;
+}
 
-.btn-disconnect {
-  position: absolute;
-  top: 1em;
-  left: 14em;
+.btn-disconnect, .btn-save {
+  margin-left: 15px;
+  display: block;
+  cursor: pointer;
+  background-color: #00869e;
+  color: white !important;
+  border: none;
   padding: 0.8em 1.8em;
+  border-radius: 50px;
+  font-size: 1em;
+  font-family: "Mulish";
+  font-weight: 500;
+  box-shadow: rgba(218, 211, 206, 0.63) 2px 3px 4px;
+  text-decoration: none;
+  text-align: center;
+}
+.btn-disconnect:hover, .btn-save:hover {
+  background-color: #00687a;
 }
 
 .checkbox-label-category {
@@ -1133,7 +1172,7 @@ p {
   display: block;
   padding-bottom: 0em;
   font-size: 0.6em;
-  color: #fc6500;
+  color: #fc4700;
   margin-top: 0.3em;
 }
 
@@ -1297,7 +1336,7 @@ label {
 }
 
 .error {
-  color: #fc6500;
+  color: #fc4700;
   font-size: 0.9em;
   display: block;
 }
@@ -1392,7 +1431,7 @@ label {
   outline: none;
 }
 .form-personal-info .input-error-border, .form-id .input-error-border, .form-professional-info .input-error-border {
-  border-color: #fc6500 !important;
+  border-color: #fc4700 !important;
 }
 .form-personal-info .input, .form-id .input, .form-professional-info .input {
   border-radius: 10px;
@@ -2277,7 +2316,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 .text-unsubscribe-fail {
   font-size: 1.6em;
-  color: #fc6500;
+  color: #fc4700;
 }
 
 .unsubscribe-img-container-fail {
@@ -2363,6 +2402,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   font-weight: 500;
   display: block;
   padding: 1em 1.3em;
+  cursor: pointer;
 }
 
 .container-admin {
@@ -2396,6 +2436,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   width: 200px;
   text-decoration: none;
   text-align: left;
+  cursor: pointer;
 }
 
 .form-container {
@@ -2756,6 +2797,79 @@ input[type=date]::-webkit-calendar-picker-indicator {
     width: 100%;
   }
 }
+.modal-articles-une {
+  width: 60%;
+  position: absolute;
+  top: 200px;
+  right: 200px;
+  border-radius: 10px;
+  background-color: #fcfafa;
+  box-shadow: rgba(218, 211, 206, 0.63) 2px 3px 4px, rgba(218, 211, 206, 0.63) -2px -1px 4px;
+  padding: 1.5em;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+#btn-close-modal {
+  display: block;
+  width: 30px;
+}
+
+.manage-articles-title {
+  margin-bottom: 1.5em;
+  color: #ff7300;
+}
+
+.first_article_input {
+  background-color: transparent;
+  width: 100%;
+  margin-bottom: 2em;
+  height: 40px;
+  border-radius: 10px;
+  border-color: #00869e;
+  padding: 10px;
+  font-family: "Mulish", sans-serif;
+  background-size: 18px;
+  -webkit-appearance: none;
+  background-repeat: no-repeat;
+  background-position: 99% 50%;
+  background-image: url(../../images/icones-form/fleche.png);
+}
+
+.label-manage-article {
+  font-weight: bold;
+}
+
+.btn-save {
+  float: right;
+}
+
+.secondaries-articles {
+  display: flex;
+  justify-content: space-between;
+}
+.secondaries-articles div {
+  width: 49%;
+}
+.secondaries-articles div select {
+  background-color: transparent;
+  width: 100%;
+  margin-bottom: 2em;
+  height: 40px;
+  border-radius: 10px;
+  border-color: #00869e;
+  padding: 10px;
+  font-family: "Mulish", sans-serif;
+  background-size: 18px;
+  -webkit-appearance: none;
+  background-repeat: no-repeat;
+  background-position: 97% 50%;
+  background-image: url(../../images/icones-form/fleche.png);
+}
+
 .article-header {
   text-align: center;
   width: 70%;
@@ -2933,7 +3047,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   border-radius: 10px;
   padding: 0.8em 1.2em;
   margin-right: 1em;
-  width: 70%;
+  width: 73%;
 }
 
 .label-add-category, .label-all-categories {
@@ -2966,7 +3080,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 .category-item {
   margin-bottom: 1em;
   margin-right: 1em;
-  width: 47%;
+  width: 48%;
   display: flex;
   flex-flow: row;
   display: flex;
@@ -2992,15 +3106,8 @@ input[type=date]::-webkit-calendar-picker-indicator {
   font-size: 1em;
 }
 
-.delete-category {
-  padding: 0.4em 1em;
-  font-size: 1em;
-  background-color: #fc6500;
-  border-radius: 20px;
-  color: white;
-  text-decoration: none;
-  margin: 0;
-  width: fit-content;
+.btn-edit-category {
+  margin-right: 0.5em;
 }
 
 @media screen and (max-width: 1245px) {
@@ -3039,7 +3146,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 }
 
 .items-list {
-  width: 550px;
+  width: fit-content;
   display: flex;
   flex-flow: row;
   justify-content: space-between;
@@ -3052,8 +3159,12 @@ input[type=date]::-webkit-calendar-picker-indicator {
   align-items: center;
   color: #00869e;
 }
+.nav-list .item {
+  margin-left: 1.5em;
+}
 .nav-list .language-choice {
   font-size: 1.05em;
+  margin-left: 20px;
 }
 .nav-list .language-choice .selected-l-fr, .nav-list .language-choice .selected-l-en {
   color: #4cbdd1;

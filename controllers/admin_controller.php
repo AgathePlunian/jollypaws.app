@@ -105,6 +105,19 @@ function show_admin_index($route, $lang){
 		// If user can publish articles
 		if(in_array($PUBLISH_ARTICLE_PERM, $_SESSION['permissions'])){
 			$published_articles = $article_manager->list_published_articles();
+			$front_page_articles = $article_manager->list_front_page_articles();
+			$articles_by_front_page = [];
+			foreach($front_page_articles as $front_page_article){
+				$articles_by_front_page[$front_page_article['id']] = [
+					'id_article' => $front_page_article['id_article'],
+					'title' => $front_page_article['title'],
+					'firstname' => $front_page_article['firstname'],
+					'lastname' => $front_page_article['lastname'],
+					'publish_date' => $front_page_article['publish_date'],
+					'creation_date' => $front_page_article['creation_date'],
+					'main_image' => $front_page_article['main_image'],
+				];
+			}
 		}
 
 
@@ -119,6 +132,7 @@ function show_admin_index($route, $lang){
 		require('views/admin/index_view.php');
 	}
 	catch(Exception $e){
+		die($e);
 		header("Location: /{$lang}/");
 	}
 }
@@ -714,6 +728,7 @@ function edit_category($route, $lang, $P=false){
 }
 
 
+// Delete a catogery
 function delete_category($route, $lang){
 	global $MANAGE_CATEGORIES_PERM;
 	try{
@@ -744,6 +759,50 @@ function delete_category($route, $lang){
 		header("Location: /{$lang}/admin");
 	}
 }
+
+
+// Manage articles in front page
+function manage_articles_front_page($route, $lang, $P=false){
+	global $PUBLISH_ARTICLE_PERM;
+	try{
+		// Check permissions
+		if(!isset($_SESSION['id'])){
+			throw new Exception('User need to be connected');
+		}
+		if(!in_array($PUBLISH_ARTICLE_PERM, $_SESSION['permissions'])){
+			throw new Exception('Operation not allowed');
+		}
+
+
+		// Check if data is received
+		if($P == false){
+			throw new Exception('No post data');
+		}
+
+		// Check no missing data
+		if(
+			!isset($P['fp1-id-article']) ||
+			!isset($P['fp2-id-article']) || 
+			!isset($P['fp3-id-article']) 
+		) {
+			throw new Exception('[manage_articles_front_page] data missing');
+		}
+
+		$article_manager = new ArticleManager();
+		$article_manager->update_articles_front_page([
+			1 => $P['fp1-id-article'],
+			2 => $P['fp2-id-article'],
+			3 => $P['fp3-id-article']
+		]);
+
+		header("Location: /{$lang}/admin/published_articles");
+	}
+	catch(Exception $e){
+		die($e);
+		header("Location: /{$lang}/admin/published_articles");	
+	}
+}
+
 
 
 ?>

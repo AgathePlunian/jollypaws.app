@@ -3,7 +3,8 @@
     border-radius: 10px;
     padding: 0.8em 1.2em;
     margin-right: 1em;
-    width: 70%;
+    width: 73%;
+    
 }
 
 .label-add-category, .label-all-categories {
@@ -36,7 +37,7 @@
 .category-item {
     margin-bottom: 1em;
     margin-right: 1em;
-    width: 47%;
+    width: 48%;
     display: flex;
     flex-flow: row;
     display: flex;
@@ -65,13 +66,6 @@
 
 }
 
-.delete-category {
-    padding: 0.4em 1em;
-    font-size: 1em;
-    background-color: $error;
-    border-radius: 20px;
-    color: white;
-    text-decoration: none;
-    margin: 0;
-    width: fit-content;
+.btn-edit-category {
+    margin-right: 0.5em;
 }
