@@ -628,7 +628,7 @@ class ArticleManager{
 		}
 
 		$result = $query->fetch();
-		return (intval($result[0]) > 0);
+		return (intval($result[0]) == 0);
 	}
 
 
@@ -652,8 +652,6 @@ class ArticleManager{
 				approbations.id_user != :user_id
 				AND
 				waiting_approval.id_article = :article_id
-				AND
-				articles.author_id != :user_id
 		";
 
 		$query = $db->prepare($sql);
@@ -687,7 +685,24 @@ class ArticleManager{
 		));
 
 		if($success == false){
-			die('toto');
+			throw new Exception('[publish_article] Impossible to publish article');
+		}
+
+		// Set publish date
+		$sql = "
+			UPDATE
+				articles
+			SET
+				publish_date = now()
+			WHERE
+				id=:id_article
+		";
+
+		$query = $db->prepare($sql);
+		$success = $query->execute(array(
+			'id_article' => $id_article,
+		));
+		if($success == false){
 			throw new Exception('[publish_article] Impossible to publish article');
 		}
 
@@ -780,18 +795,19 @@ class ArticleManager{
 					title, 
 					creation_date, 
 					last_change_date,
+					publish_date,
 					firstname,
 					lastname
 				FROM
 					articles_published
 				INNER JOIN
 					articles
-						ON
-							articles.id=articles_published.id_article
+					ON
+					articles.id=articles_published.id_article
 				INNER JOIN
 					users
-						ON
-							articles.author_id=users.id
+					ON
+					articles.author_id=users.id
 
 			";
 			$query = $db->prepare($sql);
@@ -811,8 +827,8 @@ class ArticleManager{
 					articles_published
 				INNER JOIN
 					articles
-						ON
-							articles.id=articles_published.id_article
+					ON
+					articles.id=articles_published.id_article
 				WHERE
 					articles.author_id=:id_user
 			";
@@ -827,6 +843,71 @@ class ArticleManager{
 			throw new Exception('[list_published_articles] impossible to list published articles');
 		}
 
+		$result = $query->fetchAll();
+		return $result;
+	}
+
+
+	public function update_articles_front_page($front_page_form){
+		$db = $this->db_connect();
+
+		foreach($front_page_form as $key => $value){
+			$sql = "
+				UPDATE front_page_articles
+				SET
+					id_article = (
+						SELECT 
+							id_article
+						FROM
+							articles_published
+						WHERE
+							id_article = :id_article
+					)
+				WHERE
+					id = :id_front
+			";
+
+			$query = $db->prepare($sql);
+			$success = $query->execute(array(
+				'id_article' => $value,
+				'id_front' => $key,
+			));
+			if($success == false){
+				throw new Exception('[manage_articles_front_page] can not update front page articles');
+			}
+		}
+	}
+
+
+	// list front page articles
+	public function list_front_page_articles(){
+		$db = $this->db_connect();
+		$sql = "
+			SELECT
+				front_page_articles.id, 
+				front_page_articles.id_article,
+				firstname,
+				lastname,
+				title,
+				publish_date,
+				creation_date,
+				main_image
+			FROM
+				front_page_articles
+			INNER JOIN
+				articles
+				ON
+				articles.id = front_page_articles.id_article
+			INNER JOIN
+				users
+				ON
+				users.id = articles.author_id
+		";
+		$query = $db->prepare($sql);
+		$success = $query->execute();
+		if($success == false){
+			throw new Exception('[list_front_page_articles] can not list front page articles');
+		}
 		$result = $query->fetchAll();
 		return $result;
 	}

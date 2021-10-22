@@ -148,7 +148,9 @@
 
 		//OUVERTURE MODAL GESTION DES ARTICLES À LA UNE
 		let btnManageImportantArticles = document.getElementById("manage-important-articles");
-		btnManageImportantArticles.addEventListener('click',  openModal);
+		if(btnManageImportantArticles != null){
+			btnManageImportantArticles.addEventListener('click',  openModal);
+		}
 
 		function openModal() {
 			let mainSection = document.getElementById("published_articles_view");
@@ -158,28 +160,102 @@
 			modalArticles.innerHTML = `
 			<div class="modal-header">
 				<h3 class="manage-articles-title">Gérer les articles à la une</h3>
-				 <span id="btn-close-modal"><img src="../../../images/icones-form/close.png" alt="close modal"/></span>
+				 <span id="btn-close-modal"><img src="/images/icones-form/close.png" alt="close modal"/></span>
 				
 			</div>
 				
-				<form>
+				<form action="/<?= $lang ?>/admin/articles/publish/front_page" method="POST">
 					<label class="label-manage-article">Article principale</label>
-					<select class="first_article_input">
-						<option value=null>Sélectionner un article</option>
+					<select class="first_article_input" name="fp1-id-article">
+						<option value="">Sélectionner un article</option>
+						<?php
+							foreach($published_articles as $article){
+								?>
+
+								<option 
+									value="<?= $article['id'] ?>"
+									<?php
+									if(isset($articles_by_front_page['1'])){
+										if($article['id'] == $articles_by_front_page['1']['id_article']){
+									?>
+										selected="true"
+									<?php
+										}
+									}
+									?>
+									>
+									<?=	$article['title'] ?> - 
+									Auteur : <?= $article['firstname'] ?> <?= $article['lastname'] ?> - 
+									Date de publication : <?= $article['publish_date'] ?>
+									
+								</option>
+
+								<?php
+							}
+						?>
 					</select>
 
 					<div class="secondaries-articles">
 						<div>
 							<label class="label-manage-article">Articles secondaire 1</label>
-							<select>
-								<option value=null>Sélectionner un article</option>
+							<select name="fp2-id-article" >
+								<option value="">Sélectionner un article</option>
+								<?php
+									foreach($published_articles as $article){
+										?>
+
+										<option 
+											value="<?= $article['id'] ?>"
+										<?php
+										if(isset($articles_by_front_page['2'])){
+											if($article['id'] == $articles_by_front_page['2']['id_article']){
+										
+										?>
+											selected
+										<?php
+											}
+										}
+										?>
+										>
+											<?=	$article['title'] ?> - 
+											Auteur : <?= $article['firstname'] ?> <?= $article['lastname'] ?> - 
+											Date de publication : <?= $article['publish_date'] ?>
+										</option>
+
+										<?php
+									}
+								?>
 							</select>
 						</div>
 
 						<div>
 							<label class="label-manage-article">Articles secondaire 2</label>
-							<select>
-								<option value=null>Sélectionner un article</option>
+							<select name="fp3-id-article">
+								<option value="">Sélectionner un article</option>
+								<?php
+									foreach($published_articles as $article){
+										?>
+
+										<option 
+											value="<?= $article['id'] ?>"
+											<?php
+											if(isset($articles_by_front_page['3'])){
+												if($article['id'] == $articles_by_front_page['3']['id_article']){
+											?>
+												selected
+											<?php
+												}
+											}
+											?>
+											>
+											<?=	$article['title'] ?> - 
+											Auteur : <?= $article['firstname'] ?> <?= $article['lastname'] ?> - 
+											Date de publication : <?= $article['publish_date'] ?>
+										</option>
+
+										<?php
+									}
+								?>
 							</select>
 						</div>
 					</div>
@@ -270,7 +346,8 @@
 		function click_views_button(e){
 			// Get the button id
 			var id = this.getAttribute('id');
-			change_view(id);
+			window.location.href = "/<?= $lang ?>/admin/" + id;
+			// change_view(id);
 		}
 
 
