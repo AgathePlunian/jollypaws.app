@@ -866,7 +866,6 @@ function reset_user_password($route, $lang){
 
 	}
 	catch(Exception $e){
-		die($e->getMessage());
 		header("Location: /{$lang}/admin/manage_users");
 	}
 }
@@ -897,7 +896,6 @@ function delete_user_account($route, $lang){
 
 	}
 	catch(Exception $e){
-		die($e->getMessage());
 		header("Location: /{$lang}/admin/manage_users");
 	}
 }
