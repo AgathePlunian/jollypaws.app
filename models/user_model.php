@@ -1,6 +1,14 @@
 <?php
 
 class UserManager {
+	public function __construct(){
+		global $host, $db_name, $username, $password;
+
+        $db = new PDO("mysql:host=$host;dbname=$db_name;charset=utf8", $username, $password);
+
+        $this->db = $db;
+	}
+
 	// Check if email is used in database
 	public function is_email_used($email){
 		$db = $this->db_connect();
@@ -143,13 +151,30 @@ class UserManager {
 	}
 
 
+	// Delete user account from database
+	public function remove_user_account($user_id){
+		$db = $this->db_connect();
+
+		$sql = "
+			DELETE FROM
+				users
+			WHERE
+				id=:user_id
+		";
+
+		$query = $db->prepare($sql);
+		$success = $query->execute(array(
+			'user_id' => $user_id,
+		));
+		if($success == false){
+			throw new Exception('[remove_user_account] can not remove user account');
+		}
+	}
+
+
 	// connect to database
     private function db_connect(){
-    	global $host, $db_name, $username, $password;
-
-        $db = new PDO("mysql:host=$host;dbname=$db_name;charset=utf8", $username, $password);
-        return $db;
-
+        return $this->db;
     }
 }
 

@@ -64,6 +64,7 @@
 
 		["~^admin/users/[0-9]+/reset_password$~", 'reset_user_password'],
 		["~^admin/users/[0-9]+/delete$~", 'delete_user_account'],
+		["~^admin/users/[0-9]+/update_perms$~", 'update_user_perms'],
 		
 		// All redirection routes
 		["~^admin/[a-z]+(_[a-z]+)?$~", 'show_admin_index'],
