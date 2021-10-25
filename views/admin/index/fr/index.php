@@ -5,7 +5,10 @@
 		$APPROVE_ARTICLE_PERM,
 		$CREATE_ACCOUNT_PERM,
 		$PUBLISH_ARTICLE_PERM,
-		$MANAGE_CATEGORIES_PERM;
+		$MANAGE_CATEGORIES_PERM,
+		$MANAGE_PERMS_PERM,
+		$REMOVE_ACCOUNT_PERM,
+		$RESET_PASSWORD_PERM;
 
 
 	ob_start();
@@ -97,6 +100,19 @@
 			echo $categories_link;
 		}
 
+		// Manage users accounts
+		if(
+			in_array($MANAGE_PERMS_PERM, $_SESSION['permissions']) ||
+			in_array($REMOVE_ACCOUNT_PERM, $_SESSION['permissions']) ||
+			in_array($RESET_PASSWORD_PERM, $_SESSION['permissions'])
+		){
+			require('views/admin/index/fr/sections/list_users.php');
+
+			$users_link = "<a class='button_view menu-link' id='manage_users'>Gérer les comptes utilisateur</a>";
+
+			echo $users_link;
+		}
+
 		echo'</div>';
 
 ?>
@@ -107,7 +123,10 @@
 				$DELETE_ARTICLE_PERM,
 				$APPROVE_ARTICLE_PERM,
 				$CREATE_ACCOUNT_PERM,
-				$PUBLISH_ARTICLE_PERM;
+				$PUBLISH_ARTICLE_PERM,
+				$MANAGE_PERMS_PERM,
+				$REMOVE_ACCOUNT_PERM,
+				$RESET_PASSWORD_PERM;
 
 			// Display main section
 			echo $main;
@@ -137,6 +156,15 @@
 			// Manage categories
 			if(in_array($MANAGE_CATEGORIES_PERM, $_SESSION['permissions'])){
 				echo $manage_categories;
+			}
+
+			// Manage users accounts
+			if(
+				in_array($MANAGE_PERMS_PERM, $_SESSION['permissions']) ||
+				in_array($REMOVE_ACCOUNT_PERM, $_SESSION['permissions']) ||
+				in_array($RESET_PASSWORD_PERM, $_SESSION['permissions'])
+			){
+				echo $manage_users;
 			}
 		?>
 		</section>
@@ -304,6 +332,8 @@
 		button_association['published_articles'] = 'published_articles_view';
 		button_association['register_user'] = 'register_user_view';
 		button_association['manage_categories'] = 'manage_categories_view';
+		button_association['manage_users'] = 'manage_users_view';
+		
 
 		var url = window.location.href;
 

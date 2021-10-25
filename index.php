@@ -61,6 +61,9 @@
 		["~^admin/categories/add$~", 'add_category'],
 		["~^admin/categories/edit/[0-9]+$~", 'edit_category'],
 		["~^admin/categories/delete/[0-9]+$~", 'delete_category'],
+
+		["~^admin/users/[0-9]+/reset_password$~", 'reset_user_password'],
+		["~^admin/users/[0-9]+/delete$~", 'delete_user_account'],
 		
 		// All redirection routes
 		["~^admin/[a-z]+(_[a-z]+)?$~", 'show_admin_index'],

@@ -29,9 +29,8 @@
 			<?php
 		}	
 	?>
-	</ul>
+	</div>
 </div>
-
 <?php
 	$manage_categories = ob_get_clean();
 ?>

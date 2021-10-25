@@ -73,6 +73,76 @@ class UserManager {
 	}
 
 
+	public function list_users(){
+		$db = $this->db_connect();
+
+		$sql = "
+			SELECT 
+				id, firstname, lastname, email
+			FROM
+				users
+		";
+
+		$query = $db->prepare($sql);
+		$success = $query->execute();
+		if($success == false){
+			throw new Exception('[list_users] Fail to list users accounts');
+		}
+		$result = $query->fetchAll();
+		return $result;
+	}
+
+
+	// Return user email from user_id
+	public function get_user_email($user_id){
+		$db = $this->db_connect();
+		$sql = "
+			SELECT
+				email
+			FROM
+				users
+			WHERE
+				id=:user_id
+		";
+
+		$query = $db->prepare($sql);
+		$success = $query->execute(array(
+			'user_id' => $user_id,
+		));
+
+		if($success == false){
+			throw new Exception('[get_user_email] impossible to get user email');
+		}
+		$result = $query->fetch();
+		return $result['email'];
+	}
+
+
+	// Update user password
+	public function change_user_password($user_id, $new_password){
+		$db = $this->db_connect();
+		$password = password_hash($new_password, PASSWORD_DEFAULT);
+
+		$sql = "
+			UPDATE
+				users
+			SET
+				password=:password
+			WHERE
+				id=:user_id
+		";
+		$query = $db->prepare($sql);
+		$success = $query->execute(array(
+			'password' => $password,
+			'user_id' => $user_id
+		));
+
+		if($success == false){
+			throw new Exception('[change_user_password] Impossible to update user password');
+		}
+	}
+
+
 	// connect to database
     private function db_connect(){
     	global $host, $db_name, $username, $password;
