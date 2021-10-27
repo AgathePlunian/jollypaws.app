@@ -20,29 +20,28 @@
 			<div class="card-article-text">	
 				<p>
 					<span class="titles-card">
-						Titre : <?php echo (isset($articles_by_front_page['1']))?$articles_by_front_page['1']['title']:''; ?> 
-					</span>
+						Titre :</span> <?php echo (isset($articles_by_front_page['1']))?$articles_by_front_page['1']['title']:''; ?> 	
 				</p>
 
 				<p>
 					<span class="titles-card">
-						Auteur : <?php echo (isset($articles_by_front_page['1']))?$articles_by_front_page['1']['firstname']:''; ?> 
+						Auteur : </span> <?php echo (isset($articles_by_front_page['1']))?$articles_by_front_page['1']['firstname']:''; ?> 
 								 <?php echo (isset($articles_by_front_page['1']))?$articles_by_front_page['1']['lastname']:''; ?>
-					</span>
+				
 				</p>
 
 				<p>
 					<span class="titles-card">
-						Date de création : 
+						Date de création : </span>
 						<?php echo (isset($articles_by_front_page['1']))?$articles_by_front_page['1']['creation_date']:''; ?>
-					</span>
+					
 				</p>
 				
 				<p>
 					<span class="titles-card">
-						Date de publication : 
+						Date de publication : </span>
 						<?php echo (isset($articles_by_front_page['1']))?$articles_by_front_page['1']['publish_date']:''; ?>
-					</span>
+					
 				</p>
 			</div>		
 		</div>
@@ -56,30 +55,30 @@
 				<div class="card-article-text">	
 					<p>
 						<span class="titles-card">
-							Titre : <?php echo (isset($articles_by_front_page['2']))?$articles_by_front_page['2']['title']:''; ?> 
-						</span>
+							Titre : </span><?php echo (isset($articles_by_front_page['2']))?$articles_by_front_page['2']['title']:''; ?> 
+						
 					</p>
 
 					<p>
 						<span class="titles-card">
-							Auteur : 
+							Auteur : </span>
 							<?php echo (isset($articles_by_front_page['2']))?$articles_by_front_page['2']['firstname']:''; ?> 
 							<?php echo (isset($articles_by_front_page['2']))?$articles_by_front_page['2']['lastname']:''; ?>
-						</span>
+						
 					</p>
 
 					<p>
 						<span class="titles-card">
-							Date de création : 
+							Date de création : </span>
 							<?php echo (isset($articles_by_front_page['2']))?$articles_by_front_page['2']['creation_date']:''; ?>
-						</span>
+						
 					</p>
 					
 					<p>
 						<span class="titles-card">
-							Date de publication : 
+							Date de publication : </span>
 							<?php echo (isset($articles_by_front_page['2']))?$articles_by_front_page['2']['publish_date']:''; ?>
-						</span>
+						
 					</p>
 				</div>		
 			</div>
@@ -92,30 +91,30 @@
 				<div class="card-article-text">	
 					<p>
 						<span class="titles-card">
-							Titre : <?php echo (isset($articles_by_front_page['3']))?$articles_by_front_page['3']['title']:''; ?> 
-						</span>
+							Titre :</span> <?php echo (isset($articles_by_front_page['3']))?$articles_by_front_page['3']['title']:''; ?> 
+						
 					</p>
 
 					<p>
 						<span class="titles-card">
-							Auteur : 
+							Auteur : </span>
 							<?php echo (isset($articles_by_front_page['3']))?$articles_by_front_page['3']['firstname']:''; ?> 
 							<?php echo (isset($articles_by_front_page['3']))?$articles_by_front_page['3']['lastname']:''; ?>
-						</span>
+						
 					</p>
 
 					<p>
 						<span class="titles-card">
-							Date de création : 
+							Date de création : </span>
 							<?php echo (isset($articles_by_front_page['3']))?$articles_by_front_page['3']['creation_date']:''; ?>
-						</span>
+						
 					</p>
 					
 					<p>
 						<span class="titles-card">
-							Date de publication : 
+							Date de publication : </span>
 							<?php echo (isset($articles_by_front_page['3']))?$articles_by_front_page['3']['publish_date']:''; ?>
-						</span>
+						
 					</p>
 				</div>		
 			</div>

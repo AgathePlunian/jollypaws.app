@@ -31,6 +31,7 @@
 		["~^confidentialite$~", 'show_confidentialite'],
 		["~^cookies$~", 'show_cookies'],
 		["~^mentions-legales$~", 'show_mentions_legales'],
+		["~^blog$~" , 'show_blog'],
 
 		["~^contact$~", 'show_contact'],
 		["~^contact/form$~", 'register_contact'],

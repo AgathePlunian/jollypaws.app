@@ -22,6 +22,8 @@
             <li><a href="/<?php echo $lang; ?>/approche">Approach</a></li>
             <li><a href="/<?php echo $lang; ?>/equipe">Team</a></li>             
             <li><a href="/<?php echo $lang; ?>/contact">Contact us</a></li>
+            <li><a href="/<?php echo $lang; ?>/blog">Blog</a></li>
+
           </ul>
       </div>
    
@@ -38,6 +40,8 @@
           <li class="item"><a href="/<?= $lang; ?>/">Home</a></li>
           <li class="item"><a href="/<?= $lang; ?>/approche">Approach</a></li>
           <li class="item"><a href="/<?= $lang; ?>/equipe">Team</a></li>
+          <li class="item"><a href="/<?= $lang; ?>/blog">Blog</a></li>
+
           <li class="language-choice"><a href="/<?php echo 'fr/'.$route; ?>" class="l-fr">FR</a>|<a href="/<?php echo 'en/'.$route; ?>" class="l-en selected-l-en">EN</a></li>
           <li><button onclick="window.location.href='/<?= $lang; ?>/contact'" class="btn-nav btn">Contact us</button></li>
         </ul>

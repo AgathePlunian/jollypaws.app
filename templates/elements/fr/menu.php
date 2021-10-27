@@ -21,6 +21,7 @@
       <li><a href="/<?php echo $lang; ?>/approche">Approche</a></li>
       <li><a href="/<?php echo $lang; ?>/equipe">Équipe</a></li>             
       <li><a href="/<?php echo $lang; ?>/contact">Nous contacter</a></li>
+      <li><a href="/<?php echo $lang; ?>/blog">Blog</a></li>
     </ul>
 </div>
 
@@ -37,6 +38,7 @@
     <li class="item"><a href="/<?php echo $lang; ?>/">Accueil</a></li>
     <li class="item"><a href="/<?php echo $lang; ?>/approche">Approche</a></li>
     <li class="item"><a href="/<?php echo $lang; ?>/equipe">Équipe</a></li>
+    <li class="item"><a href="/<?php echo $lang; ?>/blog">Blog</a></li>
     <li class="language-choice">
       <a href="<?php echo '/fr/'.$route; ?>" class="l-fr selected-l-fr">FR</a>|<a href="<?php echo '/en/'.$route; ?>" class="l-en">EN</a>
     </li>
