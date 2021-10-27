@@ -2433,7 +2433,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 .first-article-blog-img-container {
   width: 50%;
-  height: 200px;
+  height: auto;
   border-radius: 10px 0 0 10px;
   overflow: hidden;
 }
@@ -2529,9 +2529,12 @@ input[type=date]::-webkit-calendar-picker-indicator {
 }
 
 .card-all-article-img-container {
-  max-width: 200px;
+  height: 200px;
   border-radius: 10px 10px 0 0;
   overflow: hidden;
+}
+.card-all-article-img-container img {
+  height: 100%;
 }
 
 .all-articles-container-blog {
