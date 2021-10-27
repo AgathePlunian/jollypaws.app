@@ -1,7 +1,17 @@
 <?php
 
 class ArticleManager{
+	public function __construct(){
+		global $admin_database;
 
+        $db = new PDO(
+        	"mysql:host={$admin_database['host']};dbname={$admin_database['db_name']};charset=utf8", 
+        	$admin_database['username'], 
+        	$admin_database['password']
+        );
+
+        $this->db = $db;
+	}
 
 	public function create_article($author_id, $title, $content, $main_image){
 		$db = $this->db_connect();
@@ -87,7 +97,7 @@ class ArticleManager{
 		if($this->is_article_waiting_approval($article_id)){
 			$this->remove_article_from_waiting_list($article_id);
 		}
-		if($this->is_article_published($article_id, $db)){
+		if($this->is_article_published($article_id)){
 			$this->unpublish_article($article_id);
 		}
 	}
@@ -228,7 +238,7 @@ class ArticleManager{
 		if($this->is_article_waiting_approval($article_id)){
 			$this->remove_article_from_waiting_list($article_id);
 		}
-		if($this->is_article_published($article_id, $db)){
+		if($this->is_article_published($article_id)){
 			$this->unpublish_article($article_id);
 		}
 	}
@@ -293,10 +303,10 @@ class ArticleManager{
 	// Set an article into the waiting approval list
 	public function set_article_waiting_approval($article_id){
 		$db = $this->db_connect();
-		if($this->is_article_trashed($article_id, $db)){
+		if($this->is_article_trashed($article_id)){
 			throw new Exception('This article is trashed, recover it before sending to approval');
 		}
-		if($this->is_article_waiting_approval($article_id, $db)){
+		if($this->is_article_waiting_approval($article_id)){
 			throw new Exception('This article is already waiting for approval');
 		}
 		$sql = "
@@ -340,10 +350,8 @@ class ArticleManager{
 
 
 	// Check if an article is waiting for approval
-	public function is_article_waiting_approval($article_id, $db=false){
-		if($db == false){
-			$db = $this->db_connect();
-		}
+	public function is_article_waiting_approval($article_id){
+		$db = $this->db_connect();
 
 		$sql = "
 			SELECT
@@ -452,10 +460,8 @@ class ArticleManager{
 
 
 	// Search if article is in the trash
-	private function is_article_trashed($article_id, $db=false){
-		if($db == false){
-			$db = $this->db_connect();
-		}
+	private function is_article_trashed($article_id){
+		$db = $this->db_connect();
 		$sql = "
 			SELECT
 				COUNT(*)
@@ -480,10 +486,8 @@ class ArticleManager{
 
 
 	// Add user approbation
-	private function set_approbation($article_id, $user_id, $db=false){
-		if($db == false){
-			$db = $this->db_connect();
-		}
+	private function set_approbation($article_id, $user_id){
+		$db = $this->db_connect();
 
 		$sql = "
 			INSERT INTO
@@ -516,10 +520,8 @@ class ArticleManager{
 
 
 	// Remove user approbation
-	private function remove_approbation($user_id, $article_id, $db=false){
-		if($db == false){
-			$db = $this->db_connect();
-		}
+	private function remove_approbation($user_id, $article_id){
+		$db = $this->db_connect();
 
 		$sql = "
 			DELETE FROM
@@ -551,10 +553,8 @@ class ArticleManager{
 
 
 	// Determine if a user already set approbation to an article
-	private function has_user_approved_article($article_id, $user_id, $db=false){
-		if($db == false){
-			$db = $this->db_connect();
-		}
+	private function has_user_approved_article($article_id, $user_id){
+		$db = $this->db_connect();
 		$sql = "
 			SELECT
 				COUNT(*)
@@ -588,22 +588,20 @@ class ArticleManager{
 	public function manage_approbation($article_id, $user_id){
 		$db = $this->db_connect();
 
-		if($this->can_article_be_approved($article_id, $user_id, $db)){
-			if($this->has_user_approved_article($article_id, $user_id, $db)){
-				$this->remove_approbation($user_id, $article_id, $db);
+		if($this->can_article_be_approved($article_id, $user_id)){
+			if($this->has_user_approved_article($article_id, $user_id)){
+				$this->remove_approbation($user_id, $article_id);
 			}
 			else {
-				$this->set_approbation($article_id, $user_id, $db);
+				$this->set_approbation($article_id, $user_id);
 			}
 		}
 	}
 
 
 	// Check if article can be approved
-	public function can_article_be_approved($article_id, $user_id, $db=false){
-		if($db == false){
-			$db = $this->db_connect();
-		}
+	public function can_article_be_approved($article_id, $user_id){
+		$db = $this->db_connect();
 
 		$sql = "
 			SELECT
@@ -632,10 +630,8 @@ class ArticleManager{
 
 
 	// Check if article can be published
-	public function can_article_be_published($article_id, $user_id, $db=false){
-		if($db == false){
-			$db = $this->db_connect();
-		}
+	public function can_article_be_published($article_id, $user_id){
+		$db = $this->db_connect();
 		$sql = "
 			SELECT
 				COUNT(*)
@@ -728,10 +724,8 @@ class ArticleManager{
 	}
 
 
-	public function is_article_published($id_article, $db=false){
-		if($db == false){
-			$db = $this->db_connect();
-		}
+	public function is_article_published($id_article){
+		$db = $this->db_connect();
 
 		$sql = "
 			SELECT
@@ -913,11 +907,9 @@ class ArticleManager{
 
 
 	// connect to database
-	private function db_connect(){
-		global $host, $db_name, $username, $password;
-		$db = new PDO("mysql:host=$host;dbname=$db_name;charset=utf8", $username, $password);
-		return $db;
-	}
+    private function db_connect(){
+        return $this->db;
+    }
 }
 
 

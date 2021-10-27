@@ -20,6 +20,13 @@ global
 			<div class="card-article-text">	
 				<p><span class="titles-card">Nom :</span> <?= $user_account['firstname'] ?> <?= $user_account['lastname'] ?> </p>
 				<p><span class="titles-card">Email :</span> <?= $user_account['email'] ?> </p>
+				<?php
+					if(isset($_SESSION['new_password']) && $_SESSION['new_password']['user_id'] == $user_account['id']){
+						echo 'Nouveau mot de passe : ' . $_SESSION['new_password']['password'];
+						unset($_SESSION['new_password']);
+					}
+				?>
+
 			</div>
 
 			<div class="btn-container-admin">
@@ -28,14 +35,26 @@ global
 				?>
 					
 					<!-- If user can reset passwords -->
-					<a class="btn-empty-secondary" href="/<?= $lang ?>/admin/users/<?= $user_account['id'] ?>/reset_password"> Réinitialiser mot de passe </a>
+					<a 
+						class="btn-empty-secondary" 
+						href="/<?= $lang ?>/admin/users/<?= $user_account['id'] ?>/reset_password"
+						onclick="confirm_action(' Voulez-vous vraiment réinitialiser le mot de passe de <?= $user_account['firstname'] ?> <?= $user_account['lastname'] ?>? ');"
+					> 
+						Réinitialiser mot de passe 
+					</a>
 				
 				<?php
 					}
 					if(in_array($REMOVE_ACCOUNT_PERM, $_SESSION['permissions']) && $user_account['id'] != $_SESSION['id']) {
 				?>
 					<!-- If user can delete account -->
-					<a class="btn-delete" href="/<?= $lang ?>/admin/users/<?= $user_account['id'] ?>/delete">Supprimer le compte</a>
+					<a 
+						class="btn-delete" 
+						href="/<?= $lang ?>/admin/users/<?= $user_account['id'] ?>/delete"
+						onclick="confirm_action('Vous allez supprimer l\'utilisateur <?= $user_account['firstname'] ?> <?= $user_account['lastname'] ?>. Voulez-vous continuer ? ');"
+					>
+						Supprimer le compte
+					</a>
 
 				<?php
 					}
@@ -88,6 +107,12 @@ global
 </div>
 
 <script type="text/javascript">
+	function confirm_action(confirm_message){
+		if(!confirm(confirm_message)){
+			event.preventDefault();
+		}
+	}
+
 	function button_click() {
 		var perms_divs = document.getElementsByClassName('perms-div');
 

@@ -2,9 +2,13 @@
 
 class UserManager {
 	public function __construct(){
-		global $host, $db_name, $username, $password;
+		global $admin_database;
 
-        $db = new PDO("mysql:host=$host;dbname=$db_name;charset=utf8", $username, $password);
+        $db = new PDO(
+        	"mysql:host={$admin_database['host']};dbname={$admin_database['db_name']};charset=utf8", 
+        	$admin_database['username'], 
+        	$admin_database['password']
+        );
 
         $this->db = $db;
 	}

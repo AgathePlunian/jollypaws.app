@@ -166,6 +166,7 @@ function show_admin_index($route, $lang){
 		require('views/admin/index_view.php');
 	}
 	catch(Exception $e){
+		die($e->getMessage());
 		header("Location: /{$lang}/");
 	}
 }
@@ -454,6 +455,7 @@ function verify_article($route, $lang, $P=false, $F=false){
 		}
 	}
 	catch(Exception $e){
+		die($e);
 		header("Location: /{$lang}/admin/list_articles");
 	}
 }
@@ -861,9 +863,16 @@ function reset_user_password($route, $lang){
 		$user_manager = new UserManager();
 		$user_email = $user_manager->get_user_email($user_id);
 
-		$new_password = random_bytes(12);
+		// $new_password = bin2hex(random_bytes(12));
+		$new_password = 'plopplop';
 
 		$user_manager->change_user_password($user_id, $new_password);
+
+		// Store the new password in session to display it later
+		$_SESSION['new_password'] = [
+			'user_id' => $user_id,
+			'password' => $new_password,
+		];
 
 		send_mail_to_user($user_email, 'Resileyes - password changed', 'New password : '. $new_password);
 		
