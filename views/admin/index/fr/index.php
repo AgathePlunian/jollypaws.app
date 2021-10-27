@@ -179,9 +179,9 @@
 
 		let openMenuChevron = document.getElementById("chevrons-container");
 
-		openMenuChevron.addEventListener('click' , openMenuAdmin);
+		openMenuChevron.addEventListener('click' , handleMenuAdmin);
 
-		function openMenuAdmin() {
+		function handleMenuAdmin() {
 			let chevronUp = document.getElementsByClassName("chevron-up")[0];
 			let chevronDown = document.getElementsByClassName("chevron-down")[0];
 			let menu = document.getElementsByClassName("menu-lateral-admin")[0];
@@ -389,6 +389,7 @@
 		var views_buttons = document.getElementsByClassName('button_view');
 		for(var i = 0; i < views_buttons.length; i++){
 			views_buttons[i].addEventListener('click', click_views_button);
+			views_buttons[i].addEventListener('click', handleMenuAdmin);
 		}
 		
 		function change_view(id){

@@ -90,7 +90,7 @@
 }
 .first-article-blog-img-container {
   width: 50%;
-  height: auto;
+  height: 200px;
   border-radius: 10px 0 0 10px;
   overflow: hidden;
 
@@ -193,6 +193,7 @@
 }
 
 .card-all-article-img-container {
+  max-width: 200px;
   border-radius: 10px 10px 0 0;
   overflow: hidden;
 }
