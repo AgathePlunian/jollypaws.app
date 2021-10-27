@@ -276,10 +276,15 @@
 
 		//AJOUT DU BOUTON DECONNEXION
 		let navbar = document.getElementsByClassName("nav-list")[0];
+		let navbarSmall = document.getElementsByClassName("small-menu-list")[0];
 
+		let btnSmallNavBar = document.createElement("li");
 		let btn_disconnect = document.createElement("li");
+
+		btnSmallNavBar.innerHTML = `<a href='/<?php echo $lang?>/admin/disconnect'> Se déconnecter </a>`;
 		btn_disconnect.innerHTML = `<a class='btn-disconnect' href='/<?php echo $lang?>/admin/disconnect'> Se déconnecter </a>`;
 		navbar.appendChild(btn_disconnect);
+		navbarSmall.appendChild(btnSmallNavBar);
 
 		//AJOUT BACKGROUND QUAND UN LIEN DU MENU EST SELECTIONNÉ	
 		let currentArticle = document.getElementsByClassName("menu-link");

@@ -4,6 +4,10 @@
 		require('views/vitrine/index_view.php');
 	}
 
+	function show_blog($route, $lang){
+		require('views/vitrine/blog_view.php');
+	}
+
 	function show_approche($route, $lang){
 		require('views/vitrine/approche_view.php');
 	}
