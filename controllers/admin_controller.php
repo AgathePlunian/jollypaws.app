@@ -21,6 +21,9 @@ function show_login($route, $lang) {
 		$fail = true;
 	}
 
+	// $user_manager = new UserManager();
+	// $user_manager->change_user_password(1, "plopplop");
+
 	require('views/admin/login_view.php');
 }
 
@@ -44,7 +47,10 @@ function show_admin_index($route, $lang){
 			$APPROVE_ARTICLE_PERM,
 			$PUBLISH_ARTICLE_PERM,
 			$CREATE_ACCOUNT_PERM,
-			$MANAGE_CATEGORIES_PERM;
+			$MANAGE_CATEGORIES_PERM,
+			$MANAGE_PERMS_PERM,
+			$REMOVE_ACCOUNT_PERM,
+			$RESET_PASSWORD_PERM;
 
 		
 		// If no session
@@ -54,6 +60,9 @@ function show_admin_index($route, $lang){
 
 		$article_manager = new ArticleManager();
 		$category_manager = new CategoryManager();
+		$user_manager = new UserManager();
+		$permissions_manager = new PermissionsManager();
+
 
 		/* ####################### PERMISSIONS ########################### */
 
@@ -121,12 +130,37 @@ function show_admin_index($route, $lang){
 		}
 
 
-		// Is user can manage categories
+		// Can user manage categories
 		if(in_array($MANAGE_CATEGORIES_PERM, $_SESSION['permissions'])) {
 			if(!isset($all_categories)){
 				$all_categories = $category_manager->list_all_categories();
 			}
 		}
+
+
+		// Manage users accounts
+		if(
+			in_array($MANAGE_PERMS_PERM, $_SESSION['permissions']) ||
+			in_array($REMOVE_ACCOUNT_PERM, $_SESSION['permissions']) ||
+			in_array($RESET_PASSWORD_PERM, $_SESSION['permissions'])
+		){
+			$all_users_accounts = $user_manager->list_users();
+
+			// Manage permissions
+			if(in_array($MANAGE_PERMS_PERM, $_SESSION['permissions'])){
+				$all_permissions = $permissions_manager->list_permissions();
+				$users_permissions = [];
+				foreach($all_users_accounts as $account){
+					$permissions = $permissions_manager->get_permissions_from_user_id($account['id']);
+
+					$users_permissions[$account['id']] = [];
+					foreach($permissions as $perm){
+						$users_permissions[ $account['id'] ][] = $perm['name'];
+					}
+				}
+			}
+		}
+
 
 		/* ####################### PERMISSIONS ########################### */
 		require('views/admin/index_view.php');
@@ -570,12 +604,14 @@ function register_user($route, $lang, $P=false){
 			}
 		}
 
+
+
 		$user_manager = new UserManager();
 		$id = $user_manager->create_user(
 			$P['firstname'],
 			$P['lastname'],
 			$P['email'],
-			$P['password'],
+			$P['password']
 		); 
 
 
@@ -799,6 +835,104 @@ function manage_articles_front_page($route, $lang, $P=false){
 	}
 }
 
+
+// Generate a new random password to a user
+function reset_user_password($route, $lang){
+	global $RESET_PASSWORD_PERM;
+	try{
+		// Check permissions
+		if(!isset($_SESSION['id'])){
+			throw new Exception('User need to be connected');
+		}
+		if(!in_array($RESET_PASSWORD_PERM, $_SESSION['permissions'])){
+			throw new Exception('Operation not allowed');
+		}
+
+
+		$route_elements = explode('/', $route);
+		$array_id_user = (array_search('users', $route_elements) != false)? (array_search('users', $route_elements)+ 1): false;
+		$user_id = $route_elements[$array_id_user];
+
+		$user_manager = new UserManager();
+		$user_email = $user_manager->get_user_email($user_id);
+
+		$new_password = random_bytes(12);
+
+		$user_manager->change_user_password($user_id, $new_password);
+
+		send_mail_to_user($user_email, 'Resileyes - password changed', 'New password : '. $new_password);
+		
+		header("Location: /{$lang}/admin/manage_users");
+
+	}
+	catch(Exception $e){
+		header("Location: /{$lang}/admin/manage_users");
+	}
+}
+
+
+// Delete a user account
+function delete_user_account($route, $lang){
+	global $REMOVE_ACCOUNT_PERM;
+	try{
+		// Check permissions
+		if(!isset($_SESSION['id'])){
+			throw new Exception('User need to be connected');
+		}
+		if(!in_array($REMOVE_ACCOUNT_PERM, $_SESSION['permissions'])){
+			throw new Exception('Operation not allowed');
+		}
+
+
+		$route_elements = explode('/', $route);
+		$array_id_user = (array_search('users', $route_elements) != false)? (array_search('users', $route_elements)+ 1): false;
+		$user_id = $route_elements[$array_id_user];
+
+		$user_manager = new UserManager();
+		
+		$user_manager->remove_user_account($user_id);
+		
+		header("Location: /{$lang}/admin/manage_users");
+
+	}
+	catch(Exception $e){
+		header("Location: /{$lang}/admin/manage_users");
+	}
+}
+
+
+// Update user perms
+function update_user_perms($route, $lang, $P=false){
+	global $MANAGE_PERMS_PERM;
+	try{
+		// Check permissions
+		if(!isset($_SESSION['id'])){
+			throw new Exception('User need to be connected');
+		}
+		if(!in_array($MANAGE_PERMS_PERM, $_SESSION['permissions'])){
+			throw new Exception('Operation not allowed');
+		}
+
+		// Check if post data
+		if($P == false){
+			throw new Exception('No data sent');
+		}
+
+		$route_elements = explode('/', $route);
+		$array_id_user = (array_search('users', $route_elements) != false)? (array_search('users', $route_elements)+ 1): false;
+		$user_id = $route_elements[$array_id_user];
+
+		$permissions_manager = new PermissionsManager();
+		$permissions_manager->set_user_permissions($user_id, $P['permissions']);
+
+
+		header("Location: /{$lang}/admin/manage_users");
+	}
+	catch(Exception $e){
+		die($e->getMessage());
+		header("Location: /{$lang}/admin/manage_users");
+	}
+}
 
 
 ?>

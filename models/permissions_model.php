@@ -94,6 +94,49 @@ class PermissionsManager{
     }
 
 
+    private function remove_permissions($user_id){
+        $db = $this->db_connect();
+
+        $sql = "
+            DELETE FROM
+                permissions_users
+            WHERE
+                id_user = :user_id
+        ";
+        $query = $db->prepare($sql);
+        $success = $query->execute(array(
+            'user_id' => $user_id
+        ));
+        if($success == false){
+            throw new Exception('[remove_permissions] Impossible to reset permissions');
+        }
+    }
+
+
+    public function set_user_permissions($user_id, $permissions){
+        $db = $this->db_connect();
+        $this->remove_permissions($user_id);
+
+        foreach($permissions as $permission){
+            $sql = "
+                INSERT INTO
+                    permissions_users
+                        (id_permission, id_user)
+                VALUES
+                    (:permission, :user_id)
+            ";
+            $query = $db->prepare($sql);
+            $success = $query->execute(array(
+                'permission' => $permission,
+                'user_id' => $user_id
+            ));
+            if($success == false){
+                throw new Exception('[set_user_permissions] can not set user permission');
+            }
+        }
+    }
+
+
     // connect to database
     private function db_connect(){
         global $host, $db_name, $username, $password;

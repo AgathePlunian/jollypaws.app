@@ -2,10 +2,10 @@
 
 // connect to database
 
-$host = '127.0.0.1:8889';
-$db_name = 'user_database';
-$username = 'root';
-$password = 'root';
+$host = 'sql-server.k8s-do9n3u6r';
+$db_name = 'contact_vitrine';
+$username = 'resileyes';
+$password = 'u673LUo8xt';
 
 // Permissions
 $CREATE_ARTICLE_PERM = "CREATE_ARTICLE";
@@ -14,6 +14,10 @@ $APPROVE_ARTICLE_PERM = "APPROVE_ARTICLE";
 $PUBLISH_ARTICLE_PERM = "PUBLISH_ARTICLE";
 $CREATE_ACCOUNT_PERM = "CREATE_ACCOUNT";
 $MANAGE_CATEGORIES_PERM = "MANAGE_CATEGORIES";
+$MANAGE_PERMS_PERM = "ADD_REMOVE_PERM";
+$REMOVE_ACCOUNT_PERM = "REMOVE_ACCOUNT";
+$RESET_PASSWORD_PERM = "RESET_PASSWORD";
+
 
 $BASE_PERMISSIONS = [
 	$CREATE_ARTICLE_PERM,

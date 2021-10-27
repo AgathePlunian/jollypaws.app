@@ -71,4 +71,19 @@ function load_image($F, $input_name){
 	return $target_file;
 }
 
+
+function send_mail_to_user($recipient, $subject, $message){
+	$from = "www-data@resileyes.com";
+	$headers = array(
+        'From' => $from,
+        'X-Mailer' => 'PHP/' . phpversion()
+    );
+    $result_mail = mail($recipient, $subject, $message, $headers);
+
+    if ($result_mail == false){
+        throw new Exception("[register_contact] mail can't be sent");
+    }
+}
+
+
 ?>

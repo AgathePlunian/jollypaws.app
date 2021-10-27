@@ -22,6 +22,7 @@
 
 									echo $nbr_valids;
 								?>
+							</p>
 						</div>
 						<div class="btn-container-admin">
 							<a class="btn-empty-secondary" href="/<?= $lang ?>/article/show/<?= $article['id'] ?>/waiting">Prévisualiser</a>

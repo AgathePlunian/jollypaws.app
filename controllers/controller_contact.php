@@ -45,11 +45,14 @@
             $from = "no-reply@resileyes.com";
             $subject = "[contact] $firstname $lastname - $email";
 
-            $headers = array(
-                'From' => $from,
-                'X-Mailer' => 'PHP/' . phpversion()
-            );
+            $headers = 'From:no-reply@resileyes.com' . "\r\n" .
+            'X-Mailer: PHP/' . phpversion();
+
             $message_body = "Nom de famille : $lastname \nPrenom : $firstname \nEmail : $email \nSituation : $situation \n\n\n$message";
+
+            // Save contact in database
+            $contact_manager = new ContactManager();
+            $contact_manager->save_contact($lastname, $firstname, $email, $situation, $message, $subscribe, $lang);
 
             // Sending the mail
             $result_mail = mail($dest, $subject, $message_body, $headers);
@@ -57,13 +60,8 @@
                 throw new Exception("[register_contact] mail can't be sent");
             }
 
-            // Save contact in database
-            $contact_manager = new ContactManager();
-            $contact_manager->save_contact($lastname, $firstname, $email, $situation, $message, $subscribe, $lang);
-
             // If contact suscribed to newsletter, generate a link to unregister
             if($subscribe == 1) {
-                
                 // Generate a secret chain to make the link unique
                 $bytes = random_bytes(32);
                 $secret = bin2hex($bytes);
@@ -74,7 +72,8 @@
                 
         }
         catch(Exception $e){
-            header("Location: /{$lang}/contact/result/fail");
+            $error = $e->getMessage();
+            header("Location: /{$lang}/contact/result/fail/");
         }
     }
 
