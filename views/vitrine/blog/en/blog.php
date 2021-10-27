@@ -7,12 +7,14 @@
       <h1>Blog</h1>
       <div class="search-and-select">   
         <input class="search-input" type="search" aria-label="Recherche" placeholder="Rechercher">     
-        <label>Trier par:</label>
-        <select class="filterByArticles">
-            <option>Date</option>
-            <option>Catégorie</option>
-            <option>Auteur</option>
-        </select>
+        <div class="filter-article-select-container">
+          <label>Trier par:</label>
+          <select class="filterByArticles">
+              <option>Date</option>
+              <option>Catégorie</option>
+              <option>Auteur</option>
+          </select>
+        </div>
       </div>
     </div>
 
@@ -52,13 +54,13 @@
           </header> 
 
            <!-- CONTENU ARTICLE -->
-          <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 
+          <p class="first-article-card-content">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 
             At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam 
           </p>
 
            <!-- LISTE DES TAGS-->
           <ul class="category-list">
-            <li class="category-item no-margin">Santé</li>
+            <li class="category-item">Santé</li>
           </ul>
 
            <!-- LIEN VERS ARTICLE -->
@@ -131,7 +133,12 @@
 
             <!-- LISTE DES TAGS-->
             <ul class="category-list">
-              <li class="category-item no-margin">Santé</li>
+              <li class="category-item">Santé</li>
+              <li class="category-item">Santé</li>
+              <li class="category-item">Santé</li>
+              <li class="category-item">Santé</li>
+              <li class="category-item">Santé</li>
+              <li class="category-item">Santé</li>
             </ul>
 
             <!-- LIEN VERS ARTICLE -->
@@ -173,7 +180,7 @@
 
             <!-- LISTE DES TAGS-->
             <ul class="category-list">
-              <li class="category-item no-margin">Santé</li>
+              <li class="category-item">Santé</li>
             </ul>
 
             <!-- LIEN VERS ARTICLE -->
@@ -206,7 +213,7 @@
 
             <!-- LISTE DES TAGS-->
             <ul class="category-list">
-              <li class="category-item no-margin">Santé</li>
+              <li class="category-item">Santé</li>
             </ul>
 
             <!-- LIEN VERS ARTICLE -->
@@ -239,7 +246,7 @@
 
             <!-- LISTE DES TAGS-->
             <ul class="category-list">
-              <li class="category-item no-margin">Santé</li>
+              <li class="category-item">Santé</li>
             </ul>
 
             <!-- LIEN VERS ARTICLE -->
@@ -273,7 +280,7 @@
 
             <!-- LISTE DES TAGS-->
             <ul class="category-list">
-              <li class="category-item no-margin">Santé</li>
+              <li class="category-item">Santé</li>
             </ul>
 
             <!-- LIEN VERS ARTICLE -->
@@ -306,7 +313,7 @@
 
             <!-- LISTE DES TAGS-->
             <ul class="category-list">
-              <li class="category-item no-margin">Santé</li>
+              <li class="category-item">Santé</li>
             </ul>
 
             <!-- LIEN VERS ARTICLE -->
