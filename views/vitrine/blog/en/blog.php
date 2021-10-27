@@ -16,6 +16,7 @@
       </div>
     </div>
 
+    <!-- LISTE DE TOUTES LES CATEGORIES DE LA BASE DE DONNÉES -->
     <div class="all-categories-search">
       <ul class="category-list">
         <li class="category-item">Santé</li>
