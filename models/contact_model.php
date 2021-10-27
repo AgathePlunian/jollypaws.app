@@ -2,6 +2,17 @@
 
 class ContactManager
 {
+    public function __construct(){
+        global $contact_database;
+
+        $db = new PDO(
+            "mysql:host={$contact_database['host']};dbname={$contact_database['db_name']};charset=utf8", 
+            $contact_database['username'], 
+            $contact_database['password']
+        );
+
+        $this->db = $db;
+    }
 
     // Save contact in database
     public function save_contact($lastname, $firstname, $email, $situation, $message, $newsletter, $src){

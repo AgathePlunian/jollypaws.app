@@ -166,6 +166,7 @@ function show_admin_index($route, $lang){
 		require('views/admin/index_view.php');
 	}
 	catch(Exception $e){
+		die($e->getMessage());
 		header("Location: /{$lang}/");
 	}
 }
@@ -454,6 +455,7 @@ function verify_article($route, $lang, $P=false, $F=false){
 		}
 	}
 	catch(Exception $e){
+		die($e);
 		header("Location: /{$lang}/admin/list_articles");
 	}
 }
@@ -625,6 +627,7 @@ function register_user($route, $lang, $P=false){
 }
 
 
+// Publish an article
 function publish_article($route, $lang){
 	global $PUBLISH_ARTICLE_PERM;
 	try{
@@ -662,6 +665,7 @@ function publish_article($route, $lang){
 }
 
 
+// Unpublish an article
 function unpublish_article($route, $lang){
 	global $PUBLISH_ARTICLE_PERM;
 	try{
@@ -697,6 +701,7 @@ function unpublish_article($route, $lang){
 }
 
 
+// Add a category
 function add_category($route, $lang, $P=false){
 	global $MANAGE_CATEGORIES_PERM;
 	try{
@@ -724,6 +729,8 @@ function add_category($route, $lang, $P=false){
 	}
 }
 
+
+// Edit a category
 function edit_category($route, $lang, $P=false){
 	global $MANAGE_CATEGORIES_PERM;
 	try{
@@ -856,9 +863,16 @@ function reset_user_password($route, $lang){
 		$user_manager = new UserManager();
 		$user_email = $user_manager->get_user_email($user_id);
 
-		$new_password = random_bytes(12);
+		// $new_password = bin2hex(random_bytes(12));
+		$new_password = 'plopplop';
 
 		$user_manager->change_user_password($user_id, $new_password);
+
+		// Store the new password in session to display it later
+		$_SESSION['new_password'] = [
+			'user_id' => $user_id,
+			'password' => $new_password,
+		];
 
 		send_mail_to_user($user_email, 'Resileyes - password changed', 'New password : '. $new_password);
 		
