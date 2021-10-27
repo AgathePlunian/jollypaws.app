@@ -2,10 +2,10 @@
 
 // connect to database
 
-$host = 'localhost';
-$db_name = 'user_database';
-$username = 'root';
-$password = 'plopplop';
+$host = 'sql-server.k8s-do9n3u6r';
+$db_name = 'contact_vitrine';
+$username = 'resileyes';
+$password = 'u673LUo8xt';
 
 // Permissions
 $CREATE_ARTICLE_PERM = "CREATE_ARTICLE";
