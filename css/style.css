@@ -2757,6 +2757,10 @@ input[type=date]::-webkit-calendar-picker-indicator {
   cursor: pointer;
 }
 
+.small-menu-lateral-open {
+  display: none;
+}
+
 @media screen and (max-width: 1024px) {
   .small-menu-lateral-open {
     display: flex;
