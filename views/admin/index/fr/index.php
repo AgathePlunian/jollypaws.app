@@ -16,20 +16,23 @@
 
 	echo '
 	<div class="container-admin">
-		<div class="menu-lateral-admin">';
+		<div class="menu-lateral-admin">
+			<div class="small-menu-lateral-open">
+				<p>Menu Admin</p><span id="chevrons-container"><img class="chevron-down" src="../../../images/icones-form/fleche-down-white.png"/><img class="chevron-up" src="../../../images/icones-form/fleche-up-white.png"/></span>
+			</div>';
 
-		if(in_array($CREATE_ACCOUNT_PERM, $_SESSION['permissions'])){
-			require('views/admin/index/fr/sections/register_user.php');
+			if(in_array($CREATE_ACCOUNT_PERM, $_SESSION['permissions'])){
+				require('views/admin/index/fr/sections/register_user.php');
 
-			$register_link = "
-				<button class='button_view menu-link' id='register_user'>
-					+ Ajouter un utilisateur
-				</button> 
-			";
+				$register_link = "
+					<button class='button_view menu-link' id='register_user'>
+						+ Ajouter un utilisateur
+					</button> 
+				";
 
-			echo $register_link;
-		}
-		
+				echo $register_link;
+			}
+			
 		// Création & modification des articles
 		if(in_array($CREATE_ARTICLE_PERM, $_SESSION['permissions'])){
 			require('views/admin/index/fr/sections/write_article.php');
@@ -173,6 +176,28 @@
 
 
 	window.onload = function(){
+
+		let openMenuChevron = document.getElementById("chevrons-container");
+
+		openMenuChevron.addEventListener('click' , openMenuAdmin);
+
+		function openMenuAdmin() {
+			let chevronUp = document.getElementsByClassName("chevron-up")[0];
+			let chevronDown = document.getElementsByClassName("chevron-down")[0];
+			let menu = document.getElementsByClassName("menu-lateral-admin")[0];
+
+			if (chevronDown.classList.contains("chevron-display")) {
+				chevronUp.classList.remove("chevron-no-display");
+				chevronDown.classList.remove("chevron-display")
+				menu.classList.remove("menu-lateral-display")
+
+			}
+			else {
+				chevronUp.classList.add("chevron-no-display");
+				chevronDown.classList.add("chevron-display");
+				menu.classList.add("menu-lateral-display")
+			}
+		}
 
 		//OUVERTURE MODAL GESTION DES ARTICLES À LA UNE
 		let btnManageImportantArticles = document.getElementById("manage-important-articles");

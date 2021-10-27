@@ -38,7 +38,7 @@
         
         <div class="first-article-blog-img-container">
           <!-- IMAGE ARTICLE -->
-            <img src="../media/c215edf7b91081de.jpeg">
+            <img src="../media/fond_carte_edit.jpg">
         </div>
 
         <div class="first-article-blog-text-container">
@@ -75,7 +75,7 @@
           
           <div class="second-article-blog-img-container">
             <!-- IMAGE ARTICLE -->
-              <img src="../media/c215edf7b91081de.jpeg">
+              <img src="../media/fond_carte_edit.jpg">
           </div>
 
           <div class="second-article-blog-text-container">
@@ -111,7 +111,7 @@
           
           <div class="third-article-blog-img-container">
             <!-- IMAGE ARTICLE -->
-              <img src="../media/c215edf7b91081de.jpeg">
+              <img src="../media/fond_carte_edit.jpg">
           </div>
 
           <div class="third-article-blog-text-container">

@@ -146,6 +146,8 @@
   display: flex;
   width: 49%;
   background-color: white;
+  max-height: 320px;
+  border-radius: 10px;
 }
 
 .third-article-blog-img-container, .second-article-blog-img-container {
@@ -165,6 +167,7 @@
   border-radius: 0 10px 10px 0;
   display: flex;
   flex-flow: column;
+  justify-content: space-between;
 
   h3 {
     font-size: 1.2em;
@@ -202,6 +205,9 @@
 
   .card-all-article-text-container {
     padding: 1em;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
 
     h3 {
       font-size: 1.2em;

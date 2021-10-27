@@ -1,6 +1,7 @@
 .background-admin-connexion {
     background-color: $blue;
     padding: 3em 4em 9em 4em;
+    height: 60vh;
 
     h1 {
         color: $secondary-color;
@@ -9,7 +10,7 @@
     }
 
     form {
-        width: 30%;
+        width: 50%;
         margin: auto;
     }
 
