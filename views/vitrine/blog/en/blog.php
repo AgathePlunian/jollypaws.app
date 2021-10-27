@@ -31,12 +31,14 @@
       <h1>Blog</h1>
       <div class="search-and-select">   
         <input class="search-input" type="search" aria-label="Recherche" placeholder="Rechercher">     
-        <label>Trier par:</label>
-        <select class="filterByArticles">
-            <option>Date</option>
-            <option>Catégorie</option>
-            <option>Auteur</option>
-        </select>
+        <div class="filter-article-select-container">
+          <label>Trier par:</label>
+          <select class="filterByArticles">
+              <option>Date</option>
+              <option>Catégorie</option>
+              <option>Auteur</option>
+          </select>
+        </div>
       </div>
     </div>
 
@@ -95,7 +97,7 @@
           </header> 
 
            <!-- CONTENU ARTICLE -->
-          <p>
+          <p class="first-article-card-content">
             <?php
               // Get the summary part of the article content
               if(isset($articles_by_front_page['1'])){
@@ -257,7 +259,7 @@
                 if(isset($articles_by_front_page['3'])) {
                   foreach($categories_article[$articles_by_front_page['3']['id_article']] as $category){
               ?>
-                <li class="category-item no-margin"><?= $category['name'] ?></li>
+                <li class="category-item"><?= $category['name'] ?></li>
               <?php
                   }
                 }
@@ -323,7 +325,7 @@
               <?php
                 foreach($categories_article[$article['id']] as $category) {
               ?>
-                <li class="category-item no-margin"><?= $category['name'] ?></li>
+                <li class="category-item"><?= $category['name'] ?></li>
               <?php
                 }
               ?>

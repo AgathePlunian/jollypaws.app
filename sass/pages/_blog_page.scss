@@ -6,6 +6,7 @@
 .blog-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 1em;
 
   h1 {
@@ -19,6 +20,10 @@
   li {
     cursor: pointer;
   }
+}
+
+.filter-article-select-container {
+  display: flex;
 }
 
 .title-a-la-une, .all-article-title {
@@ -65,16 +70,27 @@
 }
 
 .first-article-blog-page {
+  border-radius: 10px;
+  background-color: white;
   display: block;
   display: flex;
-  height: 360px;
+  height: fit-content;
+  max-height: 360px;
   margin-bottom: 2em;
   color: inherit;
   text-decoration: none;
 }
 
+.first-article-card-content {
+  flex: 1 1 auto;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+}
 .first-article-blog-img-container {
   width: 50%;
+  height: auto;
   border-radius: 10px 0 0 10px;
   overflow: hidden;
 
@@ -89,11 +105,13 @@
 }
 
 .first-article-blog-text-container {
-  background-color: white;
   width: 50%;
   padding: 1.5em;
   border-radius: 0 10px 10px 0;
-  position: relative;
+  display: flex;
+  flex-flow: column;
+  
+
 }
 
 .icone-read-more {
@@ -103,13 +121,13 @@
 }
 
 .link-article {
+  margin-top: 1em;
   font-size: 1em;
   display: flex;
   color: $secondary-color;
   text-decoration: none;
   font-weight: bold;
-  position: absolute;
-  bottom: 1em;
+  justify-self: end;
 }
 
 .date-article {
@@ -127,7 +145,7 @@
 .second-article-blog-page, .third-article-blog-page {
   display: flex;
   width: 49%;
-  height: 295px;
+  background-color: white;
 }
 
 .third-article-blog-img-container, .second-article-blog-img-container {
@@ -142,11 +160,11 @@
 }
 
 .third-article-blog-text-container, .second-article-blog-text-container {
-  background-color: white;
   width: 60%;
   padding: 1em 1.5em 1em 1em;
   border-radius: 0 10px 10px 0;
-  position: relative;  
+  display: flex;
+  flex-flow: column;
 
   h3 {
     font-size: 1.2em;
@@ -158,11 +176,23 @@
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-
- 
+  -webkit-box-orient: vertical; 
+  
 }
 
+.card-all-article-blog {
+  width: 23%;
+  display: flex;
+  flex-flow: column;
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 2em;
+}
+
+.card-all-article-img-container {
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+}
 
 .all-articles-container-blog {
   margin-top: 1em;
@@ -170,29 +200,12 @@
   justify-content: space-between;
   flex-flow: row wrap;
 
-  .card-all-article-blog {
-    width: 23%;
-    display: flex;
-    flex-flow: column;
-    background-color: white;
-    border-radius: 10px;
-    margin-bottom: 2em;
-  }
-
   .card-all-article-text-container {
-    position: relative;
     padding: 1em;
-    height: 270px;
 
     h3 {
       font-size: 1.2em;
     }
   }
-
-  .card-all-article-img-container {
-    border-radius: 10px 10px 0 0;
-    overflow: hidden;
-    height: 180px;
-   
-  }
+  
 }
