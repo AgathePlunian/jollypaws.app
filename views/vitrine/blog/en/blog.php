@@ -137,13 +137,9 @@
           
           <div class="second-article-blog-img-container">
             <!-- IMAGE ARTICLE -->
-<<<<<<< HEAD
-              <img src="../media/fond_carte_edit.jpg">
-=======
             <img 
               src="/<?php echo (isset($articles_by_front_page['2']))?$articles_by_front_page['2']['main_image']:'images/default_first_page_article_image.jpeg'; ?>"
             >
->>>>>>> fa0aa6bb331e836004bfcd415abd9063602915c6
           </div>
 
           <div class="second-article-blog-text-container">
@@ -214,13 +210,9 @@
           
           <div class="third-article-blog-img-container">
             <!-- IMAGE ARTICLE -->
-<<<<<<< HEAD
-              <img src="../media/fond_carte_edit.jpg">
-=======
             <img 
               src="/<?php echo (isset($articles_by_front_page['3']))?$articles_by_front_page['3']['main_image']:'images/default_first_page_article_image.jpeg'; ?>"
             >
->>>>>>> fa0aa6bb331e836004bfcd415abd9063602915c6
           </div>
 
           <div class="third-article-blog-text-container">
