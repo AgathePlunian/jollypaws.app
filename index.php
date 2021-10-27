@@ -81,6 +81,7 @@
 		["~^article/show/[0-9]+/list$~", 'display_article'],
 		["~^article/show/[0-9]+/waiting$~", 'display_article'],
 		["~^article/show/[0-9]+/published$~", 'display_article'],
+		["~^article/show/[0-9]+/admin$~", 'display_article'],
 		["~^article/show/[0-9]+$~", 'display_article'],
 		
 		["~.*~", 'error_not_found'],

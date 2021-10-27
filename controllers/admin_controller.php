@@ -166,7 +166,6 @@ function show_admin_index($route, $lang){
 		require('views/admin/index_view.php');
 	}
 	catch(Exception $e){
-		die($e->getMessage());
 		header("Location: /{$lang}/");
 	}
 }
@@ -265,8 +264,11 @@ function define_return_button($route_elements, $lang){
 	elseif(in_array('published', $route_elements)){
 		$return_button = "/{$lang}/admin/published_articles";
 	}
-	else{
+	elseif(in_array('admin', $route_elements)){
 		$return_button = "/{$lang}/admin";
+	}
+	else{
+		$return_button = "/{$lang}/blog";
 	}
 
 	return $return_button;
@@ -283,6 +285,24 @@ function display_article($route, $lang){
 		}
 		$id_article = $route_elements[$id_pos + 1];
 
+
+		// If unlogged user try to access unpublished article
+		if(!isset($_SESSION['id'])){
+			$article_manager = new ArticleManager();
+			$published_articles = $article_manager->list_published_articles();
+			$is_published = false;
+			
+			foreach($published_articles as $article){
+				if($article['id'] == $id_article){
+					$is_published = true;
+				}
+			}
+			if(!$is_published){
+				throw new Exception('User need to be logged');
+			}
+		}
+
+
 		$article_manager = new ArticleManager();
 		$article = $article_manager->get_article_content($id_article);
 
@@ -293,7 +313,7 @@ function display_article($route, $lang){
 		$article_title = $article['title'];
 		$article_main_image = $article['main_image'];
 
-		$return_button = define_return_button($route_elements, $lang);
+		$return_button = define_return_button($route_elements, $lang, $id_article);
 
 		require('views/admin/articles/show_article_view.php');
 	}
@@ -455,7 +475,6 @@ function verify_article($route, $lang, $P=false, $F=false){
 		}
 	}
 	catch(Exception $e){
-		die($e);
 		header("Location: /{$lang}/admin/list_articles");
 	}
 }
@@ -943,7 +962,6 @@ function update_user_perms($route, $lang, $P=false){
 		header("Location: /{$lang}/admin/manage_users");
 	}
 	catch(Exception $e){
-		die($e->getMessage());
 		header("Location: /{$lang}/admin/manage_users");
 	}
 }

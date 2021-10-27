@@ -65,10 +65,23 @@
 	</div>
 </div>
 
+<?php
+	if(isset($_SESSION['id']) && $return_button != "/{$lang}/blog"){
+		if(isset($id_article)){
+			echo 'Share link : <br>' . "https://resileyes.com/{$lang}/article/show/{$id_article}/admin";
+		}
+?>
+
+<!-- If user not logged or viewed article from blog page -->
 <div class="close-previsualisation">
 	<a href='<?= $return_button ?>'>Fermer le mode de prévisualisation</a>
 	<img src="/images/icones-form/close-btn.svg" alt="close preview mode"/>
 </div>
+
+<?php
+	}
+?>
+
 
 <script type="text/javascript">
 

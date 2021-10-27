@@ -25,8 +25,10 @@
 
 				<p>
 					<span class="titles-card">
-						Auteur : </span> <?php echo (isset($articles_by_front_page['1']))?$articles_by_front_page['1']['firstname']:''; ?> 
-								 <?php echo (isset($articles_by_front_page['1']))?$articles_by_front_page['1']['lastname']:''; ?>
+						Auteur : 
+					</span>
+					<?php echo (isset($articles_by_front_page['1']))?$articles_by_front_page['1']['firstname']:''; ?> 
+					<?php echo (isset($articles_by_front_page['1']))?$articles_by_front_page['1']['lastname']:''; ?>
 				
 				</p>
 
@@ -41,7 +43,6 @@
 					<span class="titles-card">
 						Date de publication : </span>
 						<?php echo (isset($articles_by_front_page['1']))?$articles_by_front_page['1']['publish_date']:''; ?>
-					
 				</p>
 			</div>		
 		</div>
@@ -92,7 +93,7 @@
 					<p>
 						<span class="titles-card">
 							Titre :</span> <?php echo (isset($articles_by_front_page['3']))?$articles_by_front_page['3']['title']:''; ?> 
-						
+						<
 					</p>
 
 					<p>

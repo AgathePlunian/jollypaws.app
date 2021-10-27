@@ -789,8 +789,10 @@ class ArticleManager{
 					creation_date, 
 					last_change_date,
 					publish_date,
+					content,
 					firstname,
-					lastname
+					lastname,
+					main_image
 				FROM
 					articles_published
 				INNER JOIN
@@ -882,6 +884,7 @@ class ArticleManager{
 				firstname,
 				lastname,
 				title,
+				content,
 				publish_date,
 				creation_date,
 				main_image
