@@ -4,6 +4,10 @@
 	ini_set('file_uploads', 'On');
 	ini_set('post_max_size', '1000M');
 	ini_set('upload_max_filesize', '1000M');
+
+	// ini_set('sendmail_path', '/usr/sbin/sendmail-wrapper-php -t -i -F"ResilEyes" -f\'no-reply@resileyes.com\'');
+	ini_set('sendmail_path', '/usr/sbin/sendmail-wrapper-php -t -i');
+	
 	session_start();
 
 	// Import controllers codes

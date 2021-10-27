@@ -611,7 +611,7 @@ function register_user($route, $lang, $P=false){
 			$P['firstname'],
 			$P['lastname'],
 			$P['email'],
-			$P['password'],
+			$P['password']
 		); 
 
 
