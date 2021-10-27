@@ -625,6 +625,7 @@ function register_user($route, $lang, $P=false){
 }
 
 
+// Publish an article
 function publish_article($route, $lang){
 	global $PUBLISH_ARTICLE_PERM;
 	try{
@@ -662,6 +663,7 @@ function publish_article($route, $lang){
 }
 
 
+// Unpublish an article
 function unpublish_article($route, $lang){
 	global $PUBLISH_ARTICLE_PERM;
 	try{
@@ -697,6 +699,7 @@ function unpublish_article($route, $lang){
 }
 
 
+// Add a category
 function add_category($route, $lang, $P=false){
 	global $MANAGE_CATEGORIES_PERM;
 	try{
@@ -724,6 +727,8 @@ function add_category($route, $lang, $P=false){
 	}
 }
 
+
+// Edit a category
 function edit_category($route, $lang, $P=false){
 	global $MANAGE_CATEGORIES_PERM;
 	try{
