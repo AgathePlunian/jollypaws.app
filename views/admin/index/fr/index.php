@@ -367,7 +367,6 @@
 		
 
 		var url = window.location.href;
-
 		var route_elements = url.split('/');
 
 

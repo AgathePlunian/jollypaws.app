@@ -65,6 +65,7 @@
 
 		["~^admin/categories/add$~", 'add_category'],
 		["~^admin/categories/inside_article/add$~", 'add_category_from_article'],
+		["~^admin/categories/inside_article/add/on_update/[0-9]+$~", 'add_category_from_article'],
 		["~^admin/categories/edit/[0-9]+$~", 'edit_category'],
 		["~^admin/categories/delete/[0-9]+$~", 'delete_category'],
 

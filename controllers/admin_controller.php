@@ -754,6 +754,16 @@ function add_category($route, $lang, $P=false){
 function add_category_from_article($route, $lang, $P=false, $F=false){
 	global $MANAGE_CATEGORIES_PERM;
 
+	$route_elements = explode('/', $route);
+	if(in_array('on_update', $route_elements)){
+		$id_article_pos = array_search('on_update', $route_elements) +1;
+		$id_article = $route_elements[$id_article_pos];
+		$return_route = "/{$lang}/admin/edit_article/{$id_article}";
+	}
+	else{
+		$return_route = "/{$lang}/admin/write_article";
+	}
+
 	try{
 		// Check permissions
 		if(!isset($_SESSION['id'])){
@@ -771,11 +781,12 @@ function add_category_from_article($route, $lang, $P=false, $F=false){
 		$category_manager = new CategoryManager();
 		$category_manager->create_category($P['category_name']);
 
-		header("Location: /{$lang}/admin/write_article");
+		header("Location: $return_route");
 	}
 
 	catch(Exception $e){
-		header("Location: /{$lang}/admin/write_article");
+		die($e->getMessage());
+		header("Location: $return_route");
 	}
 }
 

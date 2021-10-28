@@ -292,7 +292,18 @@
 
 		function onClickCategory(e){
 			var form = document.getElementById('article_form');
-			form.setAttribute('action', '/<?= $lang ?>/admin/categories/inside_article/add');
+
+			var url = window.location.href;
+			var route_elements = url.split('/');
+
+			if(route_elements.includes('edit_article')){
+				var edit_article_pos = route_elements.indexOf('edit_article');
+				var id_article = route_elements[edit_article_pos + 1];
+				form.setAttribute('action', '/<?= $lang ?>/admin/categories/inside_article/add/on_update/' + id_article);
+			}
+			else{
+				form.setAttribute('action', '/<?= $lang ?>/admin/categories/inside_article/add');
+			}
 			add_category_button.removeEventListener('click', onClickCategory);
 			add_category_button.click();
 		}
