@@ -77,20 +77,24 @@ function load_article($article_content){
 
 
 function load_image($F, $input_name){
-	$target_dir = 'media/';
-	$pathinfos = pathinfo($F[$input_name]['name']);
+	if($F[$input_name]['size'] > 0){
+		$target_dir = 'media/';
+		$pathinfos = pathinfo($F[$input_name]['name']);
 
-	$extension = $pathinfos['extension'];
+		$extension = $pathinfos['extension'];
 
-	$random = bin2hex(random_bytes(8));
+		$random = bin2hex(random_bytes(8));
 
-	$name = "{$random}.{$extension}";
+		$name = "{$random}.{$extension}";
 
-	$target_file = $target_dir . $name;
+		$target_file = $target_dir . $name;
 
-	$success = move_uploaded_file($F[$input_name]['tmp_name'], $target_file);
-	if ($success == false){
-		throw new Exception('[load_tmp_image] can\'t move uploaded image');
+		$success = move_uploaded_file($F[$input_name]['tmp_name'], $target_file);
+		if ($success == false){
+			throw new Exception('[load_tmp_image] can\'t move uploaded image');
+		}
+	} else{
+		$target_file = $F[$input_name]['tmp_name'];
 	}
 
 	return $target_file;

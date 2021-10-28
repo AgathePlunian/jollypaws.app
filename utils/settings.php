@@ -2,17 +2,17 @@
 
 // connect to database
 $contact_database = [
-	'host' => '127.0.0.1',
-	'db_name' => 'user_database',
-	'username' => 'root',
-	'password' => 'plopplop'
+	'host' => 'sql-server.k8s-do9n3u6r',
+	'db_name' => 'test_admin',
+	'username' => 'resileyes_test',
+	'password' => 'S178VCG6d1'
 ];
 
 $admin_database = [
-	'host' => '127.0.0.1',
-	'db_name' => 'user_database',
-	'username' => 'root',
-	'password' => 'plopplop'
+	'host' => 'sql-server.k8s-do9n3u6r',
+	'db_name' => 'test_admin',
+	'username' => 'resileyes_test',
+	'password' => 'S178VCG6d1'
 ];
 
 // Permissions
