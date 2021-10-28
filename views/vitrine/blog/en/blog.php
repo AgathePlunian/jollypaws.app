@@ -106,7 +106,7 @@
         </div>
       </div>
 
-      <div class="article-2-3-container">
+      <div class="article-2-3-container-blog">
 
       <!-- SECOND ARTICLE A LA UNE-->
         <div class="second-article-blog-page">
