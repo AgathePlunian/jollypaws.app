@@ -21,9 +21,6 @@ function show_login($route, $lang) {
 		$fail = true;
 	}
 
-	// $user_manager = new UserManager();
-	// $user_manager->change_user_password(1, "plopplop");
-
 	require('views/admin/login_view.php');
 }
 
@@ -882,8 +879,8 @@ function reset_user_password($route, $lang){
 		$user_manager = new UserManager();
 		$user_email = $user_manager->get_user_email($user_id);
 
-		// $new_password = bin2hex(random_bytes(12));
-		$new_password = 'plopplop';
+		$new_password = bin2hex(random_bytes(12));
+		// $new_password = 'plopplop';
 
 		$user_manager->change_user_password($user_id, $new_password);
 
