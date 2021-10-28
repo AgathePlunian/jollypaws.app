@@ -1,5 +1,30 @@
 <?php
 
+function get_summary($article_content){
+	$summary_tag_regex = "~\[h2\]( )*Résumé( )*\[/h2\]~";
+	$end_tag = "~(\[|$)~";
+
+	// Find the summary start
+	preg_match($summary_tag_regex, $article_content, $matches);
+	if(isset($matches[0])){
+		// Only keep what's after the summary tag
+		$summary_tag_pos = strpos($article_content, $matches[0]);
+		$substring_after_summary = substr($article_content, $summary_tag_pos + strlen($matches[0]));
+
+		// Find the end of the summary part
+		preg_match($end_tag, $substring_after_summary, $matches);
+		if(isset($matches[0])){
+
+			// Only keep what's before the summary end
+			$end_tag_pos = strpos($substring_after_summary, $matches[0]);
+			$summary_substring = substr($substring_after_summary, 0, $end_tag_pos);
+
+			echo $summary_substring;
+		}
+	}
+}
+
+
 function load_permissions($user_id){
 	$permissions_manager = new PermissionsManager();
 	$permissions = $permissions_manager->get_permissions_from_user_id($user_id);
@@ -73,11 +98,11 @@ function load_image($F, $input_name){
 
 
 function send_mail_to_user($recipient, $subject, $message){
-	$from = "www-data@resileyes.com";
-	$headers = array(
-        'From' => $from,
-        'X-Mailer' => 'PHP/' . phpversion()
-    );
+	$from = "no-reply@resileyes.com";
+	$headers = 'From: ' . $from . "\r\n" .
+     'Reply-To: ' . $from . "\r\n" .
+     'X-Mailer: PHP/' . phpversion();
+     
     $result_mail = mail($recipient, $subject, $message, $headers);
 
     if ($result_mail == false){
