@@ -65,6 +65,8 @@
 						}
 					}
 
+
+					// ##################### DISPLAY ALL CATEGORIES ##############################
 					foreach($all_categories as $category){
 						$display_empty_categories = true;
 
@@ -94,7 +96,19 @@
 						<?php
 						}
 						
+					} // ####################################
+
+					// New category form
+					if(in_array($MANAGE_CATEGORIES_PERM, $_SESSION['permissions'])){
+						?>
+
+						<input type="text" name="category_name">
+						<input type="submit" name="add-category-form" value="Nouvelle catégorie" id='add-category-button'>
+
+						<?php
 					}
+
+
 				?>
 			
 			</div>
@@ -215,6 +229,8 @@
 		// Button to submit article
 		var submit_article = document.getElementById('article_submit');
 
+		// Button to add category
+		var add_category_button = document.getElementById('add-category-button');
 
 		// Buttons to modify text
 		var modifiers_button = document.getElementsByClassName('text-modifier');
@@ -236,6 +252,7 @@
 		// Bind click on button to function
 		visu_article.addEventListener('click', onClickVisu);
 		submit_article.addEventListener('click', onClickSubmit);
+		add_category_button.addEventListener('click', onClickCategory);
 
 
 		// If the user see the article
@@ -270,6 +287,14 @@
 							article_text_area.value.substring(selection_end, article_text_area.value.length);
 
 			article_text_area.value = new_value;
+		}
+
+
+		function onClickCategory(e){
+			var form = document.getElementById('article_form');
+			form.setAttribute('action', '/<?= $lang ?>/admin/categories/inside_article/add');
+			add_category_button.removeEventListener('click', onClickCategory);
+			add_category_button.click();
 		}
 
 	</script>

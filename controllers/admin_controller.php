@@ -325,6 +325,24 @@ function display_article($route, $lang){
 }
 
 
+function save_article_data($P, $F=false){
+	$_SESSION['article']['content'] = $P['article_content'];
+	$_SESSION['article']['title'] = $P['title'];
+
+
+	if(!isset($_SESSION['article']['main_image']) && $F != false)  {
+		$_SESSION['article']['main_image'] = load_image($F, 'main_picture');
+	}
+	elseif(isset($_SESSION['article']['main_image']) && $F != false && basename($_SESSION['article']['main_image']) != $F['main_picture']['name']){
+		$_SESSION['article']['main_image'] = load_image($F, 'main_picture');
+	}
+	elseif(!isset($_SESSION['article']['main_image']) && $F == false) {
+		$_SESSION['article']['main_image'] = '';
+	}
+	$_SESSION['article']['categories'] = $P['categories'];
+}
+
+
 // Display currently writting article
 function show_article($route, $lang, $P=false, $F=false){
 	try{
@@ -358,20 +376,7 @@ function show_article($route, $lang, $P=false, $F=false){
 		// If post data (first time this function is called), 
 		// load the data then call itself without sending data with post
 		else {
-			$_SESSION['article']['content'] = $P['article_content'];
-			$_SESSION['article']['title'] = $P['title'];
-
-
-			if(!isset($_SESSION['article']['main_image']) && $F != false)  {
-				$_SESSION['article']['main_image'] = load_image($F, 'main_picture');
-			}
-			elseif(isset($_SESSION['article']['main_image']) && $F != false && basename($_SESSION['article']['main_image']) != $F['main_picture']['name']){
-				$_SESSION['article']['main_image'] = load_image($F, 'main_picture');
-			}
-			elseif(!isset($_SESSION['article']['main_image']) && $F == false) {
-				$_SESSION['article']['main_image'] = '';
-			}
-			$_SESSION['article']['categories'] = $P['categories'];
+			save_article_data($P, $F);
 
 			header("Location: /{$lang}/admin/articles/show");
 		}
@@ -742,6 +747,35 @@ function add_category($route, $lang, $P=false){
 	}
 	catch(Exception $e){
 		header("Location: /{$lang}/admin");
+	}
+}
+
+
+function add_category_from_article($route, $lang, $P=false, $F=false){
+	global $MANAGE_CATEGORIES_PERM;
+
+	try{
+		// Check permissions
+		if(!isset($_SESSION['id'])){
+			throw new Exception('User need to be connected');
+		}
+		if(!in_array($MANAGE_CATEGORIES_PERM, $_SESSION['permissions'])){
+			throw new Exception('Operation not allowed');
+		}
+		if($P == false){
+			throw new Exception('Data missing');
+		}
+
+		save_article_data($P, $F);
+
+		$category_manager = new CategoryManager();
+		$category_manager->create_category($P['category_name']);
+
+		header("Location: /{$lang}/admin/write_article");
+	}
+
+	catch(Exception $e){
+		header("Location: /{$lang}/admin/write_article");
 	}
 }
 

@@ -64,6 +64,7 @@
 		["~^admin/trash/[0-9]+$~", 'put_article_in_trash'],
 
 		["~^admin/categories/add$~", 'add_category'],
+		["~^admin/categories/inside_article/add$~", 'add_category_from_article'],
 		["~^admin/categories/edit/[0-9]+$~", 'edit_category'],
 		["~^admin/categories/delete/[0-9]+$~", 'delete_category'],
 
