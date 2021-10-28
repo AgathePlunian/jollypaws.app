@@ -1,28 +1,4 @@
 <?php
-  function get_summary($article_content){
-    $summary_tag_regex = "~\[h2\]( )*Résumé( )*\[/h2\]~";
-    $end_tag = "~(\[|$)~";
-
-    // Find the summary start
-    preg_match($summary_tag_regex, $article_content, $matches);
-    if(isset($matches[0])){
-      // Only keep what's after the summary tag
-      $summary_tag_pos = strpos($article_content, $matches[0]);
-      $substring_after_summary = substr($article_content, $summary_tag_pos + strlen($matches[0]));
-      
-      // Find the end of the summary part
-      preg_match($end_tag, $substring_after_summary, $matches);
-      if(isset($matches[0])){
-
-        // Only keep what's before the summary end
-        $end_tag_pos = strpos($substring_after_summary, $matches[0]);
-        $summary_substring = substr($substring_after_summary, 0, $end_tag_pos);
-
-        echo $summary_substring;
-      }
-    }
-  }
-
   ob_start();
 ?>
 
