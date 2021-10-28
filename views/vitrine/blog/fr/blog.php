@@ -200,13 +200,13 @@
             <!--AUTEUR ARTICLE-->
             <p class="author-card">
               <?php
-                if(isset($articles_by_front_page['2'])){
+                if(isset($articles_by_front_page['3'])){
               ?>
 
               Par 
               <span class="author-name">
-                <?php echo (isset($articles_by_front_page['2']))?$articles_by_front_page['2']['firstname']:''; ?> 
-                <?php echo (isset($articles_by_front_page['2']))?$articles_by_front_page['2']['lastname']:''; ?>  
+                <?php echo (isset($articles_by_front_page['3']))?$articles_by_front_page['3']['firstname']:''; ?> 
+                <?php echo (isset($articles_by_front_page['3']))?$articles_by_front_page['3']['lastname']:''; ?>  
               </span>
               
               <?php
@@ -244,9 +244,9 @@
 
             <!-- LIEN VERS ARTICLE -->
             <?php
-              if(isset($articles_by_front_page['2'])){
+              if(isset($articles_by_front_page['3'])){
             ?>
-              <a href="/<?= $lang ?>/article/show/<?= $articles_by_front_page['2']['id_article'] ?>" class="link-article">Lire l'article <span class="icone-read-more"><img src="../../images/icones-form/see-more.png"/></span></a>
+              <a href="/<?= $lang ?>/article/show/<?= $articles_by_front_page['3']['id_article'] ?>" class="link-article">Lire l'article <span class="icone-read-more"><img src="../../images/icones-form/see-more.png"/></span></a>
             <?php
               }
             ?>
