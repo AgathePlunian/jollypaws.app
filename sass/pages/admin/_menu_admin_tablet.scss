@@ -1,31 +1,74 @@
 @media screen and (max-width:1024px) {
 
+    .form-col-right {
+        width: 100%;
+        margin-top: 2em;
+
+        .article-area-container {
+            textarea {
+                height: 320px;
+            }
+        }
+    }
+
+    .a-la-une-container{
+        display: block;
+        
+        .article-1-container {
+            width: 100%;
+            display: flex;
+            flex-flow: row wrap;
+            height: 200px;
+
+            .card-article-text, .a-la-une-container-img-1 {
+                width: 49%;
+            }
+        }
+
+       .article-2-3-container {
+            display: block;
+            width: 100%;
+
+            .article-2, .article-3 {
+                width: 100%;
+                height: 150px;
+            }
+        }
+    }
+
     .small-menu-lateral-open {
         display: flex;
-        float: right;
         color: white;
-        font-size: 1.3em;
+        font-size: 1.1em;
         margin-top: 0.6em;
-        margin-right: 1em;
+        margin-right: 1.5em;
+        margin-left: 1.5em;
+        float: right;
+    }
+
+    .card-article {
+        width: 100%;
     }
 
     .menu-lateral-admin {
+        padding-bottom: 1em;
         background-color: $secondary-color;
         border-bottom: 1px solid $blue;
         position: absolute;
-        width: 100%;
+        width: 225px;
         top: 0;
         height: 50px;
         overflow: hidden;  
-        z-index: 1000;  
+        z-index: 1000;
+        border-radius: 0 0 10px 0;
     }
 
     .menu-lateral-display {
-        height: 400px;
+        height: fit-content;
     }
    
     #chevrons-container {
-        width: 25px;
+        width: 20px;
         position: relative;
         margin-left: 15px;
 
@@ -54,10 +97,7 @@
         position: relative;  
     }
     
-   
-
     .menu-link {
-        color: white;
         font-weight: 500;
         display: block;
         padding: 1em 1.3em;
@@ -66,50 +106,48 @@
     }
 
 
-#main_section {
-    overflow: hidden;
-    width: 100%;
-    padding: 4em 1.5em;
-    min-height: 60vh;
+    #main_section {
+        overflow: hidden;
+        width: 100%;
+        padding: 4em 1.5em;
+        min-height: 60vh;
 
-   h1 {
-       font-size: 1.6em;
-   }
-}
-
-
-#write_article, #register_user, #button_write_article {
-    margin-top: 1.5em;
-    margin-left: 1.2em;
-    margin-right: 1em;
-    font-size: 16px;
-    color: white;
-    background: none;
-    border: 1px solid white;
-    padding: 0.6em 0.6em;
-    border-radius: 5px;
-    margin-bottom: 1em;
-    font-weight: 500;
-    width: 200px;
-    text-decoration: none;
-    text-align: left;
-    cursor: pointer;
-}
-
-#register_user_view {
-    padding-top: 3em;
-    width: 80%;
-    margin: auto;
-
-    form, input {
-        width: 100%!important;
+        h1 {
+            font-size: 1.6em;
+        }
     }
 
-    h1 {
-        margin-top: 2em;
-        text-align: center;
+    #register_user {
+        margin-top: 5em;
     }
 
-}
+    #register_user_view {
+        padding-top: 3em;
+        width: 80%;
+        margin: auto;   
+
+        form, input {
+            width: 100%!important;
+        }
+
+        h1 {
+            margin-top: 2em;
+            text-align: center;
+        }
+
+    }
+
+    .form-container {
+        display: block;
+
+        .input-new-article {
+            width: 100%;
+        }
+
+        .input-label, .input-select-img-container, #categories-checkbox-container {
+            width: 100%;
+            max-width: none;
+        }
+    }
 
 }

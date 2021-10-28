@@ -2416,8 +2416,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   background-color: white;
   display: block;
   display: flex;
-  height: fit-content;
-  max-height: 360px;
+  height: 360px;
   margin-bottom: 2em;
   color: inherit;
   text-decoration: none;
@@ -2496,8 +2495,8 @@ input[type=date]::-webkit-calendar-picker-indicator {
   border-radius: 10px 0 0 10px;
 }
 .third-article-blog-img-container img, .second-article-blog-img-container img {
-  height: 100%;
-  width: auto;
+  height: auto;
+  width: 100%;
 }
 
 .third-article-blog-text-container, .second-article-blog-text-container {
@@ -2520,7 +2519,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 }
 
 .card-all-article-blog {
-  width: 23%;
+  width: 100%;
   display: flex;
   flex-flow: column;
   background-color: white;
@@ -2534,14 +2533,17 @@ input[type=date]::-webkit-calendar-picker-indicator {
   overflow: hidden;
 }
 .card-all-article-img-container img {
-  height: 100%;
+  width: 100%;
+  height: auto;
 }
 
 .all-articles-container-blog {
+  width: 100%;
   margin-top: 1em;
-  display: flex;
+  display: grid;
+  grid-gap: 2em;
   justify-content: space-between;
-  flex-flow: row wrap;
+  grid-template-columns: repeat(4, 1fr);
 }
 .all-articles-container-blog .card-all-article-text-container {
   padding: 1em;
@@ -2551,6 +2553,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 }
 .all-articles-container-blog .card-all-article-text-container h3 {
   font-size: 1.2em;
+  word-break: break-word;
 }
 
 @media screen and (max-width: 1245px) {
@@ -2719,6 +2722,10 @@ input[type=date]::-webkit-calendar-picker-indicator {
   width: 290px;
 }
 
+.img-selected {
+  margin-bottom: 1em;
+}
+
 .menu-link {
   color: white;
   font-weight: 500;
@@ -2755,7 +2762,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   border-radius: 5px;
   margin-bottom: 1em;
   font-weight: 500;
-  width: 200px;
+  width: 190px;
   text-decoration: none;
   text-align: left;
   cursor: pointer;
@@ -2765,107 +2772,6 @@ input[type=date]::-webkit-calendar-picker-indicator {
   display: none;
 }
 
-@media screen and (max-width: 1024px) {
-  .small-menu-lateral-open {
-    display: flex;
-    float: right;
-    color: white;
-    font-size: 1.3em;
-    margin-top: 0.6em;
-    margin-right: 1em;
-  }
-
-  .menu-lateral-admin {
-    background-color: #00869e;
-    border-bottom: 1px solid #e1f4fc;
-    position: absolute;
-    width: 100%;
-    top: 0;
-    height: 50px;
-    overflow: hidden;
-    z-index: 1000;
-  }
-
-  .menu-lateral-display {
-    height: 400px;
-  }
-
-  #chevrons-container {
-    width: 25px;
-    position: relative;
-    margin-left: 15px;
-  }
-  #chevrons-container .chevron-down {
-    display: none;
-  }
-  #chevrons-container img {
-    position: absolute;
-    top: 0;
-  }
-  #chevrons-container .chevron-no-display {
-    display: none;
-  }
-  #chevrons-container .chevron-display {
-    display: block;
-  }
-
-  .container-admin {
-    display: block;
-    background-color: #e1f4fc;
-    width: 100%;
-    position: relative;
-  }
-
-  .menu-link {
-    color: white;
-    font-weight: 500;
-    display: block;
-    padding: 1em 1.3em;
-    cursor: pointer;
-    display: flex;
-  }
-
-  #main_section {
-    overflow: hidden;
-    width: 100%;
-    padding: 4em 1.5em;
-    min-height: 60vh;
-  }
-  #main_section h1 {
-    font-size: 1.6em;
-  }
-
-  #write_article, #register_user, #button_write_article {
-    margin-top: 1.5em;
-    margin-left: 1.2em;
-    margin-right: 1em;
-    font-size: 16px;
-    color: white;
-    background: none;
-    border: 1px solid white;
-    padding: 0.6em 0.6em;
-    border-radius: 5px;
-    margin-bottom: 1em;
-    font-weight: 500;
-    width: 200px;
-    text-decoration: none;
-    text-align: left;
-    cursor: pointer;
-  }
-
-  #register_user_view {
-    padding-top: 3em;
-    width: 80%;
-    margin: auto;
-  }
-  #register_user_view form, #register_user_view input {
-    width: 100% !important;
-  }
-  #register_user_view h1 {
-    margin-top: 2em;
-    text-align: center;
-  }
-}
 .form-container {
   display: flex;
   width: 100%;
@@ -3283,6 +3189,139 @@ input[type=date]::-webkit-calendar-picker-indicator {
   background-image: url(../../images/icones-form/fleche.png);
 }
 
+@media screen and (max-width: 1024px) {
+  .form-col-right {
+    width: 100%;
+    margin-top: 2em;
+  }
+  .form-col-right .article-area-container textarea {
+    height: 320px;
+  }
+
+  .a-la-une-container {
+    display: block;
+  }
+  .a-la-une-container .article-1-container {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    height: 200px;
+  }
+  .a-la-une-container .article-1-container .card-article-text, .a-la-une-container .article-1-container .a-la-une-container-img-1 {
+    width: 49%;
+  }
+  .a-la-une-container .article-2-3-container {
+    display: block;
+    width: 100%;
+  }
+  .a-la-une-container .article-2-3-container .article-2, .a-la-une-container .article-2-3-container .article-3 {
+    width: 100%;
+    height: 150px;
+  }
+
+  .small-menu-lateral-open {
+    display: flex;
+    color: white;
+    font-size: 1.1em;
+    margin-top: 0.6em;
+    margin-right: 1.5em;
+    margin-left: 1.5em;
+    float: right;
+  }
+
+  .card-article {
+    width: 100%;
+  }
+
+  .menu-lateral-admin {
+    padding-bottom: 1em;
+    background-color: #00869e;
+    border-bottom: 1px solid #e1f4fc;
+    position: absolute;
+    width: 225px;
+    top: 0;
+    height: 50px;
+    overflow: hidden;
+    z-index: 1000;
+    border-radius: 0 0 10px 0;
+  }
+
+  .menu-lateral-display {
+    height: fit-content;
+  }
+
+  #chevrons-container {
+    width: 20px;
+    position: relative;
+    margin-left: 15px;
+  }
+  #chevrons-container .chevron-down {
+    display: none;
+  }
+  #chevrons-container img {
+    position: absolute;
+    top: 0;
+  }
+  #chevrons-container .chevron-no-display {
+    display: none;
+  }
+  #chevrons-container .chevron-display {
+    display: block;
+  }
+
+  .container-admin {
+    display: block;
+    background-color: #e1f4fc;
+    width: 100%;
+    position: relative;
+  }
+
+  .menu-link {
+    font-weight: 500;
+    display: block;
+    padding: 1em 1.3em;
+    cursor: pointer;
+    display: flex;
+  }
+
+  #main_section {
+    overflow: hidden;
+    width: 100%;
+    padding: 4em 1.5em;
+    min-height: 60vh;
+  }
+  #main_section h1 {
+    font-size: 1.6em;
+  }
+
+  #register_user {
+    margin-top: 5em;
+  }
+
+  #register_user_view {
+    padding-top: 3em;
+    width: 80%;
+    margin: auto;
+  }
+  #register_user_view form, #register_user_view input {
+    width: 100% !important;
+  }
+  #register_user_view h1 {
+    margin-top: 2em;
+    text-align: center;
+  }
+
+  .form-container {
+    display: block;
+  }
+  .form-container .input-new-article {
+    width: 100%;
+  }
+  .form-container .input-label, .form-container .input-select-img-container, .form-container #categories-checkbox-container {
+    width: 100%;
+    max-width: none;
+  }
+}
 .article-header {
   text-align: center;
   width: 70%;

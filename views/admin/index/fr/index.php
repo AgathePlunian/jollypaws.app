@@ -19,8 +19,9 @@
 		<div class="menu-lateral-admin">
 			<div class="small-menu-lateral-open">
 				<p>Menu Admin</p><span id="chevrons-container"><img class="chevron-down" src="../../../images/icones-form/fleche-down-white.png"/><img class="chevron-up" src="../../../images/icones-form/fleche-up-white.png"/></span>
-			</div>';
+			</div><div class="container-link-menu">';
 
+			
 			if(in_array($CREATE_ACCOUNT_PERM, $_SESSION['permissions'])){
 				require('views/admin/index/fr/sections/register_user.php');
 
@@ -116,7 +117,7 @@
 			echo $users_link;
 		}
 
-		echo'</div>';
+		echo'</div></div>';
 
 ?>
 		<section id='main_section'>

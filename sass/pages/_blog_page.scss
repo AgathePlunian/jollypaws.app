@@ -50,7 +50,6 @@
   background-repeat: no-repeat;
   background-position: 93% 50%;
   background-image: url('../images/icones-form/fleche.png');
-
 }
 
 .search-input{
@@ -74,8 +73,7 @@
   background-color: white;
   display: block;
   display: flex;
-  height: fit-content;
-  max-height: 360px;
+  height: 360px;
   margin-bottom: 2em;
   color: inherit;
   text-decoration: none;
@@ -88,6 +86,7 @@
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
 }
+
 .first-article-blog-img-container {
   width: 50%;
   height: auto;
@@ -110,8 +109,6 @@
   border-radius: 0 10px 10px 0;
   display: flex;
   flex-flow: column;
-  
-
 }
 
 .icone-read-more {
@@ -156,8 +153,8 @@
   border-radius: 10px 0 0 10px;
 
   img {
-    height: 100%;
-    width: auto;
+    height: auto;
+    width: 100%;
   }
 }
 
@@ -180,11 +177,10 @@
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical; 
-  
 }
 
 .card-all-article-blog {
-  width: 23%;
+  width: 100%;
   display: flex;
   flex-flow: column;
   background-color: white;
@@ -197,15 +193,18 @@
   border-radius: 10px 10px 0 0;
   overflow: hidden;
      img {
-       height: 100%;
+       width: 100%;;
+       height: auto;
      }
 }
 
 .all-articles-container-blog {
+  width: 100%;
   margin-top: 1em;
-  display: flex;
+  display: grid;
+  grid-gap: 2em;
   justify-content: space-between;
-  flex-flow: row wrap;
+  grid-template-columns: repeat(4, 1fr);
 
   .card-all-article-text-container {
     padding: 1em;
@@ -215,7 +214,7 @@
 
     h3 {
       font-size: 1.2em;
+      word-break: break-word;
     }
   }
-  
 }
