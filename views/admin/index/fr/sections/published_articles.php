@@ -93,7 +93,7 @@
 					<p>
 						<span class="titles-card">
 							Titre :</span> <?php echo (isset($articles_by_front_page['3']))?$articles_by_front_page['3']['title']:''; ?> 
-						<
+						
 					</p>
 
 					<p>
