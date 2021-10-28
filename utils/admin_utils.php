@@ -73,7 +73,7 @@ function load_image($F, $input_name){
 
 
 function send_mail_to_user($recipient, $subject, $message){
-	$from = "www-data@resileyes.com";
+	$from = "no-reply@resileyes.com";
 	$headers = array(
         'From' => $from,
         'X-Mailer' => 'PHP/' . phpversion()
