@@ -935,7 +935,7 @@ function reset_user_password($route, $lang){
 			'password' => $new_password,
 		];
 
-		send_mail_to_user($user_email, 'Resileyes - password changed', 'New password : '. $new_password);
+		send_mail_to_user($user_email, 'Resileyes - Nouveau mot de passe', 'Nouveau mot de passe : '. $new_password);
 		
 		header("Location: /{$lang}/admin/manage_users");
 

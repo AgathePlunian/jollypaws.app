@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 25, 2021 at 10:31 AM
+-- Generation Time: Nov 03, 2021 at 03:31 PM
 -- Server version: 10.3.31-MariaDB-0ubuntu0.20.04.1
 -- PHP Version: 7.4.3
 
@@ -50,20 +50,6 @@ CREATE TABLE `articles` (
   `publish_date` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `articles`
---
-
-INSERT INTO `articles` (`id`, `author_id`, `title`, `content`, `main_image`, `creation_date`, `last_change_date`, `publish_date`) VALUES
-(4, 1, 'azerzer', '[h2] Résumé [/h2]\r\n<a href=\"https://www.google.fr\"> Google </a>\r\n\r\n\r\n[h2] A retenir [/h2]\r\n\r\n[h2] En savoir plus [/h2]												', 'media/25f7de5436f14207.png', '2021-10-08 07:07:52', '2021-10-14 10:15:26', '2021-10-22 16:59:47'),
-(5, 2, 'azerzaerzar', '[h2] Résumé [/h2]\r\n\r\n[h2] A retenir [/h2]\r\n\r\n[h2] En savoir plus [/h2]				', 'media/8169243f87aaeb32.png', '2021-10-08 13:19:02', '2021-10-08 13:19:02', NULL),
-(6, 1, 'Ce titre ne fait aucun sens', '[h2] Résumé [/h2]\r\n\r\n[h2] A retenir [/h2]\r\n\r\n[B]Important :[/B]\r\n\r\n[UL]\r\n   [LI] toto [/LI]\\\r\n   [LI] tata [/LI]\\\r\n[/UL]\r\n\r\n\r\n[h2] En savoir plus [/h2]												', 'media/c807391a8b0de5d1.png', '2021-10-08 14:26:39', '2021-10-21 07:50:50', '2021-10-22 16:59:48'),
-(7, 1, 'Ceci est un article qui avant s\'appelait \"toto\"', '[h2] Résumé [/h2]\r\n\r\n[h2] A retenir [/h2]\r\n\r\n[h2] En savoir plus [/h2]								', 'media/14c2b568b7acc689.png', '2021-10-10 16:49:10', '2021-10-21 07:48:56', '2021-10-22 16:59:50'),
-(8, 1, 'toto', '[h2] Résumé [/h2]\r\n\r\n[h2] A retenir [/h2]\r\n\r\n[h2] En savoir plus [/h2]												', 'media/3b607c7f1c086648.png', '2021-10-10 16:50:23', '2021-10-13 14:03:45', '2021-10-22 16:59:50'),
-(9, 1, 'C\'est vraiment l\'article du désespoir', '[h2] Résumé [/h2]\r\n\r\n[h2] A retenir [/h2]\r\n\r\n[h2] En savoir plus [/h2]								', 'media/09c40f01afd7a232.png', '2021-10-10 17:00:14', '2021-10-10 17:00:14', '2021-10-22 16:59:51'),
-(10, 1, 'azertazgzertgretzefdgsdfazer', '[h2] Résumé [/h2]\r\n\r\n[h2] A retenir [/h2]\r\n\r\n[h2] En savoir plus [/h2]				', 'media/22a571a81df7cf30.png', '2021-10-22 08:16:33', '2021-10-22 08:16:33', '2021-10-22 16:59:52'),
-(11, 1, 'audrey', '[h2] Résumé [/h2]\r\n\r\n\r\n[B] toto [/B]\r\ntata\r\n\r\n\r\n[h2] A retenir [/h2]\r\nJ\'ai un énorme cerveau\r\n\r\n\r\n\r\n\r\n[h2] En savoir plus [/h2]																', 'media/42d1f66536e809f1.png', '2021-10-22 19:27:27', '2021-10-22 19:39:04', '2021-10-22 19:40:26');
-
 -- --------------------------------------------------------
 
 --
@@ -75,19 +61,6 @@ CREATE TABLE `articles_categories` (
   `id_category` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `articles_categories`
---
-
-INSERT INTO `articles_categories` (`id_article`, `id_category`) VALUES
-(6, 1),
-(6, 2),
-(6, 3),
-(9, 1),
-(9, 2),
-(11, 1),
-(11, 3);
-
 -- --------------------------------------------------------
 
 --
@@ -97,16 +70,6 @@ INSERT INTO `articles_categories` (`id_article`, `id_category`) VALUES
 CREATE TABLE `articles_published` (
   `id_article` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `articles_published`
---
-
-INSERT INTO `articles_published` (`id_article`) VALUES
-(7),
-(8),
-(9),
-(10);
 
 -- --------------------------------------------------------
 
@@ -118,18 +81,6 @@ CREATE TABLE `categories` (
   `id` int(255) NOT NULL,
   `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `categories`
---
-
-INSERT INTO `categories` (`id`, `name`) VALUES
-(1, 'PTSD'),
-(2, 'Enfant'),
-(3, 'TRAUMA'),
-(4, 'POMPIERS'),
-(5, 'UNIFORME'),
-(8, 'hvhukvvkjvk');
 
 -- --------------------------------------------------------
 
@@ -148,9 +99,9 @@ CREATE TABLE `front_page_articles` (
 --
 
 INSERT INTO `front_page_articles` (`id`, `id_article`, `importance`) VALUES
-(1, 8, 1),
+(1, NULL, 1),
 (2, NULL, 2),
-(3, 9, 2);
+(3, NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -173,7 +124,10 @@ INSERT INTO `permissions` (`id`, `name`) VALUES
 (3, 'APPROVE_ARTICLE'),
 (4, 'PUBLISH_ARTICLE'),
 (5, 'CREATE_ACCOUNT'),
-(6, 'MANAGE_CATEGORIES');
+(6, 'MANAGE_CATEGORIES'),
+(7, 'ADD_REMOVE_PERM'),
+(8, 'REMOVE_ACCOUNT'),
+(9, 'RESET_PASSWORD');
 
 -- --------------------------------------------------------
 
@@ -196,55 +150,10 @@ INSERT INTO `permissions_users` (`id_permission`, `id_user`) VALUES
 (3, 1),
 (4, 1),
 (5, 1),
-(1, 2),
-(2, 2),
-(3, 2),
-(1, 3),
-(2, 3),
-(3, 3),
-(1, 4),
-(2, 4),
-(3, 4),
-(1, 5),
-(2, 5),
-(3, 5),
-(1, 6),
-(2, 6),
-(3, 6),
-(4, 5),
-(5, 5),
-(4, 4),
-(4, 4),
-(4, 6),
-(5, 6),
-(4, 3),
-(5, 3),
-(1, 7),
-(2, 7),
-(3, 7),
-(4, 7),
-(5, 7),
-(1, 8),
-(2, 8),
-(3, 8),
-(4, 8),
-(5, 8),
-(1, 9),
-(2, 9),
-(3, 9),
-(4, 9),
-(5, 9),
-(1, 10),
-(2, 10),
-(3, 10),
-(4, 10),
-(5, 10),
-(1, 11),
-(2, 11),
-(3, 11),
-(4, 11),
-(5, 11),
-(6, 1);
+(6, 1),
+(7, 1),
+(8, 1),
+(9, 1);
 
 -- --------------------------------------------------------
 
@@ -276,17 +185,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password`) VALUES
-(1, 'Bastien', 'LABOUCHE', 'bastien.labouche@resileyes.com', '$2y$10$Y9wqbZMc0h0zO3emJeOwHONkDfbd6he7impU0dIH9J/8aUjTJRaHy'),
-(2, 'Jean', 'Michel', 'jean.michel@resileyes.com', '$2y$10$/8gmrt8gMC85dNi/0xzH/O1WKXoWtbMAmMe4qcj/dTdkWfBlsXAJS'),
-(3, 'Yannick', 'TRESCOS', 'yannick.trescos@resileyes.com', '$2y$10$PG0KlNJ3jGDEXtTrrQIz5./JlVG4qD9r8iYsFVQrZFijNNM9HHej.'),
-(4, 'Annaïg', 'TRESCOS', 'annaig.trescos@resileyes.com', '$2y$10$k3YLqvn3AenAIUk62aM6XO51FyyZlMEP4LJNZRkYMfA59N4Ica1e.'),
-(5, 'Agathe', 'PLUNIAN', 'agathe.plunian@resileyes.com', '$2y$10$GI/9kFMEVHmAp4sisP3/DeWKOiBabEKTraq5pEW0LRODUlQtLvKwy'),
-(6, 'Paul', 'LEDESMA', 'paul.ledesma@resileyes.com', '$2y$10$PoIASwCPOh89GU7bHeDhi.7DLFXUra60JNcZqLfuO6KxQLhdnKHZe'),
-(7, 'Catinca', 'GHEORGHIU', 'catinca.gheorghiu@resileyes.com', '$2y$10$0lT1eTUUl2ywX2W/srLxiO69ivzRC3FA.ieKkI2ScweOICu0PFSVa'),
-(8, 'Ornella', 'Ouagazzal', 'ornella.ouagazzal@resileyes.com', '$2y$10$Yi.ankoHEPUWfuf4x.Pb2ORZBRe2FD28Nmo.IeJbNobqct6OFTy3y'),
-(9, 'Marie', 'MATTHYS', 'marie.matthys@resileyes.com', '$2y$10$qeUbyx5nFYlKFpmLfOa4lOr0aE6e9Xym/9LEaBzfdIBnOxZO/YEVi'),
-(10, 'Yann', 'BEMBA', 'yann.bemba@resileyes.com', '$2y$10$XoKUx5RJ594byOiJ7dvNWOeGXa8SJ0dNlwxhVHnyLR8z50Gb8iNHa'),
-(11, 'Nicolas', 'VAN HEUSDEN', 'nicolas.vanheusden@resileyes.com', '$2y$10$dW3.xEbWEnJ0KIYNtGrdG.rvxGoxBgPINZ1Y1XMtXnFp6.ClpqHJK');
+(1, 'Bastien', 'LABOUCHE', 'bastien.labouche@resileyes.com', '$2y$10$Okn5f9hxwUKQ9IBZC1WE3umqOzB2JQTAnS7U/Cmhp8c/tJvUi9dQe');
 
 -- --------------------------------------------------------
 
@@ -383,13 +282,13 @@ ALTER TABLE `waiting_approval`
 -- AUTO_INCREMENT for table `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `front_page_articles`
@@ -401,19 +300,19 @@ ALTER TABLE `front_page_articles`
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `waiting_approval`
 --
 ALTER TABLE `waiting_approval`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
