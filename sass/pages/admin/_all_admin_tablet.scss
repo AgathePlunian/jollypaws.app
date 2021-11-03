@@ -22,6 +22,12 @@
 
             .card-article-text, .a-la-une-container-img-1 {
                 width: 49%;
+                height: 100%;
+                border-radius: 15px 0 0 15px;
+
+                img {
+
+                }
             }
         }
 
@@ -55,7 +61,7 @@
         background-color: $secondary-color;
         border-bottom: 1px solid $blue;
         position: absolute;
-        width: 225px;
+        width: 245px;
         top: 0;
         height: 50px;
         overflow: hidden;  
@@ -65,6 +71,7 @@
 
     .menu-lateral-display {
         height: fit-content;
+        height: -moz-max-content;    /* Firefox/Gecko */
     }
    
     #chevrons-container {

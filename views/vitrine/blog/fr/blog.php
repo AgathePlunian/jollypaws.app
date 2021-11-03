@@ -88,7 +88,7 @@
               if(isset($articles_by_front_page['1'])) {
                 foreach($categories_article[$articles_by_front_page['1']['id_article']] as $category){
             ?>
-              <li class="category-item no-margin"><?= $category['name'] ?></li>
+              <li class="category-item"><?= $category['name'] ?></li>
             <?php
                 }
               }
@@ -162,7 +162,7 @@
                 if(isset($articles_by_front_page['2'])) {
                   foreach($categories_article[$articles_by_front_page['2']['id_article']] as $category){
               ?>
-                <li class="category-item no-margin"><?= $category['name'] ?></li>
+                <li class="category-item"><?= $category['name'] ?></li>
               <?php
                   }
                 }

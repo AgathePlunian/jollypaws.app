@@ -2416,18 +2416,18 @@ input[type=date]::-webkit-calendar-picker-indicator {
   background-color: white;
   display: block;
   display: flex;
-  height: 360px;
+  height: 370px;
   margin-bottom: 2em;
   color: inherit;
   text-decoration: none;
 }
 
 .first-article-card-content {
-  flex: 1 1 auto;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 6;
+  -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
+  /* Firefox/Gecko */
 }
 
 .first-article-blog-img-container {
@@ -2437,7 +2437,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   overflow: hidden;
 }
 .first-article-blog-img-container img {
-  width: 120%;
+  width: 133%;
 }
 
 .author-card {
@@ -2451,6 +2451,8 @@ input[type=date]::-webkit-calendar-picker-indicator {
   border-radius: 0 10px 10px 0;
   display: flex;
   flex-flow: column;
+  height: fit-content;
+  justify-content: space-between;
 }
 
 .icone-read-more {
@@ -2466,7 +2468,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   color: #00869e;
   text-decoration: none;
   font-weight: bold;
-  justify-self: end;
+  align-self: flex-end;
 }
 
 .date-article {
@@ -2485,7 +2487,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   display: flex;
   width: 49%;
   background-color: white;
-  max-height: 320px;
+  height: 310px;
   border-radius: 10px;
 }
 
@@ -2495,20 +2497,20 @@ input[type=date]::-webkit-calendar-picker-indicator {
   border-radius: 10px 0 0 10px;
 }
 .third-article-blog-img-container img, .second-article-blog-img-container img {
-  height: auto;
-  width: 100%;
+  height: 100%;
+  width: auto;
 }
 
 .third-article-blog-text-container, .second-article-blog-text-container {
   width: 60%;
-  padding: 1em 1.5em 1em 1em;
+  padding: 1em;
   border-radius: 0 10px 10px 0;
   display: flex;
   flex-flow: column;
   justify-content: space-between;
 }
 .third-article-blog-text-container h3, .second-article-blog-text-container h3 {
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 
 .card-content {
@@ -2525,16 +2527,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   background-color: white;
   border-radius: 10px;
   margin-bottom: 2em;
-}
-
-.card-all-article-img-container {
-  height: 200px;
-  border-radius: 10px 10px 0 0;
-  overflow: hidden;
-}
-.card-all-article-img-container img {
-  width: 100%;
-  height: auto;
+  height: 520px;
 }
 
 .all-articles-container-blog {
@@ -2543,16 +2536,26 @@ input[type=date]::-webkit-calendar-picker-indicator {
   display: grid;
   grid-gap: 2em;
   justify-content: space-between;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+}
+.all-articles-container-blog .card-all-article-img-container {
+  height: 40%;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+}
+.all-articles-container-blog .card-all-article-img-container img {
+  width: 100%;
+  height: auto;
 }
 .all-articles-container-blog .card-all-article-text-container {
   padding: 1em;
   display: flex;
   flex-flow: column;
   justify-content: space-between;
+  height: 60%;
 }
 .all-articles-container-blog .card-all-article-text-container h3 {
-  font-size: 1.2em;
+  font-size: 1.1em;
   word-break: break-word;
 }
 
@@ -2561,20 +2564,25 @@ input[type=date]::-webkit-calendar-picker-indicator {
     padding: 2em 3em 1em 3em;
   }
 
-  .card-all-article-blog {
-    width: 48%;
+  .all-articles-container-blog {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .second-article-blog-page, .third-article-blog-page, .card-all-article-blog {
+  .card-all-article-blog {
+    width: 100%;
+    height: 520px;
+  }
+
+  .second-article-blog-page, .third-article-blog-page {
     flex-flow: column;
-    min-height: 500px;
+    height: 520px;
     border-radius: 10px;
-    width: 48%;
+    width: 48.5%;
   }
 
   .third-article-blog-img-container, .second-article-blog-img-container, .card-all-article-img-container {
     width: 100%;
-    height: 230px;
+    height: 40%;
     border-radius: 10px 10px 0 0;
   }
   .third-article-blog-img-container img, .second-article-blog-img-container img, .card-all-article-img-container img {
@@ -2583,21 +2591,20 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
   .third-article-blog-text-container, .second-article-blog-text-container {
     width: 100%;
+    height: 60%;
   }
 
   .first-article-card-content {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
   }
 
   .first-article-blog-text-container {
-    width: 60%;
+    width: 55%;
+    height: 100%;
   }
 
   .first-article-blog-img-container {
-    width: 40%;
+    width: 45%;
   }
   .first-article-blog-img-container img {
     height: 100%;
@@ -2654,7 +2661,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
     font-size: 1.3em;
   }
 
-  .article-2-3-container, .all-articles-container-blog {
+  .article-2-3-container-blog, .all-articles-container-blog {
     display: block;
   }
 
@@ -2663,6 +2670,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+    height: fit-content;
   }
 }
 .index-view {
@@ -2762,7 +2770,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   border-radius: 5px;
   margin-bottom: 1em;
   font-weight: 500;
-  width: 190px;
+  width: 200px;
   text-decoration: none;
   text-align: left;
   cursor: pointer;
@@ -3021,14 +3029,15 @@ input[type=date]::-webkit-calendar-picker-indicator {
   width: 49%;
 }
 .a-la-une-container .article-2-3-container .article-2, .a-la-une-container .article-2-3-container .article-3 {
-  padding: 0.4em;
   display: flex;
   justify-content: space-between;
   overflow: hidden;
   background-color: white;
   border-radius: 20px;
+  height: 170px;
+}
+.a-la-une-container .article-2-3-container .article-2 {
   margin-bottom: 1em;
-  height: 120px;
 }
 .a-la-une-container .article-2-3-container .a-la-une-container-img-2-3 {
   width: 30%;
@@ -3037,9 +3046,11 @@ input[type=date]::-webkit-calendar-picker-indicator {
 }
 .a-la-une-container .article-2-3-container .a-la-une-container-img-2-3 img {
   height: 100%;
+  width: auto;
 }
 .a-la-une-container .article-2-3-container .card-article-text {
-  width: 68%;
+  width: 70%;
+  padding: 0.8em;
 }
 .a-la-une-container .article-2-3-container .card-article-text p {
   margin-bottom: 3px;
@@ -3048,24 +3059,23 @@ input[type=date]::-webkit-calendar-picker-indicator {
   overflow: hidden;
   background-color: white;
   border-radius: 20px;
-  padding: 0.4em;
   margin-bottom: 1em;
   flex-flow: column;
   display: flex;
   width: 49%;
+  height: 360px;
 }
 .a-la-une-container .article-1-container .a-la-une-container-img-1 {
   border-radius: 15px 15px 0 0;
   overflow: hidden;
-  height: 120px;
-  margin-bottom: 5px;
+  height: 45%;
 }
 .a-la-une-container .article-1-container .a-la-une-container-img-1 img {
   width: 100%;
 }
 .a-la-une-container .article-1-container .card-article-text {
-  width: 68%;
-  padding: 5px;
+  height: 55%;
+  padding: 0.8em;
 }
 .a-la-une-container .article-1-container .card-article-text p {
   margin-bottom: 3px;
@@ -3149,7 +3159,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   height: 40px;
   border-radius: 10px;
   border-color: #00869e;
-  padding: 10px;
+  padding: 10px 30px 10px 10px;
   font-family: "Mulish", sans-serif;
   background-size: 18px;
   -webkit-appearance: none;
@@ -3180,7 +3190,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   height: 40px;
   border-radius: 10px;
   border-color: #00869e;
-  padding: 10px;
+  padding: 10px 30px 10px 10px;
   font-family: "Mulish", sans-serif;
   background-size: 18px;
   -webkit-appearance: none;
@@ -3209,6 +3219,8 @@ input[type=date]::-webkit-calendar-picker-indicator {
   }
   .a-la-une-container .article-1-container .card-article-text, .a-la-une-container .article-1-container .a-la-une-container-img-1 {
     width: 49%;
+    height: 100%;
+    border-radius: 15px 0 0 15px;
   }
   .a-la-une-container .article-2-3-container {
     display: block;
@@ -3238,7 +3250,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
     background-color: #00869e;
     border-bottom: 1px solid #e1f4fc;
     position: absolute;
-    width: 225px;
+    width: 245px;
     top: 0;
     height: 50px;
     overflow: hidden;
@@ -3248,6 +3260,8 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
   .menu-lateral-display {
     height: fit-content;
+    height: -moz-max-content;
+    /* Firefox/Gecko */
   }
 
   #chevrons-container {
@@ -3399,8 +3413,8 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 .main-image-article {
   width: 90%;
-  margin: 2em auto 3em auto;
-  height: 320px;
+  margin: 1em auto 3em auto;
+  height: 440px;
   overflow: hidden;
   border-radius: 20px;
 }
