@@ -8,7 +8,6 @@
 
     .input-label {
         width: 100%;
-        max-width: 380px;
         background-color: white;
         border: none;
         border-radius: 10px;
@@ -40,7 +39,6 @@
 }
 
 .input-select-img-container {
-    max-width: 380px;
     background-color: white;
     display: flex;
     padding: 0.5em 1em;
@@ -62,7 +60,6 @@
 
 .custom-file-input {
     display: inline;
-    max-width: 380px;
     font-family: 'Mulish', sans-serif;
     color: gray;
     -moz-opacity:0;
@@ -204,7 +201,6 @@
     overflow: scroll;
     height: 100px;
     background-color: white;
-    max-width: 380px;
     padding: 0.8em;
     border-radius: 10px;
     display: grid;

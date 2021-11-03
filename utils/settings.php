@@ -2,17 +2,17 @@
 
 // connect to database
 $contact_database = [
-	'host' => '127.0.0.1',
+	'host' => '127.0.0.1:8889',
 	'db_name' => 'user_database',
 	'username' => 'root',
-	'password' => 'plopplop'
+	'password' => 'root'
 ];
 
 $admin_database = [
-	'host' => '127.0.0.1',
+	'host' => '127.0.0.1:8889',
 	'db_name' => 'user_database',
 	'username' => 'root',
-	'password' => 'plopplop'
+	'password' => 'root'
 ];
 
 // Permissions
