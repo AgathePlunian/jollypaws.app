@@ -3248,7 +3248,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   .menu-lateral-admin {
     padding-bottom: 1em;
     background-color: #00869e;
-    border-bottom: 1px solid #e1f4fc;
+    border-bottom: none;
     position: absolute;
     width: 245px;
     top: 0;
@@ -3484,6 +3484,47 @@ input[type=date]::-webkit-calendar-picker-indicator {
   margin-top: 1em;
 }
 
+@media screen and (max-width: 1245px) {
+  .article-page {
+    padding: 3em 1em;
+  }
+
+  .main-image-article {
+    height: 390px;
+  }
+
+  .main-article {
+    flex-flow: row wrap;
+  }
+
+  #article_summary {
+    width: 200px;
+    order: 1;
+    margin-bottom: 2em;
+  }
+
+  .article-content {
+    width: 100%;
+    order: 3;
+  }
+
+  .logo-share-article {
+    order: 2;
+    width: 30px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .main-image-article {
+    height: 200px;
+  }
+
+  .logo-share-article {
+    order: 2;
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+  }
+}
 #register_user_view {
   padding: 0 1.5em;
 }
