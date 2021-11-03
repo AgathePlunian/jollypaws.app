@@ -102,15 +102,16 @@
 					if(in_array($MANAGE_CATEGORIES_PERM, $_SESSION['permissions'])){
 						?>
 
-						<input type="text" name="category_name">
-						<input type="submit" name="add-category-form" value="Nouvelle catégorie" id='add-category-button'>
-
 						<?php
 					}
 
-
 				?>
 			
+			</div>
+
+			<div class="input-new-category-write-article-container">
+				<input placeholder="Nouvelle catégorie" class="input-new-category-write-article" type="text" name="category_name">
+				<input class="btn-full-secondary" type="submit" name="add-category-form" value="Nouvelle catégorie" id='add-category-button'>
 			</div>
 		</div>
 

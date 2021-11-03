@@ -2856,7 +2856,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 }
 
 .form-col-right {
-  width: 68%;
+  width: 65%;
 }
 
 .article-area-container {
@@ -2877,9 +2877,15 @@ input[type=date]::-webkit-calendar-picker-indicator {
   outline: 2px solid #00869e;
 }
 
+.input-new-category-write-article-container {
+  display: flex;
+  width: 100%;
+  margin-top: 1em;
+}
+
 .input-new-article {
   margin-right: 2em;
-  width: 30%;
+  width: 32%;
 }
 
 #write_article_view {
@@ -2997,6 +3003,14 @@ input[type=date]::-webkit-calendar-picker-indicator {
 #categories-checkbox-container .checkbox-container {
   margin-bottom: 0.2em;
   margin-right: 10px;
+}
+
+.input-new-category-write-article {
+  border-radius: 5px;
+  margin-right: 1em;
+  border: none;
+  padding: 1em;
+  width: 54%;
 }
 
 .title-articles-list {
