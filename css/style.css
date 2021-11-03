@@ -3384,11 +3384,6 @@ input[type=date]::-webkit-calendar-picker-indicator {
   color: inherit;
   margin-right: 10px;
 }
-.list-main-article .list-element-main-article .item-summary {
-  text-decoration: none;
-  margin-bottom: 0.6em;
-  display: block;
-}
 
 .category-list {
   display: flex;
@@ -3436,6 +3431,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   color: #00869e;
   margin-bottom: 0.6em;
   display: block;
+  font-weight: bold;
 }
 .article-content {
   width: 70%;

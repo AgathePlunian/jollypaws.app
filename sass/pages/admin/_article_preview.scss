@@ -51,13 +51,6 @@
             color: inherit;
             margin-right: 10px;
         }
-
-        .item-summary {
-        text-decoration: none;
-        margin-bottom: 0.6em;
-        display: block;
-        }
-
     }
 }
 
@@ -107,6 +100,7 @@
     color: $secondary-color;
     margin-bottom: 0.6em;
     display: block;
+    font-weight: bold;
 
     &:hover { 
        
