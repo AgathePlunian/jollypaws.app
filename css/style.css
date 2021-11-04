@@ -3053,6 +3053,8 @@ input[type=date]::-webkit-calendar-picker-indicator {
   width: 30%;
   border-radius: 15px 0 0 15px;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 .a-la-une-container .article-2-3-container .a-la-une-container-img-2-3 img {
   height: 100%;
@@ -3078,7 +3080,9 @@ input[type=date]::-webkit-calendar-picker-indicator {
 .a-la-une-container .article-1-container .a-la-une-container-img-1 {
   border-radius: 15px 15px 0 0;
   overflow: hidden;
-  height: 45%;
+  height: 50%;
+  display: flex;
+  align-items: center;
 }
 .a-la-une-container .article-1-container .a-la-une-container-img-1 img {
   width: 100%;
@@ -3344,6 +3348,35 @@ input[type=date]::-webkit-calendar-picker-indicator {
   .form-container .input-label, .form-container .input-select-img-container, .form-container #categories-checkbox-container {
     width: 100%;
     max-width: none;
+  }
+}
+@media screen and (max-width: 767px) {
+  .article-2, .article-3 {
+    height: 280px !important;
+    flex-flow: column !important;
+  }
+  .article-2 .a-la-une-container-img-2-3, .article-3 .a-la-une-container-img-2-3 {
+    width: 100% !important;
+    border-radius: 15px 15px 0 0 !important;
+    display: flex;
+    align-items: center;
+  }
+  .article-2 .a-la-une-container-img-2-3 img, .article-3 .a-la-une-container-img-2-3 img {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .a-la-une-container .article-1-container {
+    flex-flow: column;
+    height: 280px;
+  }
+  .a-la-une-container .article-1-container .a-la-une-container-img-1 {
+    width: 100%;
+    border-radius: 15px 15px 0 0;
+  }
+
+  .card-article-text {
+    width: 100%;
   }
 }
 .article-header {
