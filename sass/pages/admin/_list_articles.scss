@@ -21,68 +21,71 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 2em;
+}
 
-    .article-2-3-container {
-       display: flex;
-        flex-flow: column;
-        width: 49%;
+.article-2-3-container {
+    display: flex;
+    flex-flow: column;
+    width: 49%;
+}
   
-        .article-2, .article-3 {
-            display: flex;
-            justify-content: space-between;
-            overflow: hidden;
-            background-color: white;
-            border-radius: 20px;
-            height: 170px;
-        }
+.article-2, .article-3 {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    background-color: white;
+    border-radius: 20px;
+    height: 170px;
+}
 
-        .article-2 {
-            margin-bottom: 1em;
-        }
+.article-2 {
+    margin-bottom: 1em;
+}
 
-        .a-la-une-container-img-2-3 {
-            width: 30%;
-            border-radius: 15px 0 0 15px;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
+.a-la-une-container-img-2-3 {
+    width: 30%;
+    border-radius: 15px 0 0 15px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
 
-            img {
-                height: 100%;
-                width: auto;
-            }
-        }
-        .card-article-text {
-            width: 70%;
-            padding: 0.8em;
-
-            p {
-                margin-bottom: 3px;
-            }
+    img {
+        height: 100%;
+        width: auto;
         }
     }
+.card-article-text {
+    width: 70%;
+    padding: 0.8em;
 
-    .article-1-container {
-        overflow: hidden;
-        background-color: white;
-        border-radius: 20px;
-        margin-bottom: 1em;
-        flex-flow: column;
-        display: flex;
-        width: 49%;
-        height:360px;
-
-        .a-la-une-container-img-1 {
-            border-radius: 15px 15px 0 0;
-            overflow: hidden;
-            height: 50%;
-            display: flex;
-            align-items: center;
-
-            img {
-                width: 100%;
-            }
+        p {
+        margin-bottom: 3px;
         }
+    }
+    
+
+.article-1-container {
+    overflow: hidden;
+    background-color: white;
+    border-radius: 20px;
+    margin-bottom: 1em;
+    flex-flow: column;
+    display: flex;
+    width: 49%;
+    height:360px;
+    }
+
+.a-la-une-container-img-1 {
+    border-radius: 15px 15px 0 0;
+    overflow: hidden;
+    height: 50%;
+    display: flex;
+    align-items: center;
+
+        img {
+            width: 100%;
+        }
+        
         .card-article-text {
             height: 55%;
             padding: 0.8em;
@@ -91,7 +94,7 @@
             }
         }
     } 
-}
+
 
 .a-la-une-title , .all-published-articles{
     color: $primary-color;
