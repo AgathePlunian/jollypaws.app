@@ -201,6 +201,7 @@ p {
   margin-bottom: 0.4em;
   border: none;
   font-size: 16px;
+  width: fit-content;
 }
 
 .btn-delete {
@@ -3125,9 +3126,6 @@ input[type=date]::-webkit-calendar-picker-indicator {
   width: 62%;
   margin-right: 0.5em;
 }
-.card-article .card-list-my-articles {
-  width: 55%;
-}
 .card-article p {
   white-space: nowrap;
   overflow: hidden;
@@ -3701,6 +3699,85 @@ input[type=date]::-webkit-calendar-picker-indicator {
     margin-bottom: 1em;
   }
 }
+.manage-users-cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 32%);
+  justify-content: space-between;
+}
+
+.card-manage-user {
+  background-color: white;
+  border-radius: 15px;
+  padding: 1em;
+  text-align: center;
+}
+.card-manage-user .card-user-text {
+  margin-bottom: 1em;
+}
+.card-manage-user p {
+  margin-bottom: 0.3em;
+}
+
+.btn-container-user-card {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.username-card {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.user-email-card {
+  color: #868686;
+}
+
+.perms-div {
+  position: absolute;
+  top: 25%;
+  right: 20%;
+  background-color: #fcfafa;
+  box-shadow: rgba(218, 211, 206, 0.63) 2px 3px 4px, rgba(218, 211, 206, 0.63) -2px -1px 4px;
+  padding: 2em;
+  border-radius: 15px;
+  width: 580px;
+}
+
+.form-permissions-user {
+  display: grid;
+  grid-template-columns: repeat(2, 48%);
+  justify-content: space-between;
+}
+
+.modal-user-permissions-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5em;
+}
+.modal-user-permissions-header p {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+.modal-user-permissions-header span {
+  width: 20px;
+}
+
+.checkbox-manage-permissions-container {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.display-none {
+  display: none;
+}
+
+.btn-manage-permissions {
+  padding: 0.8em 2em;
+  float: right;
+}
+
 .main-nav {
   padding: 0.8em 2em;
   margin: auto;
