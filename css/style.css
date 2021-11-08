@@ -3710,6 +3710,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   border-radius: 15px;
   padding: 1em;
   text-align: center;
+  margin-bottom: 2em;
 }
 .card-manage-user .card-user-text {
   margin-bottom: 1em;
@@ -3778,6 +3779,29 @@ input[type=date]::-webkit-calendar-picker-indicator {
   float: right;
 }
 
+@media screen and (max-width: 1245px) {
+  .manage-users-cards-container {
+    display: grid;
+    grid-template-columns: repeat(2, 48%);
+    justify-content: space-between;
+  }
+
+  .perms-div {
+    right: 15%;
+    z-index: 1000;
+  }
+}
+@media screen and (max-width: 767px) {
+  .manage-users-cards-container {
+    display: block;
+  }
+
+  .perms-div {
+    left: 3em;
+    right: 3em;
+    width: auto;
+  }
+}
 .main-nav {
   padding: 0.8em 2em;
   margin: auto;

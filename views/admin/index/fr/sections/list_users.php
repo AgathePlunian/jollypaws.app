@@ -126,7 +126,7 @@ global
 
 
 	function closeModalPermission(event) {
-		let modal = event.path[3];
+		let modal = event.target.offsetParent;
 		modal.setAttribute('hidden', 'true');
 	}
 
