@@ -12,9 +12,10 @@
  <div class="team-finger left-3"></div>
  <div class="team-finger right-4"></div>
  <div class="team-finger left-5"></div>
+ <div class="team-finger right-6"></div>
 
  <div class="co-founders-cards">
-
+<!--  PREMIÈRE LIGNE -->
   <div class="card-team">
     <div class="ID-picture-container">
       <img src="/images/team-page/yannick-bg.png" alt="Portrait of Yannick Trescos">
@@ -41,6 +42,18 @@
   </div>
 </div>
 
+<!--  DEUXIÈME LIGNE -->
+  <div class="card-team">
+    <div class="ID-picture-container">
+      <img src="/images/team-page/camille-bg.png" alt="Portrait of Camille Breuil">
+    </div>
+    <div class="text-ID-card">
+      <p class="name-card">Camille Breuil</p>
+      <p>Ph.D. & Lead Data scientist</p>
+    </div>
+    <a class="linkedin-link" target="blank" href="https://www.linkedin.com/in/camille-breuil-9676a2a0/"><img src="/images/team-page/logo-linkedin-secondary.png" alt="Lien vers Linkedin de Ornella Ouagazzal"></a>
+  </div>
+
 <div class="team-cards-container">
   <div class="card-team">
     <div class="ID-picture-container">
@@ -53,18 +66,29 @@
     </div>
     <a class="linkedin-link" target="blank" href="https://www.linkedin.com/in/bastien-labouche-9a0654120/"><img src="/images/team-page/logo-linkedin-secondary.png" alt="Lien vers Linkedin de Bastien Labouche"></a>
   </div>
+  
+  <div class="card-team">
+    <div class="ID-picture-container">
+      <img src="/images/team-page/ornella-bg.png" alt="Portrait of Ornella Ouagazzal">
+    </div>
+    <div class="text-ID-card">
+      <p class="name-card">Ornella Ouagazzal</p>
+      <p>Clinical psychologist, research fellow</p>
+    </div>
+    <a class="linkedin-link" target="blank" href="https://www.linkedin.com/in/ornella-ouagazzal-740431189/"><img src="/images/team-page/logo-linkedin-secondary.png" alt="Lien vers Linkedin de Ornella Ouagazzal"></a>
+  </div>
 
+  <!--  TROISIÈME LIGNE -->
 
   <div class="card-team">
     <div class="ID-picture-container">
-      <img src="/images/team-page/agathe-bg.png" alt="Portrait of Agathe Plunian">
+      <img src="/images/team-page/marie-bg.png" alt="Portrait of Marie Matthys">
     </div>
     <div class="text-ID-card">
-      <p class="name-card">Agathe Plunian</p>
-      <p>Web designer</p>
-      <p>Front-end developer</p>
-   </div>
-   <a class="linkedin-link" target="blank" href="https://www.linkedin.com/in/agathe-plunian/"><img src="/images/team-page/logo-linkedin-secondary.png" alt="Lien vers Linkedin d' Agathe Plunian"></a>
+      <p class="name-card">Marie Matthys</p>
+      <p>Pharmacist & Business Manager & Quality Assurance Manager</p>
+    </div>
+    <a class="linkedin-link" target="blank" href="https://www.linkedin.com/in/marie-matthys-87b098178/"><img src="/images/team-page/logo-linkedin-secondary.png" alt="Lien vers Linkedin de Marie Matthys"></a>
   </div>
 
   <div class="card-team">
@@ -91,38 +115,17 @@
    <a class="linkedin-link" target="blank" href="https://www.linkedin.com/in/mariondragee/"><img src="/images/team-page/logo-linkedin-secondary.png" alt="Lien vers Linkedin de Marion Dragée"></a>
   </div>
 
+  <!-- QUATRIÈME LIGNE -->
   <div class="card-team">
     <div class="ID-picture-container">
-      <img src="/images/team-page/catinca-bg.png" alt="Portrait of Catinca Gheorghiu">
+      <img src="/images/team-page/agathe-bg.png" alt="Portrait of Agathe Plunian">
     </div>
     <div class="text-ID-card">
-      <p class="name-card">Catinca Gheorghiu</p>
-      <p>Product Designer junior</p>
-      <p>UI & graphic Designer</p>
-    </div>
-    <a class="linkedin-link" target="blank" href="https://www.linkedin.com/in/catinca-gheorghiu/"><img src="/images/team-page/logo-linkedin-secondary.png" alt="Lien vers Linkedin de Catinca Gheorghiu"></a>
-  </div>
-
-  <div class="card-team">
-    <div class="ID-picture-container">
-      <img src="/images/team-page/marie-bg.png" alt="Portrait of Marie Matthys">
-    </div>
-    <div class="text-ID-card">
-      <p class="name-card">Marie Matthys</p>
-      <p>Pharmacist & Business Manager & Quality Assurance Manager</p>
-    </div>
-    <a class="linkedin-link" target="blank" href="https://www.linkedin.com/in/marie-matthys-87b098178/"><img src="/images/team-page/logo-linkedin-secondary.png" alt="Lien vers Linkedin de Marie Matthys"></a>
-  </div>
-
-  <div class="card-team">
-    <div class="ID-picture-container">
-      <img src="/images/team-page/ornella-bg.png" alt="Portrait of Ornella Ouagazzal">
-    </div>
-    <div class="text-ID-card">
-      <p class="name-card">Ornella Ouagazzal</p>
-      <p>Clinical psychologist, research fellow</p>
-    </div>
-    <a class="linkedin-link" target="blank" href="https://www.linkedin.com/in/ornella-ouagazzal-740431189/"><img src="/images/team-page/logo-linkedin-secondary.png" alt="Lien vers Linkedin de Ornella Ouagazzal"></a>
+      <p class="name-card">Agathe Plunian</p>
+      <p>Web designer</p>
+      <p>Front-end developer</p>
+   </div>
+   <a class="linkedin-link" target="blank" href="https://www.linkedin.com/in/agathe-plunian/"><img src="/images/team-page/logo-linkedin-secondary.png" alt="Lien vers Linkedin d' Agathe Plunian"></a>
   </div>
 
   <div class="card-team">
@@ -138,14 +141,30 @@
 
   <div class="card-team">
     <div class="ID-picture-container">
-      <img src="/images/team-page/camille-bg.png" alt="Portrait of Camille Breuil">
+      <img src="/images/team-page/catinca-bg.png" alt="Portrait of Catinca Gheorghiu">
     </div>
     <div class="text-ID-card">
-      <p class="name-card">Camille Breuil</p>
-      <p>Ph.D. & Lead Data scientist</p>
+      <p class="name-card">Catinca Gheorghiu</p>
+      <p>Product Designer junior</p>
+      <p>UI & graphic Designer</p>
     </div>
-    <a class="linkedin-link" target="blank" href="https://www.linkedin.com/in/camille-breuil-9676a2a0/"><img src="/images/team-page/logo-linkedin-secondary.png" alt="Lien vers Linkedin de Ornella Ouagazzal"></a>
+    <a class="linkedin-link" target="blank" href="https://www.linkedin.com/in/catinca-gheorghiu/"><img src="/images/team-page/logo-linkedin-secondary.png" alt="Lien vers Linkedin de Catinca Gheorghiu"></a>
   </div>
+
+
+  <!-- CINQUIÈME LIGNE -->
+
+  <div class="card-team">
+    <div class="ID-picture-container">
+      <img src="/images/team-page/Yohann-bg.png" alt="Portrait of Yohann Belhassen">
+    </div>
+    <div class="text-ID-card">
+      <p class="name-card">Yohann Belhassen</p>
+      <p>Mobile Developer</p>
+    </div>
+    <a class="linkedin-link" target="blank" href="https://www.linkedin.com/in/yohann-belhassen/"><img src="/images/team-page/logo-linkedin-secondary.png" alt="Lien vers Linkedin de Yohann Belhassen"></a>
+  </div>
+  
   
  </div>
 </section>
