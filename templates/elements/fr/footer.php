@@ -4,10 +4,9 @@
 <footer class="main-footer">
   <div class="footer-header">
     <a class="logo-ResilEyes" href="/<?= $lang ?>/">
-      <img src="/images/ResilEyes-logo-clair.png"  alt="ResilEyes-white-logo">
-      <p>ResilEyes</p>
+      <img src="/images/ResilEyes-logo-blanc-texte.png"  alt="ResilEyes-white-logo">
     </a>
-    <p class="slogan-footer">ResilEyes, la 1<span class="super">ère</span> DTx pour révolutionner le dépistage, l'évaluation et l'accompagnement des personnes victimes de stress post-traumatique.</p>
+    <p class="slogan-footer">ResilEyes Therapeutics, la clinique numérique pour révolutionner le dépistage, l'évaluation et l'accompagnement des personnes victimes de stress post-traumatique.</p>
     <div class="logos-container">
       <a href="https://www.linkedin.com/company/resileyes/" target="blank" ><img src="/images/icones-reseaux-sociaux/logo-linkedin.png" alt="logo-linkedin"></a>
       <a href="https://www.instagram.com/resileyes/?" target="blank" ><img src="/images/icones-reseaux-sociaux/logo-instagram.png" alt="logo-instagram"></a>

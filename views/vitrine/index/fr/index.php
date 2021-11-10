@@ -88,9 +88,9 @@
 
   <div class="number-container">
     <div class="round">
-    <p class="number secondary-color">3 millions</p>
+    <p class="number secondary-color">3,5 millions</p>
     </div>
-    <p>de personnes à l'échelle d'une vie sont touchées par un stress post-traumatique.</p>
+    <p> de personnes en France sont touchés par un stress post-traumatique.</p>
   </div>
 
   <div class="number-container">
@@ -103,7 +103,7 @@
 
 <!--VALUE PROPOSITION-->
 <section class="value-proposition">
-<h2 class="title-value-proposition">La première plateforme de santé numérique axée sur la gestion des évènements traumatisants et du stress post-traumatique</h2>
+<h2 class="title-value-proposition">La clinique de santé numérique axée sur la gestion des évènements traumatisants et du stress post-traumatique</h2>
 </section>
 
 
@@ -170,24 +170,23 @@
   <div class="first-line">
     <div class="logo-container"><img src="/images/partners-logo-couleur/dmh.png" alt="Logo DMH"></div>
     <div class="logo-container"><img src="/images/partners-logo-couleur/wilco_logo.png" alt="Logo Wilco"></div>
-    <div class="logo-container"><img src="/images/partners-logo-couleur/hosteur-sa-logo.png" alt="Logo Hosteur"></div>
-    <div class="logo-container"><img src="/images/partners-logo-couleur/inco.png" alt="Logo Inco"></div>
-    <div class="logo-container"><img src="/images/partners-logo-couleur/initiative-essonne-logo.png" alt="Logo Initiative Essonne"></div>
-    <div class="logo-container"><img src="/images/partners-logo-couleur/bpiFrance-logo.png" alt="logo BPI France"></div>
-    <div class="logo-container"><img src="/images/partners-logo-couleur/le-lab-sante.png" alt="Logo le Lab Santé"></div>
+    <div class="logo-container"><img src="/images/partners-logo-couleur/france-biotech.png" alt="Logo France Biotech"></div>
     <div class="logo-container"><img src="/images/partners-logo-couleur/logo-medicen-bleu.png" alt="Logo Medicen"></div>
-    <div class="logo-container"><img src="/images/partners-logo-couleur/prevent2carelab.png" alt="Logo Prenvent2carelab"></div>
+    <div class="logo-container"><img src="/images/partners-logo-couleur/bpiFrance-logo.png" alt="logo BPI France"></div>
+    <div class="logo-container"><img src="/images/partners-logo-couleur/initiative-essonne-logo.png" alt="Logo Initiative Essonne"></div>
+    <div class="logo-container"><img src="/images/partners-logo-couleur/hosteur-sa-logo.png" alt="Logo Hosteur"></div>
+    <div class="logo-container"><img src="/images/partners-logo-couleur/regimbeau.png" alt="Logo Regimbeau"></div>
+
   </div>
 
   <div class="second-line">
     <div class="logo-container"><img src="/images/partners-logo-couleur/latitudes-logo.png" alt="Logo Latitudes"></div>
     <div class="logo-container"><img src="/images/partners-logo-couleur/laptop-logo.png" alt="Logo Laptop"></div>
-    <div class="logo-container"><img src="/images/partners-logo-couleur/techforgoodfrance.png" alt="Logo Techforgood"></div>
-    <div class="logo-container"><img src="/images/partners-logo-couleur/logo-impact-france.png" alt="Logo Impact France"></div>
+    <div class="logo-container"><img src="/images/partners-logo-couleur/le-lab-sante.png" alt="Logo le Lab Santé"></div>
+    <div class="logo-container"><img src="/images/partners-logo-couleur/inco.png" alt="Logo Inco"></div>
+    <div class="logo-container"><img src="/images/partners-logo-couleur/prevent2carelab.png" alt="Logo Prenvent2carelab"></div>
     <div class="logo-container"><img src="/images/partners-logo-couleur/ieseg-logo.png" alt="Logo Ieseg"></div>
-    <div class="logo-container"><img src="/images/partners-logo-couleur/logo-projekt.png" alt="Logo Projekt"></div>
     <div class="logo-container"><img src="/images/partners-logo-couleur/logo-centrale-supelec.png" alt="Logo Centrale Supélec"></div>
-    <div class="logo-container"><img src="/images/partners-logo-couleur/chairediament-logo.png" alt="Logo Chaire Diament"></div>
   </div>
 
   <div class="third-line">
@@ -196,7 +195,6 @@
     <div class="logo-container"><img src="/images/partners-logo-couleur/avocats-aspin.png" alt="Logo Avocats 1spin"></div>
     <div class="logo-container"><img src="/images/partners-logo-couleur/iiiFinancements.png" alt="Logo IIIFinancements"></div>
     <div class="logo-container"><img src="/images/partners-logo-couleur/gmba_walter_allinial.png" alt="Logo GMBA Walter Allinial"></div>
-    <div class="logo-container"><img src="/images/partners-logo-couleur/regimbeau.png" alt="Logo Regimbeau"></div>
     <div class="logo-container"><img src="/images/partners-logo-couleur/cic-logo-start-innovation.png" alt="Logo CIC"></div>
     <div class="logo-container"><img src="/images/partners-logo-couleur/lmp-avocats.png" alt="Logo LMP Avocats"></div>
 

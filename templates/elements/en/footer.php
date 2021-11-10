@@ -5,8 +5,7 @@
 <footer class="main-footer">
   <div class="footer-header">
     <a class="logo-ResilEyes" href="/<?= $lang ?>/">
-      <img src="/images/ResilEyes-logo-clair.png"  alt="ResilEyes-white-logo">
-      <p>ResilEyes</p>
+      <img src="/images/ResilEyes-logo-blanc-texte.png"  alt="ResilEyes-white-logo">
     </a>
     <p class="slogan-footer">
       ResilEyes, the 1<span class="super">st</span> DTx to revolutionise screening, assessment and support of people suffering from Post-Traumatic Stress Disorder.

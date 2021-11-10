@@ -7,8 +7,7 @@
        <!--SMALL NAV-->   
       <div class="burger-nav">
         <a class="small-nav-logo" href="/<?php echo $lang; ?>/">
-          <img src="/images/logo-ResilEyes-degrade.png" alt="logo-ResilEyes">
-          <p>ResilEyes</p>
+          <img src="/images/ResilEyes-logo-text.png" alt="logo-ResilEyes">
         </a>
         <div class="open">
           <a id="burger-open" class= "burger-menu"><img src="/images/burger-menu.png" alt="Open menu"></a>
@@ -31,8 +30,7 @@
       <div class="main-nav-large">
         <div class="logo-container-nav">
           <a href="/<?php echo $lang; ?>/" class="nav-logo">
-            <img src="/images/logo-ResilEyes-degrade.png" alt="logo-ResilEyes">
-            <p>ResilEyes</p>
+            <img src="/images/ResilEyes-logo-text.png" alt="logo-ResilEyes">
           </a>
         </div>
 

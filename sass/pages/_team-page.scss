@@ -37,17 +37,15 @@
 }  
 
 .left-5{
-  display: none;
   background-color: $primary-color;
   border-radius:  0 80px 80px 0;
   left: 0;
-  top: 2080px;
+  top: 2090px;
 }
 
-.left-6 {
+.right-6 {
   display: none;
 }
-
 
 .team-page { 
   background-color: $background-blue;
@@ -141,12 +139,8 @@
   }
 }
 
-@media screen and (max-width:1063px) {
+@media screen and (max-width:1045px) {
   .left-5 {
-    display: block;
-    background-color: $primary-color;
-    border-radius: 0 80px 80px 0;
-    left: 0;
     top: 2070px;
   }
 
@@ -208,6 +202,7 @@
     padding: 0;
     margin: 0;
     width: 100%;
+
     .card-team {
       width: 100%;
       margin: 4em 0;

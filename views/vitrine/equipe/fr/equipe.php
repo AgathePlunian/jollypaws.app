@@ -13,6 +13,7 @@
   <div class="team-finger right-4"></div>
   <div class="team-finger left-5"></div>
   <div class="team-finger right-6"></div>
+  <div class="team-finger left-7"></div>
 
 
   <div class="co-founders-cards">
@@ -135,7 +136,7 @@
       <p class="name-card">Nicolas Van Heusden</p>
       <p>Mobile developer Junior</p>
     </div>
-    <a class="linkedin-link" target="blank" href="https://www.linkedin.com/in/nicolas-van-heusden-b3a527167/"><img src="/images/team-page/logo-linkedin-secondary.png" alt="Lien vers Linkedin de Ornella Ouagazzal"></a>
+    <a class="linkedin-link" target="blank" href="https://www.linkedin.com/in/nicolas-van-heusden-b3a527167/"><img src="/images/team-page/logo-linkedin-secondary.png" alt="Lien vers Linkedin de Nicolas Van Heusden"></a>
   </div>
 
   <div class="card-team">
@@ -146,7 +147,18 @@
       <p class="name-card">Camille Breuil</p>
       <p>Ph.D. & Lead Data scientist</p>
     </div>
-    <a class="linkedin-link" target="blank" href="https://www.linkedin.com/in/camille-breuil-9676a2a0/"><img src="/images/team-page/logo-linkedin-secondary.png" alt="Lien vers Linkedin de Ornella Ouagazzal"></a>
+    <a class="linkedin-link" target="blank" href="https://www.linkedin.com/in/camille-breuil-9676a2a0/"><img src="/images/team-page/logo-linkedin-secondary.png" alt="Lien vers Linkedin de Camille Breuil"></a>
+  </div>
+
+  <div class="card-team">
+    <div class="ID-picture-container">
+      <img src="/images/team-page/Yohann-bg.png" alt="Portrait of Yohann Belhassen">
+    </div>
+    <div class="text-ID-card">
+      <p class="name-card">Yohann Belhassen</p>
+      <p>Mobile Developer</p>
+    </div>
+    <a class="linkedin-link" target="blank" href="https://www.linkedin.com/in/yohann-belhassen/"><img src="/images/team-page/logo-linkedin-secondary.png" alt="Lien vers Linkedin de Yohann Belhassen"></a>
   </div>
   
  </div>

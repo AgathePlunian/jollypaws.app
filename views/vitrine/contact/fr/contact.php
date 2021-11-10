@@ -85,10 +85,12 @@
           <textarea id= "message" name= "message" class="message" placeholder="J'aimerais..."></textarea>
           <span class="error" aria-live="polite"></span> 
         </div>
+        <!--
         <div class="checkbox-container">
           <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter" class="checkbox">
           <label for="newletters-subscribe">S'abonner à la newsletter</label>
         </div>
+       -->
 	
         <!-- CAPTCHA -->
         <input type='hidden' name='captcha-token' id='captcha-token'>

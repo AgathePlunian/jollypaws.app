@@ -334,6 +334,7 @@ p {
   bottom: 0.3em;
   padding-right: 2em;
   font-weight: 600;
+  width: 40%;
 }
 .banner .banner-text {
   width: 53%;
@@ -718,6 +719,7 @@ p {
     position: static;
     padding: 0;
     margin: 0;
+    width: 100%;
   }
   .banner .banner-text .btn-container button {
     margin-bottom: 3em;
@@ -2071,14 +2073,13 @@ input[type=date]::-webkit-calendar-picker-indicator {
 }
 
 .left-5 {
-  display: none;
   background-color: #ff7300;
   border-radius: 0 80px 80px 0;
   left: 0;
-  top: 2080px;
+  top: 2090px;
 }
 
-.left-6 {
+.right-6 {
   display: none;
 }
 
@@ -2163,12 +2164,8 @@ input[type=date]::-webkit-calendar-picker-indicator {
   margin-bottom: 1.2em;
 }
 
-@media screen and (max-width: 1063px) {
+@media screen and (max-width: 1045px) {
   .left-5 {
-    display: block;
-    background-color: #ff7300;
-    border-radius: 0 80px 80px 0;
-    left: 0;
     top: 2070px;
   }
 
@@ -3855,24 +3852,13 @@ input[type=date]::-webkit-calendar-picker-indicator {
 }
 
 .nav-logo {
-  flex-flow: row;
   display: flex;
-  font-weight: 600;
-  color: #00869e;
   align-items: center;
-  text-decoration: none;
-}
-.nav-logo p {
-  font-size: 1.4em;
-  margin-bottom: 0;
-  color: #00869e;
-  font-weight: bold;
 }
 .nav-logo img {
   display: block;
-  width: 50px;
-  height: 50px;
-  margin-right: 15px;
+  width: 230px;
+  height: auto;
 }
 
 .language-choice {
@@ -3921,20 +3907,13 @@ input[type=date]::-webkit-calendar-picker-indicator {
     justify-content: space-between;
   }
   .burger-nav .small-nav-logo {
-    text-decoration: none;
     display: flex;
     align-items: center;
   }
   .burger-nav .small-nav-logo img {
-    width: 3em;
-    height: 3em;
+    width: 200px;
+    height: auto;
     margin-right: 0.8em;
-  }
-  .burger-nav .small-nav-logo p {
-    font-size: 1.4em;
-    margin-bottom: 0;
-    color: #00869e;
-    font-weight: bold;
   }
 
   .open {
@@ -4069,24 +4048,9 @@ input[type=date]::-webkit-calendar-picker-indicator {
   font-weight: 500;
   text-align: center;
 }
-.main-footer .footer-header .logo-ResilEyes {
-  display: flex;
-  align-items: center;
-  width: 130px;
-  color: white;
-  text-decoration: none;
-}
-.main-footer .footer-header .logo-ResilEyes p {
-  margin-bottom: 0;
-  display: block;
-  font-weight: 600;
-  font-size: 1.3em;
-  font-family: "Mulish", sans-serif;
-}
 .main-footer .footer-header .logo-ResilEyes img {
-  margin-right: 15px;
-  width: 60px;
-  height: 60px;
+  width: 200px;
+  height: auto;
 }
 
 .footer-list-items {

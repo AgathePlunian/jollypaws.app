@@ -86,10 +86,12 @@
         <textarea id= "message" name= "message" class="message" placeholder=""></textarea>
         <span class="error" aria-live="polite"></span> 
       </div>
+      <!--
       <div class="checkbox-container">
         <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter" class="checkbox">
         <label for="newletters-subscribe">Subscribe to our newsletter</label>
       </div>
+      -->
 
 
 <!-- CAPTCHA -->
