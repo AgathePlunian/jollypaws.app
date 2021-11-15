@@ -5,13 +5,14 @@
 <div class="banner banner-en">
   <div class="banner-text">
     <div>
-     <h1 class="banner-title">Let's change the way we treat Post-Traumatic Stress Disorder together</h1>
+     <h1 class="banner-title">Building the management of post-traumatic stress disorder</h1>
       <p class="small-text-banner">
-        We develop the 1<span class="super">st</span> Digital Therapeutics supporting people with Post-Traumatic Stress Disorder
+      We develop PDTx* to support people with psychotraumatic disorders 
       </p>
     </div>
     <div class="btn-container">
       <button onclick="window.location.href='/<?= $lang ?>/approche'" class="btn">More details</button>
+      <p class="dtx">*PDTx : Prescription Digital Therapeutics.</p>
     </div>
   </div>      
 </div>

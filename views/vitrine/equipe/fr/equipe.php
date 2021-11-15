@@ -38,7 +38,7 @@
       </div>
       <div class="text-ID-card">
         <p class="name-card">Annaïg Trescos</p>
-        <p>Chief Product & Design Officer</p>
+        <p>Chief Product Officer</p>
         <p>Co-fondatrice</p>
       </div>  
       <a class="linkedin-link" target="blank" href="https://www.linkedin.com/in/annaig-trescos/"><img src="/images/team-page/logo-linkedin-secondary.png" alt="Lien vers Linkedin de Annaïg Trescos"></a>

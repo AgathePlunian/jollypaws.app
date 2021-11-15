@@ -8,7 +8,7 @@
       <img src="/images/ResilEyes-logo-blanc-texte.png"  alt="ResilEyes-white-logo">
     </a>
     <p class="slogan-footer">
-      ResilEyes, the 1<span class="super">st</span> DTx to revolutionise screening, assessment and support of people suffering from Post-Traumatic Stress Disorder.
+    ResilEyes Therapeutics, the digital clinic to revolutionise the screening, accessment and support of people suffering from Post-Traumatic Stress Disorder.
     </p>
     <div class="logos-container">
       <a href="https://www.linkedin.com/company/resileyes/" target="blank"><img src="/images/icones-reseaux-sociaux/logo-linkedin.png" alt="logo-linkedin"></a>

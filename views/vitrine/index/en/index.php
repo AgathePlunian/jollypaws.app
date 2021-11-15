@@ -91,9 +91,9 @@
 
   <div class="number-container">
     <div class="round">
-    <p class="number secondary-color">3 million</p>
+    <p class="number secondary-color">3.5 million</p>
     </div>
-    <p>people in a lifetime are affected by Post-Traumatic Stress Disorder.</p>
+    <p>people in France are affected by post-traumatic stress.</p>
   </div>
 
   <div class="number-container">
@@ -106,7 +106,7 @@
 
 <!--VALUE PROPOSITION-->
 <section class="value-proposition">
-<h2 class="title-value-proposition">The first digital health platform ever centered around traumatic events and Post-Traumatic Stress Disorder management</h2>
+<h2 class="title-value-proposition">The Digital Health Clinic centered around traumatic events and Post-Traumatic Stress Disorder management</h2>
 </section>
 
 
