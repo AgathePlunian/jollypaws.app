@@ -43,6 +43,7 @@
 </div>
 
 <!--  DEUXIÈME LIGNE -->
+<div class="team-cards-container">
   <div class="card-team">
     <div class="ID-picture-container">
       <img src="/images/team-page/camille-bg.png" alt="Portrait of Camille Breuil">
@@ -54,7 +55,6 @@
     <a class="linkedin-link" target="blank" href="https://www.linkedin.com/in/camille-breuil-9676a2a0/"><img src="/images/team-page/logo-linkedin-secondary.png" alt="Lien vers Linkedin de Ornella Ouagazzal"></a>
   </div>
 
-<div class="team-cards-container">
   <div class="card-team">
     <div class="ID-picture-container">
       <img src="/images/team-page/bastien-bg.png" alt="Portrait of Bastien Labouche">
