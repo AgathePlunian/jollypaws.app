@@ -1,0 +1,18 @@
+$primary-color : #07574D;
+$bg-banner : #FFF0E9;
+$light-blue :#E2F3FA;
+$bg-push: #DDEFED;
+$hover-blue: #4A9F9A;
+$text-color : #405653;
+$title-black : #212827;
+$dark-grey: #272930;
+
+// scss-docs-start grid-breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 678px,
+  md: 992px,
+  lg: 1000px,
+  xl: 1200px,
+  xxl: 1400px
+) !default;

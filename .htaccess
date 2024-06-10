@@ -11,3 +11,27 @@ RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301]
 
 Options -Indexes
 ErrorDocument 404 /en/404
+# BEGIN WordPress
+# Les directives (lignes) entre « BEGIN WordPress » et « END WordPress » sont générées
+# dynamiquement, et doivent être modifiées uniquement via les filtres WordPress.
+# Toute modification des directives situées entre ces marqueurs sera surchargée.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
+# BEGIN Simply Static
+# Les directives (lignes) entre « BEGIN Simply Static » et « END Simply Static » sont générées
+# dynamiquement, et doivent être modifiées uniquement via les filtres WordPress.
+# Toute modification des directives situées entre ces marqueurs sera surchargée.
+<Files "/Applications/MAMP/htdocs/wp-content/uploads/simply-static/d182f2927be0431340ce0b1e4a26dba5-debug.txt">
+require all denied
+require host localhost
+</Files>
+# END Simply Static

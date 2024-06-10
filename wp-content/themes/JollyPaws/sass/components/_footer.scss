@@ -1,0 +1,183 @@
+.main-footer {
+	background-color: $primary-color;
+	padding: rem(30) 0;
+
+	.btn {
+		font-size: rem(16);
+	}
+
+	.nav-link {
+		color: $white;
+		margin: 0;
+		font-weight: 400;
+		font-size: rem(15);
+	}
+
+	.nav-item {
+		+.nav-item {
+			margin-left: rem(24);
+			@include max-xs {
+				margin-left: 0;
+			}
+		}
+	}
+
+	.icons-container {
+		display: flex;
+		justify-content: center;
+	
+		.icon-social-media {
+			background-color: $white;
+			width: 32px;
+			height: 32px;
+			border-radius: 50px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			img {
+				width: 55%;
+			}
+
+			
+			&:hover {
+				background-color: $hover-blue;
+			}
+
+			&.icon-social-media {
+				margin-left: rem(12);
+			}
+		}
+	}
+}
+
+.footer-content-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	@media only screen and (max-width: 1180px){
+		flex-flow: column;
+  }
+}
+
+.newsletter-footer {
+	display: flex;
+	flex-direction: column;
+}
+
+.NL-label {
+	color: $white;
+	font-size: rem(14);
+	margin-bottom: rem(10);
+	font-weight: 400;
+}
+
+.NL-input {
+	border: 0;
+	padding: rem(3) rem(3) rem(3) rem(10);
+	max-width: 180px;
+	max-height: 26px;
+
+ &::placeholder {
+	font-size: rem(12);
+ }
+}
+
+.input-container {
+	border-radius: 6px;
+	background-color: $white;
+	display: flex;
+	padding: 2px;
+
+	&::after {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		content: url('./images/picto/send.svg');
+		width: 34px;
+		border-radius: 0 4px 4px 0;
+
+		background-color: $primary-color;
+	}
+}
+
+.logo-media {
+	align-items: center;
+	display: flex;
+
+	@media only screen and (max-width: 1180px){
+		width: 100%;
+		justify-content: space-between;
+	}
+
+	.logo-container {
+		min-width: 120px;
+	}
+}
+
+.nav-list {
+	@media only screen and (max-width: 1180px){
+		margin-top: rem(24);
+		margin-bottom: rem(24);
+	}
+
+	@include max-xs {
+		flex-flow: column;
+		gap: 18px;
+		width: 100%;
+		margin-top: rem(24);
+	}
+}
+
+
+.NL_btn {
+	display: flex;
+	align-items: center;
+	gap: 32px;
+
+	@media only screen and (max-width: 1180px){
+		width: 100%;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	@include max-xs {
+		flex-flow: column;
+		gap: 18px;
+		align-items: start;
+	}
+}
+
+.sub-footer {
+	border-top: 1px solid $white;
+	margin-top: rem(18);
+	padding-top: rem(16);
+
+	.nav-list-sub {
+		margin: auto;
+		display: flex;
+		justify-content: center;
+
+		@include max-xs {
+			display: block;
+		}
+
+		.nav-item {
+			display: inline-block;
+
+			+.nav-item {
+				margin-left: rem(12);
+
+				@include max-xs {
+					margin-left: rem(6);
+				}
+			}
+
+			.nav-link {
+				font-size: rem(14);
+				font-weight: 200;
+			}
+		}
+	}
+}

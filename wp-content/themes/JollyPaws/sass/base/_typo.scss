@@ -1,0 +1,121 @@
+body {
+	line-height: 1.20;
+}
+
+h1 {
+	font-size: 3.5em;
+	color: $primary-color;
+	font-weight: 700;
+
+	@include max-md {
+		font-size: 3em;
+		max-width: 100%;
+	}
+
+		@include max-sm {
+			font-size: 2.4em;
+			max-width: 100%;
+		}
+}
+
+h2 {
+	color: $primary-color;
+	font-size: 3em;
+	margin-bottom: 0.6em;
+	font-weight: 700;
+	letter-spacing: .05rem;
+
+	@include max-md {
+    font-size: 2.6em;
+  }
+
+	@include max-sm {
+    font-size: 2em;
+		line-height: 1.05;
+  }
+
+	@include max-sm {
+    font-size: 1.8em;
+  }
+}
+
+h3 {
+	color: $title-black;
+	font-size: 2em;
+	font-weight: 600;
+	margin-bottom: rem(24);
+
+	@include max-md {
+    font-size: 1.8em;
+  }
+
+	@include max-sm {
+    font-size: 1.3em;
+		margin-bottom: rem(18);
+  }
+
+	
+}
+
+p, li, label{
+	color: rgb(46, 46, 46);
+}
+
+.btn {
+	background-color: $primary-color;
+	color: white;
+	padding: rem(12) rem(32);
+	font-size: rem(20);
+	border: none;
+	border-radius: 50px;
+	display: block;
+	font-family: "Outfit", sans-serif;
+	text-decoration: none;
+	width: fit-content;
+	transition: .3s;
+	cursor: pointer;
+	font-weight: 400;
+
+	@include max-sm {
+		padding: rem(10) rem(20);
+		font-size: rem(16);
+  }
+}
+
+.btn-white {
+	background-color: white;
+	color: $primary-color;
+
+	&:hover {
+		color: white;
+		background-color:$hover-blue;
+	}
+}
+
+.btn-primary {
+	&:hover {
+		color: white;
+		background-color:$hover-blue;
+	}
+}
+.link {
+	text-decoration: none;
+	font-weight: 500;
+
+	&:hover {
+		color: darken($primary-color, $amount: 15);
+	}
+}
+
+
+div, p {
+	font-family: "Outfit", sans-serif;
+}
+
+p {
+	line-height: 1.4;
+}
+
+p + p {
+	margin-top: rem(16);
+}
