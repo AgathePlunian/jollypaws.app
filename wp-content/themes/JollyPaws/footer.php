@@ -38,7 +38,7 @@
     <div class="sub-footer">
       <div class="container">
         <ul class="nav-list-sub">
-            <li class="nav-item"><a href="#" class="nav-link">Copyright © Dermae</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Copyright © JollyPaws</a></li>
             <li class="nav-item"><a href="#" class="nav-link">Mentions légales</a></li>
             <li class="nav-item"><a href="#" class="nav-link">Politique de confidentialité</a></li>
             <li class="nav-item"><a href="#" class="nav-link">Crédits</a></li>
